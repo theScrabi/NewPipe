@@ -69,6 +69,7 @@ import org.schabi.newpipe.fragments.BackPressable;
 import org.schabi.newpipe.fragments.MainFragment;
 import org.schabi.newpipe.fragments.detail.VideoDetailFragment;
 import org.schabi.newpipe.fragments.list.search.SearchFragment;
+import org.schabi.newpipe.notifications.NotificationWorker;
 import org.schabi.newpipe.player.Player;
 import org.schabi.newpipe.player.event.OnKeyDownListener;
 import org.schabi.newpipe.player.helper.PlayerHolder;
@@ -158,11 +159,11 @@ public class MainActivity extends AppCompatActivity {
         } catch (final Exception e) {
             ErrorActivity.reportUiErrorInSnackbar(this, "Setting up drawer", e);
         }
-
         if (DeviceUtils.isTv(this)) {
             FocusOverlayView.setupFocusObserver(this);
         }
         openMiniPlayerUponPlayerStarted();
+        NotificationWorker.schedule(this);
     }
 
     private void setupDrawer() throws Exception {

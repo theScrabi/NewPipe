@@ -7,6 +7,8 @@ import io.reactivex.rxjava3.core.Flowable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.schabi.newpipe.NewPipeDatabase
 import org.schabi.newpipe.database.feed.model.FeedGroupEntity
+import org.schabi.newpipe.database.stream.model.StreamEntity
+import org.schabi.newpipe.database.subscription.NotificationMode
 import org.schabi.newpipe.database.subscription.SubscriptionDAO
 import org.schabi.newpipe.database.subscription.SubscriptionEntity
 import org.schabi.newpipe.extractor.ListInfo
@@ -14,6 +16,7 @@ import org.schabi.newpipe.extractor.channel.ChannelInfo
 import org.schabi.newpipe.extractor.feed.FeedInfo
 import org.schabi.newpipe.extractor.stream.StreamInfoItem
 import org.schabi.newpipe.local.feed.FeedDatabaseManager
+import org.schabi.newpipe.util.ExtractorHelper
 
 class SubscriptionManager(context: Context) {
     private val database = NewPipeDatabase.getInstance(context)
@@ -66,6 +69,16 @@ class SubscriptionManager(context: Context) {
             }
         }
 
+    fun updateNotificationMode(serviceId: Int, url: String?, @NotificationMode mode: Int): Completable {
+        return subscriptionTable().getSubscription(serviceId, url!!)
+                .flatMapCompletable { entity: SubscriptionEntity ->
+                    Completable.fromAction {
+                        entity.notificationMode = mode
+                        subscriptionTable().update(entity)
+                    }.andThen(rememberLastStream(entity))
+                }
+    }
+
     fun updateFromInfo(subscriptionId: Long, info: ListInfo<StreamInfoItem>) {
         val subscriptionEntity = subscriptionTable.getSubscription(subscriptionId)
 
@@ -93,5 +106,15 @@ class SubscriptionManager(context: Context) {
 
     fun deleteSubscription(subscriptionEntity: SubscriptionEntity) {
         subscriptionTable.delete(subscriptionEntity)
+    }
+
+    private fun rememberLastStream(subscription: SubscriptionEntity): Completable {
+        return ExtractorHelper.getChannelInfo(subscription.serviceId, subscription.url, false)
+                .map { channel -> channel.relatedItems.map { stream -> StreamEntity(stream) } }
+                .flatMapCompletable { entities ->
+                    Completable.fromAction {
+                        database.streamDAO().upsertAll(entities)
+                    }
+                }.onErrorComplete()
     }
 }

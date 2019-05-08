@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:key="general_preferences"
     android:title="@string/settings">
@@ -38,6 +39,12 @@
         android:fragment="org.schabi.newpipe.settings.NotificationSettingsFragment"
         android:icon="@drawable/ic_play_arrow"
         android:title="@string/settings_category_notification_title"
+        app:iconSpaceReserved="false" />
+
+    <PreferenceScreen
+        android:fragment="org.schabi.newpipe.settings.NotificationsSettingsFragment"
+        android:icon="@drawable/ic_notifications"
+        android:title="@string/notifications"
         app:iconSpaceReserved="false" />
 
     <PreferenceScreen

@@ -1238,4 +1238,34 @@
     </string-array>
 
     <string name="recaptcha_cookies_key" translatable="false">recaptcha_cookies_key</string>
+    <string name="enable_streams_notifications" translatable="false">enable_streams_notifications</string>
+    <string name="streams_notifications_interval_key" translatable="false">streams_notifications_interval</string>
+    <string name="streams_notifications_interval_default" translatable="false">3</string>
+    <string-array name="streams_notifications_interval_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>12</item>
+        <item>24</item>
+    </string-array>
+    <string-array name="streams_notifications_interval_description">
+        <item>@string/every_hour</item>
+        <item>@string/every_two_hours</item>
+        <item>@string/every_three_hours</item>
+        <item>@string/twice_per_day</item>
+        <item>@string/every_day</item>
+    </string-array>
+    <string name="streams_notifications_network_key" translatable="false">streams_notifications_network</string>
+    <string name="streams_notifications_network_any" translatable="false">any</string>
+    <string name="streams_notifications_network_wifi" translatable="false">wifi</string>
+    <string name="streams_notifications_network_default" translatable="false">@string/streams_notifications_network_wifi</string>
+    <string-array name="streams_notifications_network_values">
+        <item>@string/streams_notifications_network_any</item>
+        <item>@string/streams_notifications_network_wifi</item>
+    </string-array>
+    <string-array name="streams_notifications_network_description">
+        <item>@string/any_network</item>
+        <item>@string/wifi_only</item>
+    </string-array>
+    <string name="streams_notifications_channels_key" translatable="false">streams_notifications_channels</string>
 </resources>

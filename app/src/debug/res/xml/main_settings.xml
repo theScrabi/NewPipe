@@ -41,6 +41,12 @@
         app:iconSpaceReserved="false" />
 
     <PreferenceScreen
+        android:fragment="org.schabi.newpipe.settings.NotificationsSettingsFragment"
+        android:icon="@drawable/ic_notifications"
+        android:title="@string/notifications"
+        app:iconSpaceReserved="false" />
+
+    <PreferenceScreen
         android:fragment="org.schabi.newpipe.settings.UpdateSettingsFragment"
         android:icon="@drawable/ic_cloud_download"
         android:key="update_pref_screen_key"

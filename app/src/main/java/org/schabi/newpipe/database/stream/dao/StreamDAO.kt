@@ -35,6 +35,9 @@ abstract class StreamDAO : BasicDAO<StreamEntity> {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     internal abstract fun silentInsertAllInternal(streams: List<StreamEntity>): List<Long>
 
+    @Query("SELECT COUNT(*) != 0 FROM streams WHERE url = :url AND service_id = :serviceId")
+    internal abstract fun exists(serviceId: Long, url: String?): Boolean
+
     @Query(
         """
         SELECT uid, stream_type, textual_upload_date, upload_date, is_upload_date_approximation, duration 

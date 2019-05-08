@@ -574,6 +574,12 @@ public final class NavigationHelper {
         return getOpenIntent(context, url, service.getServiceId(), linkType);
     }
 
+    public static Intent getChannelIntent(final Context context,
+                                          final int serviceId,
+                                          final String url) {
+        return getOpenIntent(context, url, serviceId, StreamingService.LinkType.CHANNEL);
+    }
+
     /**
      * Start an activity to install Kore.
      *

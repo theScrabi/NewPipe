@@ -107,7 +107,6 @@ public class App extends MultiDexApplication {
         ImageLoader.getInstance().init(getImageLoaderConfigurations(10, 50));
 
         configureRxJavaErrorHandler();
-
         // Check for new version
         disposable = CheckForNewAppVersion.checkNewVersion(this);
     }
@@ -263,9 +262,20 @@ public class App extends MultiDexApplication {
         final NotificationChannel hashChannel = new NotificationChannel(id, name, importance);
         hashChannel.setDescription(description);
 
+        final NotificationChannel newStreamsChannel = new NotificationChannel(
+                getString(R.string.streams_notification_channel_id),
+                getString(R.string.streams_notification_channel_name),
+                NotificationManager.IMPORTANCE_DEFAULT
+        );
+        newStreamsChannel.setDescription(
+                getString(R.string.streams_notification_channel_description)
+        );
+        newStreamsChannel.enableVibration(false);
+
         final NotificationManager notificationManager = getSystemService(NotificationManager.class);
-        notificationManager.createNotificationChannels(Arrays.asList(mainChannel,
-                appUpdateChannel, hashChannel));
+        notificationManager.createNotificationChannels(
+                Arrays.asList(mainChannel, appUpdateChannel, hashChannel, newStreamsChannel)
+        );
     }
 
     protected boolean isDisposedRxExceptionsReported() {

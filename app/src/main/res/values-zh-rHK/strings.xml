@@ -170,4 +170,5 @@
     <string name="controls_add_to_playlist_title">添加到</string>
     <string name="tab_choose">選擇標籤</string>
     <string name="tab_new">新標籤</string>
+    <string name="enumeration_comma">、</string>
 </resources>

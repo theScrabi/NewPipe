@@ -12,6 +12,7 @@ public final class Migrations {
     public static final int DB_VER_1 = 1;
     public static final int DB_VER_2 = 2;
     public static final int DB_VER_3 = 3;
+    public static final int DB_VER_4 = 4;
 
     private static final String TAG = Migrations.class.getName();
     public static final boolean DEBUG = MainActivity.DEBUG;
@@ -160,5 +161,15 @@ public final class Migrations {
         }
     };
 
-    private Migrations() { }
+
+    public static final Migration MIGRATION_3_4 = new Migration(DB_VER_3, DB_VER_4) {
+        @Override
+        public void migrate(@NonNull final SupportSQLiteDatabase database) {
+            database.execSQL("ALTER TABLE `subscriptions` ADD COLUMN `notification_mode` "
+                     + "INTEGER NOT NULL DEFAULT 0");
+        }
+    };
+
+    private Migrations() {
+    }
 }
