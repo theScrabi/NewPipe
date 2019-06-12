@@ -919,4 +919,8 @@
         <item>@string/grid</item>
     </string-array>
 
+    <string-array name="download_filename_formats">
+        <item>@string/download_filename_format_cnvtcd</item>
+        <item>@string/download_filename_format_cncdvt</item>
+    </string-array>
 </resources>

@@ -36,6 +36,15 @@
 
     <ListPreference
         app:iconSpaceReserved="false"
+        android:defaultValue="@string/download_filename_format_default_value"
+        android:entries="@array/download_filename_formats"
+        android:entryValues="@array/download_filename_formats"
+        android:key="@string/download_filename_format_key"
+        android:title="@string/download_filename_format_title"
+        android:summary="@string/download_filename_format_summary"/>
+
+    <ListPreference
+        app:iconSpaceReserved="false"
         android:defaultValue="@string/downloads_maximum_retry_default"
         android:entries="@array/downloads_maximum_retry_list"
         android:entryValues="@array/downloads_maximum_retry_list"

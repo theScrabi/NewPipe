@@ -536,4 +536,10 @@
     <string name="pause_downloads_on_mobile_desc">Downloads that can not be paused will be restarted</string>
     <string name="close">Close</string>
 
+    <string name="download_filename_format_key" translatable="false">download_filename_format</string>
+    <string name="download_filename_format_default_value">@string/download_filename_format_cnvtcd</string>
+    <string name="download_filename_format_cnvtcd">ChannelName-VideoTitle-CurrentDate</string>
+    <string name="download_filename_format_cncdvt">ChannelName-CurrentDate-VideoTitle</string>
+    <string name="download_filename_format_title">Download filename format</string>
+    <string name="download_filename_format_summary">Videos will have filename with this format</string>
 </resources>

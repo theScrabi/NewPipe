@@ -43,7 +43,9 @@ import org.schabi.newpipe.util.StreamItemAdapter;
 import org.schabi.newpipe.util.StreamItemAdapter.StreamSizeWrapper;
 import org.schabi.newpipe.util.ThemeHelper;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -193,7 +195,8 @@ public class DownloadDialog extends DialogFragment implements RadioGroup.OnCheck
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         nameEditText = view.findViewById(R.id.file_name);
-        nameEditText.setText(FilenameUtils.createFilename(getContext(), currentInfo.getName()));
+
+        nameEditText.setText(createFilename());
         selectedAudioIndex = ListHelper.getDefaultAudioFormat(getContext(), currentInfo.getAudioStreams());
 
         selectedSubtitleIndex = getSubtitleIndexBy(subtitleStreamsAdapter.getAll());
@@ -268,10 +271,10 @@ public class DownloadDialog extends DialogFragment implements RadioGroup.OnCheck
         Icepick.saveInstanceState(this, outState);
     }
 
+
     /*//////////////////////////////////////////////////////////////////////////
     // Inits
     //////////////////////////////////////////////////////////////////////////*/
-
     private void initToolbar(Toolbar toolbar) {
         if (DEBUG) Log.d(TAG, "initToolbar() called with: toolbar = [" + toolbar + "]");
         toolbar.setTitle(R.string.download_dialog_title);
@@ -312,10 +315,10 @@ public class DownloadDialog extends DialogFragment implements RadioGroup.OnCheck
         setRadioButtonsState(true);
     }
 
+
     /*//////////////////////////////////////////////////////////////////////////
     // Radio group Video&Audio options - Listener
     //////////////////////////////////////////////////////////////////////////*/
-
     @Override
     public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
         if (DEBUG)
@@ -338,10 +341,10 @@ public class DownloadDialog extends DialogFragment implements RadioGroup.OnCheck
         threadsSeekBar.setEnabled(flag);
     }
 
+
     /*//////////////////////////////////////////////////////////////////////////
     // Streams Spinner Listener
     //////////////////////////////////////////////////////////////////////////*/
-
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         if (DEBUG)
@@ -363,10 +366,10 @@ public class DownloadDialog extends DialogFragment implements RadioGroup.OnCheck
     public void onNothingSelected(AdapterView<?> parent) {
     }
 
+
     /*//////////////////////////////////////////////////////////////////////////
     // Utils
     //////////////////////////////////////////////////////////////////////////*/
-
     protected void setupDownloadOptions() {
         setRadioButtonsState(false);
 
@@ -537,5 +540,38 @@ public class DownloadDialog extends DialogFragment implements RadioGroup.OnCheck
         DownloadManagerService.startMission(context, urls, location, fileName, kind, threads, currentInfo.getUrl(), psName, psArgs, nearLength);
 
         getDialog().dismiss();
+    }
+
+    private String createFilename() {
+        String defaultDownloadFilenameFormat = requireContext().getString(
+                R.string.download_filename_format_default_value);
+
+        String currentDownloadFilenameFormat = PreferenceManager.getDefaultSharedPreferences(getContext())
+                .getString(
+                        requireContext().getString(R.string.download_filename_format_key),
+                        defaultDownloadFilenameFormat);
+
+        if (currentDownloadFilenameFormat == null) {
+            throw new NullPointerException("currentDownloadFilenameFormat is null");
+        }
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM", Locale.US);
+        String currentDate = sdf.format(new Date());
+
+        String secondParam = currentInfo.getName();
+        String thirdParam = currentDate;
+
+        if (!currentDownloadFilenameFormat.equals(defaultDownloadFilenameFormat)) {
+            secondParam = currentDate;
+            thirdParam = currentInfo.getName();
+        }
+
+        String filename = String.format(
+                "%s-%s-%s",
+                currentInfo.getUploaderName(),
+                secondParam,
+                thirdParam);
+
+        return FilenameUtils.createFilename(getContext(), filename);
     }
 }
