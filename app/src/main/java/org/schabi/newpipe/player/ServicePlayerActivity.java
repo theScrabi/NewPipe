@@ -32,6 +32,7 @@ import org.schabi.newpipe.fragments.OnScrollBelowItemsListener;
 import org.schabi.newpipe.local.dialog.PlaylistAppendDialog;
 import org.schabi.newpipe.player.event.PlayerEventListener;
 import org.schabi.newpipe.player.helper.PlaybackParameterDialog;
+import org.schabi.newpipe.player.playqueue.PlayQueue;
 import org.schabi.newpipe.player.playqueue.PlayQueueAdapter;
 import org.schabi.newpipe.player.playqueue.PlayQueueItem;
 import org.schabi.newpipe.player.playqueue.PlayQueueItemBuilder;
@@ -322,7 +323,6 @@ public abstract class ServicePlayerActivity extends AppCompatActivity
                 Menu.NONE, R.string.play_queue_remove);
         remove.setOnMenuItemClickListener(menuItem -> {
             if (player == null) return false;
-
             final int index = player.getPlayQueue().indexOf(item);
             if (index != -1) player.getPlayQueue().remove(index);
             return true;
@@ -346,6 +346,13 @@ public abstract class ServicePlayerActivity extends AppCompatActivity
                 Menu.NONE, R.string.share);
         share.setOnMenuItemClickListener(menuItem -> {
             shareUrl(item.getTitle(), item.getUrl());
+            return true;
+        });
+
+        final MenuItem moveToNext = menu.getMenu().add(RECYCLER_ITEM_POPUP_MENU_GROUP_ID, 4,
+                Menu.NONE, R.string.moveToNext);
+        moveToNext.setOnMenuItemClickListener(menuItem -> {
+            moveToNext(item);
             return true;
         });
 
@@ -536,6 +543,16 @@ public abstract class ServicePlayerActivity extends AppCompatActivity
         intent.putExtra(Intent.EXTRA_SUBJECT, subject);
         intent.putExtra(Intent.EXTRA_TEXT, url);
         startActivity(Intent.createChooser(intent, getString(R.string.share_dialog_title)));
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Move to Next
+    ////////////////////////////////////////////////////////////////////////////
+    private void moveToNext(PlayQueueItem item) {
+        int fromIndex = player.getPlayQueue().indexOf(item);
+        int toIndex = player.getPlayQueue().getIndex() + 1;
+
+        player.getPlayQueue().move(fromIndex, toIndex);
     }
 
     ////////////////////////////////////////////////////////////////////////////

@@ -557,5 +557,6 @@
     <string name="downloads_storage_ask_title">Ask where to download</string>
     <string name="downloads_storage_ask_summary">You will be asked where to save each download</string>
     <string name="downloads_storage_ask_summary_kitkat">You will be asked where to save each download.\nEnable this option if you want download to the external SD Card</string>
+    <string name="moveToNext">Move to next</string>
 
 </resources>
