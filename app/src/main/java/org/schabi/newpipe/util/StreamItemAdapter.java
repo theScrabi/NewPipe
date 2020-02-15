@@ -145,6 +145,10 @@ public class StreamItemAdapter<T extends Stream, U extends Stream> extends BaseA
                     // noinspection AndroidLintSetTextI18n
                     formatNameView.setText("opus");
                     break;
+                case M4A:
+                    // noinspection AndroidLintSetTextI18n
+                    formatNameView.setText("mp3");
+                    break;
                 default:
                     formatNameView.setText(stream.getFormat().getName());
                     break;

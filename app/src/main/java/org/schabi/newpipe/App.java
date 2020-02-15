@@ -38,6 +38,8 @@ import java.net.SocketException;
 import java.util.Collections;
 import java.util.List;
 
+import cafe.adriel.androidaudioconverter.AndroidAudioConverter;
+import cafe.adriel.androidaudioconverter.callback.ILoadCallback;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.exceptions.MissingBackpressureException;
@@ -113,6 +115,17 @@ public class App extends Application {
 
         // Check for new version
         new CheckForNewAppVersionTask().execute();
+        AndroidAudioConverter.load(this, new ILoadCallback() {
+            @Override
+            public void onSuccess() {
+                Log.d(TAG, "Android audio converter loaded successfully");
+            }
+
+            @Override
+            public void onFailure(Exception error) {
+                Log.e(TAG, "Android audio converter failed to load : FFmpeg is not supported by device");
+            }
+        });
     }
 
     protected Downloader getDownloader() {
