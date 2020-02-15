@@ -570,7 +570,7 @@ public class DownloadDialog extends DialogFragment implements RadioGroup.OnCheck
                         break;
                     default:
                         mime = format.mimeType;
-                        filename += format.suffix;
+                        filename += "mp3"/*format.suffix*/;
                         break;
                 }
                 break;
