@@ -128,6 +128,7 @@ public class SearchFragment
     private String nextPageUrl;
     private String contentCountry;
     private boolean isSuggestionsEnabled = true;
+    private boolean isUnlimitedSearchHistory = false;
 
     private final PublishSubject<String> suggestionPublisher = PublishSubject.create();
     private Disposable searchDisposable;
@@ -190,6 +191,7 @@ public class SearchFragment
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
         isSuggestionsEnabled = preferences.getBoolean(getString(R.string.show_search_suggestions_key), true);
+        isUnlimitedSearchHistory = preferences.getBoolean(getString(R.string.unlimited_search_history_key), false);
         contentCountry = preferences.getString(getString(R.string.content_country_key), getString(R.string.default_country_value));
     }
 
@@ -637,7 +639,9 @@ public class SearchFragment
         suggestionDisposable = observable
                 .switchMap(query -> {
                     final Flowable<List<SearchHistoryEntry>> flowable = historyRecordManager
-                            .getRelatedSearches(query, 3, 25);
+                            .getRelatedSearches(query,
+                                    isUnlimitedSearchHistory ? -1 : 3,
+                                    isUnlimitedSearchHistory ? -1 : 25);
                     final Observable<List<SuggestionItem>> local = flowable.toObservable()
                             .map(searchHistoryEntries -> {
                                 List<SuggestionItem> result = new ArrayList<>();

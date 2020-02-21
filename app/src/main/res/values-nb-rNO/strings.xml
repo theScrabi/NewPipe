@@ -143,6 +143,8 @@
     <string name="show_search_suggestions_summary">Vis søkeforslag ved søk</string>
     <string name="enable_search_history_title">Søkehistorikk</string>
     <string name="enable_search_history_summary">Lagre søkemønster lokalt</string>
+    <string name="unlimited_search_history_title">Ubegrenset søkehistorikk</string>
+    <string name="unlimited_search_history_summary">Ubegrenset antall føringer i søkehistorikken</string>
     <string name="enable_watch_history_title">Visningshistorikk</string>
     <string name="enable_watch_history_summary">Lagre visningshistorikk</string>
     <string name="settings_category_popup_title">Oppsprett</string>

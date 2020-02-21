@@ -34,6 +34,14 @@
         android:title="@string/enable_search_history_title"
         app:iconSpaceReserved="false" />
 
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="@string/unlimited_search_history_key"
+        android:summary="@string/unlimited_search_history_summary"
+        android:title="@string/unlimited_search_history_title"
+        android:dependency="@string/enable_search_history_key"
+        app:iconSpaceReserved="false" />
+
     <PreferenceCategory
         android:layout="@layout/settings_category_header_layout"
         android:title="@string/settings_category_clear_data_title"

@@ -93,6 +93,8 @@
     <string name="show_search_suggestions_summary">Show suggestions when searching</string>
     <string name="enable_search_history_title">Search history</string>
     <string name="enable_search_history_summary">Store search queries locally</string>
+    <string name="unlimited_search_history_title">Unlimited search history</string>
+    <string name="unlimited_search_history_summary">Unlimited search history entries</string>
     <string name="enable_watch_history_title">Watch history</string>
     <string name="enable_playback_resume_title">Resume playback</string>
     <string name="enable_playback_resume_summary">Restore last playback position</string>

@@ -171,6 +171,7 @@
     <string name="show_age_restricted_content" translatable="false">show_age_restricted_content</string>
     <string name="use_tor_key" translatable="false">use_tor</string>
     <string name="enable_search_history_key" translatable="false">enable_search_history</string>
+    <string name="unlimited_search_history_key" translatable="false">unlimited_search_history</string>
     <string name="enable_watch_history_key" translatable="false">enable_watch_history</string>
     <string name="main_page_content_key" translatable="false">main_page_content</string>
     <string name="enable_playback_resume_key" translatable="false">enable_playback_resume</string>
