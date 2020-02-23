@@ -169,16 +169,15 @@ public abstract class ServicePlayerActivity extends AppCompatActivity
                 startActivity(new Intent(Settings.ACTION_SOUND_SETTINGS));
                 return true;
             case R.id.action_switch_main:
-                return switchTo(MainVideoPlayer.class);
-            case R.id.action_set_timer:
-                updateTimer(this);
                 this.player.setRecovery();
                 getApplicationContext().sendBroadcast(getPlayerShutdownIntent());
                 getApplicationContext().startActivity(
-                    getSwitchIntent(MainVideoPlayer.class)
-                        .putExtra(BasePlayer.START_PAUSED, !this.player.isPlaying())
+                        getSwitchIntent(MainVideoPlayer.class)
+                                .putExtra(BasePlayer.START_PAUSED, !this.player.isPlaying())
                 );
                 return true;
+            case R.id.action_set_timer:
+                updateTimer(this);
         }
         return onPlayerOptionSelected(item) || super.onOptionsItemSelected(item);
     }
