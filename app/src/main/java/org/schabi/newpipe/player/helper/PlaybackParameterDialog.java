@@ -7,6 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.appcompat.app.AlertDialog;
+
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -219,13 +221,23 @@ public class PlaybackParameterDialog extends DialogFragment {
     private void setupHookingControl(@NonNull View rootView) {
         unhookingCheckbox = rootView.findViewById(R.id.unhookCheckbox);
         if (unhookingCheckbox != null) {
-            unhookingCheckbox.setChecked(pitch != tempo);
+            // restore whether pitch and tempo are unhooked or not
+            unhookingCheckbox.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext())
+                    .getBoolean(getString(R.string.playback_unhook_key), true));
+
             unhookingCheckbox.setOnCheckedChangeListener((compoundButton, isChecked) -> {
-                if (isChecked) return;
-                // When unchecked, slide back to the minimum of current tempo or pitch
-                final double minimum = Math.min(getCurrentPitch(), getCurrentTempo());
-                setSliders(minimum);
-                setCurrentPlaybackParameters();
+                // save whether pitch and tempo are unhooked or not
+                PreferenceManager.getDefaultSharedPreferences(getContext())
+                        .edit()
+                        .putBoolean(getString(R.string.playback_unhook_key), isChecked)
+                        .apply();
+
+                if (!isChecked) {
+                    // when unchecked, slide back to the minimum of current tempo or pitch
+                    final double minimum = Math.min(getCurrentPitch(), getCurrentTempo());
+                    setSliders(minimum);
+                    setCurrentPlaybackParameters();
+                }
             });
         }
     }

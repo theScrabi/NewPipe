@@ -175,17 +175,20 @@ public class ChannelFragment extends BaseListInfoFragment<ChannelInfo> {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.action_settings:
+                NavigationHelper.openSettings(requireContext());
+                break;
             case R.id.menu_item_rss:
                 openRssFeed();
                 break;
             case R.id.menu_item_openInBrowser:
                 if (currentInfo != null) {
-                    ShareUtils.openUrlInBrowser(this.getContext(), currentInfo.getOriginalUrl());
+                    ShareUtils.openUrlInBrowser(requireContext(), currentInfo.getOriginalUrl());
                 }
                 break;
             case R.id.menu_item_share:
                 if (currentInfo != null) {
-                    ShareUtils.shareUrl(this.getContext(), name, currentInfo.getOriginalUrl());
+                    ShareUtils.shareUrl(requireContext(), name, currentInfo.getOriginalUrl());
                 }
                 break;
             default:
@@ -370,7 +373,7 @@ public class ChannelFragment extends BaseListInfoFragment<ChannelInfo> {
 
         headerSubscribersTextView.setVisibility(View.VISIBLE);
         if (result.getSubscriberCount() >= 0) {
-            headerSubscribersTextView.setText(Localization.localizeSubscribersCount(activity, result.getSubscriberCount()));
+            headerSubscribersTextView.setText(Localization.shortSubscriberCount(activity, result.getSubscriberCount()));
         } else {
             headerSubscribersTextView.setText(R.string.subscribers_count_not_available);
         }

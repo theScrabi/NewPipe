@@ -154,10 +154,9 @@
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
             android:gravity="center"
-            android:text="@string/duration_live_button"
+            android:text="@string/duration_live"
             android:textAllCaps="true"
             android:textColor="?attr/colorAccent"
-            android:maxLength="4"
             android:background="?attr/selectableItemBackground"
             android:visibility="gone"/>
     </LinearLayout>

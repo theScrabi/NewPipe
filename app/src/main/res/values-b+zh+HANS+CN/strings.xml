@@ -536,4 +536,5 @@
     <string name="clear_download_history">清除下载历史记录</string>
     <string name="delete_downloaded_files">删除下载了的文件</string>
     <string name="deleted_downloads">已删除 %1$s 下载</string>
+    <string name="permission_display_over_apps">授予在其他应用上层显示的权限</string>
 </resources>

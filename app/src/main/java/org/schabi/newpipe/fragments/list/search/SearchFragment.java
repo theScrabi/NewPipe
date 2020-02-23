@@ -190,7 +190,7 @@ public class SearchFragment
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
         isSuggestionsEnabled = preferences.getBoolean(getString(R.string.show_search_suggestions_key), true);
-        contentCountry = preferences.getString(getString(R.string.content_country_key), getString(R.string.default_country_value));
+        contentCountry = preferences.getString(getString(R.string.content_country_key), getString(R.string.default_localization_key));
     }
 
     @Override

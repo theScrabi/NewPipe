@@ -60,7 +60,7 @@ public class StreamInfoItemHolder extends StreamMiniInfoItemHolder {
             if (infoItem.getStreamType().equals(StreamType.AUDIO_LIVE_STREAM)) {
                 viewsAndDate = Localization.listeningCount(itemBuilder.getContext(), infoItem.getViewCount());
             } else if (infoItem.getStreamType().equals(StreamType.LIVE_STREAM)) {
-                viewsAndDate = Localization.watchingCount(itemBuilder.getContext(), infoItem.getViewCount());
+                viewsAndDate = Localization.shortWatchingCount(itemBuilder.getContext(), infoItem.getViewCount());
             } else {
                 viewsAndDate = Localization.shortViewCount(itemBuilder.getContext(), infoItem.getViewCount());
             }

@@ -18,7 +18,7 @@ import androidx.core.app.NavUtils;
 
 import org.schabi.newpipe.util.ThemeHelper;
 
-import javax.annotation.Nonnull;
+import androidx.annotation.NonNull;
 
 /*
  * Created by beneth <bmauduit@beneth.fr> on 06.12.16.
@@ -147,7 +147,7 @@ public class ReCaptchaActivity extends AppCompatActivity {
         // add other methods to extract cookies here
     }
 
-    private void addYoutubeCookies(@Nonnull String cookies) {
+    private void addYoutubeCookies(@NonNull String cookies) {
         if (cookies.contains("s_gl=") || cookies.contains("goojf=") || cookies.contains("VISITOR_INFO1_LIVE=")) {
             // youtube seems to also need the other cookies:
             addCookie(cookies);

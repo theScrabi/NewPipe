@@ -44,7 +44,7 @@ public class ServiceHelper {
     public static String getTranslatedFilterString(String filter, Context c) {
         switch (filter) {
             case "all": return c.getString(R.string.all);
-            case "videos": return c.getString(R.string.videos);
+            case "videos": return c.getString(R.string.videos_string);
             case "channels": return c.getString(R.string.channels);
             case "playlists": return c.getString(R.string.playlists);
             case "tracks": return c.getString(R.string.tracks);

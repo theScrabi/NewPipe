@@ -201,13 +201,13 @@
     <plurals name="subscribers">
         <item quantity="one">%s подписчик</item>
         <item quantity="few">%s подписчика</item>
-        <item quantity="other">%s подписчиков</item>
+        <item quantity="many">%s подписчиков</item>
     </plurals>
     <string name="no_views">Нет просмотров</string>
     <plurals name="views">
         <item quantity="one">%s просмотр</item>
         <item quantity="few">%s просмотра</item>
-        <item quantity="other">%s просмотров</item>
+        <item quantity="many">%s просмотров</item>
     </plurals>
     <string name="no_videos">Нет видео</string>
     <plurals name="videos">

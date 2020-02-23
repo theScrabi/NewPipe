@@ -26,5 +26,4 @@
         android:icon="?attr/ic_delete"
         android:title="@string/clear_download_history"
         app:showAsAction="ifRoom" />
-
 </menu>

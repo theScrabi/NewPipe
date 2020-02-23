@@ -159,6 +159,9 @@ public abstract class ServicePlayerActivity extends AppCompatActivity
             case android.R.id.home:
                 finish();
                 return true;
+            case R.id.action_settings:
+                NavigationHelper.openSettings(this);
+                return true;
             case R.id.action_append_playlist:
                 appendAllToPlaylist();
                 return true;
@@ -169,6 +172,12 @@ public abstract class ServicePlayerActivity extends AppCompatActivity
                 return switchTo(MainVideoPlayer.class);
             case R.id.action_set_timer:
                 updateTimer(this);
+                this.player.setRecovery();
+                getApplicationContext().sendBroadcast(getPlayerShutdownIntent());
+                getApplicationContext().startActivity(
+                    getSwitchIntent(MainVideoPlayer.class)
+                        .putExtra(BasePlayer.START_PAUSED, !this.player.isPlaying())
+                );
                 return true;
         }
         return onPlayerOptionSelected(item) || super.onOptionsItemSelected(item);
@@ -199,14 +208,7 @@ public abstract class ServicePlayerActivity extends AppCompatActivity
                 false,
                 false
         ).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        .putExtra(BasePlayer.START_PAUSED, !this.player.isPlaying());
-    }
-
-    protected boolean switchTo(final Class clazz) {
-        this.player.setRecovery();
-        getApplicationContext().sendBroadcast(getPlayerShutdownIntent());
-        getApplicationContext().startActivity(getSwitchIntent(clazz));
-        return true;
+                .putExtra(BasePlayer.START_PAUSED, !this.player.isPlaying());
     }
 
     ////////////////////////////////////////////////////////////////////////////

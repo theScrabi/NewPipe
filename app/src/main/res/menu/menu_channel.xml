@@ -5,11 +5,6 @@
     tools:context=".fragments.list.impl.ChannelFragment">
 
     <item
-        android:id="@+id/menu_item_openInBrowser"
-        android:title="@string/open_in_browser"
-        app:showAsAction="never"/>
-
-    <item
         android:id="@+id/menu_item_rss"
         android:icon="?attr/rss"
         android:title="@string/rss_button_title"
@@ -22,4 +17,16 @@
         android:icon="?attr/share"
         android:title="@string/share"
         app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="1"
+        android:title="@string/settings"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/menu_item_openInBrowser"
+        android:orderInCategory="2"
+        android:title="@string/open_in_browser"
+        app:showAsAction="never"/>
 </menu>

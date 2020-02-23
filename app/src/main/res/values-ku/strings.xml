@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="main_bg_subtitle">گرته‌ له‌ گه‌ڕان بكه‌ بۆ ده‌ستپێكردن</string>
+    <string name="main_bg_subtitle">گرته‌ له‌ ”گه‌ڕان” بكه‌ بۆ ده‌ستپێكردن</string>
     <string name="view_count_text">%1$s بینراو</string>
     <string name="upload_date_text">بڵاوكراوه‌ته‌وه‌ له‌ %1$s</string>
     <string name="no_player_found">هیچ كارپێكه‌رێكی ڤیدیۆیی نه‌دۆزرایه‌وه‌. ده‌ته‌وێت VLC دابمەزرێنیت؟</string>
@@ -38,10 +38,10 @@
     <string name="controls_add_to_playlist_title">زیادکردن بۆ</string>
     <string name="download_path_title">فۆڵدەری داگرتنی ڤیدیۆ</string>
     <string name="download_path_summary">ڤیدیۆ داگیراوەکان لێرەدا هەڵدەگیرێن</string>
-    <string name="download_path_dialog_title">فۆڵدەری داگرتن بۆ ڤیدیۆکان هەڵبژێرە</string>
+    <string name="download_path_dialog_title">پەڕگەی داگرتن بۆ ڤیدیۆکان هەڵبژێرە</string>
     <string name="download_path_audio_title">فۆڵدەری داگرتنی ده‌نگ</string>
     <string name="download_path_audio_summary">دەنگە داگیراوەکان لێرەدا هەڵدەگیرێن</string>
-    <string name="download_path_audio_dialog_title">فۆڵدەری داگرتنی دەنگەکان هەڵبژێرە</string>
+    <string name="download_path_audio_dialog_title">پەڕگەی داگرتنی دەنگەکان هەڵبژێرە</string>
     <string name="autoplay_by_calling_app_title">كاركردنی خۆكارانه‌</string>
     <string name="default_resolution_title">قه‌باره‌ی بنەڕەتی</string>
     <string name="default_popup_resolution_title">قه‌باره‌ی بنەڕەتی په‌نجه‌ره‌ی بچووک</string>
@@ -215,7 +215,6 @@
     <string name="no_available_dir">تکایە فۆڵدەرێک بۆ شوێنی داگرتن دیاریبکە لە ڕێکخستنەکان</string>
     <string name="msg_popup_permission">ئەم دەسەڵاتە پێویستە بۆ
 \nکردنەوەی پەنجەرەی بچووک</string>
-    <string name="recaptcha" translatable="false">reCAPTCHA</string>
     <string name="title_activity_recaptcha">reCAPTCHA داواکاری</string>
     <string name="recaptcha_request_toast">reCAPTCHA داواکراوە</string>
     <string name="settings_category_downloads_title">داگرتن</string>

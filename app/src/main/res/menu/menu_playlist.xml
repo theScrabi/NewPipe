@@ -4,11 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <item
-        android:id="@+id/menu_item_openInBrowser"
-        android:title="@string/open_in_browser"
-        app:showAsAction="never"/>
-
-    <item
         android:id="@+id/menu_item_share"
         android:icon="?attr/share"
         android:title="@string/share"
@@ -21,4 +16,16 @@
         android:visible="true"
         app:showAsAction="ifRoom"
         tools:visible="true"/>
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="1"
+        android:title="@string/settings"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/menu_item_openInBrowser"
+        android:orderInCategory="2"
+        android:title="@string/open_in_browser"
+        app:showAsAction="never"/>
 </menu>

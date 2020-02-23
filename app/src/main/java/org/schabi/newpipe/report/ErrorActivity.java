@@ -43,6 +43,7 @@ import java.io.StringWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.TimeZone;
 import java.util.Vector;
 
@@ -93,7 +94,7 @@ public class ErrorActivity extends AppCompatActivity {
         if (rootView != null) {
             Snackbar.make(rootView, R.string.error_snackbar_message, 3 * 1000)
                     .setActionTextColor(Color.YELLOW)
-                    .setAction(R.string.error_snackbar_action, v ->
+                    .setAction(context.getString(R.string.error_snackbar_action).toUpperCase(), v ->
                             startErrorActivity(returnActivity, context, errorInfo, el)).show();
         } else {
             startErrorActivity(returnActivity, context, errorInfo, el);
@@ -377,8 +378,12 @@ public class ErrorActivity extends AppCompatActivity {
     }
 
     private String getContentLangString() {
-        return PreferenceManager.getDefaultSharedPreferences(this)
+        String contentLanguage = PreferenceManager.getDefaultSharedPreferences(this)
                 .getString(this.getString(R.string.content_country_key), "none");
+        if (contentLanguage.equals(getString(R.string.default_localization_key))) {
+            contentLanguage = Locale.getDefault().toString();
+        }
+        return contentLanguage;
     }
 
     private String getOsString() {

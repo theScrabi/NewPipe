@@ -10,13 +10,18 @@
         android:visible="true"
         app:showAsAction="ifRoom"/>
 
+    <item android:id="@+id/action_settings"
+        android:orderInCategory="1"
+        android:title="@string/settings"
+        app:showAsAction="never"/>
+
     <item android:id="@+id/action_system_audio"
-        android:orderInCategory="996"
+        android:orderInCategory="2"
         android:title="@string/play_queue_audio_settings"
         app:showAsAction="never"/>
 
     <item android:id="@+id/action_switch_main"
-        android:orderInCategory="999"
+        android:orderInCategory="3"
         android:title="@string/switch_to_main"
         app:showAsAction="never"/>
 

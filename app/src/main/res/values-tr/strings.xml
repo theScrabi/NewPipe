@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="main_bg_subtitle">Başlamak için aramaya dokunun</string>
+    <string name="main_bg_subtitle">Başlamak için \"Arama\"ya dokunun</string>
     <string name="view_count_text">%1$s görüntüleme</string>
     <string name="upload_date_text">Yayınlanma: %1$s</string>
-    <string name="no_player_found">Akış oynatıcısı bulunamadı. VLC\'yi yüklemek ister misiniz\?</string>
+    <string name="no_player_found">Akış oynatıcısı bulunamadı. VLC yüklensin mi\?</string>
     <string name="install">Yükle</string>
     <string name="cancel">Vazgeç</string>
     <string name="open_in_browser">Tarayıcıda aç</string>
@@ -27,7 +27,7 @@
     <string name="autoplay_by_calling_app_summary">NewPipe başka uygulamadan çağrıldığında video oynatır</string>
     <string name="default_resolution_title">Öntanımlı çözünürlük</string>
     <string name="play_with_kodi_title">Kodi ile oynat</string>
-    <string name="kore_not_found">Kore uygulaması bulunamadı. Yüklensin mi\?</string>
+    <string name="kore_not_found">Eksik Kore uygulaması yüklensin mi\?</string>
     <string name="show_play_with_kodi_title">\"Kodi ile oynat\" seçeneğini göster</string>
     <string name="show_play_with_kodi_summary">Kodi ortam merkezi üzerinden video oynatmak için bir seçenek göster</string>
     <string name="default_audio_format_title">Öntanımlı ses biçimi</string>
@@ -47,8 +47,8 @@
     <string name="play_btn_text">Oynat</string>
     <string name="content">İçerik</string>
     <string name="show_age_restricted_content_title">Yaş kısıtlamalı içerik</string>
-    <string name="video_is_age_restricted">Yaş kısıtlamalı videoyu göster. Bu tür malzemelere Ayarlardan izin vermek mümkündür.</string>
-    <string name="duration_live">CANLI</string>
+    <string name="video_is_age_restricted">Yaş kısıtlamalı videoyu göster. Daha sonra ayarlardan değiştirilebilir.</string>
+    <string name="duration_live">Canlı</string>
     <string name="downloads">İndirilenler</string>
     <string name="downloads_title">İndirilenler</string>
     <string name="error_report_title">Hata bildirimi</string>
@@ -64,9 +64,9 @@
     <string name="could_not_load_image">Görüntü yüklenemedi</string>
     <string name="app_ui_crash">Uygulama/kullanıcı arayüzü çöktü</string>
     <string name="sorry_string">Üzgünüz, bu olmamalıydı.</string>
-    <string name="error_report_button_text">Hatayı e-posta aracılığıyla bildir</string>
+    <string name="error_report_button_text">Bu hatayı e-posta aracılığıyla bildir</string>
     <string name="error_snackbar_message">Üzgünüz, bazı hatalar oluştu.</string>
-    <string name="error_snackbar_action">BİLDİR</string>
+    <string name="error_snackbar_action">Bildir</string>
     <string name="what_device_headline">Bilgi:</string>
     <string name="what_happened_headline">Ne oldu:</string>
     <string name="info_labels">Ne:\\nİstek:\\nİçerik Dili:\\nHizmet:\\nGMT Zamanı:\\nPaket:\\nSürüm:\\nİşletim sistemi sürümü:</string>
@@ -76,14 +76,14 @@
     <string name="detail_dislikes_img_view_description">Beğenmeme</string>
     <string name="use_tor_title">Tor kullanın</string>
     <string name="use_tor_summary">(Deneysel) Artırılmış gizlilik için indirme trafiğini Tor\'dan geçmesi için zorlayın (video yayımlama henüz desteklenmemektedir).</string>
-    <string name="report_error">Hata Bildirin</string>
+    <string name="report_error">Hata bildir</string>
     <string name="user_report">Kullanıcı raporu</string>
     <string name="err_dir_create">İndirme dizini \'%1$s\' oluşturulamıyor</string>
     <string name="info_dir_created">İndirme dizini \'%1$s\' oluşturuldu</string>
     <string name="video">Video</string>
     <string name="audio">Ses</string>
     <string name="retry">Yeniden dene</string>
-    <string name="storage_permission_denied">Depolama erişim izni reddedildi</string>
+    <string name="storage_permission_denied">Önce depolama alanına erişim izni verin</string>
     <string name="start">Başlat</string>
     <string name="pause">Duraklat</string>
     <string name="view">Oynat</string>
@@ -104,10 +104,10 @@
     <string name="no_available_dir">Lütfen daha sonra ayarlardan uygun bir indirme dizini belirleyin</string>
     <string name="could_not_setup_download_menu">İndirme menüsü ayarlanamadı</string>
     <string name="open_in_popup_mode">Açılır pencere kipinde aç</string>
-    <string name="popup_mode_share_menu_title">NewPipe açılır pencere kipi</string>
+    <string name="popup_mode_share_menu_title">Açılır pencere modu</string>
     <string name="default_popup_resolution_title">Öntanımlı açılır pencere çözünürlüğü</string>
     <string name="show_higher_resolutions_title">Yüksek çözünürlükleri göster</string>
-    <string name="show_higher_resolutions_summary">Yalnızca bazı aygıtlar 2K/4K video oynatmayı desteklemektedir</string>
+    <string name="show_higher_resolutions_summary">Yalnızca bazı aygıtlar 2K/4K videoları oynatabilir</string>
     <string name="default_video_format_title">Öntanımlı video biçimi</string>
     <string name="black_theme_title">Siyah</string>
     <string name="popup_playing_toast">Açılır pencere kipinde oynatılıyor</string>
@@ -136,7 +136,7 @@
     <string name="popup_remember_size_pos_summary">Açılan pencerenin son boyutunu ve konumunu hatırla</string>
     <string name="settings_category_popup_title">Açılır pencere</string>
     <string name="popup_resizing_indicator_title">Yeniden boyutlandırılıyor</string>
-    <string name="use_external_video_player_summary">BAZI çözünürlüklerde ses kaldırılır</string>
+    <string name="use_external_video_player_summary">Bazı çözünürlüklerde sesi kaldırır</string>
     <string name="player_gesture_controls_summary">Oynatıcının parlaklığını ve sesini kontrol etmek için hareketleri kullanın</string>
     <string name="player_gesture_controls_title">Hareketli oynatıcı kontrolü</string>
     <string name="show_search_suggestions_title">Arama önerileri</string>
@@ -176,7 +176,7 @@
     <string name="enable_search_history_summary">Arama sorgularını yerel olarak saklayın</string>
     <string name="enable_watch_history_title">İzleme geçmişi</string>
     <string name="enable_watch_history_summary">İzlenen videoların kaydını tut</string>
-    <string name="resume_on_audio_focus_gain_title">Odaklanıldığında sürdür</string>
+    <string name="resume_on_audio_focus_gain_title">Oynatmaya devam et</string>
     <string name="resume_on_audio_focus_gain_summary">Kesintilerden sonra (örneğin telefon çağrısı) oynatmaya devam et</string>
     <string name="settings_category_player_title">Oynatıcı</string>
     <string name="settings_category_player_behavior_title">Davranış</string>
@@ -208,7 +208,7 @@
     <string name="item_deleted">Öge silindi</string>
     <string name="delete_item_search_history">Bu ögeyi arama geçmişinden silmek istiyor musunuz\?</string>
     <string name="show_hold_to_append_title">\"Eklemek için basılı tutun\" ipucunu göster</string>
-    <string name="show_hold_to_append_summary">Video ayrıntıları sayfasında arka plan veya açılır pencere düğmesine basıldığında ipucu göster</string>
+    <string name="show_hold_to_append_summary">Video \"Ayrıntılar:\" sayfasında arka plan veya açılır pencere butonuna basıldığında ipucu göster</string>
     <string name="background_player_append">Arka plan oynatıcısı kuyruğuna eklendi</string>
     <string name="popup_playing_append">Açılır pencere oynatıcısı kuyruğuna eklendi</string>
     <string name="play_all">Tümünü Oynat</string>
@@ -241,7 +241,7 @@
     <string name="start_here_on_background">Arka planda oynatmayı başlat</string>
     <string name="start_here_on_popup">Yeni açılır pencerede oynatmayı başlat</string>
     <string name="donation_title">Bağışta bulunun</string>
-    <string name="donation_encouragement">NewPipe, size en iyi deneyimi sunmak için zaman harcayan gönüllüler tarafından geliştirilmiştir. Geliştiricilerin bir fincan kahvenin tadını çıkarırken NewPipe\'ı daha iyi hale getirmelerine yardımcı olun.</string>
+    <string name="donation_encouragement">NewPipe, boş zamanlarını size en iyi kullanıcı deneyimi sunmak için harcayan gönüllüler tarafından geliştirilmiştir. Geliştiricilerin bir fincan kahvenin tadını çıkarırken NewPipe\'ı daha iyi hale getirmelerine yardımcı olun.</string>
     <string name="give_back">Bağışta bulunun</string>
     <string name="website_title">Web sitesi</string>
     <string name="website_encouragement">Daha çok bilgi ve haber için NewPipe web sitesini ziyaret edin.</string>
@@ -309,14 +309,14 @@
     <string name="settings_category_debug_title">Hata ayıklama</string>
     <string name="drawer_header_action_paceholder_text">Yakında bir şeyler burada görünecek ;D</string>
     <string name="caption_auto_generated">Kendiliğinden oluşturulan</string>
-    <string name="enable_leak_canary_title">LeakCanary\'i etkinleştir</string>
+    <string name="enable_leak_canary_title">LeakCanary</string>
     <string name="enable_leak_canary_summary">Bellek sızıntısı izleme, yığın boşaltımı sırasında uygulamanın yanıt vermemesine neden olabilir</string>
     <string name="enable_disposed_exceptions_title">Yaşam döngüsü dışı hatalarını bildir</string>
     <string name="enable_disposed_exceptions_summary">Parçanın dışında veya atımdan sonraki etkinlik yaşam döngüsündeki teslim edilemeyen Rx beklentilerinin bildirimini zorla</string>
     <string name="use_inexact_seek_title">Hızlı isabetsiz konumlama kullan</string>
     <string name="use_inexact_seek_summary">İsabetsiz konumlama, oynatıcının daha düşük hassasiyetle daha hızlı pozisyon aramasını sağlar</string>
     <string name="auto_queue_title">Sonraki akışı otomatik kuyruğa ekle</string>
-    <string name="auto_queue_summary">Yinelenmeyen bir kuyruktaki son akışı oynatırken, ilgili bir akışı otomatik olarak ekle</string>
+    <string name="auto_queue_summary">İlgili bir akış ekleyerek sonlu (tekrarlanmayan) oynatma sırasını devam ettir</string>
     <string name="file">Dosya</string>
     <string name="invalid_directory">Böyle bir dizin yok</string>
     <string name="invalid_source">Böyle bir dosya/içerik kaynağı yok</string>
@@ -411,9 +411,9 @@
     <string name="app_update_notification_channel_description">Yeni NewPipe sürümü için bildirimler</string>
     <string name="download_to_sdcard_error_title">Harici depolama kullanılamıyor</string>
     <string name="download_to_sdcard_error_message">Harici SD karta indirmek mümkün değil. İndirme dizini konumu sıfırlansın mı\?</string>
-    <string name="saved_tabs_invalid_json">Öntanımlı sekmeler kullanılıyor, kaydedilen sekmeler okunurken hata</string>
+    <string name="saved_tabs_invalid_json">Kayıtlı sekmeler okunamadı, bu nedenle varsayılanlar kullanılıyor</string>
     <string name="restore_defaults">Öntanımlıları geri yükle</string>
-    <string name="restore_defaults_confirmation">Öntanımlıları geri yüklemek istiyor musunuz\?</string>
+    <string name="restore_defaults_confirmation">Varsayılanları geri yüklemek istiyor musunuz\?</string>
     <string name="subscribers_count_not_available">Abone sayısı mevcut değil</string>
     <string name="main_page_content_summary">Ana sayfada hangi sekmeler gösterilir</string>
     <string name="selection">Seçim</string>
@@ -444,7 +444,7 @@
     <string name="error_file_creation">Dosya oluşturulamıyor</string>
     <string name="error_path_creation">Hedef dizin oluşturulamıyor</string>
     <string name="error_permission_denied">İzin sistem tarafından reddedildi</string>
-    <string name="error_ssl_exception">Güvenli bağlantı başarısız</string>
+    <string name="error_ssl_exception">Güvenli bağlantı kurulamadı</string>
     <string name="error_unknown_host">Sunucu bulunamadı</string>
     <string name="error_connect_host">Sunucuya bağlanılamıyor</string>
     <string name="error_http_no_content">Sunucu veri göndermiyor</string>
@@ -461,7 +461,7 @@
     <string name="conferences">Konferanslar</string>
     <string name="missions_header_pending">Beklemede</string>
     <string name="show_comments_title">Yorumları göster</string>
-    <string name="show_comments_summary">Yorumları göstermeyi durdurmak için devre dışı bırak</string>
+    <string name="show_comments_summary">Yorumları gizlemek için kapatın</string>
     <string name="autoplay_title">Otomatik oynat</string>
     <plurals name="comments">
         <item quantity="one">Yorum</item>
@@ -494,7 +494,7 @@
     <string name="downloads_storage_ask_summary_kitkat">Her indirme için nereye kaydedileceği sorulacak. 
 \nEğer harici SD karta indirmek istiyorsanız DEÇ\'i seçin</string>
     <string name="downloads_storage_use_saf_title">DEÇ\'i kullan</string>
-    <string name="downloads_storage_use_saf_summary">Depolama Erişimi Çerçevesi harici SD karta indirmelere izin verir. 
+    <string name="downloads_storage_use_saf_summary">\'Depolama Erişimi Çerçevesi\' harici SD karta indirmelere izin verir. 
 \nNot: Bazı aygıtlar uyumlu değildir</string>
     <string name="clear_playback_states_title">Oynatım konumlarını sil</string>
     <string name="clear_playback_states_summary">Tüm oynatım konumlarını siler</string>
@@ -520,7 +520,7 @@
     <string name="seek_duration_title">Hızlı ileri/geri sarma süresi</string>
     <string name="peertube_instance_url_title">PeerTube örnekleri</string>
     <string name="peertube_instance_url_summary">Favori PeerTube örneklerinizi seçin</string>
-    <string name="peertube_instance_url_help">%s adresinde size en uygun örnekleri bulun</string>
+    <string name="peertube_instance_url_help">%s adresinde beğendiğiniz örnekleri bulun</string>
     <string name="peertube_instance_add_title">Örnek ekle</string>
     <string name="peertube_instance_add_help">Örnek URL\'sini girin</string>
     <string name="peertube_instance_add_fail">Örnek doğrulanamadı</string>
@@ -533,8 +533,8 @@
     <string name="recovering">kurtarılıyor</string>
     <string name="error_download_resource_gone">Bu indirme kurtarılamıyor</string>
     <string name="choose_instance_prompt">Oluşum seçin</string>
-    <string name="enable_lock_screen_video_thumbnail_title">Kilit ekranı video küçük resmini etkinleştir</string>
-    <string name="enable_lock_screen_video_thumbnail_summary">Arka plan oynatıcıyı kullanırken kilit ekranında bir video küçük resmi görüntülenecektir</string>
+    <string name="enable_lock_screen_video_thumbnail_title">Kilit ekranı video küçük resmi</string>
+    <string name="enable_lock_screen_video_thumbnail_summary">Arka plan oynatıcıyı kullanırken kilit ekranında bir video küçük resmi gösterilir</string>
     <string name="clear_download_history">İndirme geçmişini temizle</string>
     <string name="delete_downloaded_files">İndirilen dosyaları sil</string>
     <string name="deleted_downloads">%1$s indirme silindi</string>

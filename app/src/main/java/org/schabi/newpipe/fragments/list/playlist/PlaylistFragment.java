@@ -222,11 +222,14 @@ public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.action_settings:
+                NavigationHelper.openSettings(requireContext());
+                break;
             case R.id.menu_item_openInBrowser:
-                ShareUtils.openUrlInBrowser(this.getContext(), url);
+                ShareUtils.openUrlInBrowser(requireContext(), url);
                 break;
             case R.id.menu_item_share:
-                ShareUtils.shareUrl(this.getContext(), name, url);
+                ShareUtils.shareUrl(requireContext(), name, url);
                 break;
             case R.id.menu_item_bookmark:
                 onBookmarkClicked();

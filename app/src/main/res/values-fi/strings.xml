@@ -400,4 +400,6 @@
     <string name="unsubscribe">Peru tilaus</string>
     <string name="tab_new">Uusi välilehti</string>
     <string name="tab_choose">Valitse välilehti</string>
+    <string name="missions_header_finished">Valmis</string>
+    <string name="enqueue">Jono</string>
 </resources>

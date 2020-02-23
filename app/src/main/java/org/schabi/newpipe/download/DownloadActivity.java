@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.ViewTreeObserver;
 
 import org.schabi.newpipe.R;
+import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.ThemeHelper;
 
 import us.shandian.giga.service.DownloadManagerService;
@@ -76,11 +77,9 @@ public class DownloadActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home: {
+            case android.R.id.home:
                 onBackPressed();
                 return true;
-            }
-
             default:
                 return super.onOptionsItemSelected(item);
         }

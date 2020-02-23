@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="main_bg_subtitle">Ketuk pencarian untuk memulai</string>
+    <string name="main_bg_subtitle">Ketuk \"Cari\" untuk memulai</string>
     <string name="view_count_text">%1$s ditonton</string>
     <string name="upload_date_text">Dipublikasikan tanggal %1$s</string>
     <string name="install">Pasang</string>
@@ -24,7 +24,7 @@
     <string name="autoplay_by_calling_app_summary">Putar video ketika NewPipe dijalankan dari aplikasi lain</string>
     <string name="default_resolution_title">Resolusi</string>
     <string name="play_with_kodi_title">Putar dengan Kodi</string>
-    <string name="kore_not_found">Apl Kore tidak ditemukan. Pasang Kore\?</string>
+    <string name="kore_not_found">Pasang apl Kore\?</string>
     <string name="show_play_with_kodi_title">Tampilkan opsi \"Putar dengan Kodi\"</string>
     <string name="show_play_with_kodi_summary">Tampilkan opsi untuk memutar video via Kodi</string>
     <string name="play_audio">Audio</string>
@@ -43,12 +43,12 @@
     <string name="play_btn_text">Putar</string>
     <string name="content">Konten</string>
     <string name="show_age_restricted_content_title">Konten yang dibatasi usia</string>
-    <string name="video_is_age_restricted">Tampilkan video yang dibatasi usia. Membuka akses konten tersebut bisa dilakukan dari Pengaturan.</string>
+    <string name="video_is_age_restricted">Tampilkan video yang dibatasi usia. Bisa diubah nanti dari pengaturan.</string>
     <string name="network_error">Galat jaringan</string>
     <string name="could_not_load_thumbnails">Tidak bisa memuat semua thumbnail</string>
     <string name="did_you_mean">Maksud anda: %1$s\?</string>
     <string name="screen_rotation">rotasi</string>
-    <string name="duration_live">LANGSUNG</string>
+    <string name="duration_live">Langsung</string>
     <string name="downloads">Unduhan</string>
     <string name="downloads_title">Unduhan</string>
     <string name="error_report_title">Laporan galat</string>
@@ -60,9 +60,9 @@
     <string name="live_streams_not_supported">Siaran langsung belum didukung</string>
     <string name="could_not_load_image">Tidak bisa memuat gambar</string>
     <string name="sorry_string">Maaf, hal tersebut seharusnya tidak terjadi.</string>
-    <string name="error_report_button_text">Lapor galat via surel</string>
+    <string name="error_report_button_text">Laporkan kesalahan via surel</string>
     <string name="error_snackbar_message">Maaf, telah terjadi galat.</string>
-    <string name="error_snackbar_action">LAPOR</string>
+    <string name="error_snackbar_action">Lapor</string>
     <string name="what_device_headline">Info:</string>
     <string name="what_happened_headline">Yang terjadi:</string>
     <string name="your_comment">Komentar anda (dalam bahasa Inggris):</string>
@@ -74,13 +74,13 @@
     <string name="detail_dislikes_img_view_description">Tidak suka</string>
     <string name="use_tor_title">Gunakan Tor</string>
     <string name="use_tor_summary">(Eksperimental) Paksa trafik unduhan melalui Tor untuk meningkatkan privasi (video stream belum didukung).</string>
-    <string name="report_error">Laporkan Galat</string>
+    <string name="report_error">Laporkan kesalahan</string>
     <string name="err_dir_create">Tidak bisa membuat direktori unduhan \'%1$s\'</string>
     <string name="info_dir_created">Direktori unduhan dibuat \'%1$s\'</string>
     <string name="video">Video</string>
     <string name="audio">Audio</string>
     <string name="retry">Ulangi</string>
-    <string name="storage_permission_denied">Izin akses penyimpanan ditolak</string>
+    <string name="storage_permission_denied">Izinkan akses penyimpanan terlebih dahulu</string>
     <string name="delete">Hapus</string>
     <string name="view">Putar</string>
     <string name="start">Mulai</string>
@@ -98,7 +98,7 @@
     <string name="msg_wait">Mohon tunggu…</string>
     <string name="msg_copied">Disalin ke papan klip</string>
     <string name="no_available_dir">Silakan pilih folder unduhan di pengaturan</string>
-    <string name="no_player_found">Pemutar stream tidak ditemukan. Apakah anda ingin memasang VLC\?</string>
+    <string name="no_player_found">Pemutar stream tidak ditemukan. Pasang VLC\?</string>
     <string name="youtube_signature_decryption_error">Tidak bisa dekripsi tanda tangan URL video</string>
     <string name="app_ui_crash">App/UI rusak</string>
     <string name="could_not_get_stream">Tidak bisa mendapatkan stream apapun</string>
@@ -119,19 +119,19 @@
     <string name="open_in_popup_mode">Buka di mode popup</string>
     <string name="msg_popup_permission">Izin ini dibutuhkan untuk
 \nmembuka di mode popup</string>
-    <string name="popup_mode_share_menu_title">Mode popup NewPipe</string>
+    <string name="popup_mode_share_menu_title">Mode popup</string>
     <string name="popup_playing_toast">Memutar dalam mode popup</string>
     <string name="disabled">Dinonaktifkan</string>
     <string name="default_video_format_title">Format video</string>
     <string name="default_popup_resolution_title">Resolusi popup</string>
     <string name="show_higher_resolutions_title">Tampilkan resolusi yang lebih tinggi</string>
-    <string name="show_higher_resolutions_summary">Hanya perangkat tertentu yang mendukung pemutaran video 2K/4K</string>
+    <string name="show_higher_resolutions_summary">Hanya perangkat tertentu yang bisa memutar video 2K/4K</string>
     <string name="controls_background_title">Latar Belakang</string>
     <string name="controls_popup_title">Popup</string>
     <string name="refresh">Segarkan</string>
     <string name="clear">Bersihkan</string>
     <string name="filter">Filter</string>
-    <string name="use_external_video_player_summary">Menghapus audio pada BEBERAPA resolusi</string>
+    <string name="use_external_video_player_summary">Menghapus audio pada beberapa resolusi</string>
     <string name="popup_remember_size_pos_title">Ingat ukuran dan posisi popup</string>
     <string name="popup_remember_size_pos_summary">Ingat ukuran dan posisi terakhir popup</string>
     <string name="settings_category_popup_title">Popup</string>
@@ -166,8 +166,8 @@
     <string name="subscribe_button_title">Subscribe</string>
     <string name="subscribed_button_title">Disubscribe</string>
     <string name="fragment_whats_new">Apa Yang Baru</string>
-    <string name="resume_on_audio_focus_gain_title">Lanjutkan saat fokus</string>
-    <string name="resume_on_audio_focus_gain_summary">Lanjutkan pemutaran setelah interupsi (mis. panggilan telepon)</string>
+    <string name="resume_on_audio_focus_gain_title">Lanjutkan pemutaran</string>
+    <string name="resume_on_audio_focus_gain_summary">Melanjutkan pemutaran setelah interupsi (mis. panggilan telepon)</string>
     <string name="tab_main">Utama</string>
     <string name="enable_search_history_title">Riwayat pencarian</string>
     <string name="enable_search_history_summary">Simpan pencarian secara lokal</string>
@@ -183,10 +183,10 @@
     <string name="metadata_cache_wipe_title">Hapus tembolok metadata</string>
     <string name="metadata_cache_wipe_summary">Buang semua data tembolok laman web</string>
     <string name="metadata_cache_wipe_complete_notice">Cache metadata dihapus</string>
-    <string name="auto_queue_summary">Otomatis tambahkan stream terkait ketika memutar stream terakhir dalam antrean tanpa perulangan</string>
+    <string name="auto_queue_summary">Melanjutkan akhir dari antrean pemutaran (tak berulang) dengan menambahkan stream terkait</string>
     <string name="enable_watch_history_summary">Simpan daftar video yang telah ditonton</string>
     <string name="show_hold_to_append_title">Tampilkan tip \"Tahan untuk menambahkan\"</string>
-    <string name="show_hold_to_append_summary">Tampilkan tip ketika tombol latar belakang atau popup disentuh pada halaman detail video</string>
+    <string name="show_hold_to_append_summary">Tampilkan tip ketika menekan tombol latar belakang atau popup di dalam \"Detail:\" video</string>
     <string name="default_content_country_title">Negara konten</string>
     <string name="service_title">Layanan</string>
     <string name="settings_category_player_title">Pemutar</string>
@@ -309,7 +309,7 @@
     <string name="resize_fill">Isi</string>
     <string name="resize_zoom">Perbesar</string>
     <string name="caption_auto_generated">Otomatis dibuat</string>
-    <string name="enable_leak_canary_title">Aktifkan LeakCanary</string>
+    <string name="enable_leak_canary_title">LeakCanary</string>
     <string name="playback_default">Bawaan</string>
     <string name="no_player_found_toast">Pemutar stream tidak ditemukan (anda bisa memasang VLC untuk memutarnya).</string>
     <string name="controls_download_desc">Unduh berkas stream</string>
@@ -410,10 +410,10 @@
     <string name="app_update_notification_channel_description">Notifikasi untuk versi NewPipe baru</string>
     <string name="download_to_sdcard_error_title">Penyimpanan eksternal tidak tersedia</string>
     <string name="download_to_sdcard_error_message">Tidak bisa mengunduh ke kartu SD eksternal. Atur ulang lokasi folder unduhan\?</string>
-    <string name="saved_tabs_invalid_json">Menggunakan tab baku, ralat saat membaca tab yang disimpan</string>
+    <string name="saved_tabs_invalid_json">Tidak bisa membaca tab yang disimpan, beralih menggunakan tab bawaan</string>
     <string name="restore_defaults">Kembali ke awal</string>
-    <string name="restore_defaults_confirmation">Apakah anda ingin kembali ke awal\?</string>
-    <string name="subscribers_count_not_available">Jumlah pelanggan tidak tersedia</string>
+    <string name="restore_defaults_confirmation">Apakah anda ingin mengembalikan ke bawaan\?</string>
+    <string name="subscribers_count_not_available">Jumlah subscriber tidak tersedia</string>
     <string name="main_page_content_summary">Tab apa yang ditampilkan di halaman utama</string>
     <string name="selection">Pilihan</string>
     <string name="conferences">Konferensi</string>
@@ -445,7 +445,7 @@
     <string name="error_file_creation">File tidak dapat dibuat</string>
     <string name="error_path_creation">Folder tujuan tidak dapat dibuat</string>
     <string name="error_permission_denied">Izin ditolak oleh sistem</string>
-    <string name="error_ssl_exception">Koneksi aman gagal</string>
+    <string name="error_ssl_exception">Tidak bisa membuat koneksi yang aman</string>
     <string name="error_unknown_host">Tidak dapat menemukan server</string>
     <string name="error_connect_host">Tidak dapat terhubung ke server</string>
     <string name="error_http_no_content">Server tidak mengirim data</string>
@@ -459,7 +459,7 @@
     <string name="pause_downloads_on_mobile">Berhenti pada jaringan terbatas</string>
     <string name="pause_downloads_on_mobile_desc">Berguna saat beralih ke data seluler, walaupun beberapa unduhan tidak bisa ditangguhkan</string>
     <string name="show_comments_title">Tampilkan komentar</string>
-    <string name="show_comments_summary">Nonaktifkan untuk berhenti menampilkan komentar</string>
+    <string name="show_comments_summary">Nonaktifkan untuk menyembunyikan komentar</string>
     <string name="autoplay_title">Otomatis putar</string>
     <plurals name="comments">
         <item quantity="other">Komentar</item>
@@ -491,14 +491,14 @@
 \nPilih SAF jika anda ingin mengunduh ke kartu SD eksternal</string>
     <string name="error_timeout">Batas waktu koneksi</string>
     <string name="downloads_storage_use_saf_title">Gunakan SAF</string>
-    <string name="downloads_storage_use_saf_summary">Storage Access Framework memungkinkan mengunduh ke kartu SD eksternal.
+    <string name="downloads_storage_use_saf_summary">\'Storage Access Framework\' memungkinkan untuk mengunduh ke kartu SD eksternal. 
 \nCatatan: beberapa perangkat tidak kompatibel</string>
     <string name="clear_playback_states_title">Hapus posisi pemutaran</string>
     <string name="clear_playback_states_summary">Hapus semua posisi pemutaran</string>
     <string name="delete_playback_states_alert">Hapus semua posisi pemutaran\?</string>
     <string name="download_choose_new_path">Ubah folder unduhan</string>
     <plurals name="videos">
-        <item quantity="other">%s video</item>
+        <item quantity="other">Video</item>
     </plurals>
     <string name="drawer_header_description">Aktif/Nonaktifkan layanan, saat ini aktif:</string>
     <string name="no_one_watching">Tidak ada yang menonton</string>
@@ -512,7 +512,7 @@
     <string name="localization_changes_requires_app_restart">Bahasa akan diterapkan setelah aplikasi dimulai ulang.</string>
     <string name="peertube_instance_url_title">Situs PeerTube</string>
     <string name="peertube_instance_url_summary">Pilih situs PeerTube favorit anda</string>
-    <string name="peertube_instance_url_help">Temukan situs yang sesuai dengan anda di %s</string>
+    <string name="peertube_instance_url_help">Temukan situs yang anda suka di %s</string>
     <string name="peertube_instance_add_title">Tambah situs</string>
     <string name="peertube_instance_add_help">Masukkan URL situs</string>
     <string name="peertube_instance_add_fail">Tidak bisa memvalidasi situs</string>
@@ -525,8 +525,8 @@
     <string name="recovering">memulihkan</string>
     <string name="error_download_resource_gone">Tidak bisa memulihkan unduhan ini</string>
     <string name="choose_instance_prompt">Pilih situs</string>
-    <string name="enable_lock_screen_video_thumbnail_title">Aktifkan kunci layar thumbnail video</string>
-    <string name="enable_lock_screen_video_thumbnail_summary">Ketika menggunakan pemutar latar belakang, thumbnail video akan ditampilkan di tampilan kunci layar</string>
+    <string name="enable_lock_screen_video_thumbnail_title">Thumbnail video layar kunci</string>
+    <string name="enable_lock_screen_video_thumbnail_summary">Ketika menggunakan pemutar latar belakang, thumbnail video akan ditampilkan pada layar kunci</string>
     <string name="default_kiosk_page_summary">Kiosk Default</string>
     <string name="clear_download_history">Hapus riwayat unduhan</string>
     <string name="delete_downloaded_files">Hapus berkas yang diunduh</string>
@@ -535,4 +535,6 @@
     <string name="app_language_title">Bahasa apl</string>
     <string name="systems_language">Default sistem</string>
     <string name="recaptcha_done_button">Selesai</string>
+    <string name="seek_duration_title">Durasi maju/mundur cepat</string>
+    <string name="subtitle_activity_recaptcha">Tekan \"Selesai\" saat selesai</string>
 </resources>

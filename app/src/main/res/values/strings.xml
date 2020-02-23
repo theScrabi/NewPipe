@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">NewPipe</string>
-    <string name="main_bg_subtitle">Tap search to get started</string>
+    <string name="main_bg_subtitle">Tap \"Search\" to get started</string>
     <string name="view_count_text">%1$s views</string>
     <string name="upload_date_text">Published on %1$s</string>
-    <string name="no_player_found">No stream player found. Do you want to install VLC?</string>
+    <string name="no_player_found">No stream player found. Install VLC?</string>
     <string name="no_player_found_toast">No stream player found (you can install VLC to play it).</string>
     <string name="install">Install</string>
     <string name="cancel">Cancel</string>
@@ -16,14 +16,14 @@
     <string name="controls_download_desc">Download stream file</string>
     <string name="search">Search</string>
     <string name="settings">Settings</string>
-    <string name="did_you_mean">Did you mean: %1$s\?</string>
+    <string name="did_you_mean">Did you mean: %1$s?</string>
     <string name="share_dialog_title">Share with</string>
     <string name="choose_browser">Choose browser</string>
     <string name="screen_rotation">rotation</string>
     <string name="use_external_video_player_title">Use external video player</string>
-    <string name="use_external_video_player_summary">Removes audio at SOME resolutions</string>
+    <string name="use_external_video_player_summary">Removes audio at some resolutions</string>
     <string name="use_external_audio_player_title">Use external audio player</string>
-    <string name="popup_mode_share_menu_title">NewPipe popup mode</string>
+    <string name="popup_mode_share_menu_title">Popup mode</string>
     <string name="rss_button_title" translatable="false">RSS</string>
     <string name="subscribe_button_title">Subscribe</string>
     <string name="subscribed_button_title">Subscribed</string>
@@ -43,24 +43,24 @@
     <string name="controls_add_to_playlist_title">Add To</string>
     <string name="download_path_title">Video download folder</string>
     <string name="download_path_summary">Downloaded video files are stored here</string>
-    <string name="download_path_dialog_title">Choose the download folder for video files</string>
+    <string name="download_path_dialog_title">Choose download folder for video files</string>
     <string name="download_path_audio_title">Audio download folder</string>
     <string name="download_path_audio_summary">Downloaded audio files are stored here</string>
-    <string name="download_path_audio_dialog_title">Choose the download folder for audio files</string>
+    <string name="download_path_audio_dialog_title">Choose download folder for audio files</string>
     <string name="download_choose_new_path">Change the download folders to take effect</string>
     <string name="autoplay_by_calling_app_title">Autoplay</string>
     <string name="autoplay_by_calling_app_summary">Plays a video when NewPipe is called from another app</string>
     <string name="default_resolution_title">Default resolution</string>
     <string name="default_popup_resolution_title">Default popup resolution</string>
     <string name="show_higher_resolutions_title">Show higher resolutions</string>
-    <string name="show_higher_resolutions_summary">Only some devices support playing 2K/4K videos</string>
+    <string name="show_higher_resolutions_summary">Only some devices can play 2K/4K videos</string>
     <string name="play_with_kodi_title">Play with Kodi</string>
-    <string name="kore_not_found">Kore app not found. Install it?</string>
+    <string name="kore_not_found">Install missing Kore app?</string>
     <string name="kore_package" translatable="false">org.xbmc.kore</string>
     <string name="show_play_with_kodi_title">Show \"Play with Kodi\" option</string>
-    <string name="enable_lock_screen_video_thumbnail_title">Enable lock screen video thumbnail</string>
+    <string name="enable_lock_screen_video_thumbnail_title">Lock screen video thumbnail</string>
     <string name="show_play_with_kodi_summary">Display an option to play a video via Kodi media center</string>
-    <string name="enable_lock_screen_video_thumbnail_summary">When using the background player a video thumbnail will be displayed on the lock screen</string>
+    <string name="enable_lock_screen_video_thumbnail_summary">A video thumbnail is shown on the lock screen when using the background player</string>
     <string name="play_audio">Audio</string>
     <string name="default_audio_format_title">Default audio format</string>
     <string name="default_video_format_title">Default video format</string>
@@ -75,20 +75,20 @@
     <string name="seek_duration_title">Fast-forward/-rewind seek duration</string>
     <string name="download_thumbnail_title">Load thumbnails</string>
     <string name="show_comments_title">Show comments</string>
-    <string name="show_comments_summary">Disable to stop showing comments</string>
+    <string name="show_comments_summary">Turn off to hide comments</string>
     <string name="download_thumbnail_summary">Turn off to prevent loading thumbnails, saving data and memory usage. Changes clear both in-memory and on-disk image cache.</string>
     <string name="thumbnail_cache_wipe_complete_notice">Image cache wiped</string>
     <string name="metadata_cache_wipe_title">Wipe cached metadata</string>
     <string name="metadata_cache_wipe_summary">Remove all cached webpage data</string>
     <string name="metadata_cache_wipe_complete_notice">Metadata cache wiped</string>
     <string name="auto_queue_title">Auto-queue next stream</string>
-    <string name="auto_queue_summary">Auto-append a related stream when playing the last stream in a non-repeating queue</string>
+    <string name="auto_queue_summary">Continue ending (non-repeating) playback queue by appending a related stream</string>
     <string name="volume_gesture_control_title">Volume gesture control</string>
-    <string name="volume_gesture_control_summary">Use gestures to control the volume of the player</string>
+    <string name="volume_gesture_control_summary">Use gestures to control player volume</string>
     <string name="brightness_gesture_control_title">Brightness gesture control</string>
-    <string name="brightness_gesture_control_summary">Use gestures to control the brightness of the player</string>
+    <string name="brightness_gesture_control_summary">Use gestures to control player brightness</string>
     <string name="player_gesture_controls_title">Player gesture controls</string>
-    <string name="player_gesture_controls_summary">Use gestures to control the brightness and volume of the player</string>
+    <string name="player_gesture_controls_summary">Use gestures to control player brightness and volume</string>
     <string name="show_search_suggestions_title">Search suggestions</string>
     <string name="show_search_suggestions_summary">Show suggestions when searching</string>
     <string name="enable_search_history_title">Search history</string>
@@ -100,21 +100,21 @@
     <string name="enable_playback_state_lists_summary">Show playback position indicators in lists</string>
     <string name="settings_category_clear_data_title">Clear data</string>
     <string name="enable_watch_history_summary">Keep track of watched videos</string>
-    <string name="resume_on_audio_focus_gain_title">Resume on focus gain</string>
-    <string name="resume_on_audio_focus_gain_summary">Continue playing after interruptions (e.g. phone calls)</string>
+    <string name="resume_on_audio_focus_gain_title">Resume playing</string>
+    <string name="resume_on_audio_focus_gain_summary">Continue playing after interruptions (e.g. phonecalls)</string>
     <string name="download_dialog_title">Download</string>
     <string name="next_video_title">Next</string>
     <string name="autoplay_title">Autoplay</string>
     <string name="show_next_and_similar_title">Show \'Next\' and \'Similar\' videos</string>
     <string name="show_hold_to_append_title">Show \"Hold to append\" tip</string>
-    <string name="show_hold_to_append_summary">Show tip when background or popup button is pressed on video details page</string>
+    <string name="show_hold_to_append_summary">Show tip when pressing the background or the popup button in video \"Details:\"</string>
     <string name="url_not_supported_toast">Unsupported URL</string>
     <string name="default_content_country_title">Default content country</string>
     <string name="service_title">Service</string>
     <string name="content_language_title">Default content language</string>
     <string name="peertube_instance_url_title">PeerTube instances</string>
     <string name="peertube_instance_url_summary">Select your favorite PeerTube instances</string>
-    <string name="peertube_instance_url_help">Find the instances that best suit you on %s</string>
+    <string name="peertube_instance_url_help">Find the instances you like on %s</string>
     <string name="peertube_instance_list_url" translatable="false">https://joinpeertube.org/instances#instances-list</string>
     <string name="peertube_instance_add_title">Add instance</string>
     <string name="peertube_instance_add_help">Enter instance URL</string>
@@ -138,9 +138,8 @@
     <string name="play_btn_text">Play</string>
     <string name="content">Content</string>
     <string name="show_age_restricted_content_title">Age restricted content</string>
-    <string name="video_is_age_restricted">Show age restricted video. Allowing such material is possible from Settings.</string>
-    <string name="duration_live">LIVE</string>
-    <string name="duration_live_button" translatable="false">LIVE</string>
+    <string name="duration_live">Live</string>
+    <string name="video_is_age_restricted">Show age restricted video. Future changes are possible from the settings.</string>
     <string name="downloads">Downloads</string>
     <string name="downloads_title">Downloads</string>
     <string name="error_report_title">Error report</string>
@@ -149,8 +148,7 @@
     <string name="channels">Channels</string>
     <string name="playlist">Playlist</string>
     <string name="playlists">Playlists</string>
-    <string name="videos">Videos</string>
-    <string name="comments">Comments</string>
+    <string name="videos_string">Videos</string>
     <string name="tracks">Tracks</string>
     <string name="users">Users</string>
     <string name="events">Events</string>
@@ -198,7 +196,7 @@
     <!-- error strings -->
     <string name="general_error">Error</string>
     <string name="download_to_sdcard_error_title">External storage unavailable</string>
-    <string name="download_to_sdcard_error_message">Downloading to external SD card not possible. Reset download folder location\?</string>
+    <string name="download_to_sdcard_error_message">Downloading to external SD card not possible. Reset download folder location?</string>
     <string name="network_error">Network error</string>
     <string name="could_not_load_thumbnails">Could not load all thumbnails</string>
     <string name="youtube_signature_decryption_error">Could not decrypt video URL signature</string>
@@ -224,16 +222,16 @@
     <string name="file_name_empty_error">Filename cannot be empty</string>
     <string name="error_occurred_detail">An error occurred: %1$s</string>
     <string name="no_streams_available_download">No streams available to download</string>
-    <string name="saved_tabs_invalid_json">Using default tabs, error while reading saved tabs</string>
+    <string name="saved_tabs_invalid_json">Could not read saved tabs, so using default ones</string>
     <string name="restore_defaults">Restore defaults</string>
-    <string name="restore_defaults_confirmation">Do you want to restore the defaults?</string>
+    <string name="restore_defaults_confirmation">Do you want to restore defaults?</string>
     <string name="permission_display_over_apps">Give permission to display over other apps</string>
     <!-- error activity -->
     <string name="sorry_string">Sorry, that should not have happened.</string>
     <string name="guru_meditation" translatable="false">Guru Meditation.</string>
-    <string name="error_report_button_text">Report error via e-mail</string>
+    <string name="error_report_button_text">Report this error via e-mail</string>
     <string name="error_snackbar_message">Sorry, some errors occurred.</string>
-    <string name="error_snackbar_action">REPORT</string>
+    <string name="error_snackbar_action">Report</string>
     <string name="what_device_headline">Info:</string>
     <string name="what_happened_headline">What happened:</string>
     <string name="info_labels">What:\\nRequest:\\nContent Lang:\\nService:\\nGMT Time:\\nPackage:\\nVersion:\\nOS version:</string>
@@ -247,7 +245,7 @@
     <string name="detail_dislikes_img_view_description">Dislikes</string>
     <string name="use_tor_title">Use Tor</string>
     <string name="use_tor_summary">(Experimental) Force download traffic through Tor for increased privacy (streaming videos not yet supported).</string>
-    <string name="report_error">Report an Error</string>
+    <string name="report_error">Report error</string>
     <string name="user_report">User report</string>
     <string name="search_no_results">No results</string>
     <string name="empty_view_no_videos" translatable="false">@string/no_videos</string>
@@ -259,7 +257,7 @@
     <string name="video">Video</string>
     <string name="audio">Audio</string>
     <string name="retry">Retry</string>
-    <string name="storage_permission_denied">Storage access permission denied</string>
+    <string name="storage_permission_denied">Grant access to storage first</string>
     <string name="short_thousand">k</string>
     <string name="short_million">M</string>
     <string name="short_billion">B</string>
@@ -270,7 +268,7 @@
         <item quantity="one">%s subscriber</item>
         <item quantity="other">%s subscribers</item>
     </plurals>
-    <string name="subscribers_count_not_available">Subscribers count not available</string>
+    <string name="subscribers_count_not_available">Subscriber count unavailable</string>
     <string name="no_views">No views</string>
     <plurals name="views">
         <item quantity="one">%s view</item>
@@ -358,7 +356,7 @@
     <string name="github_url" translatable="false">https://github.com/TeamNewPipe/NewPipe</string>
     <string name="view_on_github">View on GitHub</string>
     <string name="donation_title">Donate</string>
-    <string name="donation_encouragement">NewPipe is developed by volunteers spending time bringing you the best experience. Give back to help developers make NewPipe even better while enjoying a cup of coffee.</string>
+    <string name="donation_encouragement">NewPipe is developed by volunteers spending their free time bringing you the best user experience. Give back to help developers make NewPipe even better while they enjoy a cup of coffee.</string>
     <string name="donation_url" translatable="false">https://newpipe.schabi.org/donate</string>
     <string name="give_back">Give back</string>
     <string name="website_title">Website</string>
@@ -469,7 +467,7 @@
     <string name="caption_setting_title">Captions</string>
     <string name="caption_setting_description">Modify player caption text scale and background styles. Requires app restart to take effect.</string>
     <!-- Debug Settings -->
-    <string name="enable_leak_canary_title">Enable LeakCanary</string>
+    <string name="enable_leak_canary_title">LeakCanary</string>
     <string name="enable_leak_canary_summary">Memory leak monitoring may cause the app to become unresponsive when heap dumping</string>
     <string name="enable_disposed_exceptions_title">Report out-of-lifecycle errors</string>
     <string name="enable_disposed_exceptions_summary">Force reporting of undeliverable Rx exceptions outside of fragment or activity lifecycle after disposal</string>
@@ -494,7 +492,7 @@
     <string name="playback_speed_control">Playback Speed Controls</string>
     <string name="playback_tempo">Tempo</string>
     <string name="playback_pitch">Pitch</string>
-    <string name="unhook_checkbox">Unlink (may cause distortion)</string>
+    <string name="unhook_checkbox">Unhook (may cause distortion)</string>
     <string name="skip_silence_checkbox">Fast-forward during silence</string>
     <string name="playback_step">Step</string>
     <string name="playback_reset">Reset</string>
@@ -560,7 +558,7 @@
     <string name="error_file_creation">The file can not be created</string>
     <string name="error_path_creation">The destination folder can not be created</string>
     <string name="error_permission_denied">Permission denied by the system</string>
-    <string name="error_ssl_exception">Secure connection failed</string>
+    <string name="error_ssl_exception">Could not establish a secure connection</string>
     <string name="error_unknown_host">Could not find the server</string>
     <string name="error_connect_host">Can not connect to the server</string>
     <string name="error_http_no_content">The server does not send data</string>
@@ -590,13 +588,16 @@
     <string name="downloads_storage_ask_summary">You will be asked where to save each download</string>
     <string name="downloads_storage_ask_summary_kitkat">You will be asked where to save each download.\nChoose SAF if you want to download to an external SD card</string>
     <string name="downloads_storage_use_saf_title">Use SAF</string>
-    <string name="downloads_storage_use_saf_summary">The Storage Access Framework allows downloads to an external SD card.\nNote: some devices are not compatible</string>
+    <string name="downloads_storage_use_saf_summary">The \'Storage Access Framework\' allows downloads to an external SD card.\nNote: some devices are incompatible</string>
     <string name="choose_instance_prompt">Choose an instance</string>
     <string name="app_language_title">App language</string>
     <string name="systems_language">System default</string>
-
     <!--  Timer Constants  -->
     <string name="set_timer">Set Timer</string>
     <string name="player_stop_message">Player will stop at %s</string>
     <string name="timer_select_time_message">Please select an appropriate time.</string>
+    <string name="dynamic_seek_duration_description">%s seconds</string>
+    <plurals name="dynamic_seek_duration_description">
+        <item quantity="other">%s seconds</item>
+    </plurals>
 </resources>

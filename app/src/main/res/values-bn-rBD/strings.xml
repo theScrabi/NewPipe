@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="main_bg_subtitle">শুরু করতে অনুসন্ধান এ আলতো চাপ</string>
+    <string name="main_bg_subtitle">অনুসন্ধান এ চাপ দিয়ে শুরু করুন</string>
     <string name="view_count_text">"%1$s জন  দেখছে"</string>
     <string name="upload_date_text">প্রকাশকাল %1$s</string>
-    <string name="no_player_found">কোন স্ট্রিম প্লেয়ার পাওয়া যায়নি। তুমি কি VLC ইনস্টল করতে চাও?</string>
+    <string name="no_player_found">কোন স্ট্রিম প্লেয়ার পাওয়া যায়নি। VLC ইনস্টল করতে চাও\?</string>
     <string name="install">ইনস্টল</string>
     <string name="cancel">বাদ দিন</string>
-    <!--     <string name="fdroid_vlc_url" translatable="false">https://f-droid.org/repository/browse/?fdfilter=vlc&amp;fdid=org.videolan.vlc</string> -->
     <string name="open_in_browser">ব্রাউজারে ওপেন করো</string>
     <string name="open_in_popup_mode">পপ-আপ মোডে ওপেন করো</string>
     <string name="share">শেয়ার</string>
@@ -16,13 +15,13 @@
     <string name="did_you_mean">আপনি কি বুঝিয়েছেনঃ %1$s ?</string>
     <string name="share_dialog_title">শেয়ার করুন</string>
     <string name="choose_browser">ব্রাউজার বাছাই করুন</string>
-    <string name="screen_rotation">রোটেশন</string>
+    <string name="screen_rotation">ঘূর্ণন</string>
     <string name="use_external_video_player_title">বাইরের ভিডিও প্লেয়ার ব্যবহার করুন</string>
     <string name="use_external_audio_player_title">বহির্গত অডিও প্লেয়ার ব্যবহার করুন</string>
-    <string name="popup_mode_share_menu_title">NewPipe পপআপ মোড</string>
+    <string name="popup_mode_share_menu_title">পপআপ মোড</string>
     <string name="controls_background_title">ব্যাকগ্রাউন্ড</string>
     <string name="controls_popup_title">পপআপ</string>
-    <string name="download_path_title">ভিডিও ডাউনলোড করার পাথ</string>
+    <string name="download_path_title">ভিডিও ডাউনলোড করার ফোল্ডার</string>
     <string name="download_path_summary">ডাউনলোড করা ভিডিওগুলো রাখার ফোল্ডার</string>
     <string name="download_path_dialog_title">ভিডিওগুলির জন্য ডাউনলোডের পাথ প্রবেশ করাও</string>
     <string name="download_path_audio_title">অডিও ডাউনলোড পাথ</string>
@@ -36,7 +35,6 @@
     <string name="show_higher_resolutions_summary">শুধুমাত্র কিছু ডিভাইস 2k / 4k ভিডিও চালানোয় সমর্থন</string>
     <string name="play_with_kodi_title">Kodi এর মাধ্যমে চালাও</string>
     <string name="kore_not_found">Kore অ্যাপ্লিকেশন খুঁজে পাওয়া যায়নি। Kore ইনস্টল করবে?</string>
-    <!--     <string name="fdroid_kore_url" translatable="false">https://f-droid.org/repository/browse/?fdfilter=Kore&amp;fdid=org.xbmc.kore</string> -->
     <string name="show_play_with_kodi_title">দেখাও \"Kodi এর মাধ্যমে চালাও \" বিকল্প</string>
     <string name="show_play_with_kodi_summary">Kodi মিডিয়া সেন্টারে এর মাধ্যমে ভিডিও প্লে করার জন্য একটি বিকল্প প্রদর্শন কর</string>
     <string name="play_audio">অডিও</string>
@@ -57,10 +55,8 @@
     <string name="settings_category_popup_title">পপআপ</string>
     <string name="settings_category_appearance_title">অ্যাপিয়ারেন্স</string>
     <string name="settings_category_other_title">অন্যান্য</string>
-    <!--     <string name="background_player_time_text" translatable="false">%1$s - NewPipe</string> -->
     <string name="background_player_playing_toast">ব্যাকগ্রাউন্ডে চলছে</string>
     <string name="popup_playing_toast">পপআপ মোডে চলছে</string>
-    <!--     <string name="c3s_url" translatable="false">https://www.c3s.cc/</string> -->
     <string name="play_btn_text">চালাও</string>
     <string name="content">কন্টেন্ট</string>
     <string name="show_age_restricted_content_title">বয়স সীমাবদ্ধ কন্টেন্ট দেখাও</string>
@@ -93,7 +89,6 @@
     <string name="app_ui_crash">অ্যাপ / UI ক্র্যাশ করেছে</string>
     <!-- error activity -->
     <string name="sorry_string">দুঃখিত, এটা ঘটা উচিত ছিল না।</string>
-    <!--     <string name="guru_meditation" translatable="false">Guru Meditation.</string> -->
     <string name="error_report_button_text">মেইলের মাধ্যমে ত্রুটি প্রতিবেদন করো</string>
     <string name="error_snackbar_message">দুঃখিত, কিছু ত্রুটি ঘটেছে।</string>
     <string name="error_snackbar_action">প্রতিবেদন</string>
@@ -142,9 +137,6 @@
     <string name="msg_copied">ক্লিপবোর্ডে অনুলিপি করা হয়েছে।</string>
     <string name="no_available_dir">অনুগ্রহ করে একটি উপলব্ধ ডাউনলোড ডিরেক্টরি নির্বাচন করো।</string>
     <string name="msg_popup_permission">এই অনুমতিটি পপআপ মোডে খুলতে প্রয়োজন</string>
-    <!-- Checksum types -->
-    <!--     <string name="md5" translatable="false">MD5</string> -->
-    <!--     <string name="sha1" translatable="false">SHA1</string> -->
     <string name="recaptcha">রিক্যাপচা</string>
     <string name="title_activity_recaptcha">reCAPTCHA চ্যালেঞ্জ</string>
     <string name="recaptcha_request_toast">reCAPTCHA চ্যালেঞ্জ অনুরোধ করা হয়েছে</string>
@@ -171,7 +163,7 @@
     <string name="action_open_website">ওয়েব সাইট খুলুন</string>
     <string name="website_title">ওয়েব সাইট</string>
     <string name="no_player_found_toast">কোন স্ট্রিম প্লেয়ার পাওয়া যায়নি (প্লে করতে VLC ইন্সটল করতে পারেন)</string>
-    <string name="use_external_video_player_summary">কিছু রেজোলিউশনে ভিডিওর অডিও কাজ করে না</string>
+    <string name="use_external_video_player_summary">কিছু কিছু রেজোলিউশনে অডিও বন্ধ করে দেয়</string>
     <string name="subscribe_button_title">সাবস্ক্রাইব</string>
     <string name="subscribed_button_title">সাবস্ক্রাইব করা আছে</string>
     <string name="channel_unsubscribed">চ্যানেল থেকে আনসাবস্ক্রাইব্ড</string>
@@ -183,4 +175,5 @@
     <string name="use_inexact_seek_title">দ্রুত টানা ব্যাবহার করুন</string>
     <string name="unsubscribe">আনসাবস্ক্রাইব</string>
     <string name="tab_new">নতুন ট্যাব</string>
+    <string name="tab_choose">ট্যাব পছন্দ করুন</string>
 </resources>

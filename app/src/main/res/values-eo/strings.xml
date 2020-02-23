@@ -173,7 +173,7 @@
     <string name="enqueue_on_background">Viciĝi en la fona ludilo</string>
     <string name="enqueue_on_popup">Viciĝi en nova ŝprucfenestro</string>
     <string name="start_here_on_popup">Komenci ludi en nova ŝprucfenestro</string>
-    <string name="default_content_country_title">Defaŭlta enhava lando</string>
+    <string name="default_content_country_title">Preferata enhavlando</string>
     <string name="toggle_orientation">Ŝangi Orientiĝon</string>
     <string name="switch_to_background">Ŝanĝi al Fono</string>
     <string name="switch_to_popup">Ŝanĝi al ŝprucfenestro</string>
@@ -537,9 +537,13 @@
     <string name="clear_download_history">Forviŝi la historion de elŝutoj</string>
     <string name="delete_downloaded_files">Forviŝi elŝutitajn dosierojn</string>
     <string name="deleted_downloads">%1$s elŝutoj forviŝitaj</string>
+    <string name="videos_string">Filmetoj</string>
     <string name="permission_display_over_apps">Doni la permeson por afiŝiĝi supre aliaj apoj</string>
-    <string name="app_language_title">Lingvo de la apo</string>
+    <string name="app_language_title">Preferata aplingvo</string>
     <string name="systems_language">Sistemnormo</string>
     <string name="subtitle_activity_recaptcha">Premu « Finita » kiam solvita</string>
     <string name="recaptcha_done_button">Finita</string>
+    <plurals name="dynamic_seek_duration_description">
+        <item quantity="other">%s sekundoj</item>
+    </plurals>
 </resources>

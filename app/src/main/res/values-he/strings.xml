@@ -19,7 +19,7 @@
     <string name="use_external_video_player_title">שימוש בנגן סרטונים חיצוני</string>
     <string name="use_external_video_player_summary">בחלק מהרזולוציות השמע יוסר</string>
     <string name="use_external_audio_player_title">שימוש בנגן סרטונים חיצוני</string>
-    <string name="popup_mode_share_menu_title">מצב חלון צף של NewPipe</string>
+    <string name="popup_mode_share_menu_title">מצב חלון צף</string>
     <string name="controls_background_title">רקע</string>
     <string name="controls_popup_title">חלון צף</string>
     <string name="download_path_title">תיקייה להורדת סרטונים</string>
@@ -33,9 +33,9 @@
     <string name="default_resolution_title">רזולוציית בררת המחדל</string>
     <string name="default_popup_resolution_title">רזולוציית בררת המחדל לחלון צף</string>
     <string name="show_higher_resolutions_title">הצגת רזולוציות גבוהות יותר</string>
-    <string name="show_higher_resolutions_summary">רק חלק מהמכשירים תומכים בצפייה בסרטונים ב־2K/4K</string>
+    <string name="show_higher_resolutions_summary">רק חלק מהמכשירים יכולים לנגן סרטונים ב־2K/4K</string>
     <string name="play_with_kodi_title">נגינה ב־Kodi</string>
-    <string name="kore_not_found">היישומון Kore לא נמצא. להתקין אותו\?</string>
+    <string name="kore_not_found">להתקין את יישומון Kore החסר\?</string>
     <string name="show_play_with_kodi_title">הצגת האפשרות לניגון עם Kodi</string>
     <string name="show_play_with_kodi_summary">הצגת אפשרות לנגן סרטון דרך מרכז המדיה Kodi</string>
     <string name="play_audio">שמע</string>
@@ -65,7 +65,7 @@
     <string name="play_btn_text">נגינה</string>
     <string name="content">תוכן</string>
     <string name="show_age_restricted_content_title">תוכן עם הגבלת גיל</string>
-    <string name="video_is_age_restricted">הצגת סרטונים עם הגבלת גיל. ניתן לאפשר תכנים שכאלו דרך ההגדרות.</string>
+    <string name="video_is_age_restricted">הצגת סרטונים עם הגבלת גיל. ניתן לשנות את זה בעתיד דרך ההגדרות.</string>
     <string name="duration_live">חי</string>
     <string name="downloads">הורדות</string>
     <string name="downloads_title">הורדות</string>
@@ -110,10 +110,10 @@
     <string name="enable_search_history_summary">שמירת שאילתות החיפוש מקומית</string>
     <string name="enable_watch_history_title">היסטוריית צפייה</string>
     <string name="enable_watch_history_summary">תיעוד הסרטונים שנצפו</string>
-    <string name="resume_on_audio_focus_gain_title">להמשיך את הניגון עם החזרת המיקוד</string>
+    <string name="resume_on_audio_focus_gain_title">להמשיך את הניגון</string>
     <string name="resume_on_audio_focus_gain_summary">להמשיך לנגן לאחר הפרעות (למשל: שיחות טלפון)</string>
     <string name="show_hold_to_append_title">להציג את העצה „להחזיק כדי להוסיף לרשימת נגינה”</string>
-    <string name="show_hold_to_append_summary">להציג עצה בעת לחיצה על כפתור בנגן רקע או צף בעמוד פרטי סרטון</string>
+    <string name="show_hold_to_append_summary">להציג עצה בעת לחיצה על הרקע או על הכפתור של הנגן הצף ב„פרטים:” על הסרטון</string>
     <string name="settings_category_player_title">נגן</string>
     <string name="settings_category_player_behavior_title">התנהגות</string>
     <string name="settings_category_history_title">היסטוריה ומטמון</string>
@@ -147,7 +147,7 @@
     <string name="video">סרטון</string>
     <string name="audio">שמע</string>
     <string name="retry">ניסיון חוזר</string>
-    <string name="storage_permission_denied">הגישה לאחסון נדחתה</string>
+    <string name="storage_permission_denied">יש להעניק גישה לאחסון תחילה</string>
     <string name="short_thousand">ק׳</string>
     <string name="short_million">מ׳</string>
     <string name="short_billion">מיליארד</string>
@@ -216,7 +216,7 @@
     <string name="contribution_encouragement">אם יש לך רעיון כלשהו בנוגע לתרגום, שינויי עיצוב, ניקוי הקוד או שינויים מהותיים בקוד - אנו תמיד שמחים לקבל עזרה. ככל שיותר דברים מתבצעים כך היישומון משתפר!</string>
     <string name="view_on_github">הצגה ב־GitHub</string>
     <string name="donation_title">תרומה</string>
-    <string name="donation_encouragement">הפיתוח של NewPipe נערך ע״י מתנדבים שמשקיעים את זמנם כדי להגיש לך את החוויה הטובה ביותר. באפשרותך להעניק בחזרה כדי לסייע למפתחים לשפר את NewPipe בעודם נהנים מכוס קפה.</string>
+    <string name="donation_encouragement">הפיתוח של NewPipe נערך ע״י מתנדבים שמשקיעים את זמנם הפנוי כדי להגיש לך את חווית השימוש הטובה ביותר. באפשרותך להעניק בחזרה כדי לסייע למפתחים לשפר את NewPipe בעודם נהנים מכוס קפה.</string>
     <string name="give_back">לתרום בחזרה</string>
     <string name="website_title">אתר הבית</string>
     <string name="website_encouragement">מומלץ לבקר באתר של NewPipe לפרטים נוספים ולחדשות.</string>
@@ -338,7 +338,7 @@
     <string name="download_thumbnail_summary">כיבוי האפשרות מונע את טעינת התמונות הממוזערות, חוסך בתקשורת נתונים ובניצולת הזיכרון. שינויים באפשרות זו מוחקים את המטמון בזיכרון ובכונן.</string>
     <string name="metadata_cache_wipe_summary">הסרת כל נתוני העמודים שבמטמון</string>
     <string name="auto_queue_title">הוספת התזרים הבא לרשימת הנגינה אוטומטית</string>
-    <string name="auto_queue_summary">להוסיף אוטומטית תזרים דומה בעת נגינת התזרים האחרון בתור שאינו מחזורי</string>
+    <string name="auto_queue_summary">להמשיך תור נגינה סופית (בלתי מחזורית) על ידי הוספת תזרים קשור</string>
     <string name="toggle_orientation">החלפת כיווניות</string>
     <string name="switch_to_main">העברה לראשי</string>
     <string name="import_data_summary">משכתב את ההיסטוריה והמינויים הנוכחיים שלך</string>
@@ -377,7 +377,7 @@
     <string name="resize_fit">התאמה</string>
     <string name="caption_setting_title">כתוביות</string>
     <string name="caption_setting_description">שינוי גודל כותרת הנגן וסגנונות הרקע. נדרשת הפעלה מחדש כדי ששינויים אלה יכנסו לתוקף.</string>
-    <string name="enable_leak_canary_title">הפעלת LeakCanary</string>
+    <string name="enable_leak_canary_title">LeakCanary</string>
     <string name="enable_leak_canary_summary">מעקב אחר זליגת זיכרון עשויה לגרום ליישומון להיות בלתי זמין בזמן העתקת תוכן הזיכרון לקובץ</string>
     <string name="import_soundcloud_instructions_hint">המזהה שלך, soundcloud.com/המזהה שלך</string>
     <string name="import_network_expensive_warning">נא לשים לב כי פעולה זו עשויה להעמיס על תקשורת הנתונים. 
@@ -399,18 +399,18 @@
     <string name="tab_new">לשונית חדשה</string>
     <string name="tab_choose">בחירת לשונית</string>
     <string name="volume_gesture_control_title">מחוות בקרת עצמת שמע</string>
-    <string name="volume_gesture_control_summary">ניתן להשתמש במחוות כדי לשלוט בעצמת השמע של הנגן</string>
+    <string name="volume_gesture_control_summary">שימוש במחוות כדי לשלוט בעצמת השמע של הנגן</string>
     <string name="brightness_gesture_control_title">מחוות בקרת בהירות</string>
-    <string name="brightness_gesture_control_summary">ניתן להשתמש במחוות כדי לשלוט בבהירות הנגן</string>
+    <string name="brightness_gesture_control_summary">שימוש במחוות כדי לשלוט בבהירות הנגן</string>
     <string name="settings_category_updates_title">עדכונים</string>
     <string name="file_deleted">נמחק קובץ</string>
     <string name="app_update_notification_channel_name">התראת עדכון יישומון</string>
     <string name="app_update_notification_channel_description">התראות על גרסה חדשה של NewPipe</string>
     <string name="download_to_sdcard_error_title">האחסון החיצוני אינו זמין</string>
     <string name="download_to_sdcard_error_message">אין אפשרות להוריד לכרטיס SD. לאפס את מיקום תיקיית ההורדה\?</string>
-    <string name="saved_tabs_invalid_json">נעשה שימוש בלשוניות בררת המחדל, אירעה שגיאה בעת קריאת הלשוניות שנשמרו</string>
+    <string name="saved_tabs_invalid_json">לא ניתן לקרוא לשוניות שמורות, לכן נעשה שימוש באלו של בררת המחדל</string>
     <string name="restore_defaults">שחזור בררות מחדל</string>
-    <string name="restore_defaults_confirmation">לשחזר את בררות המחדל\?</string>
+    <string name="restore_defaults_confirmation">לשחזר בררות מחדל\?</string>
     <string name="subscribers_count_not_available">מספר המנויים אינו זמין</string>
     <string name="main_page_content_summary">אילו לשוניות תופענה בעמוד הראשי</string>
     <string name="selection">בחירה</string>
@@ -456,7 +456,7 @@
     <string name="error_file_creation">לא ניתן ליצור את הקובץ</string>
     <string name="error_path_creation">לא ניתן ליצור את תיקיית היעד</string>
     <string name="error_permission_denied">ההרשאה נדחתה על ידי המערכת</string>
-    <string name="error_ssl_exception">החיבור המאובטח נכשל</string>
+    <string name="error_ssl_exception">לא ניתן להקים חיבור מאובטח</string>
     <string name="error_unknown_host">לא ניתן למצוא את השרת</string>
     <string name="error_connect_host">לא ניתן להתחבר לשרת</string>
     <string name="error_http_no_content">השרת לא שולח נתונים</string>
@@ -470,7 +470,7 @@
     <string name="pause_downloads_on_mobile">לייצר הפרעה ברשתות מדודות</string>
     <string name="pause_downloads_on_mobile_desc">שימושי בעת מעבר לחיבור רשת סלולרית, למרות שישנן הורדות שלא ניתן להשהות</string>
     <string name="show_comments_title">הצגת תגובות</string>
-    <string name="show_comments_summary">יש להשבית כדי להפסיק הצגת תגובות</string>
+    <string name="show_comments_summary">יש להשבית כדי להפסיק הסתרת תגובות</string>
     <string name="autoplay_title">ניגון אוטומטי</string>
     <plurals name="comments">
         <item quantity="one">תגובות</item>
@@ -506,7 +506,7 @@
     <string name="downloads_storage_ask_summary_kitkat">תוצג שאלה היכן לשמור כל הורדה. 
 \nיש להפעיל זאת אם ברצונך להוריד לכרטיס SD חיצוני</string>
     <string name="downloads_storage_use_saf_title">שימוש ב־SAF</string>
-    <string name="downloads_storage_use_saf_summary">תשתית גישה לאחסון מאפשרת הורדות לכרטיס SD חיוני.
+    <string name="downloads_storage_use_saf_summary">‚תשתית גישה לאחסון’ מאפשרת הורדות לכרטיס SD חיצוני. 
 \nלתשומת לבך: חלק מהמכשירים אינם נתמכים</string>
     <string name="clear_playback_states_title">מחיקת מיקומי נגינה</string>
     <string name="clear_playback_states_summary">מחיקת כל מיקומי הנגינה</string>
@@ -532,7 +532,7 @@
     <string name="seek_duration_title">משך קפיצה מהירה קדימה/אחורה</string>
     <string name="peertube_instance_url_title">מופעים של PeerTube</string>
     <string name="peertube_instance_url_summary">נא לבחור את מופעי ה־PeerTube המועדפים עליך</string>
-    <string name="peertube_instance_url_help">איתור המופעים שהכי מתאימים לך תחת %s</string>
+    <string name="peertube_instance_url_help">איתור המופעים האהובים עליך תחת %s</string>
     <string name="peertube_instance_add_title">הוספת מופע</string>
     <string name="peertube_instance_add_help">נא להכניס כתובת מופע</string>
     <string name="peertube_instance_add_fail">לא ניתן לאמת את המופע</string>
@@ -545,8 +545,8 @@
     <string name="recovering">בשחזור</string>
     <string name="error_download_resource_gone">לא ניתן לשחזר את ההורדה הזאת</string>
     <string name="choose_instance_prompt">נא לבחור מופע</string>
-    <string name="enable_lock_screen_video_thumbnail_title">הפעלת תמונה מוקטנת של הסרטון במסך הנעילה</string>
-    <string name="enable_lock_screen_video_thumbnail_summary">בעת השימוש בנגן הרקע תופיע תמונה מוקטנת של הסרטון על מסך הנעילה</string>
+    <string name="enable_lock_screen_video_thumbnail_title">תמונה מוקטנת של הסרטון במסך הנעילה</string>
+    <string name="enable_lock_screen_video_thumbnail_summary">תמונה מוקטנת של הסרטון תופיע על מסך הנעילה בעת שימוש בנגן הרקע</string>
     <string name="clear_download_history">מחיקת היסטוריית ההורדות</string>
     <string name="delete_downloaded_files">למחוק את הקבצים שהורדתי</string>
     <string name="deleted_downloads">נמחקו %1$s הורדות</string>

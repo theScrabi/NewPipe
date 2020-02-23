@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="main_bg_subtitle">Naciśnij Szukaj, aby zacząć</string>
+    <string name="main_bg_subtitle">Naciśnij „Szukaj”, aby zacząć</string>
     <string name="install">Zainstaluj</string>
     <string name="cancel">Anuluj</string>
     <string name="open_in_browser">Otwórz w przeglądarce</string>
@@ -16,7 +16,7 @@
     <string name="use_external_audio_player_title">Użyj zewnętrznego odtwarzacza audio</string>
     <string name="view_count_text">%1$s wyświetleń</string>
     <string name="upload_date_text">Opublikowano %1$s</string>
-    <string name="no_player_found">Nie znaleziono odtwarzacza strumieni. Czy chcesz zainstalować VLC\?</string>
+    <string name="no_player_found">Nie znaleziono odtwarzacza strumieni. Zainstalować VLC\?</string>
     <string name="download_path_title">Folder pobierania wideo</string>
     <string name="download_path_summary">Pobrane pliki wideo są przechowywane tutaj</string>
     <string name="download_path_dialog_title">Wybierz folder pobierania plików wideo</string>
@@ -27,7 +27,7 @@
     <string name="autoplay_by_calling_app_summary">Odtwórz wideo, kiedy NewPipe zostanie wywołany z innej aplikacji</string>
     <string name="default_resolution_title">Domyślna rozdzielczość</string>
     <string name="play_with_kodi_title">Odtwórz w Kodi</string>
-    <string name="kore_not_found">Nie znaleziono aplikacji Kore. Zainstalować ją\?</string>
+    <string name="kore_not_found">Zainstalować brakującą aplikację Kore\?</string>
     <string name="show_play_with_kodi_title">Pokaż opcję „Odtwórz z Kodi”</string>
     <string name="show_play_with_kodi_summary">Wyświetl opcję odtwarzania filmów za pośrednictwem centrum multimedialnego Kodi</string>
     <string name="play_audio">Dźwięk</string>
@@ -65,7 +65,7 @@
     <string name="sorry_string">Przepraszamy, to nie powinno mieć miejsca.</string>
     <string name="error_report_button_text">Zgłoś błąd przez e-mail</string>
     <string name="error_snackbar_message">Przepraszamy, wystąpiły pewne błędy.</string>
-    <string name="error_snackbar_action">ZGŁOŚ</string>
+    <string name="error_snackbar_action">Zgłoś</string>
     <string name="what_device_headline">Informacje:</string>
     <string name="what_happened_headline">Co się stało:</string>
     <string name="info_labels">Co:\\nRequest:\\nJęzyk treści:\\nUsługa:\\nCzas GMT:\\nPakiet:\\nWersja:\\nWersja systemu:</string>
@@ -84,7 +84,7 @@
     <string name="video">Film</string>
     <string name="audio">Dźwięk</string>
     <string name="retry">Ponów</string>
-    <string name="storage_permission_denied">Odmowa dostępu do pamięci</string>
+    <string name="storage_permission_denied">Najpierw udziel dostępu do pamięci</string>
     <string name="pause">Wstrzymaj</string>
     <string name="view">Odtwórz</string>
     <string name="delete">Usuń</string>
@@ -139,7 +139,7 @@
     <string name="msg_popup_permission">To pozwolenie jest wymagane, aby 
 \notworzyć w trybie okienkowym</string>
     <string name="open_in_popup_mode">Odtwórz w trybie okienkowym</string>
-    <string name="popup_mode_share_menu_title">Tryb okienkowy NewPipe</string>
+    <string name="popup_mode_share_menu_title">Tryb okienkowy</string>
     <string name="controls_popup_title">Tryb okienkowy</string>
     <string name="best_resolution">Najlepsza rozdzielczość</string>
     <string name="settings_category_downloads_title">Pobierz</string>
@@ -174,7 +174,7 @@
     <string name="enable_search_history_summary">Zapisuj lokalnie historię wyszukiwania</string>
     <string name="enable_watch_history_title">Historia oglądanych</string>
     <string name="enable_watch_history_summary">Zapisuj historię oglądania</string>
-    <string name="resume_on_audio_focus_gain_title">Wznów gdy na pierwszym planie</string>
+    <string name="resume_on_audio_focus_gain_title">Wznów odtwarzanie</string>
     <string name="resume_on_audio_focus_gain_summary">Kontynuuj odtwarzanie po przerwaniu (np. po rozmowie telefonicznej)</string>
     <string name="notification_channel_name">Powiadomienia NewPipe</string>
     <string name="notification_channel_description">Powiadomienia dla NewPipe w tle i trybie wyskakujących okien odtwarzania</string>
@@ -222,7 +222,7 @@
     </plurals>
     <string name="charset_most_special_characters">Większość znaków specjalnych</string>
     <string name="donation_title">Dotacja</string>
-    <string name="donation_encouragement">NewPipe rozwijane jest przez wolontariuszy, którzy poświęcają swój wolny czas, by zapewnić Ci jak najlepsze wrażenia podczas korzystania z aplikacji. To dobry moment, aby wesprzeć programistów i sprawić, by program był jeszcze lepszy, delektując się filiżanką kawy.</string>
+    <string name="donation_encouragement">NewPipe jest rozwijany przez wolontariuszy, którzy poświęcają swój wolny czas, by zapewnić Ci jak najlepsze wrażenia podczas korzystania z aplikacji. To dobry moment, aby wesprzeć programistów i sprawić, by program był jeszcze lepszy, delektując się filiżanką kawy.</string>
     <string name="give_back">Wspomóż</string>
     <string name="website_title">Witryna</string>
     <string name="website_encouragement">By otrzymać więcej informacji oraz najnowsze wiadomości o NewPipe, odwiedź naszą stronę.</string>
@@ -316,7 +316,7 @@
     <string name="resize_fill">Wypełnij</string>
     <string name="resize_zoom">Powiększ</string>
     <string name="caption_auto_generated">Wygenerowane automatycznie</string>
-    <string name="enable_leak_canary_title">Włącz LeakCanary</string>
+    <string name="enable_leak_canary_title">LeakCanary</string>
     <string name="enable_leak_canary_summary">Monitorowanie wycieków pamięci może powodować niestabilność aplikacji podczas zrzutu pamięci</string>
     <string name="enable_disposed_exceptions_title">Zgłaszanie błędów poza cyklem życia</string>
     <string name="enable_disposed_exceptions_summary">Wymusza raportowanie niedostarczonych wyjątków Rx poza cyklem życia fragmentu lub aktywności</string>
@@ -329,7 +329,7 @@
     <string name="metadata_cache_wipe_summary">Wyczyść pamięć podręczną stron</string>
     <string name="metadata_cache_wipe_complete_notice">Wyczyszczono pamięć podręczną metadanych</string>
     <string name="auto_queue_title">Automatyczne kolejkowanie następnego strumienia</string>
-    <string name="auto_queue_summary">Automatycznie dodaj kolejny powiązany strumień podczas odtwarzania ostatniego strumienia w niezapętlonej kolejce</string>
+    <string name="auto_queue_summary">Kontynuuj kończenie (niepowtarzanie) kolejki odtwarzania, dołączając powiązany strumień</string>
     <string name="file">Plik</string>
     <string name="invalid_directory">Nie ma takiego folderu</string>
     <string name="invalid_source">Nie ma takiego źródła plików/treści</string>
@@ -409,7 +409,7 @@
     <string name="tab_new">Nowa karta</string>
     <string name="tab_choose">Wybierz kartę</string>
     <string name="volume_gesture_control_title">Kontrola gestów głośności</string>
-    <string name="volume_gesture_control_summary">Użyj gestów do sterowania głośnośnością odtwarzania</string>
+    <string name="volume_gesture_control_summary">Użyj gestów do sterowania głośnośnością odtwarzacza</string>
     <string name="brightness_gesture_control_title">Kontrola gestów jasności</string>
     <string name="brightness_gesture_control_summary">Użyj gestów do sterowania jasnością odtwarzacza</string>
     <string name="settings_category_updates_title">Aktualizacje</string>
@@ -418,10 +418,10 @@
     <string name="app_update_notification_channel_description">Powiadomienia o nowej wersji NewPipe</string>
     <string name="download_to_sdcard_error_title">Pamięć zewnętrzna jest niedostępna</string>
     <string name="download_to_sdcard_error_message">Pobieranie na zewnętrzną kartę SD nie jest możliwe. Zresetować lokalizację folderu pobierania\?</string>
-    <string name="saved_tabs_invalid_json">Korzystanie z domyślnych kart, błąd podczas czytania zapisanych kart</string>
+    <string name="saved_tabs_invalid_json">Nie można odczytać zapisanych kart, więc będzie używana domyślna</string>
     <string name="restore_defaults">Przywróć domyślne</string>
     <string name="restore_defaults_confirmation">Czy chcesz przywrócić ustawienia domyślne\?</string>
-    <string name="subscribers_count_not_available">Subskrybenci nie są dostępni</string>
+    <string name="subscribers_count_not_available">Subskrybent jest niedostępny</string>
     <string name="main_page_content_summary">Karty wyświetlane na stronie głównej</string>
     <string name="selection">Wybierz</string>
     <string name="updates_setting_title">Aktualizacje</string>
@@ -451,7 +451,7 @@
     <string name="error_file_creation">Nie można utworzyć pliku</string>
     <string name="error_path_creation">Nie można utworzyć folderu docelowego</string>
     <string name="error_permission_denied">Odmowa dostępu do systemu</string>
-    <string name="error_ssl_exception">Bezpieczne połączenie nie powiodło się</string>
+    <string name="error_ssl_exception">Nie można nawiązać bezpiecznego połączenia</string>
     <string name="error_unknown_host">Nie można znaleźć serwera</string>
     <string name="error_connect_host">Nie można połączyć się z serwerem</string>
     <string name="error_http_no_content">Serwer nie wysyła danych</string>
@@ -468,7 +468,7 @@
     <string name="conferences">Konferencje</string>
     <string name="missions_header_pending">Oczekuje</string>
     <string name="show_comments_title">Pokaż komentarze</string>
-    <string name="show_comments_summary">Wyłącz, aby przestać wyświetlać komentarze</string>
+    <string name="show_comments_summary">Wyłącz, aby ukryć komentarze</string>
     <string name="autoplay_title">Automatyczne odtwarzanie</string>
     <plurals name="comments">
         <item quantity="one">Komentarze</item>
@@ -502,7 +502,7 @@
     <string name="downloads_storage_ask_summary_kitkat">Zostaniesz zapytany, gdzie zapisać każde pobranie.
 \nWybierz SAF, jeśli chcesz pobrać na zewnętrzną kartę SD</string>
     <string name="downloads_storage_use_saf_title">Użyj SAF</string>
-    <string name="downloads_storage_use_saf_summary">Biblioteka dostępu do pamięci pozwala na pobieranie danych na zewnętrzną kartę.
+    <string name="downloads_storage_use_saf_summary">Struktura dostępu do pamięci masowej umożliwia pobieranie danych na zewnętrzną kartę SD. 
 \nUwagi: Niektóre urządzenia nie są kompatybilne</string>
     <string name="clear_playback_states_title">Usuń pozycje odtwarzania</string>
     <string name="clear_playback_states_summary">Usuwa wszystkie pozycje odtwarzania</string>
@@ -526,7 +526,7 @@
     <string name="seek_duration_title">Krok czasu przewijania</string>
     <string name="peertube_instance_url_title">Wystąpienia PeerTube</string>
     <string name="peertube_instance_url_summary">Wybierz swoje ulubione instancje PeerTube</string>
-    <string name="peertube_instance_url_help">Znajdź wystąpienia, które najbardziej Ci odpowiadają na %s</string>
+    <string name="peertube_instance_url_help">Znajdź wystąpienia, które lubisz na %s</string>
     <string name="peertube_instance_add_title">Dodaj instancję</string>
     <string name="peertube_instance_add_help">Wprowadź adres URL instancji</string>
     <string name="peertube_instance_add_fail">Nie można sprawdzić poprawności instancji</string>
@@ -539,8 +539,8 @@
     <string name="recovering">odzyskiwanie</string>
     <string name="error_download_resource_gone">Nie można odzyskać tego pobrania</string>
     <string name="choose_instance_prompt">Wybierz instancję</string>
-    <string name="enable_lock_screen_video_thumbnail_title">Włącz miniaturę wideo na ekranie blokady</string>
-    <string name="enable_lock_screen_video_thumbnail_summary">Podczas korzystania z odtwarzacza w tle na ekranie blokady zostanie wyświetlona miniatura filmu</string>
+    <string name="enable_lock_screen_video_thumbnail_title">Zablokuj miniaturę wideo na ekranie</string>
+    <string name="enable_lock_screen_video_thumbnail_summary">Podczas korzystania z odtwarzacza w tle na ekranie blokady wyświetlana jest miniatura filmu</string>
     <string name="clear_download_history">Wyczyść historię pobierania</string>
     <string name="delete_downloaded_files">Usuń pobrane pliki</string>
     <string name="deleted_downloads">Usunięte %1$s pobrania</string>

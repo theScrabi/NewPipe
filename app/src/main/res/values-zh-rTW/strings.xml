@@ -2,7 +2,7 @@
 <resources>
     <string name="view_count_text">點播 %1$s 次</string>
     <string name="upload_date_text">%1$s 發布</string>
-    <string name="no_player_found">找不到串流播放器，您要安裝 VLC 嗎？</string>
+    <string name="no_player_found">找不到串流播放器。安裝 VLC 嗎？</string>
     <string name="install">安裝</string>
     <string name="cancel">取消</string>
     <string name="open_in_browser">以瀏覽器開啟</string>
@@ -23,7 +23,7 @@
     <string name="play_with_kodi_title">用 Kodi 播放</string>
     <string name="show_play_with_kodi_summary">顯示用 Kodi 媒體中心播放影片的選項</string>
     <string name="play_audio">聲音</string>
-    <string name="kore_not_found">找不到 Kore，您要安裝 Kore 嗎？</string>
+    <string name="kore_not_found">安裝遺失的 Kore 應用程式嗎？</string>
     <string name="show_play_with_kodi_title">顯示「用 Kodi 播放」的選項</string>
     <string name="default_audio_format_title">預設音訊格式</string>
     <string name="theme_title">主題</string>
@@ -52,16 +52,16 @@
     <string name="download_path_audio_dialog_title">選擇音訊檔的下載資料夾</string>
     <string name="err_dir_create">無法建立下載目錄「%1$s」</string>
     <string name="info_dir_created">已建立下載目錄「%1$s」</string>
-    <string name="main_bg_subtitle">輕觸搜尋按鈕開始使用 NewPipe</string>
+    <string name="main_bg_subtitle">輕觸「搜尋」按鈕開始使用</string>
     <string name="open_in_popup_mode">以懸浮視窗開啟</string>
     <string name="use_external_video_player_summary">移除某些解析度的音訊</string>
-    <string name="popup_mode_share_menu_title">NewPipe 懸浮視窗模式</string>
+    <string name="popup_mode_share_menu_title">懸浮視窗模式</string>
     <string name="controls_background_title">背景播放</string>
     <string name="autoplay_by_calling_app_title">自動播放</string>
     <string name="autoplay_by_calling_app_summary">當 NewPipe 被其他應用程式呼叫時播放影片</string>
     <string name="default_popup_resolution_title">懸浮視窗預設解析度</string>
     <string name="show_higher_resolutions_title">顯示更高的解析度</string>
-    <string name="show_higher_resolutions_summary">只有部分裝置能播 2K 及 4K 影片</string>
+    <string name="show_higher_resolutions_summary">僅部份裝置可播放 2K/4K 影片</string>
     <string name="default_video_format_title">預設影片格式</string>
     <string name="black_theme_title">純黑</string>
     <string name="popup_remember_size_pos_title">記住懸浮視窗大小和位置</string>
@@ -74,7 +74,7 @@
     <string name="popup_playing_toast">以懸浮視窗播放中</string>
     <string name="content">內容</string>
     <string name="show_age_restricted_content_title">年齡限制內容</string>
-    <string name="video_is_age_restricted">顯示有年齡限制的影片。可於設定中選擇允許此種內容。</string>
+    <string name="video_is_age_restricted">顯示有年齡限制的影片。未來仍可從設定中變更。</string>
     <string name="downloads">下載</string>
     <string name="downloads_title">下載</string>
     <string name="error_report_title">錯誤回報</string>
@@ -100,7 +100,7 @@
     <string name="could_not_load_image">無法載入圖片</string>
     <string name="app_ui_crash">應用程式或界面已停止運作</string>
     <string name="sorry_string">抱歉，這是不該發生的。</string>
-    <string name="error_report_button_text">使用電子郵件回報錯誤</string>
+    <string name="error_report_button_text">使用電子郵件回報此錯誤</string>
     <string name="error_snackbar_message">抱歉，發生了一些問題。</string>
     <string name="error_snackbar_action">回報</string>
     <string name="what_device_headline">資訊：</string>
@@ -113,7 +113,7 @@
     <string name="video">影片</string>
     <string name="audio">音訊</string>
     <string name="retry">重試</string>
-    <string name="storage_permission_denied">無法存取儲存空間</string>
+    <string name="storage_permission_denied">先授予儲存空間權限</string>
     <string name="short_thousand">k</string>
     <string name="short_million">百萬</string>
     <string name="short_billion">B</string>
@@ -153,7 +153,7 @@
     <string name="enable_search_history_summary">在本機儲存搜尋紀錄</string>
     <string name="enable_watch_history_title">檢視歷史</string>
     <string name="enable_watch_history_summary">記錄觀看過的影片</string>
-    <string name="resume_on_audio_focus_gain_title">取得視窗焦點時繼續播放</string>
+    <string name="resume_on_audio_focus_gain_title">恢復播放</string>
     <string name="resume_on_audio_focus_gain_summary">在干擾結束後繼續播放（例如有來電）</string>
     <string name="settings_category_player_title">播放器</string>
     <string name="settings_category_player_behavior_title">行為</string>
@@ -221,7 +221,7 @@
     <string name="player_stream_failure">無法播放此串流</string>
     <string name="player_unrecoverable_failure">發生無法復原的播放器錯誤</string>
     <string name="player_recoverable_failure">正在從播放器錯誤中復原</string>
-    <string name="show_hold_to_append_summary">在影片詳細資訊頁按下背景播放或懸浮視窗按鈕時顯示提示</string>
+    <string name="show_hold_to_append_summary">按下影片「詳細資訊：」中的背景或懸浮式視窗按鈕時顯示提示</string>
     <string name="external_player_unsupported_link_type">外部播放器不支援此類型連結</string>
     <string name="invalid_url_toast">無效的 URL</string>
     <string name="video_streams_empty">找不到影片串流</string>
@@ -263,7 +263,7 @@
     <string name="start_here_on_background">在背景開始播放</string>
     <string name="start_here_on_popup">在新彈出式視窗中開始播放</string>
     <string name="hold_to_append">長按以新增至佇列</string>
-    <string name="donation_encouragement">NewPipe 由志願者所開發，他們耗費時間務求為您帶來最佳體驗。現在是時候回過頭來，讓我們的開發人員能夠在使 NewPipe 更臻完美的同時，享受一杯咖啡。</string>
+    <string name="donation_encouragement">NewPipe 由志願者所開發，他們花費他們的空閒時間務求為您帶來最佳的使用體驗。現在是時候回過頭來，讓我們的開發人員能夠在使 NewPipe 更臻完美的同時，享受一杯咖啡。</string>
     <string name="drawer_open">打開抽屜</string>
     <string name="drawer_close">關閉抽屜</string>
     <string name="video_player">影片播放器</string>
@@ -306,14 +306,14 @@
     <string name="drawer_header_action_paceholder_text">某些東西即將在此出現 ;D</string>
     <string name="settings_category_debug_title">除錯</string>
     <string name="caption_auto_generated">自動產生</string>
-    <string name="enable_leak_canary_title">啟用 LeakCanary</string>
+    <string name="enable_leak_canary_title">LeakCanary</string>
     <string name="enable_leak_canary_summary">記憶體洩漏監測，在 heap dumping 時可能導致應用程式無法回應</string>
     <string name="enable_disposed_exceptions_title">報告週期不足錯誤</string>
     <string name="enable_disposed_exceptions_summary">強制報告在處理完片段或活動週期外發生的無法傳遞的 Rx 異常</string>
     <string name="use_inexact_seek_title">使用粗略但快速的尋找</string>
     <string name="use_inexact_seek_summary">粗略的尋找能讓播放器以降低的精確度更快找到影片的進度位置</string>
     <string name="auto_queue_title">自動將下一部影片新增至佇列</string>
-    <string name="auto_queue_summary">在非重複播放佇列中最後一個串流開始播放時，自動新增相關串流</string>
+    <string name="auto_queue_summary">透過加入相關的串流來繼續結束的（未重複）播放佇列</string>
     <string name="file">檔案</string>
     <string name="invalid_directory">無效的資料夾</string>
     <string name="invalid_source">無效的檔案/內容來源</string>
@@ -408,7 +408,7 @@
     <string name="app_update_notification_channel_description">新 NewPipe 版本通知</string>
     <string name="download_to_sdcard_error_title">外部儲存不可用</string>
     <string name="download_to_sdcard_error_message">無法下載到外部 SD 卡。重設下載資料夾位置？</string>
-    <string name="saved_tabs_invalid_json">使用預設分頁，讀取已儲存的分頁時發生錯誤</string>
+    <string name="saved_tabs_invalid_json">無法讀取已儲存的分頁，因此使用預設分頁</string>
     <string name="restore_defaults">恢復預設值</string>
     <string name="restore_defaults_confirmation">您想要恢復預設值嗎？</string>
     <string name="subscribers_count_not_available">訂閱數不可用</string>
@@ -442,7 +442,7 @@
     <string name="error_file_creation">無法建立檔案</string>
     <string name="error_path_creation">無法建立目的地資料夾</string>
     <string name="error_permission_denied">被系統拒絕的權限</string>
-    <string name="error_ssl_exception">安全連線失敗</string>
+    <string name="error_ssl_exception">無法建立安全連線</string>
     <string name="error_unknown_host">找不到伺服器</string>
     <string name="error_connect_host">無法連線到伺服器</string>
     <string name="error_http_no_content">伺服器沒有傳送資料</string>
@@ -459,7 +459,7 @@
     <string name="conferences">會議</string>
     <string name="error_timeout">連接超時</string>
     <string name="show_comments_title">顯示留言</string>
-    <string name="show_comments_summary">停用以停止顯示留言</string>
+    <string name="show_comments_summary">關閉以隱藏留言</string>
     <string name="autoplay_title">自動播放</string>
     <plurals name="comments">
         <item quantity="other">留言</item>
@@ -499,7 +499,7 @@
     <string name="drawer_header_description">切換服務，目前已選取：</string>
     <plurals name="videos">
         <item quantity="one">%s 影片</item>
-        <item quantity="other"></item>
+        <item quantity="other"/>
     </plurals>
     <string name="default_kiosk_page_summary">預設 Kiosk</string>
     <string name="no_one_watching">沒有人在看</string>
@@ -516,7 +516,7 @@
     <string name="seek_duration_title">快轉／快退搜尋持續時間</string>
     <string name="peertube_instance_url_title">PeerTube 站臺</string>
     <string name="peertube_instance_url_summary">選取您最愛的 PeerTube 站臺</string>
-    <string name="peertube_instance_url_help">在 %s 上找到最適合您的站臺</string>
+    <string name="peertube_instance_url_help">在 %s 上找到您喜愛的站臺</string>
     <string name="peertube_instance_add_title">新增站臺</string>
     <string name="peertube_instance_add_help">輸入站臺 URL</string>
     <string name="peertube_instance_add_fail">無法驗證站臺</string>
@@ -529,7 +529,7 @@
     <string name="recovering">正在恢復</string>
     <string name="error_download_resource_gone">無法復原此下載</string>
     <string name="choose_instance_prompt">選擇一個站臺</string>
-    <string name="enable_lock_screen_video_thumbnail_title">啟用鎖定畫面影片縮圖</string>
+    <string name="enable_lock_screen_video_thumbnail_title">鎖定畫面影片縮圖</string>
     <string name="enable_lock_screen_video_thumbnail_summary">使用背景播放器時，鎖定畫面上將會顯示影片縮圖</string>
     <string name="clear_download_history">清除下載歷史紀錄</string>
     <string name="delete_downloaded_files">刪除已下載的檔案</string>

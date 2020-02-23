@@ -55,7 +55,13 @@ public final class BackgroundPlayerActivity extends ServicePlayerActivity {
                 return true;
             }
 
-            return switchTo(PopupVideoPlayer.class);
+            this.player.setRecovery();
+            getApplicationContext().sendBroadcast(getPlayerShutdownIntent());
+            getApplicationContext().startService(
+                getSwitchIntent(PopupVideoPlayer.class)
+                    .putExtra(BasePlayer.START_PAUSED, !this.player.isPlaying())
+            );
+            return true;
         }
         return false;
     }
