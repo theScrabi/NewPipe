@@ -249,4 +249,6 @@
     <style name="NavViewTextStyle">
         <item name="android:ellipsize">end</item>
     </style>
+
+    <style name="VideoPlayerTheme" />
 </resources>

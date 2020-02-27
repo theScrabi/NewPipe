@@ -45,9 +45,11 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.DisplayCutout;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowInsets;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -550,6 +552,19 @@ public final class MainVideoPlayer extends AppCompatActivity
                     setInitialGestureValues();
                 }
             });
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                queueLayout.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
+                    @Override
+                    public WindowInsets onApplyWindowInsets(View view, WindowInsets windowInsets) {
+                        final DisplayCutout cutout = windowInsets.getDisplayCutout();
+                        if (cutout != null)
+                            view.setPadding(cutout.getSafeInsetLeft(), cutout.getSafeInsetTop(),
+                                    cutout.getSafeInsetRight(), cutout.getSafeInsetBottom());
+                        return windowInsets;
+                    }
+                });
+            }
         }
 
         public void minimize() {

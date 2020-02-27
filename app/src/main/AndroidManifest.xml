@@ -61,7 +61,8 @@
             android:name=".player.MainVideoPlayer"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask"
+            android:theme="@style/VideoPlayerTheme"/>
 
         <activity
             android:name=".settings.SettingsActivity"

@@ -723,7 +723,7 @@ public class SearchFragment
                                 showError(getString(R.string.url_not_supported_toast), false)));
                 return;
             }
-        } catch (Exception e) {
+        } catch (Exception ignored) {
             // Exception occurred, it's not a url
         }
 
