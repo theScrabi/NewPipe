@@ -3,11 +3,6 @@ package org.schabi.newpipe;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.core.app.NavUtils;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,6 +10,11 @@ import android.webkit.CookieManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NavUtils;
 
 import org.schabi.newpipe.util.ThemeHelper;
 
@@ -137,10 +137,10 @@ public class ReCaptchaActivity extends AppCompatActivity {
     }
 
 
-
     private void handleCookies(String url) {
         String cookies = CookieManager.getInstance().getCookie(url);
-        if (MainActivity.DEBUG) Log.d(TAG, "handleCookies: url=" + url + "; cookies=" + (cookies == null ? "null" : cookies));
+        if (MainActivity.DEBUG)
+            Log.d(TAG, "handleCookies: url=" + url + "; cookies=" + (cookies == null ? "null" : cookies));
         if (cookies == null) return;
 
         addYoutubeCookies(cookies);

@@ -5,15 +5,15 @@ import android.app.AlertDialog.Builder;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
-import android.widget.EditText;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
-import io.reactivex.disposables.Disposable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
+
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 import org.schabi.newpipe.NewPipeDatabase;
@@ -39,6 +39,7 @@ import io.reactivex.Flowable;
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 
 public final class BookmarkFragment
         extends BaseLocalListFragment<List<PlaylistLocalItem>, Void> {
@@ -261,17 +262,17 @@ public final class BookmarkFragment
 
         Builder builder = new AlertDialog.Builder(activity);
         builder.setView(dialogView)
-            .setPositiveButton(R.string.rename_playlist, (dialog, which) -> {
-                changeLocalPlaylistName(selectedItem.uid, editText.getText().toString());
-            })
-            .setNegativeButton(R.string.cancel, null)
-            .setNeutralButton(R.string.delete, (dialog, which) -> {
-                showDeleteDialog(selectedItem.name,
-                    localPlaylistManager.deletePlaylist(selectedItem.uid));
-                dialog.dismiss();
-            })
-            .create()
-            .show();
+                .setPositiveButton(R.string.rename_playlist, (dialog, which) -> {
+                    changeLocalPlaylistName(selectedItem.uid, editText.getText().toString());
+                })
+                .setNegativeButton(R.string.cancel, null)
+                .setNeutralButton(R.string.delete, (dialog, which) -> {
+                    showDeleteDialog(selectedItem.name,
+                            localPlaylistManager.deletePlaylist(selectedItem.uid));
+                    dialog.dismiss();
+                })
+                .create()
+                .show();
     }
 
     private void showDeleteDialog(final String name, final Single<Integer> deleteReactor) {
@@ -297,13 +298,13 @@ public final class BookmarkFragment
 
         if (DEBUG) {
             Log.d(TAG, "Updating playlist id=[" + id +
-                "] with new name=[" + name + "] items");
+                    "] with new name=[" + name + "] items");
         }
 
         localPlaylistManager.renamePlaylist(id, name);
         final Disposable disposable = localPlaylistManager.renamePlaylist(id, name)
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(longs -> {/*Do nothing on success*/}, this::onError);
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(longs -> {/*Do nothing on success*/}, this::onError);
         disposables.add(disposable);
     }
 

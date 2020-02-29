@@ -112,4 +112,5 @@ dependencies {
 
     implementation "io.noties.markwon:core:${markwonVersion}"
     implementation "io.noties.markwon:linkify:${markwonVersion}"
+    implementation "com.github.adrielcafe:AndroidAudioConverter:0.0.8"
 }

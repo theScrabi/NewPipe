@@ -27,6 +27,8 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.AudioManager;
+import android.os.Handler;
+import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
@@ -78,6 +80,9 @@ import org.schabi.newpipe.util.SerializedCache;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
@@ -190,6 +195,17 @@ public abstract class BasePlayer implements
 
     private boolean isPrepared = false;
     private Disposable stateLoader;
+
+    //////////////////////////////////////////////////////////////////////////*/
+
+
+    /*//////////////////////////////////////////////////////////////////////////
+    // Timer
+    //////////////////////////////////////////////////////////////////////////*/
+
+    private Timer timer = new Timer();
+    private int timerHour = 0;
+    private int timerMinute = 0;
 
     //////////////////////////////////////////////////////////////////////////*/
 
@@ -1285,4 +1301,44 @@ public abstract class BasePlayer implements
         return prefs.getBoolean(context.getString(R.string.enable_watch_history_key), true)
                 && prefs.getBoolean(context.getString(R.string.enable_playback_resume_key), true);
     }
+
+    public void setTimer(int hourOfDay, int minute, Context ctx) {
+        long time = ((hourOfDay * 60) + minute) * 60 * 1000;
+        if (time == 0) {
+            Toast.makeText(ctx, ctx.getString(R.string.timer_select_time_message), Toast.LENGTH_SHORT).show();
+            return;
+        }
+        timer.cancel();
+        timer.purge();
+        timerHour = hourOfDay;
+        timerMinute = minute;
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                new Handler(Looper.getMainLooper()).post(() -> {
+                    if (DEBUG) Log.d(TAG, "Timer finished: Stopping the player");
+                    onPause();
+                });
+
+            }
+        }, time);
+        Date d = new Date();
+        d.setTime(System.currentTimeMillis() + time);
+        Toast.makeText(ctx.getApplicationContext(), String.format(ctx.getString(R.string.player_stop_message), d.toString()), Toast.LENGTH_LONG).show();
+    }
+
+    public void cancelTimer() {
+        timer.cancel();
+        timer.purge();
+    }
+
+    public int getHourOfDay() {
+        return this.timerHour;
+    }
+
+    public int getMinutes() {
+        return this.timerMinute;
+    }
+
 }

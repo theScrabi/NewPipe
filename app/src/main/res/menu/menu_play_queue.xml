@@ -24,4 +24,11 @@
         android:orderInCategory="3"
         android:title="@string/switch_to_main"
         app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_set_timer"
+        android:icon="?attr/baseline_timer"
+        android:title="@string/set_timer"
+        android:visible="true"
+        app:showAsAction="ifRoom" />
 </menu>

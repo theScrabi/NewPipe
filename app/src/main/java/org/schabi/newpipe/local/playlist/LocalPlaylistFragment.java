@@ -390,7 +390,7 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
 
         if (DEBUG) {
             Log.d(TAG, "Updating playlist id=[" + playlistId +
-                "] with new name=[" + name + "] items");
+                    "] with new name=[" + name + "] items");
         }
 
         final Disposable disposable = playlistManager.renamePlaylist(playlistId, name)
@@ -408,7 +408,7 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
 
         if (DEBUG) {
             Log.d(TAG, "Updating playlist id=[" + playlistId +
-                "] with new thumbnail url=[" + thumbnailUrl + "]");
+                    "] with new thumbnail url=[" + thumbnailUrl + "]");
         }
 
         final Disposable disposable = playlistManager
@@ -478,7 +478,7 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
 
         if (DEBUG) {
             Log.d(TAG, "Updating playlist id=[" + playlistId +
-                "] with [" + streamIds.size() + "] items");
+                    "] with [" + streamIds.size() + "] items");
         }
 
         final Disposable disposable = playlistManager.updateJoin(playlistId, streamIds)

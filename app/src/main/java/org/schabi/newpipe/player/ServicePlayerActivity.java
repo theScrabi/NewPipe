@@ -1,16 +1,12 @@
 package org.schabi.newpipe.player;
 
+import android.app.TimePickerDialog;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +18,12 @@ import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
@@ -91,6 +93,7 @@ public abstract class ServicePlayerActivity extends AppCompatActivity
 
     private TextView playbackSpeedButton;
     private TextView playbackPitchButton;
+
 
     ////////////////////////////////////////////////////////////////////////////
     // Abstracts
@@ -169,12 +172,20 @@ public abstract class ServicePlayerActivity extends AppCompatActivity
                 this.player.setRecovery();
                 getApplicationContext().sendBroadcast(getPlayerShutdownIntent());
                 getApplicationContext().startActivity(
-                    getSwitchIntent(MainVideoPlayer.class)
-                        .putExtra(BasePlayer.START_PAUSED, !this.player.isPlaying())
+                        getSwitchIntent(MainVideoPlayer.class)
+                                .putExtra(BasePlayer.START_PAUSED, !this.player.isPlaying())
                 );
                 return true;
+            case R.id.action_set_timer:
+                updateTimer(this);
         }
         return onPlayerOptionSelected(item) || super.onOptionsItemSelected(item);
+    }
+
+    private void updateTimer(ServicePlayerActivity servicePlayerActivity) {
+        TimePickerDialog dialog = new TimePickerDialog(servicePlayerActivity, (view, hourOfDay, minute) ->
+                player.setTimer(hourOfDay, minute, getApplicationContext()), player.getHourOfDay(), player.getMinutes(), true);
+        dialog.show();
     }
 
     @Override

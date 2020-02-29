@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/menu_item_done"
-        android:title="@string/recaptcha_done_button"
         android:icon="?attr/ic_done"
-        app:showAsAction="always"/>
+        android:title="@string/recaptcha_done_button"
+        app:showAsAction="always" />
 </menu>

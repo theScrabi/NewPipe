@@ -45,7 +45,8 @@
     <attr name="ic_grid" format="reference"/>
     <attr name="ic_delete" format="reference"/>
     <attr name="ic_settings_update" format="reference"/>
-    <attr name="ic_done" format="reference"/>
+    <attr name="ic_done" format="reference" />
+    <attr name="baseline_timer" format="reference" />
 
     <attr name="progress_horizontal_drawable" format="reference"/>
     <!-- Can't refer to colors directly in drawable's xml-->

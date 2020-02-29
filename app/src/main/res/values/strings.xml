@@ -592,6 +592,10 @@
     <string name="choose_instance_prompt">Choose an instance</string>
     <string name="app_language_title">App language</string>
     <string name="systems_language">System default</string>
+    <!--  Timer Constants  -->
+    <string name="set_timer">Set Timer</string>
+    <string name="player_stop_message">Player will stop at %s</string>
+    <string name="timer_select_time_message">Please select an appropriate time.</string>
     <string name="dynamic_seek_duration_description">%s seconds</string>
     <plurals name="dynamic_seek_duration_description">
         <item quantity="other">%s seconds</item>

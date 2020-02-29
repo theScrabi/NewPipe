@@ -14,7 +14,7 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:titleTextAppearance="@style/Toolbar.Title"/>
+        app:titleTextAppearance="@style/Toolbar.Title" />
 
     <WebView
         android:id="@+id/reCaptchaWebView"
