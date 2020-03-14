@@ -581,6 +581,7 @@
     <string name="pause_downloads_on_mobile">Interrupt on metered networks</string>
     <string name="pause_downloads_on_mobile_desc">Useful when switching to mobile data, although some downloads cannot be suspended</string>
     <string name="close">Close</string>
+	<string name="create_shortcut">Create shortcut</string>
     <string name="enable_queue_limit">Limit download queue</string>
     <string name="enable_queue_limit_desc">One download will run at the same time</string>
     <string name="start_downloads">Start downloads</string>

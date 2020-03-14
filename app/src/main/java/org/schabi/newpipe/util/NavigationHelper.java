@@ -405,14 +405,18 @@ public class NavigationHelper {
         context.startActivity(mIntent);
     }
 
+    public static Intent getChannelIntent(Context context, int serviceId, String url, @Nullable String name) {
+        Intent openIntent = getOpenIntent(context, url, serviceId, StreamingService.LinkType.CHANNEL);
+        if (name != null && !name.isEmpty()) openIntent.putExtra(Constants.KEY_TITLE, name);
+        return openIntent;
+    }
+
     public static void openChannel(Context context, int serviceId, String url) {
         openChannel(context, serviceId, url, null);
     }
 
     public static void openChannel(Context context, int serviceId, String url, String name) {
-        Intent openIntent = getOpenIntent(context, url, serviceId, StreamingService.LinkType.CHANNEL);
-        if (name != null && !name.isEmpty()) openIntent.putExtra(Constants.KEY_TITLE, name);
-        context.startActivity(openIntent);
+        context.startActivity(getChannelIntent(context, serviceId, url, name));
     }
 
     public static void openVideoDetail(Context context, int serviceId, String url) {

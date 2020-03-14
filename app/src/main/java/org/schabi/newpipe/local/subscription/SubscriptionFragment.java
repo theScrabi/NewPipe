@@ -17,15 +17,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentManager;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import androidx.appcompat.app.ActionBar;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -34,6 +25,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.core.content.pm.ShortcutManagerCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.nononsenseapps.filepicker.Utils;
 
@@ -55,6 +57,7 @@ import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.OnClickGesture;
 import org.schabi.newpipe.util.ServiceHelper;
 import org.schabi.newpipe.util.ShareUtils;
+import org.schabi.newpipe.util.ShortcutsHelper;
 import org.schabi.newpipe.util.ThemeHelper;
 import org.schabi.newpipe.views.CollapsibleView;
 
@@ -371,6 +374,10 @@ public class SubscriptionFragment extends BaseStateFragment<List<SubscriptionEnt
                         selectedItem.getServiceId(),
                         selectedItem.getUrl(),
                         selectedItem.getName());
+                final Disposable d = ShortcutsHelper.addShortcut(getContext(), selectedItem);
+                if (d != null) {
+                    disposables.add(d);
+                }
             }
 
             public void held(ChannelInfoItem selectedItem) {
@@ -391,21 +398,23 @@ public class SubscriptionFragment extends BaseStateFragment<List<SubscriptionEnt
         final Activity activity = getActivity();
         if (context == null || context.getResources() == null || getActivity() == null) return;
 
-        final String[] commands = new String[]{
-                context.getResources().getString(R.string.unsubscribe),
-                context.getResources().getString(R.string.share)
-        };
-
+        final ArrayList<String> commands = new ArrayList<>(3);
+        commands.add(context.getResources().getString(R.string.unsubscribe));
+        if (ShortcutManagerCompat.isRequestPinShortcutSupported(context)) {
+            commands.add(context.getResources().getString(R.string.create_shortcut));
+        }
+        commands.add(context.getResources().getString(R.string.share));
         final DialogInterface.OnClickListener actions = (dialogInterface, i) -> {
-            switch (i) {
-                case 0:
-                    deleteChannel(selectedItem);
-                    break;
-                case 1:
-                    shareChannel(selectedItem);
-                    break;
-                default:
-                    break;
+            final int lastIndex = commands.size() -1;
+            if (i == 0) {
+                deleteChannel(selectedItem);
+            } else if (i == lastIndex) {
+                shareChannel(selectedItem);
+            } else {
+                final Disposable d = ShortcutsHelper.pinShortcut(context, selectedItem);
+                if (d != null) {
+                    disposables.add(d);
+                }
             }
         };
 
@@ -420,7 +429,7 @@ public class SubscriptionFragment extends BaseStateFragment<List<SubscriptionEnt
 
         new AlertDialog.Builder(activity)
                 .setCustomTitle(bannerView)
-                .setItems(commands, actions)
+                .setItems(commands.toArray(new String[0]), actions)
                 .create()
                 .show();
 
