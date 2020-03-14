@@ -45,6 +45,7 @@
     <attr name="ic_grid" format="reference"/>
     <attr name="ic_delete" format="reference"/>
     <attr name="ic_settings_update" format="reference"/>
+    <attr name="ic_settings_backup_restore" format="reference"/>
     <attr name="ic_done" format="reference"/>
 
     <attr name="progress_horizontal_drawable" format="reference"/>

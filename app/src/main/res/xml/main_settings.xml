@@ -37,6 +37,12 @@
 
     <PreferenceScreen
         app:iconSpaceReserved="false"
+        android:fragment="org.schabi.newpipe.settings.BackupSettingsFragment"
+        android:icon="?attr/ic_settings_backup_restore"
+        android:title="@string/settings_category_backup_restore_title" />
+
+    <PreferenceScreen
+        app:iconSpaceReserved="false"
         android:fragment="org.schabi.newpipe.settings.UpdateSettingsFragment"
         android:icon="?attr/ic_settings_update"
         android:title="@string/settings_category_updates_title"

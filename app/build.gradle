@@ -66,6 +66,9 @@ ext {
     icepickLibVersion = '3.2.0'
     stethoLibVersion = '1.5.0'
     markwonVersion = '4.2.1'
+    work_version = '2.3.2'
+    zip4j_version = '2.3.2'
+    preference_version = '1.1.0'
 }
 
 dependencies {
@@ -124,6 +127,15 @@ dependencies {
 
     implementation "io.noties.markwon:core:${markwonVersion}"
     implementation "io.noties.markwon:linkify:${markwonVersion}"
+
+    implementation "androidx.work:work-runtime:${work_version}"
+    implementation "androidx.work:work-rxjava2:${work_version}"
+
+    implementation "net.lingala.zip4j:zip4j:${zip4j_version}"
+
+    implementation "androidx.preference:preference:${preference_version}"
+
+    implementation 'com.github.yausername:EncryptedSharedPreferences:1.0.0-beta01'
 }
 
 static String getGitWorkingBranch() {

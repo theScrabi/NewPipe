@@ -129,6 +129,7 @@
     <string name="settings_category_other_title">Other</string>
     <string name="settings_category_debug_title">Debug</string>
     <string name="settings_category_updates_title">Updates</string>
+    <string name="settings_category_backup_restore_title">Backup &amp; Restore</string>
     <string name="background_player_playing_toast">Playing in background</string>
     <string name="popup_playing_toast">Playing in popup mode</string>
     <string name="background_player_append">Queued on background player</string>
@@ -176,6 +177,14 @@
     <string name="switch_to_background">Switch to Background</string>
     <string name="switch_to_popup">Switch to Popup</string>
     <string name="switch_to_main">Switch to Main</string>
+    <string name="auto_backup_title">Auto backup</string>
+    <string name="auto_backup_summary">Enable scheduled backups</string>
+    <string name="auto_backup_path_title">Backup location</string>
+    <string name="auto_backup_frequency_title">Backup frequency</string>
+    <string name="auto_backup_password_title">Password</string>
+    <string name="auto_backup_password_summary">Auto backup password (required)</string>
+    <string name="backup_password_message">Set password to encrypt zip</string>
+    <string name="backup_no_password">No password</string>
     <string name="import_data_title">Import database</string>
     <string name="export_data_title">Export database</string>
     <string name="import_data_summary">Overrides your current history and subscriptions</string>
@@ -398,6 +407,8 @@
     <string name="export_complete_toast">Exported</string>
     <string name="import_complete_toast">Imported</string>
     <string name="no_valid_zip_file">No valid ZIP file</string>
+    <string name="no_valid_password">Invalid password</string>
+    <string name="auto_backup_password_mandatory">Auto backup will not work without a password</string>
     <string name="could_not_import_all_files">Warning: Could not import all files.</string>
     <string name="override_current_data">This will override your current setup.</string>
     <string name="import_settings">Do you want to also import settings?</string>

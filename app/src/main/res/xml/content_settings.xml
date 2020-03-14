@@ -77,16 +77,4 @@
         android:key="@string/show_comments_key"
         android:title="@string/show_comments_title"
         android:summary="@string/show_comments_summary"/>
-
-    <Preference
-        app:iconSpaceReserved="false"
-        android:summary="@string/import_data_summary"
-        android:key="@string/import_data"
-        android:title="@string/import_data_title"/>
-
-    <Preference
-        app:iconSpaceReserved="false"
-        android:title="@string/export_data_title"
-        android:key="@string/export_data"
-        android:summary="@string/export_data_summary"/>
 </PreferenceScreen>

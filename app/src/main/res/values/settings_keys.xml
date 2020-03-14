@@ -193,6 +193,23 @@
     <string name="downloads_storage_ask" translatable="false">downloads_storage_ask</string>
     <string name="storage_use_saf" translatable="false">storage_use_saf</string>
 
+    <string name="scheduled_backups_key" translatable="false">scheduled_backups_key</string>
+    <string name="backup_path_key" translatable="false">backup_path_key</string>
+    <string name="backup_file_name_key" translatable="false">backup_file_name_key</string>
+    <string name="backup_frequency_key" translatable="false">backup_frequency_key</string>
+    <string name="backup_password_key" translatable="false">backup_password_key</string>
+
+    <string-array name="backup_frequency_values" translatable="false">
+        <item>24</item>
+        <item>48</item>
+        <item>168</item>
+    </string-array>
+    <string-array name="backup_frequency_descriptions" translatable="false">
+        <item>24 hours</item>
+        <item>72 hours</item>
+        <item>168 hours</item>
+    </string-array>
+
     <!-- FileName Downloads  -->
     <string name="settings_file_charset_key" translatable="false">file_rename_charset</string>
     <string name="settings_file_replacement_character_key" translatable="false">file_replacement_character</string>

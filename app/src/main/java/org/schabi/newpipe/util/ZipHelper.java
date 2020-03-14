@@ -1,12 +1,11 @@
 package org.schabi.newpipe.util;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
-import java.util.zip.ZipOutputStream;
+import net.lingala.zip4j.ZipFile;
+import net.lingala.zip4j.exception.ZipException;
+import net.lingala.zip4j.model.ZipParameters;
+import net.lingala.zip4j.model.enums.EncryptionMethod;
+
+import org.schabi.newpipe.MainActivity;
 
 /**
  * Created by Christian Schabesberger on 28.01.18.
@@ -30,69 +29,57 @@ import java.util.zip.ZipOutputStream;
 
 public class ZipHelper {
 
-    private static final int BUFFER_SIZE = 2048;
+    private static final String TAG = "ZipHelper";
+    private static final boolean DEBUG = MainActivity.DEBUG;
 
     /**
      * This function helps to create zip files.
      * Caution this will override the original file.
-     * @param outZip The ZipOutputStream where the data should be stored in
+     * @param zipPath The zip path where the data should be stored in
      * @param file The path of the file that should be added to zip.
      * @param name The path of the file inside the zip.
+     * @param password The password of zip file.
      * @throws Exception
      */
-    public static void addFileToZip(ZipOutputStream outZip, String file, String name) throws Exception {
-        byte data[] = new byte[BUFFER_SIZE];
-        FileInputStream fi = new FileInputStream(file);
-        BufferedInputStream inputStream = new BufferedInputStream(fi, BUFFER_SIZE);
-        ZipEntry entry = new ZipEntry(name);
-        outZip.putNextEntry(entry);
-        int count;
-        while((count = inputStream.read(data, 0, BUFFER_SIZE)) != -1) {
-            outZip.write(data, 0, count);
+    public static void addFileToZip(String zipPath, String file, String name, char[] password) throws Exception {
+        ZipParameters zipParameters = new ZipParameters();
+        zipParameters.setFileNameInZip(name);
+        ZipFile zipFile;
+        if(password != null){
+            zipParameters.setEncryptFiles(true);
+            zipParameters.setEncryptionMethod(EncryptionMethod.AES);
+            zipFile = new ZipFile(zipPath, password);
+        }else{
+            zipFile = new ZipFile(zipPath);
         }
-        inputStream.close();
+        zipFile.addFile(file, zipParameters);
     }
 
     /**
      * This will extract data from Zipfiles.
      * Caution this will override the original file.
-     * @param file The path of the file on the disk where the data should be extracted to.
+     * @param zipPath The path of the zip file.
      * @param name The path of the file inside the zip.
+     * @param destDir The path of the directory on disk where the data should be extracted to.
+     * @param password The password of zip file.
      * @return will return true if the file was found within the zip file
      * @throws Exception
      */
-    public static boolean extractFileFromZip(String filePath, String file, String name) throws Exception {
-
-        ZipInputStream inZip = new ZipInputStream(
-                new BufferedInputStream(
-                        new FileInputStream(filePath)));
-
-        byte data[] = new byte[BUFFER_SIZE];
-
-        boolean found = false;
-
-        ZipEntry ze;
-        while((ze = inZip.getNextEntry()) != null) {
-            if(ze.getName().equals(name)) {
-                found = true;
-                // delete old file first
-                File oldFile = new File(file);
-                if(oldFile.exists()) {
-                    if(!oldFile.delete()) {
-                        throw new Exception("Could not delete " + file);
-                    }
-                }
-
-                FileOutputStream outFile = new FileOutputStream(file);
-                int count = 0;
-                while((count = inZip.read(data)) != -1) {
-                    outFile.write(data, 0, count);
-                }
-
-                outFile.close();
-                inZip.closeEntry();
-            }
+    public static boolean extractFileFromZip(String zipPath, String name, String destDir, char[] password) throws Exception {
+        ZipFile zipFile;
+        if(password != null){
+            zipFile = new ZipFile(zipPath, password);
+        }else{
+            zipFile = new ZipFile(zipPath);
         }
-        return found;
+        try {
+            zipFile.extractFile(name, destDir);
+        } catch (ZipException e) {
+            if(("No file found with name " + name + " in zip file").equals(e.getMessage())){
+                return false;
+            }
+            throw e;
+        }
+        return true;
     }
 }
