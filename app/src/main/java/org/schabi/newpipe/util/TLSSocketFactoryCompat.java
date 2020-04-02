@@ -17,8 +17,8 @@ import static org.schabi.newpipe.MainActivity.DEBUG;
 
 
 /**
- * This is an extension of the SSLSocketFactory which enables TLS 1.2 and 1.1.
- * Created for usage on Android 4.1-4.4 devices, which haven't enabled those by default.
+ * This is an extension of the SSLSocketFactory which enables TLS 1.2.
+ * Created for usage on Android 4.1-4.4 devices, which do not have it enabled by default.
  */
 public class TLSSocketFactoryCompat extends SSLSocketFactory {
 
@@ -97,7 +97,7 @@ public class TLSSocketFactoryCompat extends SSLSocketFactory {
 
     private Socket enableTLSOnSocket(Socket socket) {
         if (socket != null && (socket instanceof SSLSocket)) {
-            ((SSLSocket) socket).setEnabledProtocols(new String[]{"TLSv1.1", "TLSv1.2"});
+            ((SSLSocket) socket).setEnabledProtocols(new String[]{"TLSv1.2"});
         }
         return socket;
     }

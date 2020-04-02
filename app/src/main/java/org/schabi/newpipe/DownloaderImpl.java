@@ -176,7 +176,7 @@ public class DownloaderImpl extends Downloader {
     }
 
     /**
-     * Enable TLS 1.2 and 1.1 on Android Kitkat. This function is mostly taken from the documentation of
+     * Enable TLS 1.2 on Android Kitkat. This function is mostly taken from the documentation of
      * OkHttpClient.Builder.sslSocketFactory(_,_)
      * <p>
      * If there is an error, the function will safely fall back to doing nothing and printing the error to the console.
