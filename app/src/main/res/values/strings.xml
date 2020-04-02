@@ -507,6 +507,8 @@
     <string name="limit_mobile_data_usage_value" translatable="false">@string/limit_data_usage_none_key</string>
     <string-array name="limit_data_usage_description_list">
         <item>@string/limit_data_usage_none_description</item>
+        <item>2160p</item>
+        <item>1440p</item>
         <item>1080p60</item>
         <item>1080p</item>
         <item>720p60</item>

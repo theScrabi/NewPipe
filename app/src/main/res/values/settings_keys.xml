@@ -75,6 +75,8 @@
 
     <string-array name="resolution_list_values" translatable="false">
         <item>@string/best_resolution_key</item>
+        <item>2160p</item>
+        <item>1440p</item>
         <item>1080p60</item>
         <item>1080p</item>
         <item>720p60</item>
@@ -86,6 +88,8 @@
     </string-array>
     <string-array name="resolution_list_description" translatable="false">
         <item>@string/best_resolution</item>
+        <item>2160p</item>
+        <item>1440p</item>
         <item>1080p60</item>
         <item>1080p</item>
         <item>720p60</item>
@@ -1097,6 +1101,8 @@
 
     <string-array name="limit_data_usage_values_list">
         <item>@string/limit_data_usage_none_key</item>
+        <item>2160p</item>
+        <item>1440p</item>
         <item>1080p60</item>
         <item>1080p</item>
         <item>720p60</item>
