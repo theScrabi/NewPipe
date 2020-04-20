@@ -46,6 +46,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -124,6 +125,8 @@ public final class MainVideoPlayer extends AppCompatActivity
 
     private ContentObserver rotationObserver;
 
+    private LinearLayout bottomControls;
+
     /*//////////////////////////////////////////////////////////////////////////
     // Activity LifeCycle
     //////////////////////////////////////////////////////////////////////////*/
@@ -181,6 +184,14 @@ public final class MainVideoPlayer extends AppCompatActivity
         getContentResolver().registerContentObserver(
                 Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION),
                 false, rotationObserver);
+
+        bottomControls = findViewById(R.id.bottomControls);
+        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.P){
+            float scale = getResources().getDisplayMetrics().density;
+            int leftRightPx = (int) (16 * scale + 0.5f);
+            int bottomPx = (int)(32 * scale + 0.5f);
+            bottomControls.setPadding(leftRightPx,0,leftRightPx,bottomPx);
+        }
     }
 
     @Override
