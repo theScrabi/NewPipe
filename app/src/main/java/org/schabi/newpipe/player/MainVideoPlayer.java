@@ -92,8 +92,8 @@ import java.util.Queue;
 import java.util.UUID;
 
 import static org.schabi.newpipe.player.BasePlayer.STATE_PLAYING;
-import static org.schabi.newpipe.player.VideoPlayer.DEFAULT_CONTROLS_DURATION;
 import static org.schabi.newpipe.player.VideoPlayer.DEFAULT_CONTROLS_HIDE_TIME;
+import static org.schabi.newpipe.util.AnimationUtils.DEFAULT_SHORT_ANIM_DURATION;
 import static org.schabi.newpipe.util.AnimationUtils.Type.SCALE_AND_ALPHA;
 import static org.schabi.newpipe.util.AnimationUtils.Type.SLIDE_AND_ALPHA;
 import static org.schabi.newpipe.util.AnimationUtils.animateRotation;
@@ -793,9 +793,9 @@ public final class MainVideoPlayer extends AppCompatActivity
 
             if (getCurrentState() != STATE_COMPLETED) {
                 getControlsVisibilityHandler().removeCallbacksAndMessages(null);
-                animateView(getControlsRoot(), true, DEFAULT_CONTROLS_DURATION, 0, () -> {
+                animateView(getControlsRoot(), true, DEFAULT_SHORT_ANIM_DURATION, 0, () -> {
                     if (getCurrentState() == STATE_PLAYING && !isSomePopupMenuVisible()) {
-                        hideControls(DEFAULT_CONTROLS_DURATION, DEFAULT_CONTROLS_HIDE_TIME);
+                        hideControls(DEFAULT_SHORT_ANIM_DURATION, DEFAULT_CONTROLS_HIDE_TIME);
                     }
                 });
             }
@@ -809,13 +809,13 @@ public final class MainVideoPlayer extends AppCompatActivity
             updatePlaybackButtons();
 
             getControlsRoot().setVisibility(View.INVISIBLE);
-            animateView(queueLayout, SLIDE_AND_ALPHA, true, DEFAULT_CONTROLS_DURATION);
+            animateView(queueLayout, SLIDE_AND_ALPHA, true, DEFAULT_SHORT_ANIM_DURATION);
 
             itemsList.scrollToPosition(playQueue.getIndex());
         }
 
         private void onQueueClosed() {
-            animateView(queueLayout, SLIDE_AND_ALPHA, false, DEFAULT_CONTROLS_DURATION);
+            animateView(queueLayout, SLIDE_AND_ALPHA, false, DEFAULT_SHORT_ANIM_DURATION);
             queueVisible = false;
         }
 
@@ -827,11 +827,11 @@ public final class MainVideoPlayer extends AppCompatActivity
             final boolean isMoreControlsVisible
                     = secondaryControls.getVisibility() == View.VISIBLE;
 
-            animateRotation(moreOptionsButton, DEFAULT_CONTROLS_DURATION,
+            animateRotation(moreOptionsButton, DEFAULT_SHORT_ANIM_DURATION,
                     isMoreControlsVisible ? 0 : 180);
             animateView(secondaryControls, SLIDE_AND_ALPHA, !isMoreControlsVisible,
-                    DEFAULT_CONTROLS_DURATION);
-            showControls(DEFAULT_CONTROLS_DURATION);
+                    DEFAULT_SHORT_ANIM_DURATION);
+            showControls(DEFAULT_SHORT_ANIM_DURATION);
             setMuteButton(muteButton, playerImpl.isMuted());
         }
 
@@ -869,7 +869,7 @@ public final class MainVideoPlayer extends AppCompatActivity
         public void onDismiss(final PopupMenu menu) {
             super.onDismiss(menu);
             if (isPlaying()) {
-                hideControls(DEFAULT_CONTROLS_DURATION, 0);
+                hideControls(DEFAULT_SHORT_ANIM_DURATION, 0);
             }
             hideSystemUi();
         }
@@ -919,7 +919,7 @@ public final class MainVideoPlayer extends AppCompatActivity
         // States
         //////////////////////////////////////////////////////////////////////////*/
 
-        private void animatePlayButtons(final boolean show, final int duration) {
+        private void animatePlayButtons(final boolean show, final long duration) {
             animateView(playPauseButton, AnimationUtils.Type.SCALE_AND_ALPHA, show, duration);
             animateView(playPreviousButton, AnimationUtils.Type.SCALE_AND_ALPHA, show, duration);
             animateView(playNextButton, AnimationUtils.Type.SCALE_AND_ALPHA, show, duration);
@@ -929,8 +929,8 @@ public final class MainVideoPlayer extends AppCompatActivity
         public void onBlocked() {
             super.onBlocked();
             playPauseButton.setImageResource(R.drawable.ic_pause_white);
-            animatePlayButtons(false, 100);
-            animateView(closeButton, false, DEFAULT_CONTROLS_DURATION);
+            animatePlayButtons(false, DEFAULT_SHORT_ANIM_DURATION);
+            animateView(closeButton, false, DEFAULT_SHORT_ANIM_DURATION);
             getRootView().setKeepScreenOn(true);
         }
 
@@ -943,10 +943,11 @@ public final class MainVideoPlayer extends AppCompatActivity
         @Override
         public void onPlaying() {
             super.onPlaying();
-            animateView(playPauseButton, AnimationUtils.Type.SCALE_AND_ALPHA, false, 80, 0, () -> {
+            animateView(playPauseButton, AnimationUtils.Type.SCALE_AND_ALPHA, false,
+                    DEFAULT_SHORT_ANIM_DURATION, 0, () -> {
                 playPauseButton.setImageResource(R.drawable.ic_pause_white);
-                animatePlayButtons(true, 200);
-                animateView(closeButton, false, DEFAULT_CONTROLS_DURATION);
+                animatePlayButtons(true, DEFAULT_SHORT_ANIM_DURATION);
+                animateView(closeButton, false, DEFAULT_SHORT_ANIM_DURATION);
             });
 
             getRootView().setKeepScreenOn(true);
@@ -955,10 +956,11 @@ public final class MainVideoPlayer extends AppCompatActivity
         @Override
         public void onPaused() {
             super.onPaused();
-            animateView(playPauseButton, AnimationUtils.Type.SCALE_AND_ALPHA, false, 80, 0, () -> {
+            animateView(playPauseButton, AnimationUtils.Type.SCALE_AND_ALPHA, false,
+                    DEFAULT_SHORT_ANIM_DURATION, 0, () -> {
                 playPauseButton.setImageResource(R.drawable.ic_play_arrow_white);
-                animatePlayButtons(true, 200);
-                animateView(closeButton, false, DEFAULT_CONTROLS_DURATION);
+                animatePlayButtons(true, DEFAULT_SHORT_ANIM_DURATION);
+                animateView(closeButton, false, DEFAULT_SHORT_ANIM_DURATION);
             });
 
             showSystemUi();
@@ -968,17 +970,18 @@ public final class MainVideoPlayer extends AppCompatActivity
         @Override
         public void onPausedSeek() {
             super.onPausedSeek();
-            animatePlayButtons(false, 100);
+            animatePlayButtons(false, DEFAULT_SHORT_ANIM_DURATION);
             getRootView().setKeepScreenOn(true);
         }
 
 
         @Override
         public void onCompleted() {
-            animateView(playPauseButton, AnimationUtils.Type.SCALE_AND_ALPHA, false, 0, 0, () -> {
+            animateView(playPauseButton, AnimationUtils.Type.SCALE_AND_ALPHA, false,
+                    DEFAULT_SHORT_ANIM_DURATION, 0, () -> {
                 playPauseButton.setImageResource(R.drawable.ic_replay_white);
-                animatePlayButtons(true, DEFAULT_CONTROLS_DURATION);
-                animateView(closeButton, true, DEFAULT_CONTROLS_DURATION);
+                animatePlayButtons(true, DEFAULT_SHORT_ANIM_DURATION);
+                animateView(closeButton, true, DEFAULT_SHORT_ANIM_DURATION);
             });
             getRootView().setKeepScreenOn(false);
             super.onCompleted();
@@ -1221,7 +1224,7 @@ public final class MainVideoPlayer extends AppCompatActivity
             }
 
             if (playerImpl.isControlsVisible()) {
-                playerImpl.hideControls(150, 0);
+                playerImpl.hideControls(DEFAULT_SHORT_ANIM_DURATION, 0);
             } else {
                 playerImpl.showControlsThenHide();
                 showSystemUi();
@@ -1293,7 +1296,8 @@ public final class MainVideoPlayer extends AppCompatActivity
                 );
 
                 if (playerImpl.getVolumeRelativeLayout().getVisibility() != View.VISIBLE) {
-                    animateView(playerImpl.getVolumeRelativeLayout(), SCALE_AND_ALPHA, true, 200);
+                    animateView(playerImpl.getVolumeRelativeLayout(), SCALE_AND_ALPHA, true,
+                            DEFAULT_SHORT_ANIM_DURATION);
                 }
                 if (playerImpl.getBrightnessRelativeLayout().getVisibility() == View.VISIBLE) {
                     playerImpl.getBrightnessRelativeLayout().setVisibility(View.GONE);
@@ -1315,8 +1319,8 @@ public final class MainVideoPlayer extends AppCompatActivity
                 final int resId = currentProgressPercent < 0.25
                         ? R.drawable.ic_brightness_low_white_72dp
                         : currentProgressPercent < 0.75
-                                ? R.drawable.ic_brightness_medium_white_72dp
-                                : R.drawable.ic_brightness_high_white_72dp;
+                        ? R.drawable.ic_brightness_medium_white_72dp
+                        : R.drawable.ic_brightness_high_white_72dp;
 
                 playerImpl.getBrightnessImageView().setImageDrawable(
                         AppCompatResources.getDrawable(getApplicationContext(), resId)
@@ -1324,7 +1328,7 @@ public final class MainVideoPlayer extends AppCompatActivity
 
                 if (playerImpl.getBrightnessRelativeLayout().getVisibility() != View.VISIBLE) {
                     animateView(playerImpl.getBrightnessRelativeLayout(), SCALE_AND_ALPHA, true,
-                            200);
+                            DEFAULT_SHORT_ANIM_DURATION);
                 }
                 if (playerImpl.getVolumeRelativeLayout().getVisibility() == View.VISIBLE) {
                     playerImpl.getVolumeRelativeLayout().setVisibility(View.GONE);
@@ -1340,15 +1344,15 @@ public final class MainVideoPlayer extends AppCompatActivity
 
             if (playerImpl.getVolumeRelativeLayout().getVisibility() == View.VISIBLE) {
                 animateView(playerImpl.getVolumeRelativeLayout(), SCALE_AND_ALPHA, false,
-                        200, 200);
+                        DEFAULT_SHORT_ANIM_DURATION, 200);
             }
             if (playerImpl.getBrightnessRelativeLayout().getVisibility() == View.VISIBLE) {
                 animateView(playerImpl.getBrightnessRelativeLayout(), SCALE_AND_ALPHA, false,
-                        200, 200);
+                        DEFAULT_SHORT_ANIM_DURATION, 200);
             }
 
             if (playerImpl.isControlsVisible() && playerImpl.getCurrentState() == STATE_PLAYING) {
-                playerImpl.hideControls(DEFAULT_CONTROLS_DURATION, DEFAULT_CONTROLS_HIDE_TIME);
+                playerImpl.hideControls(DEFAULT_SHORT_ANIM_DURATION, DEFAULT_CONTROLS_HIDE_TIME);
             }
         }
 

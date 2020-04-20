@@ -15,7 +15,6 @@ import org.schabi.newpipe.database.stream.model.StreamStateEntity;
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.local.LocalItemBuilder;
 import org.schabi.newpipe.local.history.HistoryRecordManager;
-import org.schabi.newpipe.util.AnimationUtils;
 import org.schabi.newpipe.util.ImageDisplayConstants;
 import org.schabi.newpipe.util.Localization;
 import org.schabi.newpipe.views.AnimatedProgressBar;
@@ -24,6 +23,8 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+import static org.schabi.newpipe.util.AnimationUtils.DEFAULT_SHORT_ANIM_DURATION;
+import static org.schabi.newpipe.util.AnimationUtils.animateView;
 /*
  * Created by Christian Schabesberger on 01.08.16.
  * <p>
@@ -100,8 +101,8 @@ public class LocalStatisticStreamItemHolder extends LocalItemHolder {
 
             StreamStateEntity state = historyRecordManager
                     .loadLocalStreamStateBatch(new ArrayList<LocalItem>() {{
-                add(localItem);
-            }}).blockingGet().get(0);
+                        add(localItem);
+                    }}).blockingGet().get(0);
             if (state != null) {
                 itemProgressView.setVisibility(View.VISIBLE);
                 itemProgressView.setMax((int) item.getStreamEntity().getDuration());
@@ -148,8 +149,8 @@ public class LocalStatisticStreamItemHolder extends LocalItemHolder {
 
         StreamStateEntity state = historyRecordManager
                 .loadLocalStreamStateBatch(new ArrayList<LocalItem>() {{
-            add(localItem);
-        }}).blockingGet().get(0);
+                    add(localItem);
+                }}).blockingGet().get(0);
         if (state != null && item.getStreamEntity().getDuration() > 0) {
             itemProgressView.setMax((int) item.getStreamEntity().getDuration());
             if (itemProgressView.getVisibility() == View.VISIBLE) {
@@ -158,10 +159,10 @@ public class LocalStatisticStreamItemHolder extends LocalItemHolder {
             } else {
                 itemProgressView.setProgress((int) TimeUnit.MILLISECONDS
                         .toSeconds(state.getProgressTime()));
-                AnimationUtils.animateView(itemProgressView, true, 500);
+                animateView(itemProgressView, true, DEFAULT_SHORT_ANIM_DURATION);
             }
         } else if (itemProgressView.getVisibility() == View.VISIBLE) {
-            AnimationUtils.animateView(itemProgressView, false, 500);
+            animateView(itemProgressView, false, DEFAULT_SHORT_ANIM_DURATION);
         }
     }
 }

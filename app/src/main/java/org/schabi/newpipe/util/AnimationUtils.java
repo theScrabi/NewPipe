@@ -38,6 +38,8 @@ import org.schabi.newpipe.MainActivity;
 public final class AnimationUtils {
     private static final String TAG = "AnimationUtils";
     private static final boolean DEBUG = MainActivity.DEBUG;
+    public static final long DEFAULT_SHORT_ANIM_DURATION = 250;
+    public static final long DEFAULT_LONG_ANIM_DURATION = 1000;
 
     private AnimationUtils() { }
 

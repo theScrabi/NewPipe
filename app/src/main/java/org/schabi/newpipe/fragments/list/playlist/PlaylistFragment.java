@@ -56,6 +56,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.disposables.Disposables;
 
+import static org.schabi.newpipe.util.AnimationUtils.DEFAULT_SHORT_ANIM_DURATION;
 import static org.schabi.newpipe.util.AnimationUtils.animateView;
 
 public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
@@ -266,19 +267,19 @@ public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
     @Override
     public void showLoading() {
         super.showLoading();
-        animateView(headerRootLayout, false, 200);
-        animateView(itemsList, false, 100);
+        animateView(headerRootLayout, false, DEFAULT_SHORT_ANIM_DURATION);
+        animateView(itemsList, false, DEFAULT_SHORT_ANIM_DURATION);
 
         IMAGE_LOADER.cancelDisplayTask(headerUploaderAvatar);
-        animateView(headerUploaderLayout, false, 200);
+        animateView(headerUploaderLayout, false, DEFAULT_SHORT_ANIM_DURATION);
     }
 
     @Override
     public void handleResult(@NonNull final PlaylistInfo result) {
         super.handleResult(result);
 
-        animateView(headerRootLayout, true, 100);
-        animateView(headerUploaderLayout, true, 300);
+        animateView(headerRootLayout, true, DEFAULT_SHORT_ANIM_DURATION);
+        animateView(headerUploaderLayout, true, DEFAULT_SHORT_ANIM_DURATION);
         headerUploaderLayout.setOnClickListener(null);
         // If we have an uploader put them into the UI
         if (!TextUtils.isEmpty(result.getUploaderName())) {

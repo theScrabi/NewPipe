@@ -20,6 +20,7 @@ import org.schabi.newpipe.R;
 import org.schabi.newpipe.fragments.BaseStateFragment;
 import org.schabi.newpipe.fragments.list.ListViewContract;
 
+import static org.schabi.newpipe.util.AnimationUtils.DEFAULT_SHORT_ANIM_DURATION;
 import static org.schabi.newpipe.util.AnimationUtils.animateView;
 
 /**
@@ -178,10 +179,10 @@ public abstract class BaseLocalListFragment<I, N> extends BaseStateFragment<I>
     public void showLoading() {
         super.showLoading();
         if (itemsList != null) {
-            animateView(itemsList, false, 200);
+            animateView(itemsList, false, DEFAULT_SHORT_ANIM_DURATION);
         }
         if (headerRootView != null) {
-            animateView(headerRootView, false, 200);
+            animateView(headerRootView, false, DEFAULT_SHORT_ANIM_DURATION);
         }
     }
 
@@ -189,10 +190,10 @@ public abstract class BaseLocalListFragment<I, N> extends BaseStateFragment<I>
     public void hideLoading() {
         super.hideLoading();
         if (itemsList != null) {
-            animateView(itemsList, true, 200);
+            animateView(itemsList, true, DEFAULT_SHORT_ANIM_DURATION);
         }
         if (headerRootView != null) {
-            animateView(headerRootView, true, 200);
+            animateView(headerRootView, true, DEFAULT_SHORT_ANIM_DURATION);
         }
     }
 
@@ -202,10 +203,10 @@ public abstract class BaseLocalListFragment<I, N> extends BaseStateFragment<I>
         showListFooter(false);
 
         if (itemsList != null) {
-            animateView(itemsList, false, 200);
+            animateView(itemsList, false, DEFAULT_SHORT_ANIM_DURATION);
         }
         if (headerRootView != null) {
-            animateView(headerRootView, false, 200);
+            animateView(headerRootView, false, DEFAULT_SHORT_ANIM_DURATION);
         }
     }
 

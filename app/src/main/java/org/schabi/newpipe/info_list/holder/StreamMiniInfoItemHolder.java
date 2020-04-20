@@ -14,12 +14,14 @@ import org.schabi.newpipe.extractor.stream.StreamInfoItem;
 import org.schabi.newpipe.extractor.stream.StreamType;
 import org.schabi.newpipe.info_list.InfoItemBuilder;
 import org.schabi.newpipe.local.history.HistoryRecordManager;
-import org.schabi.newpipe.util.AnimationUtils;
 import org.schabi.newpipe.util.ImageDisplayConstants;
 import org.schabi.newpipe.util.Localization;
 import org.schabi.newpipe.views.AnimatedProgressBar;
 
 import java.util.concurrent.TimeUnit;
+
+import static org.schabi.newpipe.util.AnimationUtils.DEFAULT_SHORT_ANIM_DURATION;
+import static org.schabi.newpipe.util.AnimationUtils.animateView;
 
 public class StreamMiniInfoItemHolder extends InfoItemHolder {
     public final ImageView itemThumbnailView;
@@ -123,10 +125,10 @@ public class StreamMiniInfoItemHolder extends InfoItemHolder {
             } else {
                 itemProgressView.setProgress((int) TimeUnit.MILLISECONDS
                         .toSeconds(state.getProgressTime()));
-                AnimationUtils.animateView(itemProgressView, true, 500);
+                animateView(itemProgressView, true, DEFAULT_SHORT_ANIM_DURATION);
             }
         } else if (itemProgressView.getVisibility() == View.VISIBLE) {
-            AnimationUtils.animateView(itemProgressView, false, 500);
+            animateView(itemProgressView, false, DEFAULT_SHORT_ANIM_DURATION);
         }
     }
 

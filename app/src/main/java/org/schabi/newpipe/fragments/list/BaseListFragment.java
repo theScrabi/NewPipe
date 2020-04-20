@@ -39,6 +39,7 @@ import org.schabi.newpipe.util.StreamDialogEntry;
 import java.util.List;
 import java.util.Queue;
 
+import static org.schabi.newpipe.util.AnimationUtils.DEFAULT_SHORT_ANIM_DURATION;
 import static org.schabi.newpipe.util.AnimationUtils.animateView;
 
 public abstract class BaseListFragment<I, N> extends BaseStateFragment<I>
@@ -116,8 +117,8 @@ public abstract class BaseListFragment<I, N> extends BaseStateFragment<I>
     /**
      * If the default implementation of {@link StateSaver.WriteRead} should be used.
      *
-     * @see StateSaver
      * @param useDefaultStateSaving Whether the default implementation should be used
+     * @see StateSaver
      */
     public void setUseDefaultStateSaving(final boolean useDefaultStateSaving) {
         this.useDefaultStateSaving = useDefaultStateSaving;
@@ -354,14 +355,14 @@ public abstract class BaseListFragment<I, N> extends BaseStateFragment<I>
     @Override
     public void hideLoading() {
         super.hideLoading();
-        animateView(itemsList, true, 300);
+        animateView(itemsList, true, DEFAULT_SHORT_ANIM_DURATION);
     }
 
     @Override
     public void showError(final String message, final boolean showRetryButton) {
         super.showError(message, showRetryButton);
         showListFooter(false);
-        animateView(itemsList, false, 200);
+        animateView(itemsList, false, DEFAULT_SHORT_ANIM_DURATION);
     }
 
     @Override

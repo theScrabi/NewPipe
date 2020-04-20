@@ -61,6 +61,7 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
+import static org.schabi.newpipe.util.AnimationUtils.DEFAULT_SHORT_ANIM_DURATION;
 import static org.schabi.newpipe.util.AnimationUtils.animateBackgroundColor;
 import static org.schabi.newpipe.util.AnimationUtils.animateTextColor;
 import static org.schabi.newpipe.util.AnimationUtils.animateView;
@@ -225,7 +226,7 @@ public class ChannelFragment extends BaseListInfoFragment<ChannelInfo> {
 
     private void monitorSubscription(final ChannelInfo info) {
         final Consumer<Throwable> onError = (Throwable throwable) -> {
-            animateView(headerSubscribeButton, false, 100);
+            animateView(headerSubscribeButton, false, DEFAULT_SHORT_ANIM_DURATION);
             showSnackBarError(throwable, UserAction.SUBSCRIPTION,
                     NewPipe.getNameOfService(currentInfo.getServiceId()),
                     "Get subscription status", 0);
@@ -377,7 +378,8 @@ public class ChannelFragment extends BaseListInfoFragment<ChannelInfo> {
             animateTextColor(headerSubscribeButton, textDuration, subscribeText, subscribedText);
         }
 
-        animateView(headerSubscribeButton, AnimationUtils.Type.LIGHT_SCALE_AND_ALPHA, true, 100);
+        animateView(headerSubscribeButton, AnimationUtils.Type.LIGHT_SCALE_AND_ALPHA,
+                true, DEFAULT_SHORT_ANIM_DURATION);
     }
 
     /*//////////////////////////////////////////////////////////////////////////
@@ -404,7 +406,7 @@ public class ChannelFragment extends BaseListInfoFragment<ChannelInfo> {
 
         IMAGE_LOADER.cancelDisplayTask(headerChannelBanner);
         IMAGE_LOADER.cancelDisplayTask(headerAvatarView);
-        animateView(headerSubscribeButton, false, 100);
+        animateView(headerSubscribeButton, false, DEFAULT_SHORT_ANIM_DURATION);
     }
 
     @Override

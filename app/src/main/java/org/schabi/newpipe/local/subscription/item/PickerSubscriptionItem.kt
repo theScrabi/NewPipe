@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.picker_subscription_item.*
 import org.schabi.newpipe.R
 import org.schabi.newpipe.database.subscription.SubscriptionEntity
 import org.schabi.newpipe.util.AnimationUtils
+import org.schabi.newpipe.util.AnimationUtils.DEFAULT_SHORT_ANIM_DURATION
 import org.schabi.newpipe.util.AnimationUtils.animateView
 import org.schabi.newpipe.util.ImageDisplayConstants
 
@@ -23,7 +24,7 @@ data class PickerSubscriptionItem(val subscriptionEntity: SubscriptionEntity, va
 
     override fun bind(viewHolder: GroupieViewHolder, position: Int, payloads: MutableList<Any>) {
         if (payloads.contains(UPDATE_SELECTED)) {
-            animateView(viewHolder.selected_highlight, AnimationUtils.Type.LIGHT_SCALE_AND_ALPHA, isSelected, 150)
+            animateView(viewHolder.selected_highlight, AnimationUtils.Type.LIGHT_SCALE_AND_ALPHA, isSelected, DEFAULT_SHORT_ANIM_DURATION)
             return
         }
 

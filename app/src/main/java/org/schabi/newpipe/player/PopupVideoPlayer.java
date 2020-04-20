@@ -79,8 +79,8 @@ import org.schabi.newpipe.util.ThemeHelper;
 import java.util.List;
 
 import static org.schabi.newpipe.player.BasePlayer.STATE_PLAYING;
-import static org.schabi.newpipe.player.VideoPlayer.DEFAULT_CONTROLS_DURATION;
 import static org.schabi.newpipe.player.VideoPlayer.DEFAULT_CONTROLS_HIDE_TIME;
+import static org.schabi.newpipe.util.AnimationUtils.DEFAULT_SHORT_ANIM_DURATION;
 import static org.schabi.newpipe.util.AnimationUtils.animateView;
 import static org.schabi.newpipe.util.Localization.assureCorrectAppLanguage;
 
@@ -668,7 +668,7 @@ public final class PopupVideoPlayer extends Service {
         public void onDismiss(final PopupMenu menu) {
             super.onDismiss(menu);
             if (isPlaying()) {
-                hideControls(500, 0);
+                hideControls(DEFAULT_SHORT_ANIM_DURATION, 0);
             }
         }
 
@@ -685,7 +685,7 @@ public final class PopupVideoPlayer extends Service {
         public void onStopTrackingTouch(final SeekBar seekBar) {
             super.onStopTrackingTouch(seekBar);
             if (wasPlaying()) {
-                hideControls(100, 0);
+                hideControls(DEFAULT_SHORT_ANIM_DURATION, 0);
             }
         }
 
@@ -911,7 +911,7 @@ public final class PopupVideoPlayer extends Service {
             updateNotification(R.drawable.ic_pause_white);
 
             videoPlayPause.setBackgroundResource(R.drawable.ic_pause_white);
-            hideControls(DEFAULT_CONTROLS_DURATION, DEFAULT_CONTROLS_HIDE_TIME);
+            hideControls(DEFAULT_SHORT_ANIM_DURATION, DEFAULT_CONTROLS_HIDE_TIME);
 
             startForeground(NOTIFICATION_ID, notBuilder.build());
             lockManager.acquireWifiAndCpu();
@@ -1030,7 +1030,7 @@ public final class PopupVideoPlayer extends Service {
                 return false;
             }
 
-            playerImpl.hideControls(0, 0);
+            playerImpl.hideControls(DEFAULT_SHORT_ANIM_DURATION, 0);
 
             if (e.getX() > popupWidth / 2) {
                 playerImpl.onFastForward();
@@ -1050,7 +1050,7 @@ public final class PopupVideoPlayer extends Service {
                 return false;
             }
             if (playerImpl.isControlsVisible()) {
-                playerImpl.hideControls(100, 100);
+                playerImpl.hideControls(DEFAULT_SHORT_ANIM_DURATION, 100);
             } else {
                 playerImpl.showControlsThenHide();
 
@@ -1093,7 +1093,7 @@ public final class PopupVideoPlayer extends Service {
             }
 
             if (!isMoving) {
-                animateView(closeOverlayButton, true, 200);
+                animateView(closeOverlayButton, true, DEFAULT_SHORT_ANIM_DURATION);
             }
 
             isMoving = true;
@@ -1121,11 +1121,11 @@ public final class PopupVideoPlayer extends Service {
             final View closingOverlayView = playerImpl.getClosingOverlayView();
             if (isInsideClosingRadius(movingEvent)) {
                 if (closingOverlayView.getVisibility() == View.GONE) {
-                    animateView(closingOverlayView, true, 250);
+                    animateView(closingOverlayView, true, DEFAULT_SHORT_ANIM_DURATION);
                 }
             } else {
                 if (closingOverlayView.getVisibility() == View.VISIBLE) {
-                    animateView(closingOverlayView, false, 0);
+                    animateView(closingOverlayView, false, DEFAULT_SHORT_ANIM_DURATION);
                 }
             }
 
@@ -1154,16 +1154,16 @@ public final class PopupVideoPlayer extends Service {
                 return;
             }
             if (playerImpl.isControlsVisible() && playerImpl.getCurrentState() == STATE_PLAYING) {
-                playerImpl.hideControls(DEFAULT_CONTROLS_DURATION, DEFAULT_CONTROLS_HIDE_TIME);
+                playerImpl.hideControls(DEFAULT_SHORT_ANIM_DURATION, DEFAULT_CONTROLS_HIDE_TIME);
             }
 
             if (isInsideClosingRadius(event)) {
                 closePopup();
             } else {
-                animateView(playerImpl.getClosingOverlayView(), false, 0);
+                animateView(playerImpl.getClosingOverlayView(), false, DEFAULT_SHORT_ANIM_DURATION);
 
                 if (!isPopupClosing) {
-                    animateView(closeOverlayButton, false, 200);
+                    animateView(closeOverlayButton, false, DEFAULT_SHORT_ANIM_DURATION);
                 }
             }
         }
@@ -1207,9 +1207,11 @@ public final class PopupVideoPlayer extends Service {
                 playerImpl.showAndAnimateControl(-1, true);
                 playerImpl.getLoadingPanel().setVisibility(View.GONE);
 
-                playerImpl.hideControls(0, 0);
-                animateView(playerImpl.getCurrentDisplaySeek(), false, 0, 0);
-                animateView(playerImpl.getResizingIndicator(), true, 200, 0);
+                playerImpl.hideControls(DEFAULT_SHORT_ANIM_DURATION, 0);
+                animateView(playerImpl.getCurrentDisplaySeek(), false,
+                        DEFAULT_SHORT_ANIM_DURATION, 0);
+                animateView(playerImpl.getResizingIndicator(), true,
+                        DEFAULT_SHORT_ANIM_DURATION, 0);
 
                 //record co-ordinates of fingers
                 initFirstPointerX = event.getX(0);
@@ -1218,7 +1220,7 @@ public final class PopupVideoPlayer extends Service {
                 initSecPointerY = event.getY(1);
                 //record distance between fingers
                 initPointerDistance = Math.hypot(initFirstPointerX - initSecPointerX,
-                                                 initFirstPointerY - initSecPointerY);
+                        initFirstPointerY - initSecPointerY);
 
                 isResizing = true;
             }
@@ -1250,7 +1252,8 @@ public final class PopupVideoPlayer extends Service {
                     initSecPointerX = -1;
                     initSecPointerY = -1;
 
-                    animateView(playerImpl.getResizingIndicator(), false, 100, 0);
+                    animateView(playerImpl.getResizingIndicator(), false,
+                            DEFAULT_SHORT_ANIM_DURATION, 0);
                     playerImpl.changeState(playerImpl.getCurrentState());
                 }
 

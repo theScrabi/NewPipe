@@ -104,6 +104,8 @@ import io.reactivex.schedulers.Schedulers;
 
 import static org.schabi.newpipe.extractor.StreamingService.ServiceInfo.MediaCapability.COMMENTS;
 import static org.schabi.newpipe.extractor.stream.StreamExtractor.NO_AGE_LIMIT;
+import static org.schabi.newpipe.util.AnimationUtils.DEFAULT_LONG_ANIM_DURATION;
+import static org.schabi.newpipe.util.AnimationUtils.DEFAULT_SHORT_ANIM_DURATION;
 import static org.schabi.newpipe.util.AnimationUtils.animateView;
 
 public class VideoDetailFragment extends BaseStateFragment<StreamInfo>
@@ -564,8 +566,8 @@ public class VideoDetailFragment extends BaseStateFragment<StreamInfo>
             }
 
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                animateView(appendControlsDetail, true, 250, 0, () ->
-                        animateView(appendControlsDetail, false, 1500, 1000));
+                animateView(appendControlsDetail, true, DEFAULT_SHORT_ANIM_DURATION, 0, () ->
+                        animateView(appendControlsDetail, false, DEFAULT_LONG_ANIM_DURATION, 1000));
             }
             return false;
         };
@@ -639,6 +641,8 @@ public class VideoDetailFragment extends BaseStateFragment<StreamInfo>
         switch (id) {
             case R.id.menu_item_share:
                 if (currentInfo != null) {
+                    Log.i(TAG, "onOptionsItemSelected: " + currentInfo.getUrl());
+                    Log.i(TAG, "onOptionsItemSelected: " + currentInfo.getOriginalUrl());
                     ShareUtils.shareUrl(requireContext(), currentInfo.getName(),
                             currentInfo.getOriginalUrl());
                 }
@@ -1029,8 +1033,8 @@ public class VideoDetailFragment extends BaseStateFragment<StreamInfo>
         }
 
         thumbnailImageView.setImageDrawable(ContextCompat.getDrawable(activity, imageResource));
-        animateView(thumbnailImageView, false, 0, 0,
-                () -> animateView(thumbnailImageView, true, 500));
+        animateView(thumbnailImageView, false, DEFAULT_SHORT_ANIM_DURATION, 0,
+                () -> animateView(thumbnailImageView, true, DEFAULT_SHORT_ANIM_DURATION));
     }
 
     @Override
@@ -1058,15 +1062,15 @@ public class VideoDetailFragment extends BaseStateFragment<StreamInfo>
             contentRootLayoutHiding.setVisibility(View.INVISIBLE);
         }
 
-        animateView(spinnerToolbar, false, 200);
-        animateView(thumbnailPlayButton, false, 50);
-        animateView(detailDurationView, false, 100);
-        animateView(detailPositionView, false, 100);
-        animateView(positionView, false, 50);
+        animateView(spinnerToolbar, false, DEFAULT_SHORT_ANIM_DURATION);
+        animateView(thumbnailPlayButton, false, DEFAULT_SHORT_ANIM_DURATION);
+        animateView(detailDurationView, false, DEFAULT_SHORT_ANIM_DURATION);
+        animateView(detailPositionView, false, DEFAULT_SHORT_ANIM_DURATION);
+        animateView(positionView, false, DEFAULT_SHORT_ANIM_DURATION);
 
         videoTitleTextView.setText(name != null ? name : "");
         videoTitleTextView.setMaxLines(1);
-        animateView(videoTitleTextView, true, 0);
+        animateView(videoTitleTextView, true, DEFAULT_SHORT_ANIM_DURATION);
 
         videoDescriptionRootLayout.setVisibility(View.GONE);
         videoTitleToggleArrow.setImageResource(R.drawable.arrow_down);
@@ -1109,7 +1113,7 @@ public class VideoDetailFragment extends BaseStateFragment<StreamInfo>
 
         //pushToStack(serviceId, url, name);
 
-        animateView(thumbnailPlayButton, true, 200);
+        animateView(thumbnailPlayButton, true, DEFAULT_SHORT_ANIM_DURATION);
         videoTitleTextView.setText(name);
 
         if (!TextUtils.isEmpty(info.getUploaderName())) {
@@ -1169,12 +1173,12 @@ public class VideoDetailFragment extends BaseStateFragment<StreamInfo>
             detailDurationView.setText(Localization.getDurationString(info.getDuration()));
             detailDurationView.setBackgroundColor(
                     ContextCompat.getColor(activity, R.color.duration_background_color));
-            animateView(detailDurationView, true, 100);
+            animateView(detailDurationView, true, DEFAULT_SHORT_ANIM_DURATION);
         } else if (info.getStreamType() == StreamType.LIVE_STREAM) {
             detailDurationView.setText(R.string.duration_live);
             detailDurationView.setBackgroundColor(
                     ContextCompat.getColor(activity, R.color.live_duration_background_color));
-            animateView(detailDurationView, true, 100);
+            animateView(detailDurationView, true, DEFAULT_SHORT_ANIM_DURATION);
         } else {
             detailDurationView.setVisibility(View.GONE);
         }
@@ -1197,7 +1201,7 @@ public class VideoDetailFragment extends BaseStateFragment<StreamInfo>
         prepareDescription(info.getDescription());
         updateProgressInfo(info);
 
-        animateView(spinnerToolbar, true, 500);
+        animateView(spinnerToolbar, true, DEFAULT_SHORT_ANIM_DURATION);
         setupActionBar(info);
         initThumbnailViews(info);
 
@@ -1331,15 +1335,15 @@ public class VideoDetailFragment extends BaseStateFragment<StreamInfo>
                     positionView.setMax((int) info.getDuration());
                     positionView.setProgressAnimated(seconds);
                     detailPositionView.setText(Localization.getDurationString(seconds));
-                    animateView(positionView, true, 500);
-                    animateView(detailPositionView, true, 500);
+                    animateView(positionView, true, DEFAULT_SHORT_ANIM_DURATION);
+                    animateView(detailPositionView, true, DEFAULT_SHORT_ANIM_DURATION);
                 }, e -> {
                     if (DEBUG) {
                         e.printStackTrace();
                     }
                 }, () -> {
-                    animateView(positionView, false, 500);
-                    animateView(detailPositionView, false, 500);
+                    animateView(positionView, false, DEFAULT_SHORT_ANIM_DURATION);
+                    animateView(detailPositionView, false, DEFAULT_SHORT_ANIM_DURATION);
                 });
     }
 }

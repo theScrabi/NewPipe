@@ -35,6 +35,7 @@ import org.schabi.newpipe.database.feed.model.FeedGroupEntity
 import org.schabi.newpipe.fragments.list.BaseListFragment
 import org.schabi.newpipe.local.feed.service.FeedLoadService
 import org.schabi.newpipe.report.UserAction
+import org.schabi.newpipe.util.AnimationUtils.DEFAULT_SHORT_ANIM_DURATION
 import org.schabi.newpipe.util.AnimationUtils.animateView
 import org.schabi.newpipe.util.Localization
 import java.util.*
@@ -155,49 +156,49 @@ class FeedFragment : BaseListFragment<FeedState, Unit>() {
     ///////////////////////////////////////////////////////////////////////////
 
     override fun showLoading() {
-        animateView(refresh_root_view, false, 0)
-        animateView(items_list, false, 0)
+        animateView(refresh_root_view, false, DEFAULT_SHORT_ANIM_DURATION)
+        animateView(items_list, false, DEFAULT_SHORT_ANIM_DURATION)
 
-        animateView(loading_progress_bar, true, 200)
-        animateView(loading_progress_text, true, 200)
+        animateView(loading_progress_bar, true, DEFAULT_SHORT_ANIM_DURATION)
+        animateView(loading_progress_text, true, DEFAULT_SHORT_ANIM_DURATION)
 
-        empty_state_view?.let { animateView(it, false, 0) }
-        animateView(error_panel, false, 0)
+        empty_state_view?.let { animateView(it, false, DEFAULT_SHORT_ANIM_DURATION) }
+        animateView(error_panel, false, DEFAULT_SHORT_ANIM_DURATION)
     }
 
     override fun hideLoading() {
-        animateView(refresh_root_view, true, 200)
-        animateView(items_list, true, 300)
+        animateView(refresh_root_view, true, DEFAULT_SHORT_ANIM_DURATION)
+        animateView(items_list, true, DEFAULT_SHORT_ANIM_DURATION)
 
-        animateView(loading_progress_bar, false, 0)
-        animateView(loading_progress_text, false, 0)
+        animateView(loading_progress_bar, false, DEFAULT_SHORT_ANIM_DURATION)
+        animateView(loading_progress_text, false, DEFAULT_SHORT_ANIM_DURATION)
 
-        empty_state_view?.let { animateView(it, false, 0) }
-        animateView(error_panel, false, 0)
+        empty_state_view?.let { animateView(it, false, DEFAULT_SHORT_ANIM_DURATION) }
+        animateView(error_panel, false, DEFAULT_SHORT_ANIM_DURATION)
     }
 
     override fun showEmptyState() {
-        animateView(refresh_root_view, true, 200)
-        animateView(items_list, false, 0)
+        animateView(refresh_root_view, true, DEFAULT_SHORT_ANIM_DURATION)
+        animateView(items_list, false, DEFAULT_SHORT_ANIM_DURATION)
 
-        animateView(loading_progress_bar, false, 0)
-        animateView(loading_progress_text, false, 0)
+        animateView(loading_progress_bar, false, DEFAULT_SHORT_ANIM_DURATION)
+        animateView(loading_progress_text, false, DEFAULT_SHORT_ANIM_DURATION)
 
         empty_state_view?.let { animateView(it, true, 800) }
-        animateView(error_panel, false, 0)
+        animateView(error_panel, false, DEFAULT_SHORT_ANIM_DURATION)
     }
 
     override fun showError(message: String, showRetryButton: Boolean) {
         infoListAdapter.clearStreamItemList()
-        animateView(refresh_root_view, false, 120)
-        animateView(items_list, false, 120)
+        animateView(refresh_root_view, false, DEFAULT_SHORT_ANIM_DURATION)
+        animateView(items_list, false, DEFAULT_SHORT_ANIM_DURATION)
 
-        animateView(loading_progress_bar, false, 120)
-        animateView(loading_progress_text, false, 120)
+        animateView(loading_progress_bar, false, DEFAULT_SHORT_ANIM_DURATION)
+        animateView(loading_progress_text, false, DEFAULT_SHORT_ANIM_DURATION)
 
         error_message_view.text = message
-        animateView(error_button_retry, showRetryButton, if (showRetryButton) 600 else 0)
-        animateView(error_panel, true, 300)
+        animateView(error_button_retry, showRetryButton, if (showRetryButton) 600 else DEFAULT_SHORT_ANIM_DURATION)
+        animateView(error_panel, true, DEFAULT_SHORT_ANIM_DURATION)
     }
 
     override fun handleResult(result: FeedState) {

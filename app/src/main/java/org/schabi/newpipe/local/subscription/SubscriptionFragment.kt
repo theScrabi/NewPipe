@@ -39,6 +39,7 @@ import org.schabi.newpipe.local.subscription.services.SubscriptionsImportService
 import org.schabi.newpipe.local.subscription.services.SubscriptionsImportService.*
 import org.schabi.newpipe.report.UserAction
 import org.schabi.newpipe.util.*
+import org.schabi.newpipe.util.AnimationUtils.DEFAULT_SHORT_ANIM_DURATION
 import org.schabi.newpipe.util.AnimationUtils.animateView
 import java.io.File
 import java.text.SimpleDateFormat
@@ -372,12 +373,12 @@ class SubscriptionFragment : BaseStateFragment<SubscriptionState>() {
 
     override fun showLoading() {
         super.showLoading()
-        animateView(items_list, false, 100)
+        animateView(items_list, false, DEFAULT_SHORT_ANIM_DURATION)
     }
 
     override fun hideLoading() {
         super.hideLoading()
-        animateView(items_list, true, 200)
+        animateView(items_list, true, DEFAULT_SHORT_ANIM_DURATION)
     }
 
     ///////////////////////////////////////////////////////////////////////////

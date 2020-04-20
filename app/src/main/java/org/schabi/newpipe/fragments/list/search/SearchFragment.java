@@ -73,6 +73,7 @@ import io.reactivex.subjects.PublishSubject;
 
 import static androidx.recyclerview.widget.ItemTouchHelper.Callback.makeMovementFlags;
 import static java.util.Arrays.asList;
+import static org.schabi.newpipe.util.AnimationUtils.DEFAULT_SHORT_ANIM_DURATION;
 import static org.schabi.newpipe.util.AnimationUtils.animateView;
 
 public class SearchFragment extends BaseListFragment<SearchInfo, ListExtractor.InfoItemsPage>
@@ -93,45 +94,35 @@ public class SearchFragment extends BaseListFragment<SearchInfo, ListExtractor.I
      */
     private static final int SUGGESTIONS_DEBOUNCE = 120; //ms
     private final PublishSubject<String> suggestionPublisher = PublishSubject.create();
-
-    @State
-    int filterItemCheckedId = -1;
-
+    private final CompositeDisposable disposables = new CompositeDisposable();
     @State
     protected int serviceId = Constants.NO_SERVICE_ID;
-
+    @State
+    int filterItemCheckedId = -1;
     // these three represents the current search query
     @State
     String searchString;
-
     /**
      * No content filter should add like contentFilter = all
      * be aware of this when implementing an extractor.
      */
     @State
     String[] contentFilter = new String[0];
-
     @State
     String sortFilter;
-
     // these represents the last search
     @State
     String lastSearchedString;
-
     @State
     boolean wasSearchFocused = false;
-
     private Map<Integer, String> menuItemToFilterName;
     private StreamingService service;
     private String currentPageUrl;
     private String nextPageUrl;
     private String contentCountry;
     private boolean isSuggestionsEnabled = true;
-
     private Disposable searchDisposable;
     private Disposable suggestionDisposable;
-    private final CompositeDisposable disposables = new CompositeDisposable();
-
     private SuggestionListAdapter suggestionListAdapter;
     private HistoryRecordManager historyRecordManager;
 
@@ -389,7 +380,7 @@ public class SearchFragment extends BaseListFragment<SearchInfo, ListExtractor.I
                 searchEditText.setText("");
                 showKeyboardSearch();
             }
-            animateView(errorPanelRoot, false, 200);
+            animateView(errorPanelRoot, false, DEFAULT_SHORT_ANIM_DURATION);
         }
     }
 
@@ -554,11 +545,13 @@ public class SearchFragment extends BaseListFragment<SearchInfo, ListExtractor.I
         textWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(final CharSequence s, final int start,
-                                          final int count, final int after) { }
+                                          final int count, final int after) {
+            }
 
             @Override
             public void onTextChanged(final CharSequence s, final int start,
-                                      final int before, final int count) { }
+                                      final int before, final int count) {
+            }
 
             @Override
             public void afterTextChanged(final Editable s) {
@@ -609,14 +602,16 @@ public class SearchFragment extends BaseListFragment<SearchInfo, ListExtractor.I
         if (DEBUG) {
             Log.d(TAG, "showSuggestionsPanel() called");
         }
-        animateView(suggestionsPanel, AnimationUtils.Type.LIGHT_SLIDE_AND_ALPHA, true, 200);
+        animateView(suggestionsPanel, AnimationUtils.Type.LIGHT_SLIDE_AND_ALPHA, true,
+                DEFAULT_SHORT_ANIM_DURATION);
     }
 
     private void hideSuggestionsPanel() {
         if (DEBUG) {
             Log.d(TAG, "hideSuggestionsPanel() called");
         }
-        animateView(suggestionsPanel, AnimationUtils.Type.LIGHT_SLIDE_AND_ALPHA, false, 200);
+        animateView(suggestionsPanel, AnimationUtils.Type.LIGHT_SLIDE_AND_ALPHA, false,
+                DEFAULT_SHORT_ANIM_DURATION);
     }
 
     private void showKeyboardSearch() {

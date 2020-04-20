@@ -50,6 +50,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.disposables.Disposables;
 import io.reactivex.subjects.PublishSubject;
 
+import static org.schabi.newpipe.util.AnimationUtils.DEFAULT_SHORT_ANIM_DURATION;
 import static org.schabi.newpipe.util.AnimationUtils.animateView;
 
 public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistStreamEntry>, Void> {
@@ -195,10 +196,10 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
     public void showLoading() {
         super.showLoading();
         if (headerRootLayout != null) {
-            animateView(headerRootLayout, false, 200);
+            animateView(headerRootLayout, false, DEFAULT_SHORT_ANIM_DURATION);
         }
         if (playlistControl != null) {
-            animateView(playlistControl, false, 200);
+            animateView(playlistControl, false, DEFAULT_SHORT_ANIM_DURATION);
         }
     }
 
@@ -206,10 +207,10 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
     public void hideLoading() {
         super.hideLoading();
         if (headerRootLayout != null) {
-            animateView(headerRootLayout, true, 200);
+            animateView(headerRootLayout, true, DEFAULT_SHORT_ANIM_DURATION);
         }
         if (playlistControl != null) {
-            animateView(playlistControl, true, 200);
+            animateView(playlistControl, true, DEFAULT_SHORT_ANIM_DURATION);
         }
     }
 
