@@ -113,7 +113,9 @@
     <string name="player_gesture_controls_title">Player gesture controls</string>
     <string name="player_gesture_controls_summary">Use gestures to control player brightness and volume</string>
     <string name="show_search_suggestions_title">Search suggestions</string>
-    <string name="show_search_suggestions_summary">Show suggestions when searching</string>
+    <string name="show_search_suggestions_summary">Choose the suggestions to show when searching</string>
+    <string name="local_search_suggestions">Local search suggestions</string>
+    <string name="remote_search_suggestions">Remote search suggestions</string>
     <string name="enable_search_history_title">Search history</string>
     <string name="enable_search_history_summary">Store search queries locally</string>
     <string name="enable_watch_history_title">Watch history</string>

@@ -19,7 +19,6 @@ public class SuggestionListAdapter
     private final ArrayList<SuggestionItem> items = new ArrayList<>();
     private final Context context;
     private OnSuggestionItemSelected listener;
-    private boolean showSuggestionHistory = true;
 
     public SuggestionListAdapter(final Context context) {
         this.context = context;
@@ -27,25 +26,12 @@ public class SuggestionListAdapter
 
     public void setItems(final List<SuggestionItem> items) {
         this.items.clear();
-        if (showSuggestionHistory) {
-            this.items.addAll(items);
-        } else {
-            // remove history items if history is disabled
-            for (final SuggestionItem item : items) {
-                if (!item.fromHistory) {
-                    this.items.add(item);
-                }
-            }
-        }
+        this.items.addAll(items);
         notifyDataSetChanged();
     }
 
     public void setListener(final OnSuggestionItemSelected listener) {
         this.listener = listener;
-    }
-
-    public void setShowSuggestionHistory(final boolean v) {
-        showSuggestionHistory = v;
     }
 
     @Override

@@ -12,6 +12,10 @@ import org.schabi.newpipe.error.ErrorActivity;
 import org.schabi.newpipe.error.ErrorInfo;
 import org.schabi.newpipe.error.UserAction;
 
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
 import static org.schabi.newpipe.MainActivity.DEBUG;
 
 public final class SettingMigrations {
@@ -69,6 +73,26 @@ public final class SettingMigrations {
         }
     };
 
+    public static final Migration MIGRATION_3_4 = new Migration(3, 4) {
+        @Override
+        protected void migrate(final Context context) {
+            // Pull request #3546 added support for choosing the type of search suggestions to
+            // show, replacing the on-off switch used before, so migrate the previous user choice
+
+            final String showSearchSuggestionsKey =
+                    context.getString(R.string.show_search_suggestions_key);
+            final Set<String> showSearchSuggestionsValueList = new HashSet<>();
+            if (sp.getBoolean(showSearchSuggestionsKey, true)) {
+                // if the preference was true, all suggestions will be shown, otherwise none
+                Collections.addAll(showSearchSuggestionsValueList, context.getResources()
+                        .getStringArray(R.array.show_search_suggestions_value_list));
+            }
+
+            sp.edit().putStringSet(
+                    showSearchSuggestionsKey, showSearchSuggestionsValueList).apply();
+        }
+    };
+
     /**
      * List of all implemented migrations.
      * <p>
@@ -78,7 +102,8 @@ public final class SettingMigrations {
     private static final Migration[] SETTING_MIGRATIONS = {
             MIGRATION_0_1,
             MIGRATION_1_2,
-            MIGRATION_2_3
+            MIGRATION_2_3,
+            MIGRATION_3_4,
     };
 
 

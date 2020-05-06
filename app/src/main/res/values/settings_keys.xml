@@ -211,6 +211,16 @@
 
     <!-- Content & History -->
     <string name="show_search_suggestions_key" translatable="false">show_search_suggestions</string>
+    <string name="show_local_search_suggestions_key" translatable="false">show_local_search_suggestions</string>
+    <string name="show_remote_search_suggestions_key" translatable="false">show_remote_search_suggestions</string>
+    <string-array name="show_search_suggestions_value_list" translatable="false">
+        <item>@string/show_local_search_suggestions_key</item>
+        <item>@string/show_remote_search_suggestions_key</item>
+    </string-array>
+    <string-array name="show_search_suggestions_description_list" translatable="false">
+        <item>@string/local_search_suggestions</item>
+        <item>@string/remote_search_suggestions</item>
+    </string-array>
     <string name="show_play_with_kodi_key" translatable="false">show_play_with_kodi</string>
     <string name="show_comments_key" translatable="false">show_comments</string>
     <string name="show_next_video_key" translatable="false">show_next_video</string>

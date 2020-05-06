@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Environment;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 import androidx.preference.PreferenceManager;
 
 import org.schabi.newpipe.R;
@@ -120,5 +121,30 @@ public final class NewPipeSettings {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         return prefs.getBoolean(key, true);
+    }
+
+    private static boolean showSearchSuggestions(final Context context,
+                                                 final SharedPreferences sharedPreferences,
+                                                 @StringRes final int key) {
+        final Set<String> enabledSearchSuggestions = sharedPreferences.getStringSet(
+                context.getString(R.string.show_search_suggestions_key), null);
+
+        if (enabledSearchSuggestions == null) {
+            return true; // defaults to true
+        } else {
+            return enabledSearchSuggestions.contains(context.getString(key));
+        }
+    }
+
+    public static boolean showLocalSearchSuggestions(final Context context,
+                                                     final SharedPreferences sharedPreferences) {
+        return showSearchSuggestions(context, sharedPreferences,
+                R.string.show_local_search_suggestions_key);
+    }
+
+    public static boolean showRemoteSearchSuggestions(final Context context,
+                                                      final SharedPreferences sharedPreferences) {
+        return showSearchSuggestions(context, sharedPreferences,
+                R.string.show_remote_search_suggestions_key);
     }
 }
