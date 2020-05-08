@@ -17,17 +17,21 @@
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:textAlignment="viewStart"
+            android:textDirection="anyRtl"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_vertical_margin"
             android:text="@string/app_license_title"
             android:textAppearance="@android:style/TextAppearance.Large" />
 
         <TextView
             android:id="@+id/app_license"
             android:layout_width="match_parent"
+            android:textAlignment="viewStart"
+            android:textDirection="anyRtl"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:text="@string/app_license" />
 
         <Button
@@ -35,15 +39,19 @@
             style="@style/Base.Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_marginEnd="@dimen/activity_vertical_margin"
             android:layout_gravity="end"
+            android:textAlignment="viewEnd"
+            android:textDirection="anyRtl"
             android:text="@string/read_full_license" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:textAlignment="viewStart"
+            android:textDirection="anyRtl"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
             android:paddingTop="10dp"
             android:text="@string/title_licenses"
             android:textAppearance="?android:attr/textAppearanceLarge" />

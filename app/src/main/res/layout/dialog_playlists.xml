@@ -15,10 +15,10 @@
             android:id="@+id/newPlaylistIcon"
             android:layout_width="48dp"
             android:layout_height="28dp"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
             android:src="?attr/ic_playlist_add"
             tools:ignore="ContentDescription,RtlHardcoded"/>
 
@@ -26,8 +26,8 @@
             android:id="@+id/newPlaylistText"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_toRightOf="@+id/newPlaylistIcon"
-            android:gravity="left|center"
+            android:layout_toEndOf="@+id/newPlaylistIcon"
+            android:gravity="start|center"
             android:text="@string/create_playlist"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="15sp"
@@ -40,8 +40,8 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@+id/newPlaylist"
-        android:layout_marginLeft="@dimen/video_item_search_padding"
-        android:layout_marginRight="@dimen/video_item_search_padding"
+        android:layout_marginStart="@dimen/video_item_search_padding"
+        android:layout_marginEnd="@dimen/video_item_search_padding"
         android:background="?attr/separator_color"/>
 
     <androidx.recyclerview.widget.RecyclerView

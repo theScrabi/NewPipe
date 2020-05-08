@@ -109,9 +109,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingLeft="16dp"
+                android:paddingStart="16dp"
                 android:paddingTop="12dp"
-                android:paddingRight="16dp"
+                android:paddingEnd="16dp"
                 android:paddingBottom="12dp">
 
                 <TextView
@@ -150,9 +150,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:paddingLeft="?dialogPreferredPadding"
+            android:paddingStart="?dialogPreferredPadding"
             android:paddingTop="16dp"
-            android:paddingRight="?dialogPreferredPadding"
+            android:paddingEnd="?dialogPreferredPadding"
             android:paddingBottom="16dp"
             android:text="@string/feed_group_dialog_delete_message"
             android:visibility="visible" />
@@ -168,9 +168,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:paddingLeft="12dp"
+        android:paddingStart="12dp"
         android:paddingTop="4dp"
-        android:paddingRight="12dp"
+        android:paddingEnd="12dp"
         android:paddingBottom="4dp">
 
         <ImageButton

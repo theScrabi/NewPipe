@@ -691,7 +691,7 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
     private ItemTouchHelper.SimpleCallback getItemTouchCallback() {
         int directions = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
         if (isGridLayout()) {
-            directions |= ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
+            directions |= ItemTouchHelper.START | ItemTouchHelper.END;
         }
         return new ItemTouchHelper.SimpleCallback(directions,
                 ItemTouchHelper.ACTION_STATE_IDLE) {

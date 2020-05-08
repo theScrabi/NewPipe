@@ -29,6 +29,7 @@ import org.schabi.newpipe.report.ErrorActivity;
 import org.schabi.newpipe.report.UserAction;
 import org.schabi.newpipe.settings.tabs.Tab;
 import org.schabi.newpipe.settings.tabs.TabsManager;
+import org.schabi.newpipe.util.LocalizeLayoutUtils;
 import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.ServiceHelper;
 import org.schabi.newpipe.views.ScrollableTabLayout;
@@ -164,26 +165,35 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
         tabsList.clear();
         tabsList.addAll(tabsManager.getTabs());
 
+        boolean isRTL = LocalizeLayoutUtils.isRTL(this.getContext());
+
         if (pagerAdapter == null || !pagerAdapter.sameTabs(tabsList)) {
             pagerAdapter = new SelectedTabsPagerAdapter(requireContext(),
-                    getChildFragmentManager(), tabsList);
+                    getChildFragmentManager(), tabsList, isRTL);
         }
 
         viewPager.setAdapter(null);
         viewPager.setOffscreenPageLimit(tabsList.size());
         viewPager.setAdapter(pagerAdapter);
 
-        updateTabsIconAndDescription();
+        if (isRTL) {
+            tabLayout.getTabAt(pagerAdapter.getCount() - 1).select();
+        }
+
+        updateTabsIconAndDescription(isRTL);
         updateTitleForTab(viewPager.getCurrentItem());
 
         hasTabsChanged = false;
     }
 
-    private void updateTabsIconAndDescription() {
+    private void updateTabsIconAndDescription(final boolean isRTL) {
         for (int i = 0; i < tabsList.size(); i++) {
             final TabLayout.Tab tabToSet = tabLayout.getTabAt(i);
             if (tabToSet != null) {
-                final Tab tab = tabsList.get(i);
+                final Tab tab = isRTL
+                        ? tabsList.get(tabsList.size() - 1 - i)
+                        : tabsList.get(i);
+
                 tabToSet.setIcon(tab.getTabIconRes(requireContext()));
                 tabToSet.setContentDescription(tab.getTabName(requireContext()));
             }
@@ -203,7 +213,8 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
     }
 
     @Override
-    public void onTabUnselected(final TabLayout.Tab tab) { }
+    public void onTabUnselected(final TabLayout.Tab tab) {
+    }
 
     @Override
     public void onTabReselected(final TabLayout.Tab tab) {
@@ -217,19 +228,27 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
             extends FragmentStatePagerAdapterMenuWorkaround {
         private final Context context;
         private final List<Tab> internalTabsList;
+        private boolean isRTL;
 
         private SelectedTabsPagerAdapter(final Context context,
                                          final FragmentManager fragmentManager,
-                                         final List<Tab> tabsList) {
+                                         final List<Tab> tabsList,
+                                         final boolean isRTL) {
             super(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
             this.context = context;
             this.internalTabsList = new ArrayList<>(tabsList);
+            this.isRTL = isRTL;
         }
 
         @NonNull
         @Override
         public Fragment getItem(final int position) {
-            final Tab tab = internalTabsList.get(position);
+            final Tab tab = internalTabsList.get(
+                    LocalizeLayoutUtils.getLayoutPosition(
+                            this.isRTL,
+                            internalTabsList.size(),
+                            position)
+            );
 
             Throwable throwable = null;
             Fragment fragment = null;

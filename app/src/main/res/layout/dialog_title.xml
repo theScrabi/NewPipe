@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="false"
-    android:paddingLeft="@dimen/video_item_search_padding"
-    android:paddingRight="@dimen/video_item_search_padding"
+    android:paddingStart="@dimen/video_item_search_padding"
+    android:paddingEnd="@dimen/video_item_search_padding"
     android:paddingTop="@dimen/video_item_search_padding">
 
     <TextView
@@ -18,6 +18,8 @@
         android:ellipsize="marquee"
         android:fadingEdge="horizontal"
         android:marqueeRepeatLimit="marquee_forever"
+        android:textAlignment="viewStart"
+        android:textDirection="anyRtl"
         android:scrollHorizontally="true"
         android:singleLine="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -29,8 +31,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/itemTitleView"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:textAlignment="viewStart"
+        android:textDirection="anyRtl"
         android:ellipsize="marquee"
         android:fadingEdge="horizontal"
         android:marqueeRepeatLimit="marquee_forever"

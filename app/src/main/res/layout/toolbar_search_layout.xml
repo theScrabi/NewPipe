@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
         android:layout_marginBottom="4dp"
-        android:layout_marginRight="48dp"
+        android:layout_marginEnd="48dp"
         android:layout_marginTop="4dp"
         android:background="?attr/colorPrimary"
         android:focusable="true"
@@ -28,7 +28,7 @@
         android:id="@+id/toolbar_search_clear"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_gravity="right|center_vertical"
+        android:layout_gravity="end|center_vertical"
         android:focusable="true"
         tools:ignore="RtlHardcoded">
 

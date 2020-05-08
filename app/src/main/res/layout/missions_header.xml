@@ -4,11 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="30dp"
-    android:layout_marginRight="8dp"
     android:layout_marginEnd="8dp"
     android:layout_marginTop="16dp"
     android:orientation="vertical"
-    android:layout_marginLeft="8dp"
     android:layout_marginStart="8dp">
 
 

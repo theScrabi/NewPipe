@@ -30,8 +30,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="72dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:gravity="center"
             android:orientation="horizontal"
             tools:ignore="UseCompoundDrawables">
@@ -70,8 +70,8 @@
             android:background="@drawable/drawer_header_bottom_background"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingLeft="6dp"
-            android:paddingRight="6dp">
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -84,8 +84,8 @@
                     android:id="@+id/drawer_header_service_icon"
                     android:layout_width="@dimen/drawer_header_service_icon_size"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="6dp"
-                    android:layout_marginRight="6dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
                     android:scaleType="fitCenter"
                     app:tint="@color/drawer_header_font_color"
                     tools:ignore="ContentDescription"

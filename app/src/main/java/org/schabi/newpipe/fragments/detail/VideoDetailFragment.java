@@ -80,6 +80,7 @@ import org.schabi.newpipe.util.InfoCache;
 import org.schabi.newpipe.util.KoreUtil;
 import org.schabi.newpipe.util.ListHelper;
 import org.schabi.newpipe.util.Localization;
+import org.schabi.newpipe.util.LocalizeLayoutUtils;
 import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.PermissionHelper;
 import org.schabi.newpipe.util.ShareUtils;
@@ -528,7 +529,10 @@ public class VideoDetailFragment extends BaseStateFragment<StreamInfo>
 
         appBarLayout = rootView.findViewById(R.id.appbarlayout);
         viewPager = rootView.findViewById(R.id.viewpager);
-        pageAdapter = new TabAdaptor(getChildFragmentManager());
+
+        boolean isRTL = LocalizeLayoutUtils.isRTL(this.getContext());
+
+        pageAdapter = new TabAdaptor(getChildFragmentManager(), isRTL);
         viewPager.setAdapter(pageAdapter);
         tabLayout = rootView.findViewById(R.id.tablayout);
         tabLayout.setupWithViewPager(viewPager);

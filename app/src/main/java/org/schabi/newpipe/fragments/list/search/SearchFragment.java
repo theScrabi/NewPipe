@@ -1022,7 +1022,7 @@ public class SearchFragment extends BaseListFragment<SearchInfo, ListExtractor.I
         final int position = viewHolder.getAdapterPosition();
         final SuggestionItem item = suggestionListAdapter.getItem(position);
         return item.fromHistory ? makeMovementFlags(0,
-                ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) : 0;
+                ItemTouchHelper.START | ItemTouchHelper.END) : 0;
     }
 
     public void onSuggestionItemSwiped(@NonNull final RecyclerView.ViewHolder viewHolder,

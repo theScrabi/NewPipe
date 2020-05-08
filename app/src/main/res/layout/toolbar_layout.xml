@@ -23,7 +23,7 @@
             android:id="@+id/toolbar_spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical|left"
+            android:gravity="center_vertical|start"
             android:visibility="gone"
             tools:ignore="RtlHardcoded"
             tools:visibility="visible"/>

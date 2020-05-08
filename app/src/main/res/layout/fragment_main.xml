@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:background="?attr/colorPrimary"
+        android:layoutDirection="ltr"
         app:tabMinWidth="60dp"
         app:tabGravity="fill"/>
 

@@ -12,10 +12,8 @@
         android:layout_height="wrap_content"
         android:text="@string/select_a_channel"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
-        android:layout_marginRight="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="10dp"/>
 

@@ -18,8 +18,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingBottom="@dimen/activity_vertical_margin"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin"
             android:focusable="true"
             android:focusableInTouchMode="true">
@@ -70,7 +70,7 @@
                     android:text="@string/info_labels"/>
 
                 <HorizontalScrollView
-                    android:paddingLeft="16dp"
+                    android:paddingStart="16dp"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
 

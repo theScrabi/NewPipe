@@ -6,5 +6,6 @@
 
     <application
         android:name=".DebugApp"
-        tools:replace="android:name" />
+        tools:replace="android:name"
+        android:supportsRtl="true" />
 </manifest>

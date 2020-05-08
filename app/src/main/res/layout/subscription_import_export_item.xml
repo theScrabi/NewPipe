@@ -23,11 +23,13 @@
         android:id="@android:id/text1"
         android:layout_width="match_parent"
         android:layout_height="@dimen/subscription_import_export_item_height"
-        android:gravity="center_vertical"
+        android:gravity="start|center_vertical"
         android:maxLines="1"
-        android:paddingLeft="6dp"
-        android:paddingRight="6dp"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        android:textAlignment="viewStart"
+        android:textDirection="anyRtl"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="13sp"
-        tools:text="@string/youtube"/>
+        tools:text="@string/youtube" />
 </LinearLayout>

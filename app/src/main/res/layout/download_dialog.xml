@@ -14,8 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar_layout"
         android:layout_marginBottom="6dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginTop="12dp"
         android:text="@string/msg_name"/>
 
@@ -25,8 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/file_name_text_view"
         android:layout_marginBottom="6dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:inputType="text"
         android:maxLines="1"/>
 
@@ -36,8 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/file_name"
         android:layout_marginBottom="6dp"
-        android:layout_marginLeft="20dp"
-        android:gravity="left"
+        android:layout_marginStart="20dp"
+        android:gravity="start"
         android:orientation="horizontal"
         tools:ignore="RtlHardcoded">
 
@@ -67,8 +67,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/video_audio_group"
         android:layout_marginBottom="12dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:minWidth="150dp"
         tools:listitem="@layout/stream_quality_item"/>
 
@@ -78,8 +78,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/quality_spinner"
         android:layout_marginBottom="6dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:text="@string/msg_threads"/>
 
     <LinearLayout
@@ -87,8 +87,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/threads_text_view"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:orientation="horizontal"
         android:paddingBottom="12dp">
 
@@ -97,7 +97,7 @@
             android:layout_width="25dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:paddingLeft="2dp"
+            android:paddingStart="2dp"
             tools:ignore="RtlHardcoded,RtlSymmetry"
             tools:text="3"/>
 

@@ -8,7 +8,7 @@ public abstract class PlayQueueItemTouchCallback extends ItemTouchHelper.SimpleC
     private static final int MAXIMUM_INITIAL_DRAG_VELOCITY = 25;
 
     public PlayQueueItemTouchCallback() {
-        super(ItemTouchHelper.UP | ItemTouchHelper.DOWN, ItemTouchHelper.RIGHT);
+        super(ItemTouchHelper.UP | ItemTouchHelper.DOWN, ItemTouchHelper.END);
     }
 
     public abstract void onMove(int sourceIndex, int targetIndex);

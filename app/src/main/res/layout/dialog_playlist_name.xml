@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="false"
-    android:paddingLeft="@dimen/video_item_search_padding"
-    android:paddingRight="@dimen/video_item_search_padding"
+    android:paddingStart="@dimen/video_item_search_padding"
+    android:paddingEnd="@dimen/video_item_search_padding"
     android:paddingTop="@dimen/video_item_search_padding">
 
     <EditText
@@ -12,8 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:saveEnabled="true"
         android:inputType="text"
         android:hint="@string/playlist_name_input"

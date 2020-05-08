@@ -23,6 +23,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import org.schabi.newpipe.BuildConfig;
 import org.schabi.newpipe.R;
+import org.schabi.newpipe.util.LocalizeLayoutUtils;
 import org.schabi.newpipe.util.ThemeHelper;
 
 import static org.schabi.newpipe.util.Localization.assureCorrectAppLanguage;
@@ -92,16 +93,23 @@ public class AboutActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = findViewById(R.id.container);
+
+        boolean isRTL = LocalizeLayoutUtils.isRTL(this);
+        // Create the adapter that will return a fragment for each of the three
+        // primary sections of the activity.
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), isRTL);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+
 
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+
+        if (isRTL) {
+            tabLayout.getTabAt(mSectionsPagerAdapter.getCount() - 1).select();
+        }
     }
 
     @Override
@@ -121,7 +129,8 @@ public class AboutActivity extends AppCompatActivity {
      * A placeholder fragment containing a simple view.
      */
     public static class AboutFragment extends Fragment {
-        public AboutFragment() { }
+        public AboutFragment() {
+        }
 
         /**
          * Created a new instance of this fragment for the given section number.
@@ -172,17 +181,21 @@ public class AboutActivity extends AppCompatActivity {
      * one of the sections/tabs/pages.
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
-        public SectionsPagerAdapter(final FragmentManager fm) {
+        private boolean isRTL;
+
+        public SectionsPagerAdapter(final FragmentManager fm, final boolean isRTL) {
             super(fm);
+            this.isRTL = isRTL;
         }
 
         @Override
         public Fragment getItem(final int position) {
-            switch (position) {
-                case 0:
-                    return AboutFragment.newInstance();
-                case 1:
-                    return LicenseFragment.newInstance(SOFTWARE_COMPONENTS);
+            int newPosition = getLayoutPosition(position);
+
+            if (newPosition == 0) {
+                return AboutFragment.newInstance();
+            } else if (newPosition == 1) {
+                return LicenseFragment.newInstance(SOFTWARE_COMPONENTS);
             }
             return null;
         }
@@ -195,13 +208,19 @@ public class AboutActivity extends AppCompatActivity {
 
         @Override
         public CharSequence getPageTitle(final int position) {
-            switch (position) {
-                case 0:
-                    return getString(R.string.tab_about);
-                case 1:
-                    return getString(R.string.tab_licenses);
+            int newPosition = getLayoutPosition(position);
+
+            if (newPosition == 0) {
+                return getString(R.string.tab_about);
+            } else if (newPosition == 1) {
+                return getString(R.string.tab_licenses);
             }
+
             return null;
+        }
+
+        private int getLayoutPosition(final int position) {
+            return LocalizeLayoutUtils.getLayoutPosition(this.isRTL, getCount(), position);
         }
     }
 }

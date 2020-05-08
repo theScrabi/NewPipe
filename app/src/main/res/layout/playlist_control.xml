@@ -26,7 +26,6 @@
             android:textSize="@dimen/channel_rss_title_size"
             android:textColor="?attr/colorAccent"
             android:drawablePadding="4dp"
-            android:drawableLeft="?attr/audio"
             android:drawableStart="?attr/audio"/>
     </LinearLayout>
 
@@ -81,7 +80,6 @@
             android:textSize="@dimen/channel_rss_title_size"
             android:textColor="?attr/colorAccent"
             android:drawablePadding="4dp"
-            android:drawableLeft="?attr/popup"
             android:drawableStart="?attr/popup"/>
     </LinearLayout>
 </LinearLayout>

@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import org.schabi.newpipe.util.LocalizeLayoutUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,15 +16,17 @@ public class TabAdaptor extends FragmentPagerAdapter {
     private final List<Fragment> mFragmentList = new ArrayList<>();
     private final List<String> mFragmentTitleList = new ArrayList<>();
     private final FragmentManager fragmentManager;
+    private boolean isRTL;
 
-    public TabAdaptor(final FragmentManager fm) {
+    public TabAdaptor(final FragmentManager fm, final boolean isRTL) {
         super(fm);
         this.fragmentManager = fm;
+        this.isRTL = isRTL;
     }
 
     @Override
     public Fragment getItem(final int position) {
-        return mFragmentList.get(position);
+        return mFragmentList.get(getLayoutPosition(position));
     }
 
     @Override
@@ -41,16 +45,18 @@ public class TabAdaptor extends FragmentPagerAdapter {
     }
 
     public void removeItem(final int position) {
-        mFragmentList.remove(position == 0 ? 0 : position - 1);
-        mFragmentTitleList.remove(position == 0 ? 0 : position - 1);
+        int newPosition = getLayoutPosition(position);
+
+        mFragmentList.remove(newPosition == 0 ? 0 : newPosition - 1);
+        mFragmentTitleList.remove(newPosition == 0 ? 0 : newPosition - 1);
     }
 
     public void updateItem(final int position, final Fragment fragment) {
-        mFragmentList.set(position, fragment);
+        mFragmentList.set(getLayoutPosition(position), fragment);
     }
 
     public void updateItem(final String title, final Fragment fragment) {
-        int index = mFragmentTitleList.indexOf(title);
+        int index = getLayoutPosition(mFragmentTitleList.indexOf(title));
         if (index != -1) {
             updateItem(index, fragment);
         }
@@ -59,14 +65,14 @@ public class TabAdaptor extends FragmentPagerAdapter {
     @Override
     public int getItemPosition(final Object object) {
         if (mFragmentList.contains(object)) {
-            return mFragmentList.indexOf(object);
+            return getLayoutPosition(mFragmentList.indexOf(object));
         } else {
             return POSITION_NONE;
         }
     }
 
     public int getItemPositionByTitle(final String title) {
-        return mFragmentTitleList.indexOf(title);
+        return getLayoutPosition(mFragmentTitleList.indexOf(title));
     }
 
     @Nullable
@@ -74,7 +80,8 @@ public class TabAdaptor extends FragmentPagerAdapter {
         if (position < 0 || position >= mFragmentTitleList.size()) {
             return null;
         }
-        return mFragmentTitleList.get(position);
+
+        return mFragmentTitleList.get(getLayoutPosition(position));
     }
 
     public void notifyDataSetUpdate() {
@@ -86,4 +93,7 @@ public class TabAdaptor extends FragmentPagerAdapter {
         fragmentManager.beginTransaction().remove((Fragment) object).commitNowAllowingStateLoss();
     }
 
+    private int getLayoutPosition(final int position) {
+        return LocalizeLayoutUtils.getLayoutPosition(this.isRTL, mFragmentList.size(), position);
+    }
 }

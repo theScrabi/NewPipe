@@ -239,7 +239,7 @@ public final class PopupVideoPlayer extends Service {
                 layoutParamType,
                 IDLE_WINDOW_FLAGS,
                 PixelFormat.TRANSLUCENT);
-        popupLayoutParams.gravity = Gravity.LEFT | Gravity.TOP;
+        popupLayoutParams.gravity = Gravity.START | Gravity.TOP;
         popupLayoutParams.softInputMode = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE;
 
         int centerX = (int) (screenWidth / 2f - popupWidth / 2f);
@@ -280,7 +280,7 @@ public final class PopupVideoPlayer extends Service {
                 layoutParamType,
                 flags,
                 PixelFormat.TRANSLUCENT);
-        closeOverlayLayoutParams.gravity = Gravity.LEFT | Gravity.TOP;
+        closeOverlayLayoutParams.gravity = Gravity.START | Gravity.TOP;
         closeOverlayLayoutParams.softInputMode = WindowManager
                 .LayoutParams.SOFT_INPUT_ADJUST_RESIZE;
 

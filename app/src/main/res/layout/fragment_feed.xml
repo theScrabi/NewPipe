@@ -64,9 +64,9 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_below="@+id/refresh_info_container"
-            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"
             android:background="?attr/separator_color" />
     </RelativeLayout>
 

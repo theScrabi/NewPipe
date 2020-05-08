@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="false"
-    android:paddingLeft="@dimen/video_item_search_padding"
-    android:paddingRight="@dimen/video_item_search_padding"
+    android:paddingStart="@dimen/video_item_search_padding"
+    android:paddingEnd="@dimen/video_item_search_padding"
     android:paddingTop="@dimen/video_item_search_padding">
 
     <RelativeLayout
@@ -46,7 +46,6 @@
                 android:textStyle="bold"
                 android:textColor="?attr/colorAccent"
                 android:background="?attr/selectableItemBackground"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 tools:ignore="HardcodedText"
                 tools:text="-5%"/>
@@ -56,11 +55,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
-                android:layout_toRightOf="@id/tempoStepDown"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
                 android:layout_toEndOf="@id/tempoStepDown"
-                android:layout_toLeftOf="@id/tempoStepUp"
                 android:layout_toStartOf="@id/tempoStepUp">
 
                 <TextView
@@ -70,9 +67,7 @@
                     android:gravity="center"
                     android:text="-.--x"
                     android:textColor="?attr/colorAccent"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginLeft="4dp"
                     android:layout_marginStart="4dp"
                     tools:ignore="HardcodedText"
                     tools:text="1.00x"/>
@@ -96,9 +91,7 @@
                     android:gravity="center"
                     android:text="---%"
                     android:textColor="?attr/colorAccent"
-                    android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginRight="4dp"
                     android:layout_marginEnd="4dp"
                     tools:ignore="HardcodedText"
                     tools:text="300%"/>
@@ -125,9 +118,7 @@
                 android:textColor="?attr/colorAccent"
                 android:background="?attr/selectableItemBackground"
                 android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="4dp"
                 android:layout_marginEnd="4dp"
                 tools:ignore="HardcodedText"
                 tools:text="+5%"/>
@@ -172,7 +163,6 @@
                 android:textStyle="bold"
                 android:textColor="?attr/colorAccent"
                 android:background="?attr/selectableItemBackground"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 tools:ignore="HardcodedText"
                 tools:text="-5%"/>
@@ -182,11 +172,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
-                android:layout_toRightOf="@+id/pitchStepDown"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
                 android:layout_toEndOf="@+id/pitchStepDown"
-                android:layout_toLeftOf="@+id/pitchStepUp"
                 android:layout_toStartOf="@+id/pitchStepUp">
 
                 <TextView
@@ -196,9 +184,7 @@
                     android:gravity="center"
                     android:text="---%"
                     android:textColor="?attr/colorAccent"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginLeft="4dp"
                     android:layout_marginStart="4dp"
                     tools:ignore="HardcodedText"
                     tools:text="25%"/>
@@ -222,9 +208,7 @@
                     android:gravity="center"
                     android:text="---%"
                     android:textColor="?attr/colorAccent"
-                    android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginRight="4dp"
                     android:layout_marginEnd="4dp"
                     tools:ignore="HardcodedText"
                     tools:text="300%"/>
@@ -251,9 +235,7 @@
                 android:textColor="?attr/colorAccent"
                 android:background="?attr/selectableItemBackground"
                 android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="4dp"
                 android:layout_marginEnd="4dp"
                 tools:ignore="HardcodedText"
                 tools:text="+5%"/>

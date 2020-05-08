@@ -49,7 +49,7 @@ public class CommentTextOnTouchListener implements View.OnTouchListener {
                 int x = (int) event.getX();
                 int y = (int) event.getY();
 
-                x -= widget.getTotalPaddingLeft();
+                x -= widget.getTotalPaddingStart();
                 y -= widget.getTotalPaddingTop();
 
                 x += widget.getScrollX();

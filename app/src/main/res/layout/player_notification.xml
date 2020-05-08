@@ -25,7 +25,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
             android:layout_weight="1"
             android:orientation="vertical"
             tools:ignore="RtlHardcoded">
@@ -101,7 +101,7 @@
             android:id="@+id/notificationStop"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:background="#00000000"
             android:clickable="true"
             android:focusable="true"
@@ -117,7 +117,7 @@
         android:layout_width="match_parent"
         android:layout_height="3dp"
         android:layout_gravity="bottom"
-        android:layout_marginLeft="64dp"
+        android:layout_marginStart="64dp"
         android:progressDrawable="@drawable/custom_progress_bar"
         tools:ignore="RtlHardcoded"
         tools:progress="52"/>
