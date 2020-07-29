@@ -27,8 +27,6 @@
     <dimen name="video_item_grid_thumbnail_image_width">164dp</dimen>
     <dimen name="video_item_grid_thumbnail_image_height">92dp</dimen>
 
-    <dimen name="channel_item_grid_thumbnail_image_size">42dp</dimen>
-    <dimen name="channel_item_grid_min_width">128dp</dimen>
     <!-- Calculated: 2*video_item_search_padding + video_item_search_thumbnail_image_height -->
     <dimen name="video_item_search_height">96dp</dimen>
     <!-- Paddings & Margins -->
@@ -116,4 +114,8 @@
     <dimen name="feed_group_carousel_between_items_margin">4dp</dimen>
 
     <dimen name="search_suggestion_text_size">16sp</dimen>
+
+    <!-- Item toolbar dimensions -->
+    <dimen name="item_toolbar_icon_height">39dp</dimen>
+    <dimen name="item_toolbar_below_minus_height">-27dp</dimen>
 </resources>

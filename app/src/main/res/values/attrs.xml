@@ -82,6 +82,7 @@
     <attr name="ic_sort" format="reference"/>
     <attr name="ic_help" format="reference"/>
     <attr name="ic_arrow_back" format="reference"/>
+    <attr name="ic_photo" format="reference"/>
 
     <attr name="progress_horizontal_drawable" format="reference"/>
     <!-- Can't refer to colors directly in drawable's xml-->

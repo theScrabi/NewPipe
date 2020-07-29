@@ -4,12 +4,8 @@
   "https://checkstyle.org/dtds/suppressions_1_2.dtd">
 <suppressions>
   <suppress checks="FinalParameters"
-    files="LocalItemListAdapter.java"
-    lines="220,292"/>
-
-  <suppress checks="FinalParameters"
-    files="InfoListAdapter.java"
-    lines="253,325"/>
+    files="ItemListAdapter.java"
+    lines="278,403"/>
 
   <suppress checks="FinalParameters"
       files="ListHelper.java"

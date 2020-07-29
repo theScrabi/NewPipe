@@ -3,6 +3,7 @@ package org.schabi.newpipe.player.playqueue;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.schabi.newpipe.extractor.InfoItem;
 import org.schabi.newpipe.extractor.ListExtractor;
@@ -50,7 +51,8 @@ abstract class AbstractInfoPlayQueue<T extends ListInfo, U extends InfoItem> ext
         return isComplete;
     }
 
-    SingleObserver<T> getHeadListObserver() {
+    SingleObserver<T> getHeadListObserver(
+            @Nullable final Runnable runnable) {
         return new SingleObserver<T>() {
             @Override
             public void onSubscribe(@NonNull final Disposable d) {
@@ -71,6 +73,9 @@ abstract class AbstractInfoPlayQueue<T extends ListInfo, U extends InfoItem> ext
                 nextPage = result.getNextPage();
 
                 append(extractListItems(result.getRelatedItems()));
+                if (runnable != null) {
+                    runnable.run();
+                }
 
                 fetchReactor.dispose();
                 fetchReactor = null;
@@ -80,12 +85,17 @@ abstract class AbstractInfoPlayQueue<T extends ListInfo, U extends InfoItem> ext
             public void onError(@NonNull final Throwable e) {
                 Log.e(getTag(), "Error fetching more playlist, marking playlist as complete.", e);
                 isComplete = true;
+
                 append(); // Notify change
+                if (runnable != null) {
+                    runnable.run();
+                }
             }
         };
     }
 
-    SingleObserver<ListExtractor.InfoItemsPage> getNextPageObserver() {
+    SingleObserver<ListExtractor.InfoItemsPage> getNextPageObserver(
+            @Nullable final Runnable runnable) {
         return new SingleObserver<ListExtractor.InfoItemsPage>() {
             @Override
             public void onSubscribe(@NonNull final Disposable d) {
@@ -98,13 +108,17 @@ abstract class AbstractInfoPlayQueue<T extends ListInfo, U extends InfoItem> ext
             }
 
             @Override
-            public void onSuccess(@NonNull final ListExtractor.InfoItemsPage result) {
+            public void onSuccess(
+                    @NonNull final ListExtractor.InfoItemsPage result) {
                 if (!result.hasNextPage()) {
                     isComplete = true;
                 }
                 nextPage = result.getNextPage();
 
                 append(extractListItems(result.getItems()));
+                if (runnable != null) {
+                    runnable.run();
+                }
 
                 fetchReactor.dispose();
                 fetchReactor = null;
@@ -114,7 +128,11 @@ abstract class AbstractInfoPlayQueue<T extends ListInfo, U extends InfoItem> ext
             public void onError(@NonNull final Throwable e) {
                 Log.e(getTag(), "Error fetching more playlist, marking playlist as complete.", e);
                 isComplete = true;
+
                 append(); // Notify change
+                if (runnable != null) {
+                    runnable.run();
+                }
             }
         };
     }
@@ -129,7 +147,7 @@ abstract class AbstractInfoPlayQueue<T extends ListInfo, U extends InfoItem> ext
     }
 
     private static List<PlayQueueItem> extractListItems(final List<StreamInfoItem> infos) {
-        List<PlayQueueItem> result = new ArrayList<>();
+        final List<PlayQueueItem> result = new ArrayList<>();
         for (final InfoItem stream : infos) {
             if (stream instanceof StreamInfoItem) {
                 result.add(new PlayQueueItem((StreamInfoItem) stream));

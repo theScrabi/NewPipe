@@ -97,6 +97,7 @@
         <item name="ic_sort">@drawable/ic_sort_black_24dp</item>
         <item name="ic_help">@drawable/ic_help_black_24dp</item>
         <item name="ic_arrow_back">@drawable/ic_arrow_back_black_24dp</item>
+        <item name="ic_photo">@drawable/ic_photo_black_24dp</item>
 
         <item name="separator_color">@color/light_separator_color</item>
         <item name="contrast_background_color">@color/light_contrast_background_color</item>
@@ -204,6 +205,7 @@
         <item name="ic_sort">@drawable/ic_sort_white_24dp</item>
         <item name="ic_help">@drawable/ic_help_white_24dp</item>
         <item name="ic_arrow_back">@drawable/ic_arrow_back_white_24dp</item>
+        <item name="ic_photo">@drawable/ic_photo_white_24dp</item>
 
         <item name="separator_color">@color/dark_separator_color</item>
         <item name="contrast_background_color">@color/dark_contrast_background_color</item>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbarOverlayItem"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="#88000000"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/shareToolbarButton"
+            android:layout_width="@dimen/item_toolbar_icon_height"
+            android:layout_height="@dimen/item_toolbar_icon_height"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            app:srcCompat="@drawable/ic_share_white_24dp"/>
+
+        <ImageButton
+            android:id="@+id/addToPlaylistToolbarButton"
+            android:layout_width="@dimen/item_toolbar_icon_height"
+            android:layout_height="@dimen/item_toolbar_icon_height"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            app:srcCompat="@drawable/ic_playlist_add_white_24dp"/>
+
+        <ImageButton
+            android:id="@+id/deleteToolbarButton"
+            android:layout_width="@dimen/item_toolbar_icon_height"
+            android:layout_height="@dimen/item_toolbar_icon_height"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            app:srcCompat="@drawable/ic_delete_white_24dp"/>
+
+        <ImageButton
+            android:id="@+id/setAsPlaylistThumbnailToolbarButton"
+            android:layout_width="@dimen/item_toolbar_icon_height"
+            android:layout_height="@dimen/item_toolbar_icon_height"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            app:srcCompat="@drawable/ic_photo_white_24dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/downloadToolbarButton"
+            android:layout_width="@dimen/item_toolbar_icon_height"
+            android:layout_height="@dimen/item_toolbar_icon_height"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            app:srcCompat="@drawable/ic_file_download_white_24dp"/>
+
+        <ImageButton
+            android:id="@+id/playBackgroundToolbarButton"
+            android:layout_width="@dimen/item_toolbar_icon_height"
+            android:layout_height="@dimen/item_toolbar_icon_height"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            app:srcCompat="@drawable/ic_headset_white_24dp"/>
+
+        <ImageButton
+            android:id="@+id/playPopupToolbarButton"
+            android:layout_width="@dimen/item_toolbar_icon_height"
+            android:layout_height="@dimen/item_toolbar_icon_height"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            app:srcCompat="@drawable/ic_picture_in_picture_white_24dp"/>
+
+        <ImageButton
+            android:id="@+id/playMainToolbarButton"
+            android:layout_width="@dimen/item_toolbar_icon_height"
+            android:layout_height="@dimen/item_toolbar_icon_height"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            app:srcCompat="@drawable/ic_play_arrow_white_24dp"/>
+    </LinearLayout>
+</LinearLayout>

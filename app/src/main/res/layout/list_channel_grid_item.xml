@@ -7,18 +7,27 @@
     android:background="?attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true"
-    android:minWidth="@dimen/channel_item_grid_min_width"
     android:padding="@dimen/channel_item_grid_padding">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/itemThumbnailView"
-        android:layout_width="@dimen/channel_item_grid_thumbnail_image_size"
-        android:layout_height="@dimen/channel_item_grid_thumbnail_image_size"
+        android:layout_width="@dimen/video_item_grid_thumbnail_image_width"
+        android:layout_height="@dimen/video_item_grid_thumbnail_image_height"
         android:layout_centerHorizontal="true"
         android:layout_margin="2dp"
         android:contentDescription="@string/detail_uploader_thumbnail_view_description"
         android:src="@drawable/buddy_channel_item"
         tools:ignore="RtlHardcoded" />
+
+    <include
+        layout="@layout/item_toolbar_overlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignStart="@id/itemThumbnailView"
+        android:layout_alignEnd="@id/itemThumbnailView"
+        android:layout_alignTop="@id/itemThumbnailView"
+        android:layout_alignBottom="@id/itemThumbnailView" />
 
     <TextView
         android:id="@+id/itemTitleView"

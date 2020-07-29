@@ -1,70 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/itemRoot"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/video_item_search_height"
+    android:layout_height="wrap_content"
     android:background="?attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true"
-    android:padding="@dimen/video_item_search_padding">
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/itemThumbnailView"
-        android:layout_width="@dimen/video_item_search_thumbnail_image_width"
-        android:layout_height="@dimen/video_item_search_thumbnail_image_height"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="@dimen/video_item_search_image_right_margin"
-        android:contentDescription="@string/list_thumbnail_view_description"
-        android:scaleType="centerCrop"
-        android:src="@drawable/dummy_thumbnail_playlist"
-        tools:ignore="RtlHardcoded"/>
-
-    <TextView
-        android:id="@+id/itemStreamCountView"
-        android:layout_width="@dimen/playlist_item_thumbnail_stream_count_width"
-        android:layout_height="match_parent"
-        android:layout_alignBottom="@id/itemThumbnailView"
-        android:layout_alignRight="@id/itemThumbnailView"
-        android:layout_alignTop="@id/itemThumbnailView"
-        android:background="@color/playlist_stream_count_background_color"
-        app:drawableTopCompat="@drawable/ic_playlist_play_white_24dp"
-        android:gravity="center"
-        android:paddingBottom="14dp"
-        android:paddingTop="16dp"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/duration_text_color"
-        android:textSize="@dimen/video_item_search_duration_text_size"
-        android:textStyle="bold"
-        tools:ignore="RtlHardcoded"
-        tools:text="314159"/>
-
-    <TextView
-        android:id="@+id/itemTitleView"
+    <RelativeLayout
+        android:id="@+id/itemRoot"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/itemThumbnailView"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="@dimen/video_item_search_title_text_size"
-        tools:ignore="RtlHardcoded"
-        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique vitae sem vitae blanditLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum"/>
+        android:layout_height="@dimen/video_item_search_height"
+        android:padding="@dimen/video_item_search_padding">
 
-    <TextView
-        android:id="@+id/itemUploaderView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/itemTitleView"
-        android:layout_toRightOf="@+id/itemThumbnailView"
-        android:lines="1"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textSize="@dimen/video_item_search_uploader_text_size"
-        tools:ignore="RtlHardcoded"
-        tools:text="Uploader"/>
+        <ImageView
+            android:id="@+id/itemThumbnailView"
+            android:layout_width="@dimen/video_item_search_thumbnail_image_width"
+            android:layout_height="@dimen/video_item_search_thumbnail_image_height"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="@dimen/video_item_search_image_right_margin"
+            android:contentDescription="@string/list_thumbnail_view_description"
+            android:scaleType="centerCrop"
+            android:src="@drawable/dummy_thumbnail_playlist"
+            tools:ignore="RtlHardcoded"/>
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/itemStreamCountView"
+            android:layout_width="@dimen/playlist_item_thumbnail_stream_count_width"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@id/itemThumbnailView"
+            android:layout_alignRight="@id/itemThumbnailView"
+            android:layout_alignTop="@id/itemThumbnailView"
+            android:background="@color/playlist_stream_count_background_color"
+            app:drawableTopCompat="@drawable/ic_playlist_play_white_24dp"
+            android:gravity="center"
+            android:paddingBottom="14dp"
+            android:paddingTop="16dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/duration_text_color"
+            android:textSize="@dimen/video_item_search_duration_text_size"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded"
+            tools:text="314159"/>
+
+        <TextView
+            android:id="@+id/itemTitleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/itemThumbnailView"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/video_item_search_title_text_size"
+            tools:ignore="RtlHardcoded"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique vitae sem vitae blanditLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum"/>
+
+        <TextView
+            android:id="@+id/itemUploaderView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/itemTitleView"
+            android:layout_toRightOf="@+id/itemThumbnailView"
+            android:lines="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="@dimen/video_item_search_uploader_text_size"
+            tools:ignore="RtlHardcoded"
+            tools:text="Uploader"/>
+    </RelativeLayout>
+
+    <include layout="@layout/item_toolbar_below" />
+</LinearLayout>

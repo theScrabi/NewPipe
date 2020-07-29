@@ -5,22 +5,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.schabi.newpipe.R;
-import org.schabi.newpipe.extractor.InfoItem;
 import org.schabi.newpipe.extractor.playlist.PlaylistInfoItem;
-import org.schabi.newpipe.info_list.InfoItemBuilder;
+import org.schabi.newpipe.info_list.ItemHandler;
+import org.schabi.newpipe.info_list.ItemHolderWithToolbar;
 import org.schabi.newpipe.local.history.HistoryRecordManager;
 import org.schabi.newpipe.util.ImageDisplayConstants;
 import org.schabi.newpipe.util.Localization;
 
-public class PlaylistMiniInfoItemHolder extends InfoItemHolder {
+public class PlaylistMiniInfoItemHolder extends ItemHolderWithToolbar<PlaylistInfoItem> {
     public final ImageView itemThumbnailView;
     private final TextView itemStreamCountView;
     public final TextView itemTitleView;
     public final TextView itemUploaderView;
 
-    public PlaylistMiniInfoItemHolder(final InfoItemBuilder infoItemBuilder, final int layoutId,
+    public PlaylistMiniInfoItemHolder(final ItemHandler itemHandler, final int layoutId,
                                       final ViewGroup parent) {
-        super(infoItemBuilder, layoutId, parent);
+        super(PlaylistInfoItem.class, itemHandler, layoutId, parent);
 
         itemThumbnailView = itemView.findViewById(R.id.itemThumbnailView);
         itemTitleView = itemView.findViewById(R.id.itemTitleView);
@@ -28,40 +28,20 @@ public class PlaylistMiniInfoItemHolder extends InfoItemHolder {
         itemUploaderView = itemView.findViewById(R.id.itemUploaderView);
     }
 
-    public PlaylistMiniInfoItemHolder(final InfoItemBuilder infoItemBuilder,
+    public PlaylistMiniInfoItemHolder(final ItemHandler itemHandler,
                                       final ViewGroup parent) {
-        this(infoItemBuilder, R.layout.list_playlist_mini_item, parent);
+        this(itemHandler, R.layout.list_playlist_mini_item, parent);
     }
 
     @Override
-    public void updateFromItem(final InfoItem infoItem,
+    public void updateFromItem(final PlaylistInfoItem item,
                                final HistoryRecordManager historyRecordManager) {
-        if (!(infoItem instanceof PlaylistInfoItem)) {
-            return;
-        }
-        final PlaylistInfoItem item = (PlaylistInfoItem) infoItem;
-
         itemTitleView.setText(item.getName());
-        itemStreamCountView.setText(Localization
-                .localizeStreamCountMini(itemStreamCountView.getContext(), item.getStreamCount()));
+        itemStreamCountView.setText(Localization.localizeStreamCountMini(
+                itemStreamCountView.getContext(), item.getStreamCount()));
         itemUploaderView.setText(item.getUploaderName());
 
-        itemBuilder.getImageLoader()
-                .displayImage(item.getThumbnailUrl(), itemThumbnailView,
-                        ImageDisplayConstants.DISPLAY_THUMBNAIL_OPTIONS);
-
-        itemView.setOnClickListener(view -> {
-            if (itemBuilder.getOnPlaylistSelectedListener() != null) {
-                itemBuilder.getOnPlaylistSelectedListener().selected(item);
-            }
-        });
-
-        itemView.setLongClickable(true);
-        itemView.setOnLongClickListener(view -> {
-            if (itemBuilder.getOnPlaylistSelectedListener() != null) {
-                itemBuilder.getOnPlaylistSelectedListener().held(item);
-            }
-            return true;
-        });
+        itemHandler.displayImage(item.getThumbnailUrl(), itemThumbnailView,
+                ImageDisplayConstants.DISPLAY_THUMBNAIL_OPTIONS);
     }
 }

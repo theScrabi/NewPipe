@@ -201,7 +201,7 @@ class FeedFragment : BaseListFragment<FeedState, Unit>() {
     }
 
     override fun showError(message: String, showRetryButton: Boolean) {
-        infoListAdapter.clearStreamItemList()
+        itemListAdapter.clearStreamItemList()
         animateView(refresh_root_view, false, 120)
         animateView(items_list, false, 120)
 
@@ -245,7 +245,7 @@ class FeedFragment : BaseListFragment<FeedState, Unit>() {
     }
 
     private fun handleLoadedState(loadedState: FeedState.LoadedState) {
-        infoListAdapter.setInfoItemList(loadedState.items)
+        itemListAdapter.setItemList(loadedState.items)
         listState?.run {
             items_list.layoutManager?.onRestoreInstanceState(listState)
             listState = null
@@ -283,7 +283,7 @@ class FeedFragment : BaseListFragment<FeedState, Unit>() {
 
     private fun updateRelativeTimeViews() {
         updateRefreshViewState()
-        infoListAdapter.notifyDataSetChanged()
+        itemListAdapter.notifyDataSetChanged()
     }
 
     private fun updateRefreshViewState() {

@@ -1,5 +1,7 @@
 package org.schabi.newpipe.player.playqueue;
 
+import androidx.annotation.Nullable;
+
 import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
 
@@ -39,6 +41,9 @@ public final class SinglePlayQueue extends PlayQueue {
     }
 
     @Override
-    public void fetch() {
+    public void fetch(@Nullable final Runnable runnable) {
+        if (runnable != null) {
+            runnable.run();
+        }
     }
 }

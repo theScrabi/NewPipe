@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/itemRoot"
     android:layout_width="match_parent"
@@ -40,6 +39,16 @@
         android:textSize="@dimen/video_item_search_duration_text_size"
         tools:ignore="RtlHardcoded"
         tools:text="1:09:10"/>
+
+    <include
+        layout="@layout/item_toolbar_overlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignStart="@id/itemThumbnailView"
+        android:layout_alignEnd="@id/itemThumbnailView"
+        android:layout_alignTop="@id/itemThumbnailView"
+        android:layout_alignBottom="@id/itemThumbnailView" />
 
     <TextView
         android:id="@+id/itemVideoTitleView"

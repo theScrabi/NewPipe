@@ -1,6 +1,5 @@
 package org.schabi.newpipe.fragments.list;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -14,26 +13,15 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.extractor.InfoItem;
-import org.schabi.newpipe.extractor.channel.ChannelInfoItem;
-import org.schabi.newpipe.extractor.comments.CommentsInfoItem;
-import org.schabi.newpipe.extractor.playlist.PlaylistInfoItem;
-import org.schabi.newpipe.extractor.stream.StreamInfoItem;
-import org.schabi.newpipe.extractor.stream.StreamType;
 import org.schabi.newpipe.fragments.BaseStateFragment;
 import org.schabi.newpipe.fragments.OnScrollBelowItemsListener;
-import org.schabi.newpipe.info_list.InfoItemDialog;
-import org.schabi.newpipe.info_list.InfoListAdapter;
-import org.schabi.newpipe.report.ErrorActivity;
-import org.schabi.newpipe.util.NavigationHelper;
-import org.schabi.newpipe.util.OnClickGesture;
+import org.schabi.newpipe.info_list.ItemListAdapter;
 import org.schabi.newpipe.util.StateSaver;
-import org.schabi.newpipe.util.StreamDialogEntry;
 import org.schabi.newpipe.views.SuperScrollLayoutManager;
 
 import java.util.List;
@@ -54,7 +42,7 @@ public abstract class BaseListFragment<I, N> extends BaseStateFragment<I>
     // Views
     //////////////////////////////////////////////////////////////////////////*/
 
-    protected InfoListAdapter infoListAdapter;
+    protected ItemListAdapter itemListAdapter;
     protected RecyclerView itemsList;
     private int focusedPosition = -1;
 
@@ -66,8 +54,8 @@ public abstract class BaseListFragment<I, N> extends BaseStateFragment<I>
     public void onAttach(final Context context) {
         super.onAttach(context);
 
-        if (infoListAdapter == null) {
-            infoListAdapter = new InfoListAdapter(activity);
+        if (itemListAdapter == null) {
+            itemListAdapter = new ItemListAdapter(activity);
         }
     }
 
@@ -103,8 +91,8 @@ public abstract class BaseListFragment<I, N> extends BaseStateFragment<I>
                 final boolean useGrid = isGridLayout();
                 itemsList.setLayoutManager(useGrid
                         ? getGridLayoutManager() : getListLayoutManager());
-                infoListAdapter.setUseGridVariant(useGrid);
-                infoListAdapter.notifyDataSetChanged();
+                itemListAdapter.setUseGridVariant(useGrid);
+                itemListAdapter.notifyDataSetChanged();
             }
             updateFlags = 0;
         }
@@ -127,7 +115,7 @@ public abstract class BaseListFragment<I, N> extends BaseStateFragment<I>
     @Override
     public String generateSuffix() {
         // Naive solution, but it's good for now (the items don't change)
-        return "." + infoListAdapter.getItemsList().size() + ".list";
+        return "." + itemListAdapter.getItemList().size() + ".list";
     }
 
     private int getFocusedPosition() {
@@ -147,7 +135,7 @@ public abstract class BaseListFragment<I, N> extends BaseStateFragment<I>
             return;
         }
 
-        objectsToSave.add(infoListAdapter.getItemsList());
+        objectsToSave.add(itemListAdapter.getItemList());
         objectsToSave.add(getFocusedPosition());
     }
 
@@ -158,8 +146,8 @@ public abstract class BaseListFragment<I, N> extends BaseStateFragment<I>
             return;
         }
 
-        infoListAdapter.getItemsList().clear();
-        infoListAdapter.getItemsList().addAll((List<InfoItem>) savedObjects.poll());
+        itemListAdapter.getItemList().clear();
+        itemListAdapter.getItemList().addAll((List<InfoItem>) savedObjects.poll());
         restoreFocus((Integer) savedObjects.poll());
     }
 
@@ -230,7 +218,7 @@ public abstract class BaseListFragment<I, N> extends BaseStateFragment<I>
         final int spanCount = (int) Math.floor(resources.getDisplayMetrics().widthPixels
                 / (double) width);
         final GridLayoutManager lm = new GridLayoutManager(activity, spanCount);
-        lm.setSpanSizeLookup(infoListAdapter.getSpanSizeLookup(spanCount));
+        lm.setSpanSizeLookup(itemListAdapter.getSpanSizeLookup(spanCount));
         return lm;
     }
 
@@ -242,70 +230,16 @@ public abstract class BaseListFragment<I, N> extends BaseStateFragment<I>
         itemsList = rootView.findViewById(R.id.items_list);
         itemsList.setLayoutManager(useGrid ? getGridLayoutManager() : getListLayoutManager());
 
-        infoListAdapter.setUseGridVariant(useGrid);
-        infoListAdapter.setFooter(getListFooter());
-        infoListAdapter.setHeader(getListHeader());
+        itemListAdapter.setUseGridVariant(useGrid);
+        itemListAdapter.setFooter(getListFooter());
+        itemListAdapter.setHeader(getListHeader());
 
-        itemsList.setAdapter(infoListAdapter);
-    }
-
-    protected void onItemSelected(final InfoItem selectedItem) {
-        if (DEBUG) {
-            Log.d(TAG, "onItemSelected() called with: selectedItem = [" + selectedItem + "]");
-        }
+        itemsList.setAdapter(itemListAdapter);
     }
 
     @Override
     protected void initListeners() {
         super.initListeners();
-        infoListAdapter.setOnStreamSelectedListener(new OnClickGesture<StreamInfoItem>() {
-            @Override
-            public void selected(final StreamInfoItem selectedItem) {
-                onStreamSelected(selectedItem);
-            }
-
-            @Override
-            public void held(final StreamInfoItem selectedItem) {
-                showStreamDialog(selectedItem);
-            }
-        });
-
-        infoListAdapter.setOnChannelSelectedListener(new OnClickGesture<ChannelInfoItem>() {
-            @Override
-            public void selected(final ChannelInfoItem selectedItem) {
-                try {
-                    onItemSelected(selectedItem);
-                    NavigationHelper.openChannelFragment(getFM(),
-                            selectedItem.getServiceId(),
-                            selectedItem.getUrl(),
-                            selectedItem.getName());
-                } catch (Exception e) {
-                    ErrorActivity.reportUiError((AppCompatActivity) getActivity(), e);
-                }
-            }
-        });
-
-        infoListAdapter.setOnPlaylistSelectedListener(new OnClickGesture<PlaylistInfoItem>() {
-            @Override
-            public void selected(final PlaylistInfoItem selectedItem) {
-                try {
-                    onItemSelected(selectedItem);
-                    NavigationHelper.openPlaylistFragment(getFM(),
-                            selectedItem.getServiceId(),
-                            selectedItem.getUrl(),
-                            selectedItem.getName());
-                } catch (Exception e) {
-                    ErrorActivity.reportUiError((AppCompatActivity) getActivity(), e);
-                }
-            }
-        });
-
-        infoListAdapter.setOnCommentsSelectedListener(new OnClickGesture<CommentsInfoItem>() {
-            @Override
-            public void selected(final CommentsInfoItem selectedItem) {
-                onItemSelected(selectedItem);
-            }
-        });
 
         itemsList.clearOnScrollListeners();
         itemsList.addOnScrollListener(new OnScrollBelowItemsListener() {
@@ -316,45 +250,12 @@ public abstract class BaseListFragment<I, N> extends BaseStateFragment<I>
         });
     }
 
-    private void onStreamSelected(final StreamInfoItem selectedItem) {
-        onItemSelected(selectedItem);
-        NavigationHelper.openVideoDetailFragment(getFM(),
-                selectedItem.getServiceId(), selectedItem.getUrl(), selectedItem.getName());
-    }
-
     protected void onScrollToBottom() {
         if (hasMoreItems() && !isLoading.get()) {
             loadMoreItems();
         }
     }
 
-
-    protected void showStreamDialog(final StreamInfoItem item) {
-        final Context context = getContext();
-        final Activity activity = getActivity();
-        if (context == null || context.getResources() == null || activity == null) {
-            return;
-        }
-
-        if (item.getStreamType() == StreamType.AUDIO_STREAM) {
-            StreamDialogEntry.setEnabledEntries(
-                    StreamDialogEntry.enqueue_on_background,
-                    StreamDialogEntry.start_here_on_background,
-                    StreamDialogEntry.append_playlist,
-                    StreamDialogEntry.share);
-        } else {
-            StreamDialogEntry.setEnabledEntries(
-                    StreamDialogEntry.enqueue_on_background,
-                    StreamDialogEntry.enqueue_on_popup,
-                    StreamDialogEntry.start_here_on_background,
-                    StreamDialogEntry.start_here_on_popup,
-                    StreamDialogEntry.append_playlist,
-                    StreamDialogEntry.share);
-        }
-
-        new InfoItemDialog(activity, item, StreamDialogEntry.getCommands(context),
-                (dialog, which) -> StreamDialogEntry.clickOn(which, this, item)).show();
-    }
 
     /*//////////////////////////////////////////////////////////////////////////
     // Menu
@@ -418,8 +319,8 @@ public abstract class BaseListFragment<I, N> extends BaseStateFragment<I>
     @Override
     public void showListFooter(final boolean show) {
         itemsList.post(() -> {
-            if (infoListAdapter != null && itemsList != null) {
-                infoListAdapter.showFooter(show);
+            if (itemListAdapter != null && itemsList != null) {
+                itemListAdapter.showFooter(show);
             }
         });
     }

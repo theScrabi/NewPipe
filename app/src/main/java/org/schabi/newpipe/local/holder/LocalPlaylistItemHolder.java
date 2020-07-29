@@ -3,42 +3,31 @@ package org.schabi.newpipe.local.holder;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.schabi.newpipe.database.LocalItem;
 import org.schabi.newpipe.database.playlist.PlaylistMetadataEntry;
-import org.schabi.newpipe.local.LocalItemBuilder;
+import org.schabi.newpipe.info_list.ItemHandler;
 import org.schabi.newpipe.local.history.HistoryRecordManager;
 import org.schabi.newpipe.util.ImageDisplayConstants;
 import org.schabi.newpipe.util.Localization;
 
-import java.text.DateFormat;
-
-public class LocalPlaylistItemHolder extends PlaylistItemHolder {
-    public LocalPlaylistItemHolder(final LocalItemBuilder infoItemBuilder, final ViewGroup parent) {
-        super(infoItemBuilder, parent);
+public class LocalPlaylistItemHolder extends PlaylistItemHolder<PlaylistMetadataEntry> {
+    public LocalPlaylistItemHolder(final ItemHandler itemHandler, final ViewGroup parent) {
+        super(PlaylistMetadataEntry.class, itemHandler, parent);
     }
 
-    LocalPlaylistItemHolder(final LocalItemBuilder infoItemBuilder, final int layoutId,
+    LocalPlaylistItemHolder(final ItemHandler itemHandler, final int layoutId,
                             final ViewGroup parent) {
-        super(infoItemBuilder, layoutId, parent);
+        super(PlaylistMetadataEntry.class, itemHandler, layoutId, parent);
     }
 
     @Override
-    public void updateFromItem(final LocalItem localItem,
-                               final HistoryRecordManager historyRecordManager,
-                               final DateFormat dateFormat) {
-        if (!(localItem instanceof PlaylistMetadataEntry)) {
-            return;
-        }
-        final PlaylistMetadataEntry item = (PlaylistMetadataEntry) localItem;
-
+    public void updateFromItem(final PlaylistMetadataEntry item,
+                               final HistoryRecordManager historyRecordManager) {
         itemTitleView.setText(item.name);
         itemStreamCountView.setText(Localization.localizeStreamCountMini(
                 itemStreamCountView.getContext(), item.streamCount));
         itemUploaderView.setVisibility(View.INVISIBLE);
 
-        itemBuilder.displayImage(item.thumbnailUrl, itemThumbnailView,
+        itemHandler.displayImage(item.thumbnailUrl, itemThumbnailView,
                 ImageDisplayConstants.DISPLAY_PLAYLIST_OPTIONS);
-
-        super.updateFromItem(localItem, historyRecordManager, dateFormat);
     }
 }

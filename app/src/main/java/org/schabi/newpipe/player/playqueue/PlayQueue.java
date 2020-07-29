@@ -115,7 +115,16 @@ public abstract class PlayQueue implements Serializable {
     /**
      * Load partial queue in the background, does nothing if the queue is complete.
      */
-    public abstract void fetch();
+    public final void fetch() {
+        fetch(null);
+    }
+
+    /**
+     * Load partial queue in the background, does nothing if the queue is complete.
+     * @param runnable if not null, it will be called once the fetch has finished (or instantly if
+     *                 the queue is complete)
+     */
+    public abstract void fetch(@Nullable final Runnable runnable);
 
     /*//////////////////////////////////////////////////////////////////////////
     // Readonly ops

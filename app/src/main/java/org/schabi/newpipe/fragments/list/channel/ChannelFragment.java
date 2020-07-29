@@ -28,7 +28,6 @@ import com.jakewharton.rxbinding2.view.RxView;
 
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.database.subscription.SubscriptionEntity;
-import org.schabi.newpipe.extractor.InfoItem;
 import org.schabi.newpipe.extractor.ListExtractor;
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.extractor.channel.ChannelInfo;
@@ -549,7 +548,7 @@ public class ChannelFragment extends BaseListInfoFragment<ChannelInfo>
 
     private PlayQueue getPlayQueue(final int index) {
         final List<StreamInfoItem> streamItems = new ArrayList<>();
-        for (InfoItem i : infoListAdapter.getItemsList()) {
+        for (Object i : itemListAdapter.getItemList()) {
             if (i instanceof StreamInfoItem) {
                 streamItems.add((StreamInfoItem) i);
             }

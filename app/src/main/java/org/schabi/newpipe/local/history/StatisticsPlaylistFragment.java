@@ -23,7 +23,6 @@ import com.google.android.material.snackbar.Snackbar;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 import org.schabi.newpipe.R;
-import org.schabi.newpipe.database.LocalItem;
 import org.schabi.newpipe.database.stream.StreamStatisticsEntry;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
 import org.schabi.newpipe.extractor.stream.StreamType;
@@ -35,7 +34,6 @@ import org.schabi.newpipe.report.ErrorActivity;
 import org.schabi.newpipe.report.UserAction;
 import org.schabi.newpipe.settings.SettingsActivity;
 import org.schabi.newpipe.util.NavigationHelper;
-import org.schabi.newpipe.util.OnClickGesture;
 import org.schabi.newpipe.util.StreamDialogEntry;
 import org.schabi.newpipe.util.ThemeHelper;
 
@@ -138,31 +136,6 @@ public class StatisticsPlaylistFragment
     }
 
     @Override
-    protected void initListeners() {
-        super.initListeners();
-
-        itemListAdapter.setSelectedListener(new OnClickGesture<LocalItem>() {
-            @Override
-            public void selected(final LocalItem selectedItem) {
-                if (selectedItem instanceof StreamStatisticsEntry) {
-                    final StreamStatisticsEntry item = (StreamStatisticsEntry) selectedItem;
-                    NavigationHelper.openVideoDetailFragment(getFM(),
-                            item.getStreamEntity().getServiceId(),
-                            item.getStreamEntity().getUrl(),
-                            item.getStreamEntity().getTitle());
-                }
-            }
-
-            @Override
-            public void held(final LocalItem selectedItem) {
-                if (selectedItem instanceof StreamStatisticsEntry) {
-                    showStreamDialog((StreamStatisticsEntry) selectedItem);
-                }
-            }
-        });
-    }
-
-    @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_history_clear:
@@ -237,7 +210,7 @@ public class StatisticsPlaylistFragment
         super.onDestroyView();
 
         if (itemListAdapter != null) {
-            itemListAdapter.unsetSelectedListener();
+            itemListAdapter.setOnItemSelectedListener(null);
         }
         if (headerBackgroundButton != null) {
             headerBackgroundButton.setOnClickListener(null);
@@ -376,7 +349,7 @@ public class StatisticsPlaylistFragment
     }
 
     private PlayQueue getPlayQueueStartingAt(final StreamStatisticsEntry infoItem) {
-        return getPlayQueue(Math.max(itemListAdapter.getItemsList().indexOf(infoItem), 0));
+        return getPlayQueue(Math.max(itemListAdapter.getItemList().indexOf(infoItem), 0));
     }
 
     private void showStreamDialog(final StreamStatisticsEntry item) {
@@ -413,17 +386,16 @@ public class StatisticsPlaylistFragment
                 NavigationHelper
                         .playOnBackgroundPlayer(context, getPlayQueueStartingAt(item), true));
         StreamDialogEntry.delete.setCustomAction((fragment, infoItemDuplicate) ->
-                deleteEntry(Math.max(itemListAdapter.getItemsList().indexOf(item), 0)));
+                deleteEntry(Math.max(itemListAdapter.getItemList().indexOf(item), 0)));
 
         new InfoItemDialog(activity, infoItem, StreamDialogEntry.getCommands(context),
                 (dialog, which) -> StreamDialogEntry.clickOn(which, this, infoItem)).show();
     }
 
     private void deleteEntry(final int index) {
-        final LocalItem infoItem = itemListAdapter.getItemsList()
-                .get(index);
-        if (infoItem instanceof StreamStatisticsEntry) {
-            final StreamStatisticsEntry entry = (StreamStatisticsEntry) infoItem;
+        final Object item = itemListAdapter.getItemList().get(index);
+        if (item instanceof StreamStatisticsEntry) {
+            final StreamStatisticsEntry entry = (StreamStatisticsEntry) item;
             final Disposable onDelete = recordManager.deleteStreamHistory(entry.getStreamId())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
@@ -454,9 +426,9 @@ public class StatisticsPlaylistFragment
             return new SinglePlayQueue(Collections.emptyList(), 0);
         }
 
-        final List<LocalItem> infoItems = itemListAdapter.getItemsList();
-        List<StreamInfoItem> streamInfoItems = new ArrayList<>(infoItems.size());
-        for (final LocalItem item : infoItems) {
+        final List<Object> items = itemListAdapter.getItemList();
+        List<StreamInfoItem> streamInfoItems = new ArrayList<>(items.size());
+        for (final Object item : items) {
             if (item instanceof StreamStatisticsEntry) {
                 streamInfoItems.add(((StreamStatisticsEntry) item).toStreamInfoItem());
             }

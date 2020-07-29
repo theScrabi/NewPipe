@@ -1,95 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/itemRoot"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/video_item_search_height"
+    android:layout_height="wrap_content"
     android:background="?attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true"
-    android:padding="@dimen/video_item_search_padding">
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/itemThumbnailView"
-        android:layout_width="@dimen/video_item_search_thumbnail_image_width"
-        android:layout_height="@dimen/video_item_search_thumbnail_image_height"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="@dimen/video_item_search_image_right_margin"
-        android:contentDescription="@string/list_thumbnail_view_description"
-        android:scaleType="centerCrop"
-        android:src="@drawable/dummy_thumbnail"
-        tools:ignore="RtlHardcoded"/>
-
-    <TextView
-        android:id="@+id/itemDurationView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/itemThumbnailView"
-        android:layout_alignRight="@id/itemThumbnailView"
-        android:layout_marginBottom="@dimen/video_item_search_duration_margin"
-        android:layout_marginRight="@dimen/video_item_search_duration_margin"
-        android:background="@color/duration_background_color"
-        android:paddingBottom="@dimen/video_item_search_duration_vertical_padding"
-        android:paddingLeft="@dimen/video_item_search_duration_horizontal_padding"
-        android:paddingRight="@dimen/video_item_search_duration_horizontal_padding"
-        android:paddingTop="@dimen/video_item_search_duration_vertical_padding"
-        android:textAllCaps="true"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/duration_text_color"
-        android:textSize="@dimen/video_item_search_duration_text_size"
-        tools:ignore="RtlHardcoded"
-        tools:text="1:09:10"/>
-
-    <TextView
-        android:id="@+id/itemVideoTitleView"
+    <RelativeLayout
+        android:id="@+id/itemRoot"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/itemThumbnailView"
-        android:layout_toEndOf="@+id/itemThumbnailView"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="@dimen/video_item_search_title_text_size"
-        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique vitae sem vitae blanditLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum"/>
+        android:layout_height="@dimen/video_item_search_height"
+        android:padding="@dimen/video_item_search_padding">
 
-    <TextView
-        android:id="@+id/itemUploaderView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/itemVideoTitleView"
-        android:layout_toRightOf="@+id/itemThumbnailView"
-        android:layout_toEndOf="@+id/itemThumbnailView"
-        android:lines="1"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textSize="@dimen/video_item_search_uploader_text_size"
-        tools:text="Uploader"/>
+        <ImageView
+            android:id="@+id/itemThumbnailView"
+            android:layout_width="@dimen/video_item_search_thumbnail_image_width"
+            android:layout_height="@dimen/video_item_search_thumbnail_image_height"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="@dimen/video_item_search_image_right_margin"
+            android:contentDescription="@string/list_thumbnail_view_description"
+            android:scaleType="centerCrop"
+            android:src="@drawable/dummy_thumbnail"
+            tools:ignore="RtlHardcoded"/>
 
-    <TextView
-        android:id="@+id/itemAdditionalDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/itemThumbnailView"
-        android:layout_toEndOf="@+id/itemThumbnailView"
-        android:ellipsize="end"
-        android:lines="1"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textSize="@dimen/video_item_search_upload_date_text_size"
-        tools:text="2 years ago • 10M views"/>
+        <TextView
+            android:id="@+id/itemDurationView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/itemThumbnailView"
+            android:layout_alignRight="@id/itemThumbnailView"
+            android:layout_marginBottom="@dimen/video_item_search_duration_margin"
+            android:layout_marginRight="@dimen/video_item_search_duration_margin"
+            android:background="@color/duration_background_color"
+            android:paddingBottom="@dimen/video_item_search_duration_vertical_padding"
+            android:paddingLeft="@dimen/video_item_search_duration_horizontal_padding"
+            android:paddingRight="@dimen/video_item_search_duration_horizontal_padding"
+            android:paddingTop="@dimen/video_item_search_duration_vertical_padding"
+            android:textAllCaps="true"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/duration_text_color"
+            android:textSize="@dimen/video_item_search_duration_text_size"
+            tools:ignore="RtlHardcoded"
+            tools:text="1:09:10"/>
 
-    <org.schabi.newpipe.views.AnimatedProgressBar
-        android:id="@+id/itemProgressView"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:progressDrawable="?progress_horizontal_drawable"
-        android:layout_width="wrap_content"
-        android:layout_height="4dp"
-        android:layout_marginTop="-2dp"
-        android:layout_alignStart="@id/itemThumbnailView"
-        android:layout_alignEnd="@id/itemThumbnailView"
-        android:layout_below="@id/itemThumbnailView"/>
+        <TextView
+            android:id="@+id/itemVideoTitleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/itemThumbnailView"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/video_item_search_title_text_size"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique vitae sem vitae blanditLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum"/>
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/itemUploaderView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/itemVideoTitleView"
+            android:layout_toEndOf="@+id/itemThumbnailView"
+            android:lines="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="@dimen/video_item_search_uploader_text_size"
+            tools:text="Uploader"/>
+
+        <TextView
+            android:id="@+id/itemAdditionalDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/itemThumbnailView"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="@dimen/video_item_search_upload_date_text_size"
+            tools:text="2 years ago • 10M views"/>
+
+        <org.schabi.newpipe.views.AnimatedProgressBar
+            android:id="@+id/itemProgressView"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:progressDrawable="?progress_horizontal_drawable"
+            android:layout_width="wrap_content"
+            android:layout_height="4dp"
+            android:layout_marginTop="-2dp"
+            android:layout_alignStart="@id/itemThumbnailView"
+            android:layout_alignEnd="@id/itemThumbnailView"
+            android:layout_below="@id/itemThumbnailView"/>
+    </RelativeLayout>
+
+    <include layout="@layout/item_toolbar_below" />
+</LinearLayout>

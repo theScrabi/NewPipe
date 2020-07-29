@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment;
 
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
-import org.schabi.newpipe.local.dialog.PlaylistAppendDialog;
+import org.schabi.newpipe.fragments.list.playlist.AppendPlaylistDialog;
 import org.schabi.newpipe.player.playqueue.SinglePlayQueue;
 
 import java.util.Collections;
@@ -39,14 +39,13 @@ public enum StreamDialogEntry {
     }), // has to be set manually
 
     append_playlist(R.string.append_playlist, (fragment, item) -> {
-        if (fragment.getFragmentManager() != null) {
-            PlaylistAppendDialog.fromStreamInfoItems(Collections.singletonList(item))
-                    .show(fragment.getFragmentManager(), "StreamDialogEntry@append_playlist");
-        }
+        AppendPlaylistDialog.fromStreamInfoItems(Collections.singletonList(item))
+                .show(fragment.getParentFragmentManager(),
+                        "StreamDialogEntry@append_playlist");
     }),
 
     share(R.string.share, (fragment, item) ->
-            ShareUtils.shareUrl(fragment.getContext(), item.getName(), item.getUrl()));
+            ShareUtils.shareUrl(fragment.requireContext(), item.getName(), item.getUrl()));
 
 
     ///////////////

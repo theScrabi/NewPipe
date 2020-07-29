@@ -65,8 +65,8 @@ import org.schabi.newpipe.fragments.BackPressable;
 import org.schabi.newpipe.fragments.BaseStateFragment;
 import org.schabi.newpipe.fragments.EmptyFragment;
 import org.schabi.newpipe.fragments.list.comments.CommentsFragment;
+import org.schabi.newpipe.fragments.list.playlist.AppendPlaylistDialog;
 import org.schabi.newpipe.fragments.list.videos.RelatedVideosFragment;
-import org.schabi.newpipe.local.dialog.PlaylistAppendDialog;
 import org.schabi.newpipe.local.history.HistoryRecordManager;
 import org.schabi.newpipe.player.MainVideoPlayer;
 import org.schabi.newpipe.player.PopupVideoPlayer;
@@ -409,7 +409,7 @@ public class VideoDetailFragment extends BaseStateFragment<StreamInfo>
                 break;
             case R.id.detail_controls_playlist_append:
                 if (getFragmentManager() != null && currentInfo != null) {
-                    PlaylistAppendDialog.fromStreamInfo(currentInfo)
+                    AppendPlaylistDialog.fromStreamInfo(currentInfo)
                             .show(getFragmentManager(), TAG);
                 }
                 break;

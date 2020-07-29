@@ -54,7 +54,7 @@ public abstract class BaseListInfoFragment<I extends ListInfo>
         super.onResume();
         // Check if it was loading when the fragment was stopped/paused,
         if (wasLoading.getAndSet(false)) {
-            if (hasMoreItems() && infoListAdapter.getItemsList().size() > 0) {
+            if (hasMoreItems() && itemListAdapter.getItemList().size() > 0) {
                 loadMoreItems();
             } else {
                 doInitialLoadLogic();
@@ -119,7 +119,7 @@ public abstract class BaseListInfoFragment<I extends ListInfo>
         super.startLoading(forceLoad);
 
         showListFooter(false);
-        infoListAdapter.clearStreamItemList();
+        itemListAdapter.clearStreamItemList();
 
         currentInfo = null;
         if (currentWorker != null) {
@@ -183,7 +183,7 @@ public abstract class BaseListInfoFragment<I extends ListInfo>
     public void handleNextItems(final ListExtractor.InfoItemsPage result) {
         super.handleNextItems(result);
         currentNextPage = result.getNextPage();
-        infoListAdapter.addInfoItemList(result.getItems());
+        itemListAdapter.addItems(result.getItems());
 
         showListFooter(hasMoreItems());
     }
@@ -204,12 +204,12 @@ public abstract class BaseListInfoFragment<I extends ListInfo>
         name = result.getName();
         setTitle(name);
 
-        if (infoListAdapter.getItemsList().size() == 0) {
+        if (itemListAdapter.getItemList().size() == 0) {
             if (result.getRelatedItems().size() > 0) {
-                infoListAdapter.addInfoItemList(result.getRelatedItems());
+                itemListAdapter.addItems(result.getRelatedItems());
                 showListFooter(hasMoreItems());
             } else {
-                infoListAdapter.clearStreamItemList();
+                itemListAdapter.clearStreamItemList();
                 showEmptyState();
             }
         }

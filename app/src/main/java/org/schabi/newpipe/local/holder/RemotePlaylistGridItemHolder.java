@@ -3,11 +3,10 @@ package org.schabi.newpipe.local.holder;
 import android.view.ViewGroup;
 
 import org.schabi.newpipe.R;
-import org.schabi.newpipe.local.LocalItemBuilder;
+import org.schabi.newpipe.info_list.ItemHandler;
 
 public class RemotePlaylistGridItemHolder extends RemotePlaylistItemHolder {
-    public RemotePlaylistGridItemHolder(final LocalItemBuilder infoItemBuilder,
-                                        final ViewGroup parent) {
-        super(infoItemBuilder, R.layout.list_playlist_grid_item, parent);
+    public RemotePlaylistGridItemHolder(final ItemHandler itemHandler, final ViewGroup parent) {
+        super(itemHandler, R.layout.list_playlist_grid_item, parent);
     }
 }

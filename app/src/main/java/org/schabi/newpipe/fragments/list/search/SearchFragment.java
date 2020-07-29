@@ -35,7 +35,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.ReCaptchaActivity;
 import org.schabi.newpipe.database.history.model.SearchHistoryEntry;
-import org.schabi.newpipe.extractor.InfoItem;
 import org.schabi.newpipe.extractor.ListExtractor;
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.extractor.Page;
@@ -53,6 +52,7 @@ import org.schabi.newpipe.util.AnimationUtils;
 import org.schabi.newpipe.util.Constants;
 import org.schabi.newpipe.util.ExtractorHelper;
 import org.schabi.newpipe.util.NavigationHelper;
+import org.schabi.newpipe.util.OnClickGesture;
 import org.schabi.newpipe.util.ServiceHelper;
 
 import java.util.ArrayList;
@@ -257,11 +257,11 @@ public class SearchFragment extends BaseListFragment<SearchInfo, ListExtractor.I
         if (!TextUtils.isEmpty(searchString)) {
             if (wasLoading.getAndSet(false)) {
                 search(searchString, contentFilter, sortFilter);
-            } else if (infoListAdapter.getItemsList().size() == 0) {
+            } else if (itemListAdapter.getItemList().size() == 0) {
                 if (savedState == null) {
                     search(searchString, contentFilter, sortFilter);
                 } else if (!isLoading.get() && !wasSearchFocused) {
-                    infoListAdapter.clearStreamItemList();
+                    itemListAdapter.clearStreamItemList();
                     showEmptyState();
                 }
             }
@@ -694,7 +694,7 @@ public class SearchFragment extends BaseListFragment<SearchInfo, ListExtractor.I
     @Override
     public boolean onBackPressed() {
         if (suggestionsPanel.getVisibility() == View.VISIBLE
-                && infoListAdapter.getItemsList().size() > 0
+                && itemListAdapter.getItemList().size() > 0
                 && !isLoading.get()) {
             hideSuggestionsPanel();
             hideKeyboardSearch();
@@ -819,7 +819,7 @@ public class SearchFragment extends BaseListFragment<SearchInfo, ListExtractor.I
 
         lastSearchedString = this.searchString;
         this.searchString = ss;
-        infoListAdapter.clearStreamItemList();
+        itemListAdapter.clearStreamItemList();
         hideSuggestionsPanel();
         hideKeyboardSearch();
 
@@ -884,9 +884,14 @@ public class SearchFragment extends BaseListFragment<SearchInfo, ListExtractor.I
     }
 
     @Override
-    protected void onItemSelected(final InfoItem selectedItem) {
-        super.onItemSelected(selectedItem);
-        hideKeyboardSearch();
+    protected void initListeners() {
+        super.initListeners();
+        itemListAdapter.setOnItemSelectedListener(new OnClickGesture<Object>() {
+            @Override
+            public void selected(final Object selectedItem) {
+                hideKeyboardSearch();
+            }
+        });
     }
 
     /*//////////////////////////////////////////////////////////////////////////
@@ -981,11 +986,11 @@ public class SearchFragment extends BaseListFragment<SearchInfo, ListExtractor.I
         lastSearchedString = searchString;
         nextPage = result.getNextPage();
 
-        if (infoListAdapter.getItemsList().size() == 0) {
+        if (itemListAdapter.getItemList().size() == 0) {
             if (!result.getRelatedItems().isEmpty()) {
-                infoListAdapter.addInfoItemList(result.getRelatedItems());
+                itemListAdapter.addItems(result.getRelatedItems());
             } else {
-                infoListAdapter.clearStreamItemList();
+                itemListAdapter.clearStreamItemList();
                 showEmptyState();
                 return;
             }
@@ -1028,7 +1033,7 @@ public class SearchFragment extends BaseListFragment<SearchInfo, ListExtractor.I
     @Override
     public void handleNextItems(final ListExtractor.InfoItemsPage result) {
         showListFooter(false);
-        infoListAdapter.addInfoItemList(result.getItems());
+        itemListAdapter.addItems(result.getItems());
         nextPage = result.getNextPage();
 
         if (!result.getErrors().isEmpty()) {
@@ -1048,7 +1053,7 @@ public class SearchFragment extends BaseListFragment<SearchInfo, ListExtractor.I
         }
 
         if (exception instanceof SearchExtractor.NothingFoundException) {
-            infoListAdapter.clearStreamItemList();
+            itemListAdapter.clearStreamItemList();
             showEmptyState();
         } else {
             int errorId = exception instanceof ParsingException

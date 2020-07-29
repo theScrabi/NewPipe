@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbarBelowItem"
+    android:layout_height="@dimen/item_toolbar_icon_height"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_marginTop="-12dp"
+    android:layout_marginBottom="@dimen/item_toolbar_below_minus_height"
+    android:visibility="gone">
+
+    <ImageButton
+        android:id="@+id/shareToolbarButton"
+        android:layout_width="@dimen/item_toolbar_icon_height"
+        android:layout_height="match_parent"
+        app:srcCompat="?attr/ic_share"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"/>
+
+    <ImageButton
+        android:id="@+id/addToPlaylistToolbarButton"
+        android:layout_width="@dimen/item_toolbar_icon_height"
+        android:layout_height="match_parent"
+        app:srcCompat="?attr/ic_playlist_add"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"/>
+
+    <ImageButton
+        android:id="@+id/deleteToolbarButton"
+        android:layout_width="@dimen/item_toolbar_icon_height"
+        android:layout_height="match_parent"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        app:srcCompat="?attr/ic_delete"/>
+
+    <ImageButton
+        android:id="@+id/setAsPlaylistThumbnailToolbarButton"
+        android:layout_width="@dimen/item_toolbar_icon_height"
+        android:layout_height="match_parent"
+        app:srcCompat="?attr/ic_photo"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"/>
+
+    <Space
+        android:id="@+id/guideline"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"/>
+
+    <ImageButton
+        android:id="@+id/downloadToolbarButton"
+        android:layout_width="@dimen/item_toolbar_icon_height"
+        android:layout_height="match_parent"
+        app:srcCompat="?attr/ic_file_download"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"/>
+
+    <ImageButton
+        android:id="@+id/playBackgroundToolbarButton"
+        android:layout_width="@dimen/item_toolbar_icon_height"
+        android:layout_height="match_parent"
+        app:srcCompat="?attr/ic_headset"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"/>
+
+    <ImageButton
+        android:id="@+id/playPopupToolbarButton"
+        android:layout_width="@dimen/item_toolbar_icon_height"
+        android:layout_height="match_parent"
+        app:srcCompat="?attr/ic_popup"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"/>
+
+    <ImageButton
+        android:id="@+id/playMainToolbarButton"
+        android:layout_width="@dimen/item_toolbar_icon_height"
+        android:layout_height="match_parent"
+        app:srcCompat="?attr/ic_play_arrow"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"/>
+
+</LinearLayout>

@@ -10,10 +10,8 @@
     android:maxLines="2"
     android:minHeight="?attr/listPreferredItemHeightSmall"
     android:paddingEnd="?attr/listPreferredItemPaddingRight"
-    android:paddingLeft="?attr/listPreferredItemPaddingLeft"
-    android:paddingRight="?attr/listPreferredItemPaddingRight"
     android:paddingStart="?attr/listPreferredItemPaddingLeft"
     android:background="?attr/checked_selector"
     android:textColor="?attr/textColorAlertDialogListItem"
-    tools:drawableLeft="?attr/ic_play"
+    tools:drawableLeft="?attr/ic_play_arrow"
     tools:text="Lorem ipsum dolor sit amet" />

@@ -13,7 +13,8 @@ import org.schabi.newpipe.database.LocalItem;
 import org.schabi.newpipe.database.stream.StreamStatisticsEntry;
 import org.schabi.newpipe.database.stream.model.StreamStateEntity;
 import org.schabi.newpipe.extractor.NewPipe;
-import org.schabi.newpipe.local.LocalItemBuilder;
+import org.schabi.newpipe.info_list.ItemHandler;
+import org.schabi.newpipe.info_list.ItemHolderWithToolbar;
 import org.schabi.newpipe.local.history.HistoryRecordManager;
 import org.schabi.newpipe.util.AnimationUtils;
 import org.schabi.newpipe.util.ImageDisplayConstants;
@@ -44,7 +45,7 @@ import java.util.concurrent.TimeUnit;
  * along with NewPipe.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class LocalStatisticStreamItemHolder extends LocalItemHolder {
+public class LocalStatisticStreamItemHolder extends ItemHolderWithToolbar<StreamStatisticsEntry> {
     public final ImageView itemThumbnailView;
     public final TextView itemVideoTitleView;
     public final TextView itemUploaderView;
@@ -53,14 +54,14 @@ public class LocalStatisticStreamItemHolder extends LocalItemHolder {
     public final TextView itemAdditionalDetails;
     private final AnimatedProgressBar itemProgressView;
 
-    public LocalStatisticStreamItemHolder(final LocalItemBuilder itemBuilder,
+    public LocalStatisticStreamItemHolder(final ItemHandler itemHandler,
                                           final ViewGroup parent) {
-        this(itemBuilder, R.layout.list_stream_item, parent);
+        this(itemHandler, R.layout.list_stream_item, parent);
     }
 
-    LocalStatisticStreamItemHolder(final LocalItemBuilder infoItemBuilder, final int layoutId,
+    LocalStatisticStreamItemHolder(final ItemHandler itemHandler, final int layoutId,
                                    final ViewGroup parent) {
-        super(infoItemBuilder, layoutId, parent);
+        super(StreamStatisticsEntry.class, itemHandler, layoutId, parent);
 
         itemThumbnailView = itemView.findViewById(R.id.itemThumbnailView);
         itemVideoTitleView = itemView.findViewById(R.id.itemVideoTitleView);
@@ -73,34 +74,28 @@ public class LocalStatisticStreamItemHolder extends LocalItemHolder {
     private String getStreamInfoDetailLine(final StreamStatisticsEntry entry,
                                            final DateFormat dateFormat) {
         final String watchCount = Localization
-                .shortViewCount(itemBuilder.getContext(), entry.getWatchCount());
+                .shortViewCount(itemHandler.getActivity(), entry.getWatchCount());
         final String uploadDate = dateFormat.format(entry.getLatestAccessDate());
         final String serviceName = NewPipe.getNameOfService(entry.getStreamEntity().getServiceId());
         return Localization.concatenateStrings(watchCount, uploadDate, serviceName);
     }
 
     @Override
-    public void updateFromItem(final LocalItem localItem,
-                               final HistoryRecordManager historyRecordManager,
-                               final DateFormat dateFormat) {
-        if (!(localItem instanceof StreamStatisticsEntry)) {
-            return;
-        }
-        final StreamStatisticsEntry item = (StreamStatisticsEntry) localItem;
-
+    public void updateFromItem(final StreamStatisticsEntry item,
+                               final HistoryRecordManager historyRecordManager) {
         itemVideoTitleView.setText(item.getStreamEntity().getTitle());
         itemUploaderView.setText(item.getStreamEntity().getUploader());
 
         if (item.getStreamEntity().getDuration() > 0) {
-            itemDurationView.
-                    setText(Localization.getDurationString(item.getStreamEntity().getDuration()));
-            itemDurationView.setBackgroundColor(ContextCompat.getColor(itemBuilder.getContext(),
+            itemDurationView.setText(
+                    Localization.getDurationString(item.getStreamEntity().getDuration()));
+            itemDurationView.setBackgroundColor(ContextCompat.getColor(itemHandler.getActivity(),
                     R.color.duration_background_color));
             itemDurationView.setVisibility(View.VISIBLE);
 
             StreamStateEntity state = historyRecordManager
                     .loadLocalStreamStateBatch(new ArrayList<LocalItem>() {{
-                add(localItem);
+                add(item);
             }}).blockingGet().get(0);
             if (state != null) {
                 itemProgressView.setVisibility(View.VISIBLE);
@@ -115,40 +110,22 @@ public class LocalStatisticStreamItemHolder extends LocalItemHolder {
             itemProgressView.setVisibility(View.GONE);
         }
 
-        if (itemAdditionalDetails != null) {
-            itemAdditionalDetails.setText(getStreamInfoDetailLine(item, dateFormat));
+        if (itemAdditionalDetails != null && itemHandler.getDateFormat() != null) {
+            itemAdditionalDetails.setText(getStreamInfoDetailLine(item,
+                    itemHandler.getDateFormat()));
         }
 
         // Default thumbnail is shown on error, while loading and if the url is empty
-        itemBuilder.displayImage(item.getStreamEntity().getThumbnailUrl(), itemThumbnailView,
+        itemHandler.displayImage(item.getStreamEntity().getThumbnailUrl(), itemThumbnailView,
                 ImageDisplayConstants.DISPLAY_THUMBNAIL_OPTIONS);
-
-        itemView.setOnClickListener(view -> {
-            if (itemBuilder.getOnItemSelectedListener() != null) {
-                itemBuilder.getOnItemSelectedListener().selected(item);
-            }
-        });
-
-        itemView.setLongClickable(true);
-        itemView.setOnLongClickListener(view -> {
-            if (itemBuilder.getOnItemSelectedListener() != null) {
-                itemBuilder.getOnItemSelectedListener().held(item);
-            }
-            return true;
-        });
     }
 
     @Override
-    public void updateState(final LocalItem localItem,
-                            final HistoryRecordManager historyRecordManager) {
-        if (!(localItem instanceof StreamStatisticsEntry)) {
-            return;
-        }
-        final StreamStatisticsEntry item = (StreamStatisticsEntry) localItem;
-
+    public void updateStateFromItem(final StreamStatisticsEntry item,
+                                    final HistoryRecordManager historyRecordManager) {
         StreamStateEntity state = historyRecordManager
                 .loadLocalStreamStateBatch(new ArrayList<LocalItem>() {{
-            add(localItem);
+            add(item);
         }}).blockingGet().get(0);
         if (state != null && item.getStreamEntity().getDuration() > 0) {
             itemProgressView.setMax((int) item.getStreamEntity().getDuration());

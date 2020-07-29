@@ -4,9 +4,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.schabi.newpipe.R;
-import org.schabi.newpipe.extractor.InfoItem;
 import org.schabi.newpipe.extractor.channel.ChannelInfoItem;
-import org.schabi.newpipe.info_list.InfoItemBuilder;
+import org.schabi.newpipe.info_list.ItemHandler;
 import org.schabi.newpipe.local.history.HistoryRecordManager;
 import org.schabi.newpipe.util.Localization;
 
@@ -33,21 +32,15 @@ import org.schabi.newpipe.util.Localization;
 public class ChannelInfoItemHolder extends ChannelMiniInfoItemHolder {
     private final TextView itemChannelDescriptionView;
 
-    public ChannelInfoItemHolder(final InfoItemBuilder infoItemBuilder, final ViewGroup parent) {
-        super(infoItemBuilder, R.layout.list_channel_item, parent);
+    public ChannelInfoItemHolder(final ItemHandler itemHandler, final ViewGroup parent) {
+        super(itemHandler, R.layout.list_channel_item, parent);
         itemChannelDescriptionView = itemView.findViewById(R.id.itemChannelDescriptionView);
     }
 
     @Override
-    public void updateFromItem(final InfoItem infoItem,
+    public void updateFromItem(final ChannelInfoItem item,
                                final HistoryRecordManager historyRecordManager) {
-        super.updateFromItem(infoItem, historyRecordManager);
-
-        if (!(infoItem instanceof ChannelInfoItem)) {
-            return;
-        }
-        final ChannelInfoItem item = (ChannelInfoItem) infoItem;
-
+        super.updateFromItem(item, historyRecordManager);
         itemChannelDescriptionView.setText(item.getDescription());
     }
 
@@ -56,7 +49,7 @@ public class ChannelInfoItemHolder extends ChannelMiniInfoItemHolder {
         String details = super.getDetailLine(item);
 
         if (item.getStreamCount() >= 0) {
-            String formattedVideoAmount = Localization.localizeStreamCount(itemBuilder.getContext(),
+            String formattedVideoAmount = Localization.localizeStreamCount(itemHandler.getActivity(),
                     item.getStreamCount());
 
             if (!details.isEmpty()) {

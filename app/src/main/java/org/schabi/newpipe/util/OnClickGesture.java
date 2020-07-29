@@ -4,7 +4,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public abstract class OnClickGesture<T> {
 
-    public abstract void selected(T selectedItem);
+    public void selected(T selectedItem) {
+        // Optional gesture
+    }
 
     public void held(final T selectedItem) {
         // Optional gesture

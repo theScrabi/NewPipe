@@ -4,9 +4,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.schabi.newpipe.R;
-import org.schabi.newpipe.extractor.InfoItem;
 import org.schabi.newpipe.extractor.comments.CommentsInfoItem;
-import org.schabi.newpipe.info_list.InfoItemBuilder;
+import org.schabi.newpipe.info_list.ItemHandler;
 import org.schabi.newpipe.local.history.HistoryRecordManager;
 
 /*
@@ -32,22 +31,21 @@ import org.schabi.newpipe.local.history.HistoryRecordManager;
 public class CommentsInfoItemHolder extends CommentsMiniInfoItemHolder {
     public final TextView itemTitleView;
 
-    public CommentsInfoItemHolder(final InfoItemBuilder infoItemBuilder, final ViewGroup parent) {
-        super(infoItemBuilder, R.layout.list_comments_item, parent);
+    public CommentsInfoItemHolder(final ItemHandler itemHandler, final ViewGroup parent) {
+        super(itemHandler, R.layout.list_comments_item, parent);
 
         itemTitleView = itemView.findViewById(R.id.itemTitleView);
     }
 
     @Override
-    public void updateFromItem(final InfoItem infoItem,
-                               final HistoryRecordManager historyRecordManager) {
-        super.updateFromItem(infoItem, historyRecordManager);
+    public void updateFromObject(final Object object,
+                                 final HistoryRecordManager historyRecordManager) {
+        super.updateFromObject(object, historyRecordManager);
 
-        if (!(infoItem instanceof CommentsInfoItem)) {
+        if (!(object instanceof CommentsInfoItem)) {
             return;
         }
-        final CommentsInfoItem item = (CommentsInfoItem) infoItem;
 
-        itemTitleView.setText(item.getUploaderName());
+        itemTitleView.setText(((CommentsInfoItem) object).getUploaderName());
     }
 }

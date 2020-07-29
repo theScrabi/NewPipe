@@ -41,6 +41,16 @@
         tools:ignore="RtlHardcoded"
         tools:text="1:09:10" />
 
+    <include
+        layout="@layout/item_toolbar_overlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignStart="@id/itemThumbnailView"
+        android:layout_alignEnd="@id/itemThumbnailView"
+        android:layout_alignTop="@id/itemThumbnailView"
+        android:layout_alignBottom="@id/itemThumbnailView" />
+
     <ImageView
         android:id="@+id/itemHandle"
         android:layout_width="wrap_content"

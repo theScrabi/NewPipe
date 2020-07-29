@@ -30,7 +30,7 @@ import com.google.android.exoplayer2.Player;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.fragments.OnScrollBelowItemsListener;
-import org.schabi.newpipe.local.dialog.PlaylistAppendDialog;
+import org.schabi.newpipe.fragments.list.playlist.AppendPlaylistDialog;
 import org.schabi.newpipe.player.event.PlayerEventListener;
 import org.schabi.newpipe.player.helper.PlaybackParameterDialog;
 import org.schabi.newpipe.player.playqueue.PlayQueueAdapter;
@@ -551,7 +551,7 @@ public abstract class ServicePlayerActivity extends AppCompatActivity
     }
 
     private void openPlaylistAppendDialog(final List<PlayQueueItem> playlist) {
-        PlaylistAppendDialog.fromPlayQueueItems(playlist)
+        AppendPlaylistDialog.fromPlayQueueItems(playlist)
                 .show(getSupportFragmentManager(), getTag());
     }
 

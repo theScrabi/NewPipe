@@ -12,14 +12,12 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentManager;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 import org.schabi.newpipe.NewPipeDatabase;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.database.AppDatabase;
-import org.schabi.newpipe.database.LocalItem;
 import org.schabi.newpipe.database.playlist.PlaylistLocalItem;
 import org.schabi.newpipe.database.playlist.PlaylistMetadataEntry;
 import org.schabi.newpipe.database.playlist.model.PlaylistRemoteEntity;
@@ -27,7 +25,6 @@ import org.schabi.newpipe.local.BaseLocalListFragment;
 import org.schabi.newpipe.local.playlist.LocalPlaylistManager;
 import org.schabi.newpipe.local.playlist.RemotePlaylistManager;
 import org.schabi.newpipe.report.UserAction;
-import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.OnClickGesture;
 
 import java.util.List;
@@ -97,28 +94,9 @@ public final class BookmarkFragment extends BaseLocalListFragment<List<PlaylistL
     protected void initListeners() {
         super.initListeners();
 
-        itemListAdapter.setSelectedListener(new OnClickGesture<LocalItem>() {
+        itemListAdapter.setOnItemSelectedListener(new OnClickGesture<Object>() {
             @Override
-            public void selected(final LocalItem selectedItem) {
-                final FragmentManager fragmentManager = getFM();
-
-                if (selectedItem instanceof PlaylistMetadataEntry) {
-                    final PlaylistMetadataEntry entry = ((PlaylistMetadataEntry) selectedItem);
-                    NavigationHelper.openLocalPlaylistFragment(fragmentManager, entry.uid,
-                            entry.name);
-
-                } else if (selectedItem instanceof PlaylistRemoteEntity) {
-                    final PlaylistRemoteEntity entry = ((PlaylistRemoteEntity) selectedItem);
-                    NavigationHelper.openPlaylistFragment(
-                            fragmentManager,
-                            entry.getServiceId(),
-                            entry.getUrl(),
-                            entry.getName());
-                }
-            }
-
-            @Override
-            public void held(final LocalItem selectedItem) {
+            public void held(final Object selectedItem) {
                 if (selectedItem instanceof PlaylistMetadataEntry) {
                     showLocalDialog((PlaylistMetadataEntry) selectedItem);
                 } else if (selectedItem instanceof PlaylistRemoteEntity) {

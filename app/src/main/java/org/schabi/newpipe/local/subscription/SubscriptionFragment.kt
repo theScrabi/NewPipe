@@ -435,7 +435,7 @@ class SubscriptionFragment : BaseStateFragment<SubscriptionState>() {
     }
 
     private fun getGridSpanCount(): Int {
-        val minWidth = resources.getDimensionPixelSize(R.dimen.channel_item_grid_min_width)
+        val minWidth = resources.getDimensionPixelSize(R.dimen.video_item_grid_thumbnail_image_width)
         return max(1, floor(resources.displayMetrics.widthPixels / minWidth.toDouble()).toInt())
     }
 

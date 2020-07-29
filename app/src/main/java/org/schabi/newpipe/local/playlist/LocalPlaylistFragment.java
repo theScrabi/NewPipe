@@ -27,7 +27,6 @@ import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 import org.schabi.newpipe.NewPipeDatabase;
 import org.schabi.newpipe.R;
-import org.schabi.newpipe.database.LocalItem;
 import org.schabi.newpipe.database.history.model.StreamHistoryEntry;
 import org.schabi.newpipe.database.playlist.PlaylistStreamEntry;
 import org.schabi.newpipe.database.stream.model.StreamStateEntity;
@@ -110,7 +109,7 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        playlistManager = new LocalPlaylistManager(NewPipeDatabase.getInstance(getContext()));
+        playlistManager = new LocalPlaylistManager(NewPipeDatabase.getInstance(requireContext()));
         debouncedSaveSignal = PublishSubject.create();
 
         disposables = new CompositeDisposable();
@@ -172,26 +171,10 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
         itemTouchHelper = new ItemTouchHelper(getItemTouchCallback());
         itemTouchHelper.attachToRecyclerView(itemsList);
 
-        itemListAdapter.setSelectedListener(new OnClickGesture<LocalItem>() {
-            @Override
-            public void selected(final LocalItem selectedItem) {
-                if (selectedItem instanceof PlaylistStreamEntry) {
-                    final PlaylistStreamEntry item = (PlaylistStreamEntry) selectedItem;
-                    NavigationHelper.openVideoDetailFragment(getFragmentManager(),
-                            item.getStreamEntity().getServiceId(), item.getStreamEntity().getUrl(),
-                            item.getStreamEntity().getTitle());
-                }
-            }
+        itemListAdapter.setOnItemSelectedListener(new OnClickGesture<Object>() {
 
             @Override
-            public void held(final LocalItem selectedItem) {
-                if (selectedItem instanceof PlaylistStreamEntry) {
-                    showStreamItemDialog((PlaylistStreamEntry) selectedItem);
-                }
-            }
-
-            @Override
-            public void drag(final LocalItem selectedItem,
+            public void drag(final Object selectedItem,
                              final RecyclerView.ViewHolder viewHolder) {
                 if (itemTouchHelper != null) {
                     itemTouchHelper.startDrag(viewHolder);
@@ -230,7 +213,9 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
     public void startLoading(final boolean forceLoad) {
         super.startLoading(forceLoad);
 
-        if (disposables != null) {
+        if (disposables == null) {
+            disposables = new CompositeDisposable();
+        } else {
             disposables.clear();
         }
         disposables.add(getDebouncedSaver());
@@ -272,7 +257,7 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
         super.onDestroyView();
 
         if (itemListAdapter != null) {
-            itemListAdapter.unsetSelectedListener();
+            itemListAdapter.setOnItemSelectedListener(null);
         }
         if (headerBackgroundButton != null) {
             headerBackgroundButton.setOnClickListener(null);
@@ -459,7 +444,7 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
                         updateThumbnailUrl();
                     }
 
-                    final long videoCount = itemListAdapter.getItemsList().size();
+                    final long videoCount = itemListAdapter.getItemList().size();
                     setVideoCount(videoCount);
                     if (videoCount == 0) {
                         showEmptyState();
@@ -489,7 +474,7 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
             itemsList.getLayoutManager().onRestoreInstanceState(itemsListState);
             itemsListState = null;
         }
-        setVideoCount(itemListAdapter.getItemsList().size());
+        setVideoCount(itemListAdapter.getItemList().size());
 
         headerPlayAllButton.setOnClickListener(view ->
                 NavigationHelper.playOnMainPlayer(activity, getPlayQueue(), false));
@@ -603,8 +588,8 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
     private void updateThumbnailUrl() {
         String newThumbnailUrl;
 
-        if (!itemListAdapter.getItemsList().isEmpty()) {
-            newThumbnailUrl = ((PlaylistStreamEntry) itemListAdapter.getItemsList().get(0))
+        if (!itemListAdapter.getItemList().isEmpty()) {
+            newThumbnailUrl = ((PlaylistStreamEntry) itemListAdapter.getItemList().get(0))
                     .getStreamEntity().getThumbnailUrl();
         } else {
             newThumbnailUrl = "drawable://" + R.drawable.dummy_thumbnail_playlist;
@@ -624,7 +609,7 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
             updateThumbnailUrl();
         }
 
-        setVideoCount(itemListAdapter.getItemsList().size());
+        setVideoCount(itemListAdapter.getItemList().size());
         saveChanges();
     }
 
@@ -661,9 +646,9 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
             return;
         }
 
-        final List<LocalItem> items = itemListAdapter.getItemsList();
+        final List<Object> items = itemListAdapter.getItemList();
         List<Long> streamIds = new ArrayList<>(items.size());
-        for (final LocalItem item : items) {
+        for (final Object item : items) {
             if (item instanceof PlaylistStreamEntry) {
                 streamIds.add(((PlaylistStreamEntry) item).getStreamId());
             }
@@ -746,7 +731,7 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
     //////////////////////////////////////////////////////////////////////////*/
 
     private PlayQueue getPlayQueueStartingAt(final PlaylistStreamEntry infoItem) {
-        return getPlayQueue(Math.max(itemListAdapter.getItemsList().indexOf(infoItem), 0));
+        return getPlayQueue(Math.max(itemListAdapter.getItemList().indexOf(infoItem), 0));
     }
 
     protected void showStreamItemDialog(final PlaylistStreamEntry item) {
@@ -814,9 +799,9 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
             return new SinglePlayQueue(Collections.emptyList(), 0);
         }
 
-        final List<LocalItem> infoItems = itemListAdapter.getItemsList();
-        List<StreamInfoItem> streamInfoItems = new ArrayList<>(infoItems.size());
-        for (final LocalItem item : infoItems) {
+        final List<Object> items = itemListAdapter.getItemList();
+        List<StreamInfoItem> streamInfoItems = new ArrayList<>(items.size());
+        for (final Object item : items) {
             if (item instanceof PlaylistStreamEntry) {
                 streamInfoItems.add(((PlaylistStreamEntry) item).toStreamInfoItem());
             }

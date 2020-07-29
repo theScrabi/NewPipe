@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.fragments.BaseStateFragment;
 import org.schabi.newpipe.fragments.list.ListViewContract;
+import org.schabi.newpipe.info_list.ItemListAdapter;
 
 import static org.schabi.newpipe.util.AnimationUtils.animateView;
 
@@ -44,7 +45,7 @@ public abstract class BaseLocalListFragment<I, N> extends BaseStateFragment<I>
     private static final int LIST_MODE_UPDATE_FLAG = 0x32;
     private View headerRootView;
     private View footerRootView;
-    protected LocalItemListAdapter itemListAdapter;
+    protected ItemListAdapter itemListAdapter;
     protected RecyclerView itemsList;
     private int updateFlags = 0;
 
@@ -113,7 +114,7 @@ public abstract class BaseLocalListFragment<I, N> extends BaseStateFragment<I>
     protected void initViews(final View rootView, final Bundle savedInstanceState) {
         super.initViews(rootView, savedInstanceState);
 
-        itemListAdapter = new LocalItemListAdapter(activity);
+        itemListAdapter = new ItemListAdapter(activity);
 
         final boolean useGrid = isGridLayout();
         itemsList = rootView.findViewById(R.id.items_list);

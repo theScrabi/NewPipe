@@ -10,9 +10,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.schabi.newpipe.R;
-import org.schabi.newpipe.extractor.InfoItem;
 import org.schabi.newpipe.extractor.comments.CommentsInfoItem;
-import org.schabi.newpipe.info_list.InfoItemBuilder;
+import org.schabi.newpipe.info_list.ItemHandler;
+import org.schabi.newpipe.info_list.ItemHolder;
 import org.schabi.newpipe.local.history.HistoryRecordManager;
 import org.schabi.newpipe.report.ErrorActivity;
 import org.schabi.newpipe.util.AndroidTvUtils;
@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class CommentsMiniInfoItemHolder extends InfoItemHolder {
+public class CommentsMiniInfoItemHolder extends ItemHolder {
     private static final int COMMENT_DEFAULT_LINES = 2;
     private static final int COMMENT_EXPANDED_LINES = 1000;
     private static final Pattern PATTERN = Pattern.compile("(\\d+:)?(\\d+)?:(\\d+)");
@@ -61,9 +61,9 @@ public class CommentsMiniInfoItemHolder extends InfoItemHolder {
         }
     };
 
-    CommentsMiniInfoItemHolder(final InfoItemBuilder infoItemBuilder, final int layoutId,
+    CommentsMiniInfoItemHolder(final ItemHandler itemHandler, final int layoutId,
                                final ViewGroup parent) {
-        super(infoItemBuilder, layoutId, parent);
+        super(itemHandler, layoutId, parent);
 
         itemThumbnailView = itemView.findViewById(R.id.itemThumbnailView);
         itemLikesCountView = itemView.findViewById(R.id.detail_thumbs_up_count_view);
@@ -72,23 +72,21 @@ public class CommentsMiniInfoItemHolder extends InfoItemHolder {
         itemContentView = itemView.findViewById(R.id.itemCommentContentView);
     }
 
-    public CommentsMiniInfoItemHolder(final InfoItemBuilder infoItemBuilder,
+    public CommentsMiniInfoItemHolder(final ItemHandler itemHandler,
                                       final ViewGroup parent) {
-        this(infoItemBuilder, R.layout.list_comments_mini_item, parent);
+        this(itemHandler, R.layout.list_comments_mini_item, parent);
     }
 
     @Override
-    public void updateFromItem(final InfoItem infoItem,
-                               final HistoryRecordManager historyRecordManager) {
-        if (!(infoItem instanceof CommentsInfoItem)) {
+    public void updateFromObject(final Object object,
+                                 final HistoryRecordManager historyRecordManager) {
+        if (!(object instanceof CommentsInfoItem)) {
             return;
         }
-        final CommentsInfoItem item = (CommentsInfoItem) infoItem;
+        final CommentsInfoItem item = (CommentsInfoItem) object;
 
-        itemBuilder.getImageLoader()
-                .displayImage(item.getUploaderAvatarUrl(),
-                        itemThumbnailView,
-                        ImageDisplayConstants.DISPLAY_THUMBNAIL_OPTIONS);
+        itemHandler.displayImage(item.getUploaderAvatarUrl(), itemThumbnailView,
+                ImageDisplayConstants.DISPLAY_THUMBNAIL_OPTIONS);
 
         itemThumbnailView.setOnClickListener(view -> openCommentAuthor(item));
 
@@ -119,17 +117,17 @@ public class CommentsMiniInfoItemHolder extends InfoItemHolder {
 
         itemView.setOnClickListener(view -> {
             toggleEllipsize();
-            if (itemBuilder.getOnCommentsSelectedListener() != null) {
-                itemBuilder.getOnCommentsSelectedListener().selected(item);
+            if (itemHandler.getOnItemSelectedListener() != null) {
+                itemHandler.getOnItemSelectedListener().selected(item);
             }
         });
 
 
         itemView.setOnLongClickListener(view -> {
-            if (AndroidTvUtils.isTv(itemBuilder.getContext())) {
+            if (AndroidTvUtils.isTv(itemHandler.getActivity())) {
                 openCommentAuthor(item);
             } else {
-                ShareUtils.copyToClipboard(itemBuilder.getContext(), commentText);
+                ShareUtils.copyToClipboard(itemHandler.getActivity(), commentText);
             }
             return true;
         });
@@ -140,14 +138,14 @@ public class CommentsMiniInfoItemHolder extends InfoItemHolder {
             return;
         }
         try {
-            final AppCompatActivity activity = (AppCompatActivity) itemBuilder.getContext();
+            final AppCompatActivity activity = (AppCompatActivity) itemHandler.getActivity();
             NavigationHelper.openChannelFragment(
                     activity.getSupportFragmentManager(),
                     item.getServiceId(),
                     item.getUploaderUrl(),
                     item.getUploaderName());
         } catch (Exception e) {
-            ErrorActivity.reportUiError((AppCompatActivity) itemBuilder.getContext(), e);
+            ErrorActivity.reportUiError((AppCompatActivity) itemHandler.getActivity(), e);
         }
     }
 

@@ -1,6 +1,8 @@
 package org.schabi.newpipe.player.playqueue;
 
 
+import androidx.annotation.Nullable;
+
 import org.schabi.newpipe.extractor.Page;
 import org.schabi.newpipe.extractor.channel.ChannelInfo;
 import org.schabi.newpipe.extractor.channel.ChannelInfoItem;
@@ -35,17 +37,17 @@ public final class ChannelPlayQueue extends AbstractInfoPlayQueue<ChannelInfo, C
     }
 
     @Override
-    public void fetch() {
+    public void fetch(@Nullable final Runnable runnable) {
         if (this.isInitial) {
             ExtractorHelper.getChannelInfo(this.serviceId, this.baseUrl, false)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(getHeadListObserver());
+                    .subscribe(getHeadListObserver(runnable));
         } else {
             ExtractorHelper.getMoreChannelItems(this.serviceId, this.baseUrl, this.nextPage)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(getNextPageObserver());
+                    .subscribe(getNextPageObserver(runnable));
         }
     }
 }
