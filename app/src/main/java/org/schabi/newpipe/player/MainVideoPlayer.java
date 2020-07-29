@@ -222,6 +222,13 @@ public final class MainVideoPlayer extends AppCompatActivity
         switch (event.getKeyCode()) {
             default:
                 break;
+            case KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE:
+                if (playerImpl.isPlaying()) {
+                    break;
+                }
+            case KeyEvent.KEYCODE_MEDIA_PLAY:
+                playerImpl.hideControls(DEFAULT_CONTROLS_DURATION, DEFAULT_CONTROLS_HIDE_TIME);
+                break;
             case KeyEvent.KEYCODE_BACK:
                 if (AndroidTvUtils.isTv(getApplicationContext())
                         && playerImpl.isControlsVisible()) {
