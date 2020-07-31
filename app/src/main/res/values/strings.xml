@@ -11,6 +11,7 @@
     <string name="open_in_browser">Open in browser</string>
     <string name="open_in_popup_mode">Open in popup mode</string>
     <string name="share">Share</string>
+    <string name="share_stream">Share stream link</string>
     <string name="download">Download</string>
     <string name="controls_download_desc">Download stream file</string>
     <string name="search">Search</string>

@@ -693,6 +693,18 @@ public class VideoDetailFragment extends BaseStateFragment<StreamInfo>
                             currentInfo.getOriginalUrl());
                 }
                 return true;
+            case R.id.menu_item_share_stream:
+                if (currentInfo != null) {
+                    final Stream stream;
+                    if (currentInfo.getVideoStreams().isEmpty()
+                            && currentInfo.getVideoOnlyStreams().isEmpty()) {
+                        stream = getDefaultAudioStream();
+                    } else {
+                        stream = getSelectedVideoStream();
+                    }
+                    ShareUtils.shareUrl(requireContext(), currentInfo.getName(), stream.getUrl());
+                }
+                return true;
             case R.id.menu_item_openInBrowser:
                 if (currentInfo != null) {
                     ShareUtils.openUrlInBrowser(requireContext(), currentInfo.getOriginalUrl());
@@ -926,10 +938,10 @@ public class VideoDetailFragment extends BaseStateFragment<StreamInfo>
     //////////////////////////////////////////////////////////////////////////*/
 
     private void openBackgroundPlayer(final boolean append) {
-        AudioStream audioStream = currentInfo.getAudioStreams()
-                .get(ListHelper.getDefaultAudioFormat(activity, currentInfo.getAudioStreams()));
+        final AudioStream audioStream = getDefaultAudioStream();
 
-        boolean useExternalAudioPlayer = PreferenceManager.getDefaultSharedPreferences(activity)
+        final boolean useExternalAudioPlayer = PreferenceManager
+                .getDefaultSharedPreferences(activity)
                 .getBoolean(activity.getString(R.string.use_external_audio_player_key), false);
 
         if (!useExternalAudioPlayer && android.os.Build.VERSION.SDK_INT >= 16) {
@@ -1011,6 +1023,20 @@ public class VideoDetailFragment extends BaseStateFragment<StreamInfo>
     @Nullable
     private VideoStream getSelectedVideoStream() {
         return sortedVideoStreams != null ? sortedVideoStreams.get(selectedVideoStreamIndex) : null;
+    }
+
+    /**
+     * Get the stream to play when the current stream is an audio-only stream.
+     *
+     * This is the audio-only equivalent of getSelectedVideoStream,
+     * without the ability for the user to select a custom stream quality.
+     *
+     * @return AudioStream instance according to user settings
+     */
+    private AudioStream getDefaultAudioStream() {
+        final List<AudioStream> audioStreams = currentInfo.getAudioStreams();
+        final int streamIndex = ListHelper.getDefaultAudioFormat(activity, audioStreams);
+        return audioStreams.get(streamIndex);
     }
 
     private void prepareDescription(final Description description) {
