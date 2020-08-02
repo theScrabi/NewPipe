@@ -205,6 +205,8 @@ dependencies {
     implementation "com.nononsenseapps:filepicker:4.2.1"
 
     implementation "ch.acra:acra-core:5.5.0"
+    compileOnly "com.google.auto.service:auto-service-annotations:1.0-rc7"
+    kapt "com.google.auto.service:auto-service:1.0-rc7"
 
     implementation "io.reactivex.rxjava2:rxjava:2.2.19"
     implementation "io.reactivex.rxjava2:rxandroid:2.1.1"

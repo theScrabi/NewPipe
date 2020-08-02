@@ -29,12 +29,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.schabi.newpipe.R;
+import org.schabi.newpipe.database.playlist.PlaylistMetadataEntry;
+import org.schabi.newpipe.database.playlist.model.PlaylistRemoteEntity;
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.report.ErrorActivity;
 import org.schabi.newpipe.report.UserAction;
 import org.schabi.newpipe.settings.SelectChannelFragment;
 import org.schabi.newpipe.settings.SelectKioskFragment;
-import org.schabi.newpipe.settings.SelectPlaylistFragment;
+import org.schabi.newpipe.fragments.list.playlist.PlaylistDialog;
 import org.schabi.newpipe.settings.tabs.AddTabDialog.ChooseTabListItem;
 import org.schabi.newpipe.util.ThemeHelper;
 
@@ -213,21 +215,22 @@ public class ChooseTabsFragment extends Fragment {
                 selectChannelFragment.show(requireFragmentManager(), "select_channel");
                 return;
             case PLAYLIST:
-                SelectPlaylistFragment selectPlaylistFragment = new SelectPlaylistFragment();
-                selectPlaylistFragment.setOnSelectedListener(
-                        new SelectPlaylistFragment.OnSelectedListener() {
+                new PlaylistDialog(null, true)
+                        .setOnSelectedListener(new PlaylistDialog.OnSelectedListener() {
                             @Override
-                            public void onLocalPlaylistSelected(final long id, final String name) {
-                                addTab(new Tab.PlaylistTab(id, name));
+                            public void onLocalPlaylistSelected(
+                                    final PlaylistMetadataEntry localPlaylist) {
+                                addTab(new Tab.PlaylistTab(localPlaylist.uid, localPlaylist.name));
                             }
 
                             @Override
                             public void onRemotePlaylistSelected(
-                                    final int serviceId, final String url, final String name) {
-                                addTab(new Tab.PlaylistTab(serviceId, url, name));
+                                    final PlaylistRemoteEntity remotePlaylist) {
+                                addTab(new Tab.PlaylistTab(remotePlaylist.getServiceId(),
+                                        remotePlaylist.getUrl(), remotePlaylist.getName()));
                             }
-                        });
-                selectPlaylistFragment.show(requireFragmentManager(), "select_playlist");
+                        })
+                        .show(getParentFragmentManager(), "select_playlist");
                 return;
             default:
                 addTab(type.getTab());

@@ -1,16 +1,30 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/select_a_playlist"
+        android:padding="16dp"/>
 
     <RelativeLayout
         android:id="@+id/newPlaylist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/titleTextView"
         android:background="?attr/selectableItemBackground"
         android:focusable="true"
-        android:clickable="true">
+        android:clickable="true"
+        android:visibility="gone"
+        tools:visibility="visible">
+
         <ImageView
             android:id="@+id/newPlaylistIcon"
             android:layout_width="48dp"
@@ -33,24 +47,42 @@
             android:textSize="15sp"
             android:textStyle="bold"
             tools:ignore="RtlHardcoded"/>
+
+        <View
+            android:id="@+id/separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/newPlaylistText"
+            android:layout_marginLeft="@dimen/video_item_search_padding"
+            android:layout_marginRight="@dimen/video_item_search_padding"
+            android:background="?attr/separator_color"/>
     </RelativeLayout>
 
-    <View
-        android:id="@+id/separator"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@+id/newPlaylist"
-        android:layout_marginLeft="@dimen/video_item_search_padding"
-        android:layout_marginRight="@dimen/video_item_search_padding"
-        android:background="?attr/separator_color"/>
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/playlist_list"
+        android:id="@+id/itemList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/separator"
+        android:layout_below="@+id/newPlaylist"
         android:scrollbars="vertical"
         android:visibility="gone"
         tools:visibility="visible"
         tools:listitem="@layout/list_playlist_mini_item"/>
+
+    <TextView
+        android:id="@+id/emptyStateView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/newPlaylist"
+        android:paddingVertical="32dp"
+        android:gravity="center"
+        android:text="@string/no_playlist_bookmarked_yet"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/newPlaylist"
+        style="?android:attr/progressBarStyle"
+        android:padding="5dp"/>
 </RelativeLayout>
