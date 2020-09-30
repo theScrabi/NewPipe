@@ -19,6 +19,7 @@
 
 package org.schabi.newpipe.player;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -401,6 +402,11 @@ public abstract class BasePlayer implements
                                 final boolean isMuted) {
         destroyPlayer();
         initPlayer(playOnReady);
+        SharedPreferences sharedPreferences =
+                context.getSharedPreferences("play_mode_state", Activity.MODE_PRIVATE);
+        boolean shuffleMode = sharedPreferences.getBoolean("shuffle_mode", false);
+        simpleExoPlayer.setShuffleModeEnabled(shuffleMode);
+
         setRepeatMode(repeatMode);
         setPlaybackParameters(playbackSpeed, playbackPitch, playbackSkipSilence);
 
@@ -674,6 +680,11 @@ public abstract class BasePlayer implements
         if (simpleExoPlayer == null) {
             return;
         }
+        SharedPreferences sharedPreferences =
+                context.getSharedPreferences("play_mode_state", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("shuffle_mode", !simpleExoPlayer.getShuffleModeEnabled());
+        editor.apply();
         simpleExoPlayer.setShuffleModeEnabled(!simpleExoPlayer.getShuffleModeEnabled());
     }
     /*//////////////////////////////////////////////////////////////////////////
