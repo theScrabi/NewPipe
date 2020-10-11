@@ -255,63 +255,85 @@
 
                 </FrameLayout>
 
-                    <androidx.appcompat.widget.AppCompatImageButton
-                        android:id="@+id/playWithKodi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:padding="@dimen/player_main_buttons_padding"
-                        android:layout_marginEnd="8dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:scaleType="fitXY"
-                        app:srcCompat="@drawable/ic_cast_white_24dp"
-                        android:background="?attr/selectableItemBackground"
-                        android:contentDescription="@string/play_with_kodi_title"
-                        tools:ignore="RtlHardcoded"/>
-
-                    <androidx.appcompat.widget.AppCompatImageButton
-                        android:id="@+id/openInBrowser"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:padding="@dimen/player_main_buttons_padding"
-                        android:layout_marginEnd="8dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:scaleType="fitXY"
-                        app:srcCompat="@drawable/ic_language_white_24dp"
-                        android:background="?attr/selectableItemBackground"
-                        android:contentDescription="@string/open_in_browser"
-                        tools:ignore="RtlHardcoded"/>
-
-                    <androidx.appcompat.widget.AppCompatImageButton
-                        android:id="@+id/share"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:padding="@dimen/player_main_buttons_padding"
-                        android:layout_marginEnd="8dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:scaleType="fitXY"
-                        app:srcCompat="@drawable/ic_share_white_24dp"
-                        android:background="?attr/selectableItemBackground"
-                        android:contentDescription="@string/share"
-                        tools:ignore="RtlHardcoded"/>
-
-                    <androidx.appcompat.widget.AppCompatImageButton
-                        android:id="@+id/switchMute"
-                        android:layout_width="wrap_content"
-                        android:layout_height="37dp"
-                        android:padding="@dimen/player_main_buttons_padding"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:scaleType="fitXY"
-                        app:srcCompat="@drawable/ic_volume_off_white_24dp"
-                        android:background="?attr/selectableItemBackground"
-                        android:contentDescription="@string/mute"
-                        tools:ignore="RtlHardcoded" />
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/playWithKodi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="37dp"
+                    android:padding="@dimen/player_main_buttons_padding"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/ic_cast_white_24dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/play_with_kodi_title"/>
 
                 <androidx.appcompat.widget.AppCompatImageButton
-                    android:id="@+id/fullScreenButton"
+                    android:id="@+id/openInBrowser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="37dp"
+                    android:padding="@dimen/player_main_buttons_padding"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/ic_language_white_24dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/open_in_browser"/>
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="37dp"
+                    android:padding="@dimen/player_main_buttons_padding"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/ic_share_white_24dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/share"/>
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/switchMute"
+                    android:layout_width="wrap_content"
+                    android:layout_height="37dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:contentDescription="@string/mute"
+                    android:focusable="true"
+                    android:padding="@dimen/player_main_buttons_padding"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/ic_volume_off_white_24dp"/>
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/switchPopup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="37dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:contentDescription="@string/popup_player"
+                    android:focusable="true"
+                    android:padding="@dimen/player_main_buttons_padding"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/ic_picture_in_picture_white_24dp"/>
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/switchBackground"
+                    android:layout_width="wrap_content"
+                    android:layout_height="37dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:contentDescription="@string/background_player"
+                    android:focusable="true"
+                    android:padding="@dimen/player_main_buttons_padding"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/ic_headset_white_24dp"/>
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/switchMain"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:padding="@dimen/player_main_buttons_padding"

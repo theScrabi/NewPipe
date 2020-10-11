@@ -102,6 +102,7 @@ import org.schabi.newpipe.util.DeviceUtils;
 import org.schabi.newpipe.util.KoreUtil;
 import org.schabi.newpipe.util.ListHelper;
 import org.schabi.newpipe.util.NavigationHelper;
+import org.schabi.newpipe.util.PermissionHelper;
 import org.schabi.newpipe.util.ShareUtils;
 
 import java.util.List;
@@ -159,12 +160,8 @@ public class VideoPlayerImpl extends VideoPlayer
     private ImageButton queueButton;
     private ImageButton repeatButton;
     private ImageButton shuffleButton;
-    private ImageButton playWithKodi;
-    private ImageButton openInBrowser;
-    private ImageButton fullscreenButton;
     private ImageButton playerCloseButton;
     private ImageButton screenRotationButton;
-    private ImageButton muteButton;
 
     private ImageButton playPauseButton;
     private ImageButton playPreviousButton;
@@ -181,7 +178,13 @@ public class VideoPlayerImpl extends VideoPlayer
     private MainPlayer.PlayerType playerType = MainPlayer.PlayerType.VIDEO;
 
     private ImageButton moreOptionsButton;
+    private ImageButton playWithKodi;
+    private ImageButton openInBrowser;
     private ImageButton shareButton;
+    private ImageButton muteButton;
+    private ImageButton switchPopupButton;
+    private ImageButton switchBackgroundButton;
+    private ImageButton switchMainButton;
 
     private View primaryControls;
     private View secondaryControls;
@@ -290,12 +293,8 @@ public class VideoPlayerImpl extends VideoPlayer
         this.queueButton = view.findViewById(R.id.queueButton);
         this.repeatButton = view.findViewById(R.id.repeatButton);
         this.shuffleButton = view.findViewById(R.id.shuffleButton);
-        this.playWithKodi = view.findViewById(R.id.playWithKodi);
-        this.openInBrowser = view.findViewById(R.id.openInBrowser);
-        this.fullscreenButton = view.findViewById(R.id.fullScreenButton);
         this.screenRotationButton = view.findViewById(R.id.screenRotationButton);
         this.playerCloseButton = view.findViewById(R.id.playerCloseButton);
-        this.muteButton = view.findViewById(R.id.switchMute);
 
         this.playPauseButton = view.findViewById(R.id.playPauseButton);
         this.playPreviousButton = view.findViewById(R.id.playPreviousButton);
@@ -304,7 +303,13 @@ public class VideoPlayerImpl extends VideoPlayer
         this.moreOptionsButton = view.findViewById(R.id.moreOptionsButton);
         this.primaryControls = view.findViewById(R.id.primaryControls);
         this.secondaryControls = view.findViewById(R.id.secondaryControls);
+        this.playWithKodi = view.findViewById(R.id.playWithKodi);
+        this.openInBrowser = view.findViewById(R.id.openInBrowser);
         this.shareButton = view.findViewById(R.id.share);
+        this.muteButton = view.findViewById(R.id.switchMute);
+        this.switchPopupButton = view.findViewById(R.id.switchPopup);
+        this.switchBackgroundButton = view.findViewById(R.id.switchBackground);
+        this.switchMainButton = view.findViewById(R.id.switchMain);
 
         this.queueLayout = view.findViewById(R.id.playQueuePanel);
         this.itemsListCloseButton = view.findViewById(R.id.playQueueClose);
@@ -346,21 +351,25 @@ public class VideoPlayerImpl extends VideoPlayer
      */
     private void setupElementsVisibility() {
         if (popupPlayerSelected()) {
-            fullscreenButton.setVisibility(View.VISIBLE);
             screenRotationButton.setVisibility(View.GONE);
             getResizeView().setVisibility(View.GONE);
             getRootView().findViewById(R.id.metadataView).setVisibility(View.GONE);
             queueButton.setVisibility(View.GONE);
-            moreOptionsButton.setVisibility(View.GONE);
             getTopControlsRoot().setOrientation(LinearLayout.HORIZONTAL);
             primaryControls.getLayoutParams().width = LinearLayout.LayoutParams.WRAP_CONTENT;
             secondaryControls.setAlpha(1.0f);
             secondaryControls.setVisibility(View.VISIBLE);
             secondaryControls.setTranslationY(0);
-            shareButton.setVisibility(View.GONE);
+
+            moreOptionsButton.setVisibility(View.GONE);
             playWithKodi.setVisibility(View.GONE);
             openInBrowser.setVisibility(View.GONE);
+            shareButton.setVisibility(View.GONE);
             muteButton.setVisibility(View.GONE);
+            switchPopupButton.setVisibility(View.GONE);
+            switchBackgroundButton.setVisibility(View.GONE);
+            switchMainButton.setVisibility(View.VISIBLE);
+
             playerCloseButton.setVisibility(View.GONE);
             getTopControlsRoot().bringToFront();
             getTopControlsRoot().setClickable(false);
@@ -368,20 +377,24 @@ public class VideoPlayerImpl extends VideoPlayer
             getBottomControlsRoot().bringToFront();
             onQueueClosed();
         } else {
-            fullscreenButton.setVisibility(View.GONE);
             setupScreenRotationButton();
             getResizeView().setVisibility(View.VISIBLE);
             getRootView().findViewById(R.id.metadataView).setVisibility(View.VISIBLE);
-            moreOptionsButton.setVisibility(View.VISIBLE);
             getTopControlsRoot().setOrientation(LinearLayout.VERTICAL);
             primaryControls.getLayoutParams().width = LinearLayout.LayoutParams.MATCH_PARENT;
             secondaryControls.setVisibility(View.INVISIBLE);
+
+            moreOptionsButton.setVisibility(View.VISIBLE);
             moreOptionsButton.setImageDrawable(AppCompatResources.getDrawable(service,
                     R.drawable.ic_expand_more_white_24dp));
-            shareButton.setVisibility(View.VISIBLE);
             showHideKodiButton();
             openInBrowser.setVisibility(View.VISIBLE);
+            shareButton.setVisibility(View.VISIBLE);
             muteButton.setVisibility(View.VISIBLE);
+            switchPopupButton.setVisibility(isFullscreen ? View.VISIBLE : View.GONE);
+            switchBackgroundButton.setVisibility(isFullscreen ? View.VISIBLE : View.GONE);
+            switchMainButton.setVisibility(View.GONE);
+
             playerCloseButton.setVisibility(isFullscreen ? View.GONE : View.VISIBLE);
             // Top controls have a large minHeight which is allows to drag the player
             // down in fullscreen mode (just larger area to make easy to locate by finger)
@@ -459,13 +472,15 @@ public class VideoPlayerImpl extends VideoPlayer
 
         moreOptionsButton.setOnClickListener(this);
         moreOptionsButton.setOnLongClickListener(this);
-        shareButton.setOnClickListener(this);
-        fullscreenButton.setOnClickListener(this);
-        screenRotationButton.setOnClickListener(this);
         playWithKodi.setOnClickListener(this);
         openInBrowser.setOnClickListener(this);
-        playerCloseButton.setOnClickListener(this);
+        shareButton.setOnClickListener(this);
         muteButton.setOnClickListener(this);
+        switchPopupButton.setOnClickListener(this);
+        switchBackgroundButton.setOnClickListener(this);
+        switchMainButton.setOnClickListener(this);
+        screenRotationButton.setOnClickListener(this);
+        playerCloseButton.setOnClickListener(this);
 
         settingsContentObserver = new ContentObserver(new Handler()) {
             @Override
@@ -732,28 +747,54 @@ public class VideoPlayerImpl extends VideoPlayer
         }
 
         isFullscreen = !isFullscreen;
-        if (!isFullscreen) {
-            // Apply window insets because Android will not do it when orientation changes
-            // from landscape to portrait (open vertical video to reproduce)
-            getControlsRoot().setPadding(0, 0, 0, 0);
-        } else {
+        if (isFullscreen) {
             // Android needs tens milliseconds to send new insets but a user is able to see
             // how controls changes it's position from `0` to `nav bar height` padding.
             // So just hide the controls to hide this visual inconsistency
             hideControls(0, 0);
-        }
-        fragmentListener.onFullscreenStateChanged(isFullscreen());
-
-        if (!isFullscreen()) {
-            titleTextView.setVisibility(View.GONE);
-            channelTextView.setVisibility(View.GONE);
-            playerCloseButton.setVisibility(videoPlayerSelected() ? View.VISIBLE : View.GONE);
         } else {
+            // Apply window insets because Android will not do it when orientation changes
+            // from landscape to portrait (open vertical video to reproduce)
+            getControlsRoot().setPadding(0, 0, 0, 0);
+        }
+        fragmentListener.onFullscreenStateChanged(isFullscreen);
+
+        if (isFullscreen) {
             titleTextView.setVisibility(View.VISIBLE);
             channelTextView.setVisibility(View.VISIBLE);
             playerCloseButton.setVisibility(View.GONE);
+            switchPopupButton.setVisibility(View.VISIBLE);
+            switchBackgroundButton.setVisibility(View.VISIBLE);
+        } else {
+            titleTextView.setVisibility(View.GONE);
+            channelTextView.setVisibility(View.GONE);
+            playerCloseButton.setVisibility(videoPlayerSelected() ? View.VISIBLE : View.GONE);
+            switchPopupButton.setVisibility(View.GONE);
+            switchBackgroundButton.setVisibility(View.GONE);
         }
         setupScreenRotationButton();
+    }
+
+    public void switchToPopup() {
+        if (PermissionHelper.isPopupEnabled(context)) {
+            if (service.isLandscape() && globalScreenOrientationLocked(service)) {
+                fragmentListener.onScreenRotationButtonClicked();
+            }
+
+            setRecovery();
+            NavigationHelper.playOnPopupPlayer(context, playQueue, isPlaying());
+        } else {
+            PermissionHelper.showPopupEnablementToast(context);
+        }
+    }
+
+    public void switchToBackground() {
+        if (service.isLandscape() && globalScreenOrientationLocked(service)) {
+            fragmentListener.onScreenRotationButtonClicked();
+        }
+
+        setRecovery();
+        NavigationHelper.playOnBackgroundPlayer(context, playQueue, isPlaying());
     }
 
     public void switchFromPopupToMain() {
@@ -790,6 +831,17 @@ public class VideoPlayerImpl extends VideoPlayer
         context.startActivity(intent);
     }
 
+    private void onRotateScreen() {
+        // Only if it's not a vertical video or vertical video but in landscape with locked
+        // orientation a screen orientation can be changed automatically
+        if (!isVerticalVideo
+                || (service.isLandscape() && globalScreenOrientationLocked(service))) {
+            fragmentListener.onScreenRotationButtonClicked();
+        } else {
+            toggleFullscreen();
+        }
+    }
+
     @Override
     public void onClick(final View v) {
         super.onClick(v);
@@ -810,25 +862,22 @@ public class VideoPlayerImpl extends VideoPlayer
             return;
         } else if (v.getId() == moreOptionsButton.getId()) {
             onMoreOptionsClicked();
-        } else if (v.getId() == shareButton.getId()) {
-            onShareClicked();
         } else if (v.getId() == playWithKodi.getId()) {
             onPlayWithKodiClicked();
         } else if (v.getId() == openInBrowser.getId()) {
             onOpenInBrowserClicked();
-        } else if (v.getId() == fullscreenButton.getId()) {
-            switchFromPopupToMain();
-        } else if (v.getId() == screenRotationButton.getId()) {
-            // Only if it's not a vertical video or vertical video but in landscape with locked
-            // orientation a screen orientation can be changed automatically
-            if (!isVerticalVideo
-                    || (service.isLandscape() && globalScreenOrientationLocked(service))) {
-                fragmentListener.onScreenRotationButtonClicked();
-            } else {
-                toggleFullscreen();
-            }
+        } else if (v.getId() == shareButton.getId()) {
+            onShareClicked();
         } else if (v.getId() == muteButton.getId()) {
             onMuteUnmuteButtonClicked();
+        } else if (v.getId() == switchPopupButton.getId()) {
+            switchToPopup();
+        } else if (v.getId() == switchBackgroundButton.getId()) {
+            switchToBackground();
+        } else if (v.getId() == switchMainButton.getId()) {
+            switchFromPopupToMain();
+        } else if (v.getId() == screenRotationButton.getId()) {
+            onRotateScreen();
         } else if (v.getId() == playerCloseButton.getId()) {
             service.sendBroadcast(new Intent(VideoDetailFragment.ACTION_HIDE_MAIN_PLAYER));
         }
