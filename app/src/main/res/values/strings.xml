@@ -37,6 +37,7 @@
     <string name="tab_bookmarks">Bookmarked Playlists</string>
     <string name="tab_new">New Tab</string>
     <string name="tab_choose">Choose Tab</string>
+    <string name="section_choose">Choose Section</string>
     <string name="controls_background_title">Background</string>
     <string name="controls_popup_title">Popup</string>
     <string name="controls_add_to_playlist_title">Add To</string>
@@ -241,6 +242,7 @@
     <string name="file_name_empty_error">Filename cannot be empty</string>
     <string name="error_occurred_detail">An error occurred: %1$s</string>
     <string name="no_streams_available_download">No streams available to download</string>
+    <string name="saved_sections_invalid_json">Couldn not read saved sections, so using default ones</string>
     <string name="saved_tabs_invalid_json">Could not read saved tabs, so using default ones</string>
     <string name="restore_defaults">Restore defaults</string>
     <string name="restore_defaults_confirmation">Do you want to restore defaults?</string>
@@ -406,6 +408,8 @@
     <string name="title_last_played">Last Played</string>
     <string name="title_most_played">Most Played</string>
     <!-- Content -->
+    <string name="panel_content">Content of the panel</string>
+    <string name="panel_content_summary">What Sections are shown on the panel</string>
     <string name="main_page_content">Content of main page</string>
     <string name="main_page_content_summary">What tabs are shown on the main page</string>
     <string name="selection">Selection</string>

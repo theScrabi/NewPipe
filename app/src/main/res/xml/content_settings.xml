@@ -33,6 +33,13 @@
 
     <PreferenceScreen
         app:iconSpaceReserved="false"
+        android:fragment="org.schabi.newpipe.settings.sections.ChooseSectionsFragment"
+        android:summary="@string/panel_content_summary"
+        android:key="@string/panel_content_key"
+        android:title="@string/panel_content"/>
+
+    <PreferenceScreen
+        app:iconSpaceReserved="false"
         android:fragment="org.schabi.newpipe.settings.tabs.ChooseTabsFragment"
         android:summary="@string/main_page_content_summary"
         android:key="@string/main_page_content_key"

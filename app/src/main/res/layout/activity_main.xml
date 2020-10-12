@@ -2,6 +2,7 @@
 <org.schabi.newpipe.views.FocusAwareDrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -16,7 +17,9 @@
             android:layout_height="match_parent"
             android:layout_marginTop="?attr/actionBarSize" />
 
-        <include layout="@layout/toolbar_layout" />
+        <include
+            layout="@layout/toolbar_layout"
+            tools:visibility="invisible" />
 
         <FrameLayout
             android:id="@+id/fragment_player_holder"

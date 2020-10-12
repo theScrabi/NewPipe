@@ -200,6 +200,7 @@
     <string name="history_cleared">履歴を削除しました</string>
     <string name="item_deleted">アイテムを削除しました</string>
     <string name="delete_item_search_history">このアイテムを検索履歴から削除しますか？</string>
+    <string name="panel_content">パネルのコンテンツ</string>
     <string name="main_page_content">メインページのコンテンツ</string>
     <string name="blank_page_summary">空白ページ</string>
     <string name="kiosk_page_summary">Kioskページ</string>
@@ -443,6 +444,7 @@
     <string name="app_update_notification_channel_name">アプリの更新通知</string>
     <string name="download_to_sdcard_error_message">外部 SD カードにダウンロードできません。ダウンロードフォルダーの場所をリセットしますか\?</string>
     <string name="saved_tabs_invalid_json">保存されたタブを読み込めないため、デフォルトのタブを使用します</string>
+    <string name="panel_content_summary">パネルに表示されるタブ</string>
     <string name="main_page_content_summary">メインページに表示されるタブ</string>
     <string name="updates_setting_description">新しいバージョンが利用可能なときにアプリの更新を確認する通知を表示します</string>
     <string name="pause_downloads_on_mobile">従量制課金ネットワークの割り込み</string>
