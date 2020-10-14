@@ -8,6 +8,7 @@ import androidx.room.PrimaryKey;
 import static org.schabi.newpipe.database.playlist.model.PlaylistEntity.PLAYLIST_NAME;
 import static org.schabi.newpipe.database.playlist.model.PlaylistEntity.PLAYLIST_TABLE;
 
+// TODO: Add unqiue property to name once users have removed duplicate playlists
 @Entity(tableName = PLAYLIST_TABLE,
         indices = {@Index(value = {PLAYLIST_NAME})})
 public class PlaylistEntity {

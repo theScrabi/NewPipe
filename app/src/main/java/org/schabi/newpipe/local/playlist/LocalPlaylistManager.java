@@ -34,7 +34,8 @@ public class LocalPlaylistManager {
         playlistStreamTable = db.playlistStreamDAO();
     }
 
-    public Maybe<List<Long>> createPlaylist(final String name, final List<StreamEntity> streams) {
+    public Maybe<List<Long>> createPlaylist(final String name, final List<StreamEntity> streams)
+            throws IllegalArgumentException {
         // Disallow creation of empty playlists
         if (streams.isEmpty()) {
             return Maybe.empty();
@@ -43,9 +44,16 @@ public class LocalPlaylistManager {
         final PlaylistEntity newPlaylist =
                 new PlaylistEntity(name, defaultStream.getThumbnailUrl());
 
-        return Maybe.fromCallable(() -> database.runInTransaction(() ->
-                upsertStreams(playlistTable.insert(newPlaylist), streams, 0))
-        ).subscribeOn(Schedulers.io());
+        return Maybe.fromCallable(() -> database.runInTransaction(() -> {
+            // We could instead mark the PlayerEntity.name index as unique to prevent
+            // duplicate insertion because android doesn't provide unqiue constraint on columns
+            // but it would break current users with duplicate playlists (app will fail on load)
+            if (playlistTable.getPlaylistCount(name) == 0) {
+                return upsertStreams(playlistTable.insert(newPlaylist), streams, 0);
+            } else {
+                throw new IllegalArgumentException("Duplicate");
+            }
+        })).subscribeOn(Schedulers.io());
     }
 
     public Maybe<List<Long>> appendToPlaylist(final long playlistId,

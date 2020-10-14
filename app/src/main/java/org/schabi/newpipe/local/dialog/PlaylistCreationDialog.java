@@ -1,5 +1,6 @@
 package org.schabi.newpipe.local.dialog;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import org.schabi.newpipe.NewPipeDatabase;
 import org.schabi.newpipe.R;
@@ -52,12 +54,33 @@ public final class PlaylistCreationDialog extends PlaylistDialog {
                     final Toast successToast = Toast.makeText(getActivity(),
                             R.string.playlist_creation_success,
                             Toast.LENGTH_SHORT);
-
+                    final Toast duplicateToast = Toast.makeText(getActivity(),
+                            R.string.playlist_exists,
+                            Toast.LENGTH_SHORT);
+                    final Toast failedToast = Toast.makeText(getActivity(),
+                            R.string.playlist_creation_failed,
+                            Toast.LENGTH_SHORT);
                     playlistManager.createPlaylist(name, getStreams())
                             .observeOn(AndroidSchedulers.mainThread())
-                            .subscribe(longs -> successToast.show());
+                            .subscribe(longs -> resultAction(successToast, Activity.RESULT_OK),
+                                e -> {
+                                    if (e instanceof IllegalArgumentException) {
+                                        resultAction(duplicateToast, Activity.RESULT_CANCELED);
+                                    } else {
+                                        resultAction(failedToast, Activity.RESULT_CANCELED);
+                                    }
+                            });
                 });
 
         return dialogBuilder.create();
     }
+
+    private void resultAction(final Toast toast, final int resultCode) {
+        toast.show();
+        final Fragment target = getTargetFragment();
+        if (target != null) {
+            target.onActivityResult(getTargetRequestCode(), resultCode, null);
+        }
+    }
+
 }

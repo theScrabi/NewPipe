@@ -11,16 +11,17 @@
         android:background="?attr/selectableItemBackground"
         android:focusable="true"
         android:clickable="true">
+
         <ImageView
             android:id="@+id/newPlaylistIcon"
-            android:layout_width="48dp"
-            android:layout_height="28dp"
+            android:layout_width="83dp"
+            android:layout_height="34dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
             app:srcCompat="?attr/ic_playlist_add"
-            tools:ignore="ContentDescription,RtlHardcoded"/>
+            tools:ignore="ContentDescription,RtlHardcoded" />
 
         <TextView
             android:id="@+id/newPlaylistText"

@@ -1,5 +1,7 @@
 package org.schabi.newpipe.local.dialog;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +34,7 @@ import io.reactivex.disposables.CompositeDisposable;
 
 public final class PlaylistAppendDialog extends PlaylistDialog {
     private static final String TAG = PlaylistAppendDialog.class.getCanonicalName();
+    private static final int CREATE_PLAYLIST = 0xA00;
 
     private RecyclerView playlistRecyclerView;
     private LocalItemListAdapter playlistAdapter;
@@ -126,18 +129,20 @@ public final class PlaylistAppendDialog extends PlaylistDialog {
     // Helper
     //////////////////////////////////////////////////////////////////////////*/
 
-    public void openCreatePlaylistDialog() {
+    private void openCreatePlaylistDialog() {
         if (getStreams() == null || getFragmentManager() == null) {
             return;
         }
 
-        PlaylistCreationDialog.newInstance(getStreams()).show(getFragmentManager(), TAG);
-        getDialog().dismiss();
+        final PlaylistCreationDialog dialog = PlaylistCreationDialog.newInstance(getStreams());
+        dialog.setTargetFragment(this, CREATE_PLAYLIST);
+        dialog.show(getFragmentManager(), TAG);
     }
 
     private void onPlaylistsReceived(@NonNull final List<PlaylistMetadataEntry> playlists) {
         if (playlists.isEmpty()) {
             openCreatePlaylistDialog();
+            getDialog().dismiss();
             return;
         }
 
@@ -171,4 +176,16 @@ public final class PlaylistAppendDialog extends PlaylistDialog {
 
         getDialog().dismiss();
     }
+
+    @Override
+    public void onActivityResult(final int requestCode, final int resultCode,
+                                 @Nullable final Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PlaylistAppendDialog.CREATE_PLAYLIST
+                && resultCode == Activity.RESULT_OK) {
+            this.dismiss();
+        }
+    }
+
+
 }

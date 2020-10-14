@@ -11,6 +11,7 @@ import java.util.List;
 import io.reactivex.Flowable;
 
 import static org.schabi.newpipe.database.playlist.model.PlaylistEntity.PLAYLIST_ID;
+import static org.schabi.newpipe.database.playlist.model.PlaylistEntity.PLAYLIST_NAME;
 import static org.schabi.newpipe.database.playlist.model.PlaylistEntity.PLAYLIST_TABLE;
 
 @Dao
@@ -30,6 +31,10 @@ public abstract class PlaylistDAO implements BasicDAO<PlaylistEntity> {
 
     @Query("SELECT * FROM " + PLAYLIST_TABLE + " WHERE " + PLAYLIST_ID + " = :playlistId")
     public abstract Flowable<List<PlaylistEntity>> getPlaylist(long playlistId);
+
+    @Query("SELECT COUNT(*) FROM " + PLAYLIST_TABLE
+            + " WHERE " + PLAYLIST_NAME + " = :playlistName")
+    public abstract int getPlaylistCount(String playlistName);
 
     @Query("DELETE FROM " + PLAYLIST_TABLE + " WHERE " + PLAYLIST_ID + " = :playlistId")
     public abstract int deletePlaylist(long playlistId);

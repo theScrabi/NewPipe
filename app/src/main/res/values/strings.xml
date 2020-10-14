@@ -466,7 +466,7 @@
     <string name="preferred_player_fetcher_notification_title">Getting info…</string>
     <string name="preferred_player_fetcher_notification_message">"Loading requested content"</string>
     <!-- Local Playlist -->
-    <string name="create_playlist">New Playlist</string>
+    <string name="create_playlist">Create New Playlist</string>
     <string name="delete_playlist">Delete</string>
     <string name="rename_playlist">Rename</string>
     <string name="name">Name</string>
@@ -478,7 +478,9 @@
     <string name="unbookmark_playlist">Remove Bookmark</string>
     <string name="delete_playlist_prompt">Delete this playlist\?</string>
     <string name="playlist_creation_success">Playlist created</string>
-    <string name="playlist_add_stream_success">Playlisted</string>
+    <string name="playlist_creation_failed">Failed to create playlist</string>
+    <string name="playlist_exists">Playlist already exists</string>
+    <string name="playlist_add_stream_success">Added to Playlist</string>
     <string name="playlist_thumbnail_change_success">Playlist thumbnail changed.</string>
     <string name="playlist_delete_failure">Could not delete playlist.</string>
     <string name="playlist_no_uploader">Auto-generated (no uploader found)</string>
