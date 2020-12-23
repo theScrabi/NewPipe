@@ -46,6 +46,18 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                 android:textSize="12sp"
                 tools:text="@tools:sample/lorem/random" />
+            <TextView
+                android:id="@+id/video_fetch_progress_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="start|center_vertical"
+                android:maxLines="1"
+                android:visibility="gone"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="14sp" />
+
+
         </LinearLayout>
 
         <ImageView

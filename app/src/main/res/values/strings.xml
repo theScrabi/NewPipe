@@ -689,4 +689,5 @@
     <string name="playlist_page_summary">Playlist page</string>
     <string name="show_thumbnail_title">Show thumbnail</string>
     <string name="show_thumbnail_summary">Show thumbnail on lock screen as background and inside notifications</string>
+    <string name="fetching_videos">\"Fetching videos \"</string>
 </resources>
