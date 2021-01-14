@@ -41,4 +41,6 @@
         <item name="colorPrimaryDark">@color/dark_youtube_dark_color</item>
         <item name="colorAccent">@color/dark_settings_accent_color</item>
     </style>
+
+
 </resources>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:text="@string/duplicate_video_in_playlist_title"
+        android:padding="@dimen/video_item_search_padding"
+        android:id="@+id/title"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:textStyle="normal"
+        android:text=""
+        android:paddingLeft="@dimen/video_item_search_padding"
+        android:paddingRight="@dimen/video_item_search_padding"
+        android:paddingBottom="@dimen/video_item_search_padding"
+        android:id="@+id/desc"
+        android:alpha="0.9"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end|center_vertical"
+        android:padding="@dimen/video_item_search_padding">
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            app:backgroundTint="@android:color/transparent"
+            app:cornerRadius="4dp"
+            app:elevation="0dp"
+            app:strokeWidth="0dp"
+            android:textStyle="normal"
+            android:textAllCaps="false"
+            android:textColor="?colorPrimary"
+            android:text="@string/dont_add_video"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:id="@+id/dont_add_dup_video"
+            android:layout_marginEnd="@dimen/video_item_search_padding"
+            app:rippleColor="@color/white"
+            android:clickable="true"
+            android:focusable="true"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:textSize="14sp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            app:backgroundTint="?colorPrimary"
+            app:cornerRadius="4dp"
+            app:elevation="0dp"
+            app:strokeWidth="0dp"
+            android:textStyle="normal"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:text="@string/yes_add_video"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:id="@+id/add_dup_video"
+            android:clickable="true"
+            android:focusable="true"
+            app:rippleColor="@color/white"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:textSize="14sp"
+            />
+
+
+    </LinearLayout>
+
+</LinearLayout>

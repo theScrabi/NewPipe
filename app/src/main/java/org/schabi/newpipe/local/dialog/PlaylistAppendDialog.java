@@ -1,10 +1,13 @@
 package org.schabi.newpipe.local.dialog;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,6 +19,7 @@ import org.schabi.newpipe.NewPipeDatabase;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.database.LocalItem;
 import org.schabi.newpipe.database.playlist.PlaylistMetadataEntry;
+import org.schabi.newpipe.database.playlist.PlaylistStreamEntry;
 import org.schabi.newpipe.database.stream.model.StreamEntity;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
@@ -179,10 +183,69 @@ public final class PlaylistAppendDialog extends PlaylistDialog {
                     .subscribe(ignored -> successToast.show()));
         }
 
-        playlistDisposables.add(manager.appendToPlaylist(playlist.uid, streams)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(ignored -> successToast.show()));
+        /*Check if video had already added to this playlist*/
+        final StreamEntity videoToAdd = streams.get(0); //the first video is the target video to add
+        final long playListId = playlist.uid;
+        int duplicate = 0;
 
-        requireDialog().dismiss();
+        /*get all playlist videos*/
+        final List<PlaylistStreamEntry> entries = manager.getPlaylistStreams(playListId)
+                .firstElement()
+                .blockingGet();
+
+        /*count how many duplicate videos are there*/
+        for (final PlaylistStreamEntry entry : entries) {
+            if (
+                    entry.getStreamEntity().getUrl().equals(videoToAdd.getUrl())
+                            && entry.getStreamEntity().getTitle().equals(videoToAdd.getTitle())
+            ) {
+                duplicate++;
+            }
+        }
+
+        /*build and show dialog if the video is already in the playlist*/
+        if (duplicate > 0) {
+            final Context context = getContext();
+            final Resources resources = context.getResources();
+            final String title = resources.getString(R.string.duplicate_video_in_playlist_title);
+            final String description = String.format(
+                    resources.getString(R.string.duplicate_video_in_playlist_description),
+                    duplicate
+            );
+
+            final Dialog d = new Dialog(context);
+            d.setCanceledOnTouchOutside(true);
+            d.setCancelable(true);
+
+            final View root = d.getLayoutInflater().inflate(
+                    R.layout.dialog_duplicate_video_add,
+                    null,
+                    false
+            );
+
+            ((TextView) root.findViewById(R.id.desc)).setText(description);
+
+            root.findViewById(R.id.add_dup_video).setOnClickListener(view ->  {
+                playlistDisposables.add(manager.appendToPlaylist(playListId, streams)
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(ignored -> successToast.show()));
+                d.dismiss();
+                requireDialog().dismiss();
+            });
+
+            root.findViewById(R.id.dont_add_dup_video).setOnClickListener(view -> {
+                d.dismiss();
+            });
+
+            d.setContentView(root);
+            d.show();
+        } else {
+            /*new video to add*/
+            playlistDisposables.add(manager.appendToPlaylist(playListId, streams)
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(ignored -> successToast.show()));
+            requireDialog().dismiss();
+        }
     }
+
 }

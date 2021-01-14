@@ -692,4 +692,8 @@
     <string name="show_thumbnail_title">Show thumbnail</string>
     <string name="show_thumbnail_summary">Use thumbnail for both lock screen background and notifications</string>
     <string name="recent">Recent</string>
+    <string name="duplicate_video_in_playlist_title">Duplicated Video Found</string>
+    <string name="duplicate_video_in_playlist_description">This video had already added to this playlist %d times before, Do you want to add it one more time?</string>
+    <string name="yes_add_video">Yes</string>
+    <string name="dont_add_video">No</string>
 </resources>
