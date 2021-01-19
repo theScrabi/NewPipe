@@ -453,7 +453,7 @@
     <string name="pause_downloads_on_mobile_desc">モバイルデータ通信に切り替える場合に便利ですが、一部のダウンロードは一時停止できません</string>
     <string name="show_comments_title">コメントを表示</string>
     <string name="show_comments_summary">無効にするとコメントを非表示にします</string>
-    <string name="autoplay_title">自動再生</string>
+    <string name="autoplay_and_fullscreen_title">自動再生</string>
     <string name="no_comments">コメントなし</string>
     <string name="error_unable_to_load_comments">コメントを読み込めませんでした</string>
     <string name="close">閉じる</string>
@@ -603,7 +603,7 @@
     <string name="copy_for_github">整形済みリポートをコピー</string>
     <string name="playlist_page_summary">プレイリスト ページ</string>
     <string name="select_a_playlist">プレイリストを選択してください</string>
-    <string name="autoplay_summary">自動的に再生を開始します — %s</string>
+    <string name="autoplay_and_fullscreen_summary">自動的に再生を開始します — %s</string>
     <string name="auto_queue_toggle">自動キュー</string>
     <string name="clear_queue_confirmation_description">アクティブなプレイヤーのキューが入れ替わります</string>
     <string name="clear_queue_confirmation_summary">プレイヤーを別のプレイヤーに切り替えるとキューが置き換わる可能性があります</string>

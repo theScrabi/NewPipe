@@ -3738,11 +3738,9 @@ public final class Player implements
         if (DEBUG) {
             Log.d(TAG, "toggleFullscreen() called");
         }
-        if (popupPlayerSelected() || exoPlayerIsNull() || currentMetadata == null
-                || fragmentListener == null) {
+        if (popupPlayerSelected() || exoPlayerIsNull() || fragmentListener == null) {
             return;
         }
-        //changeState(STATE_BLOCKED); TODO check what this does
 
         isFullscreen = !isFullscreen;
         if (!isFullscreen) {

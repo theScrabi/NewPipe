@@ -461,7 +461,7 @@
     <string name="error_timeout">Verbindungszeitüberschreitung</string>
     <string name="show_comments_title">Kommentare anzeigen</string>
     <string name="show_comments_summary">Ausschalten, um Kommentare auszublenden</string>
-    <string name="autoplay_title">Automatische Wiedergabe</string>
+    <string name="autoplay_and_fullscreen_title">Automatische Wiedergabe</string>
     <string name="no_comments">Keine Kommentare</string>
     <string name="error_unable_to_load_comments">Kommentare konnten nicht geladen werden</string>
     <string name="close">Schließen</string>
@@ -613,7 +613,7 @@
     <string name="select_a_playlist">Playlist auswählen</string>
     <string name="error_report_open_github_notice">Bitte überprüfen Sie, ob es schon Fragen zu diesem Thema gibt. Doppelt erstellte Tickets kosten uns Zeit, die wir nutzen könnten, um diesen Fehler zu beheben.</string>
     <string name="search_showing_result_for">Zeige Ergebnisse für: %s</string>
-    <string name="autoplay_summary">Wiedergabe automatisch starten — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Wiedergabe automatisch starten — %s</string>
     <string name="wifi_only">Nur über WLAN</string>
     <string name="never">Nie</string>
     <string name="notification_actions_at_most_three">Du kannst maximal drei Aktionen auswählen, die in der Kompaktbenachrichtigung angezeigt werden sollen!</string>

@@ -78,15 +78,18 @@
     <string name="autoplay_always_key" translatable="false">autoplay_always_key</string>
     <string name="autoplay_wifi_key" translatable="false">autoplay_wifi_key</string>
     <string name="autoplay_never_key" translatable="false">autoplay_never_key</string>
+    <string name="autoplay_never_and_start_in_fullscreen_key" translatable="false">autoplay_never_start_fullscreen_key</string>
     <string-array name="autoplay_type_key" translatable="false">
         <item>@string/autoplay_always_key</item>
         <item>@string/autoplay_wifi_key</item>
         <item>@string/autoplay_never_key</item>
+        <item>@string/autoplay_never_and_start_in_fullscreen_key</item>
     </string-array>
     <string-array name="autoplay_type_description" translatable="false">
         <item>@string/always</item>
         <item>@string/wifi_only</item>
         <item>@string/never</item>
+        <item>@string/never_and_start_in_fullscreen</item>
     </string-array>
 
     <string name="default_resolution_key" translatable="false">default_resolution</string>

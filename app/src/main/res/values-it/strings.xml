@@ -459,7 +459,7 @@
     <string name="error_timeout">Tempo per la connessione esaurito</string>
     <string name="show_comments_title">Mostra commenti</string>
     <string name="show_comments_summary">Disattiva per nascondere i commenti</string>
-    <string name="autoplay_title">Riproduzione automatica</string>
+    <string name="autoplay_and_fullscreen_title">Riproduzione automatica</string>
     <string name="no_comments">Nessun commento</string>
     <string name="error_unable_to_load_comments">Impossibile caricare i commenti</string>
     <string name="close">Chiudi</string>
@@ -616,7 +616,7 @@
     <string name="never">Mai</string>
     <string name="title_activity_play_queue">Coda riproduzione</string>
     <string name="wifi_only">Solo Wi-Fi</string>
-    <string name="autoplay_summary">Avvia la riproduzione automaticamente — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Avvia la riproduzione automaticamente — %s</string>
     <string name="unsupported_url_dialog_message">URL non riconosciuto. Vuoi aprirlo con un\'altra app\?</string>
     <string name="auto_queue_toggle">Accoda automaticamente</string>
     <string name="clear_queue_confirmation_description">La coda del lettore attivo sarà sostituita</string>

@@ -448,7 +448,7 @@
     <string name="peertube_instance_url_help">Finn instanserne du liger på %s</string>
     <string name="peertube_instance_url_summary">Vælg dine favorit-PeerTube-instanser</string>
     <string name="peertube_instance_url_title">PeerTube-instanser</string>
-    <string name="autoplay_title">Automatisk afspilning</string>
+    <string name="autoplay_and_fullscreen_title">Automatisk afspilning</string>
     <string name="settings_category_clear_data_title">Tøm data</string>
     <string name="enable_playback_state_lists_title">Positioner i lister</string>
     <string name="enable_playback_resume_summary">Genopret forrige afspilningsposition</string>

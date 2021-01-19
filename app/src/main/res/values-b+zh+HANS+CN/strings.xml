@@ -74,7 +74,7 @@
     <string name="grid">网格</string>
     <string name="app_update_notification_content_title">NewPipe可更新！</string>
     <string name="error_http_unsupported_range">服务器不接受多线程下载, 使用 @string/msg_threads = 1 重试</string>
-    <string name="autoplay_title">自动恢复上次播放</string>
+    <string name="autoplay_and_fullscreen_title">自动恢复上次播放</string>
     <string name="settings_category_clear_data_title">清空数据</string>
     <string name="watch_history_deleted">观看记录已删除</string>
     <string name="detail_likes_img_view_description">喜欢</string>
@@ -610,7 +610,7 @@
     <string name="search_showing_result_for">显示结果为：%s</string>
     <string name="never">从不</string>
     <string name="wifi_only">仅在Wi-Fi下</string>
-    <string name="autoplay_summary">视频开始播放后，自动定位到上次播放时的位置 — %s</string>
+    <string name="autoplay_and_fullscreen_summary">视频开始播放后，自动定位到上次播放时的位置 — %s</string>
     <string name="title_activity_play_queue">播放列表</string>
     <string name="unsupported_url_dialog_message">无法识别该URL，用其他应用打开\?</string>
     <string name="auto_queue_toggle">自动加入播放列表</string>

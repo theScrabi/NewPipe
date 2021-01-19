@@ -254,7 +254,7 @@
     <string name="service_title">সেবা</string>
     <string name="unsupported_url">URL সমর্থিত নয়</string>
     <string name="show_next_and_similar_title">পরবর্তী এবং অনুরূপ ভিডিওগুলি দেখাও</string>
-    <string name="autoplay_title">স্বয়ংক্রিয়</string>
+    <string name="autoplay_and_fullscreen_title">স্বয়ংক্রিয়</string>
     <string name="download_dialog_title">ডাউনলোড</string>
     <string name="resume_on_audio_focus_gain_title">পুনরায় চালু করো</string>
     <string name="enable_watch_history_summary">দেখা ভিডিওগুলোর হিসেব</string>
@@ -413,7 +413,7 @@
     <string name="remove_watched_popup_yes_and_partially_watched_videos">হ্যাঁ, এবং আংশিকভাবে দেখা ভিডিও</string>
     <string name="error_permission_denied">সিস্টেম দ্বারা অনুমতি অগ্রাহ্য করা হয়েছে</string>
     <string name="permission_denied">ব্যবস্থা দ্বারা ক্রিয়া অস্বীকার করা হয়েছে</string>
-    <string name="autoplay_summary">"স্বয়ংক্রিয়ভাবে প্লেব্যাক শুরু করো  %s — তে"</string>
+    <string name="autoplay_and_fullscreen_summary">"স্বয়ংক্রিয়ভাবে প্লেব্যাক শুরু করো  %s — তে"</string>
     <string name="start_here_on_popup">একটি পপ-আপে প্লে শুরু করো</string>
     <string name="start_here_on_background">পটভূমিতে প্লে শুরু করো</string>
     <string name="app_description">অ্যান্ড্রয়েডে মুক্ত সহজ স্ট্রিমিং।</string>

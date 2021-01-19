@@ -63,7 +63,7 @@
     <string name="resume_on_audio_focus_gain_title">Reprender le reproduction</string>
     <string name="resume_on_audio_focus_gain_summary">Continuar le reproduction post interruptiones</string>
     <string name="download_dialog_title">Discargar</string>
-    <string name="autoplay_title">Reproduction automatic</string>
+    <string name="autoplay_and_fullscreen_title">Reproduction automatic</string>
     <string name="show_next_and_similar_title">Monstrar le videos sequente e simile</string>
     <string name="unsupported_url">URL non supportate</string>
     <string name="default_content_country_title">Pais predefinite del contentos</string>

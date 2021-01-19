@@ -457,7 +457,7 @@
     <string name="conferences">Канферэнцыі</string>
     <string name="show_comments_title">Паказаць каментарыі</string>
     <string name="show_comments_summary">Адключыце, каб схаваць каментарыі</string>
-    <string name="autoplay_title">Аўтазапуск</string>
+    <string name="autoplay_and_fullscreen_title">Аўтазапуск</string>
     <string name="no_comments">Каментарыі адсутнічаюць</string>
     <string name="error_unable_to_load_comments">Каментарыі не атрымалася загрузіць</string>
     <string name="close">Зачыніць</string>

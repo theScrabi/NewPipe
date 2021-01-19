@@ -445,7 +445,7 @@
     <string name="events">Настани</string>
     <string name="conferences">Конференции</string>
     <string name="show_comments_title">Прикажи коментари</string>
-    <string name="autoplay_title">Автоматско пуштање</string>
+    <string name="autoplay_and_fullscreen_title">Автоматско пуштање</string>
     <string name="no_comments">Нема коментари</string>
     <string name="error_unable_to_load_comments">Не може да се вчитаат коментарите</string>
     <string name="close">Затвори</string>

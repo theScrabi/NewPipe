@@ -183,7 +183,7 @@
     <string name="show_hold_to_append_summary">\"Tafsilotlar:\" videodagi fon yoki po-pup tugmachasini bosganda ko\'rsatma.</string>
     <string name="show_hold_to_append_title">\"Qo\'shish uchun ushlab turish\" maslahatini ko\'rsatish</string>
     <string name="show_next_and_similar_title">\'Keyingi\' va \'O\'xshash\' videolarni namoyish etish</string>
-    <string name="autoplay_title">Avtoplay</string>
+    <string name="autoplay_and_fullscreen_title">Avtoplay</string>
     <string name="resume_on_audio_focus_gain_summary">Uzilishlardan keyin ijro etishni davom ettirish (masalan. phonecalls)</string>
     <string name="download_dialog_title">Yuklab olish</string>
     <string name="resume_on_audio_focus_gain_title">Ijro etishni davom ettirish</string>
@@ -530,7 +530,7 @@
     <string name="list_view_mode">Ro\'yxatni ko\'rish rejimi</string>
     <string name="never">Xech qachon</string>
     <string name="wifi_only">Faqat Wi-Fi orqali</string>
-    <string name="autoplay_summary">Avtomatik ijro etishni boshlash - %s</string>
+    <string name="autoplay_and_fullscreen_summary">Avtomatik ijro etishni boshlash - %s</string>
     <string name="minimize_on_exit_popup_description">Pop-up pleyerga kichraytirish</string>
     <string name="minimize_on_exit_background_description">Fon pleyerini kichraytirish</string>
     <string name="minimize_on_exit_none_description">Yo\'q</string>

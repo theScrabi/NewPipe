@@ -458,7 +458,7 @@
     <string name="missions_header_pending">Pendente</string>
     <string name="show_comments_title">Mostrar comentários</string>
     <string name="show_comments_summary">Desative para ocultar comentários</string>
-    <string name="autoplay_title">Reprodução Automática</string>
+    <string name="autoplay_and_fullscreen_title">Reprodução Automática</string>
     <string name="no_comments">Sem comentários</string>
     <string name="error_unable_to_load_comments">Não foi possível carregar os comentários</string>
     <string name="close">Fechar</string>
@@ -615,7 +615,7 @@
     <string name="copy_for_github">Copiar relatório formatado</string>
     <string name="never">Nunca</string>
     <string name="wifi_only">Apenas no Wi-Fi</string>
-    <string name="autoplay_summary">Iniciar reprodução automaticamente — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Iniciar reprodução automaticamente — %s</string>
     <string name="title_activity_play_queue">Reproduzir fila</string>
     <string name="unsupported_url_dialog_message">Não foi possível reconhecer a URL. Abrir com outro aplicativo\?</string>
     <string name="auto_queue_toggle">Pôr na fila automaticamente</string>

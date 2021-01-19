@@ -452,7 +452,7 @@
     <string name="pause_downloads_on_mobile_desc">Berguna saat beralih ke data seluler, walaupun beberapa unduhan tidak bisa ditangguhkan</string>
     <string name="show_comments_title">Tampilkan komentar</string>
     <string name="show_comments_summary">Nonaktifkan untuk menyembunyikan komentar</string>
-    <string name="autoplay_title">Putar otomatis</string>
+    <string name="autoplay_and_fullscreen_title">Putar otomatis</string>
     <string name="no_comments">Tidak ada komentar</string>
     <string name="error_unable_to_load_comments">Tidak bisa memuat komentar</string>
     <string name="close">Tutup</string>
@@ -605,7 +605,7 @@
     <string name="select_a_playlist">Pilih daftar putar</string>
     <string name="never">Tidak pernah</string>
     <string name="wifi_only">Hanya pada Wi-Fi</string>
-    <string name="autoplay_summary">Otomatis mulai pemutaran — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Otomatis mulai pemutaran — %s</string>
     <string name="title_activity_play_queue">Putar antrean</string>
     <string name="unsupported_url_dialog_message">URL tidak dikenali. Buka dengan aplikasi lain\?</string>
     <string name="auto_queue_toggle">Otomatis antre</string>

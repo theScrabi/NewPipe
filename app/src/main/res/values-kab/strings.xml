@@ -113,7 +113,7 @@
     <string name="msg_copied">Aḍris yettwanγel γef afus</string>
     <string name="playlists">Tibdarin n tɣuri</string>
     <string name="title_last_played">Aneggaru yettwaslekmen</string>
-    <string name="autoplay_title">Taɣuri tawurmant</string>
+    <string name="autoplay_and_fullscreen_title">Taɣuri tawurmant</string>
     <string name="error_snackbar_action">Aneqqis</string>
     <string name="refresh">Sismeḍ</string>
     <string name="download">Sider</string>

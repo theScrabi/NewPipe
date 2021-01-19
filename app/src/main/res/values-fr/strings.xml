@@ -460,7 +460,7 @@
     <string name="error_http_unsupported_range">Le serveur n’accepte pas les téléchargements multifils, veuillez réessayer avec @string/msg_threads = 1</string>
     <string name="show_comments_title">Afficher les commentaires</string>
     <string name="show_comments_summary">Désactiver pour masquer les commentaires</string>
-    <string name="autoplay_title">Lecture automatique</string>
+    <string name="autoplay_and_fullscreen_title">Lecture automatique</string>
     <string name="no_comments">Aucun commentaire</string>
     <string name="error_unable_to_load_comments">Impossible de charger les commentaires</string>
     <string name="close">Fermer</string>
@@ -619,7 +619,7 @@
     <string name="clear_queue_confirmation_summary">Basculer d’un lecteur à un autre peut remplacer votre liste de lecture</string>
     <string name="never">Jamais</string>
     <string name="wifi_only">Uniquement en Wi-Fi</string>
-    <string name="autoplay_summary">Démarrer la lecture automatiquement — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Démarrer la lecture automatiquement — %s</string>
     <string name="title_activity_play_queue">Liste de lecture</string>
     <string name="unsupported_url_dialog_message">Impossible de reconnaitre l’URL fournie. Voulez-vous l’ouvrir avec une autre application \?</string>
     <string name="auto_queue_toggle">Ajouter automatiquement à la liste de lecture</string>

@@ -190,7 +190,7 @@
     <string name="max_retry_msg">Intentos máximos</string>
     <string name="events">Eventos</string>
     <string name="conferences">Conferencies</string>
-    <string name="autoplay_title">Reproducción automática</string>
+    <string name="autoplay_and_fullscreen_title">Reproducción automática</string>
     <string name="error_unable_to_load_comments">Nun pudieron cargase los comentarios</string>
     <string name="missing_file">El ficheru movióse o desanicióse</string>
     <string name="overwrite_unrelated_warning">Yá esiste un ficheru con esti nome</string>
@@ -397,7 +397,7 @@
     <string name="list_view_mode">Mou de la vista de les llistes</string>
     <string name="never">Enxamás</string>
     <string name="wifi_only">Namás na Wi-Fi</string>
-    <string name="autoplay_summary">Anicia automáticamente la reproducción — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Anicia automáticamente la reproducción — %s</string>
     <string name="minimize_on_exit_none_description">Nada</string>
     <string name="limit_mobile_data_usage_title">Llendar la resolución al usar los datos móviles</string>
     <string name="limit_data_usage_none_description">Ensin llende</string>

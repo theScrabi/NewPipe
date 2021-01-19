@@ -470,7 +470,7 @@
     <string name="pause_downloads_on_mobile_desc">مفيد عند التبديل إلى بيانات الجوال، ولكن لا يمكن تعليق بعض التنزيلات</string>
     <string name="show_comments_title">إظهار التعليقات</string>
     <string name="show_comments_summary">عطّله لإخفاء التعليقات</string>
-    <string name="autoplay_title">تشغيل تلقائي</string>
+    <string name="autoplay_and_fullscreen_title">تشغيل تلقائي</string>
     <string name="no_comments">لا توجد تعليقات</string>
     <string name="error_unable_to_load_comments">تعذر تحميل التعليقات</string>
     <string name="close">إغلاق</string>
@@ -655,7 +655,7 @@
     <string name="search_showing_result_for">إظهار النتائج ل %s</string>
     <string name="never">أبدا</string>
     <string name="wifi_only">فقط على شبكة Wi-Fi</string>
-    <string name="autoplay_summary">بدء التشغيل تلقائياً — %s</string>
+    <string name="autoplay_and_fullscreen_summary">بدء التشغيل تلقائياً — %s</string>
     <string name="title_activity_play_queue">تشغيل قائمة الانتظار</string>
     <string name="settings_category_notification_title">الاشعار</string>
     <string name="unsupported_url_dialog_message">تعذر التعرف على الرابط. فتح باستخدام تطبيق آخر؟</string>

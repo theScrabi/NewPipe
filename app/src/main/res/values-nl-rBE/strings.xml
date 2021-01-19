@@ -457,7 +457,7 @@
     <string name="pause_downloads_on_mobile_desc">Nuttig bij het gebruik van mobiele data, hoewel sommige downloads niet uitgesteld kunnen worden</string>
     <string name="show_comments_title">Commentaren weergeven</string>
     <string name="show_comments_summary">Schakel dit uit om reacties te verbergen</string>
-    <string name="autoplay_title">Automatisch afspelen</string>
+    <string name="autoplay_and_fullscreen_title">Automatisch afspelen</string>
     <string name="no_comments">Geen commentaren</string>
     <string name="error_unable_to_load_comments">Kan commentaren niet laden</string>
     <string name="close">Sluiten</string>
@@ -555,7 +555,7 @@
     <string name="missions_header_pending">In afwachting</string>
     <string name="never">Nooit</string>
     <string name="wifi_only">Enkel via Wi-Fi</string>
-    <string name="autoplay_summary">Automatisch afspelen — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Automatisch afspelen — %s</string>
     <string name="show_original_time_ago_summary">Originele teksten van services zijn zichtbaar in stream items</string>
     <string name="show_memory_leaks">Toon memory leaks</string>
     <string name="playlist_no_uploader">Automatisch gegenereerd (geen uploader gevonden)</string>

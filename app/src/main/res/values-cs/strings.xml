@@ -461,7 +461,7 @@
     <string name="pause_downloads_on_mobile_desc">Užitečné při přepnutí na mobilní data, některá stahování ale nelze přerušit</string>
     <string name="show_comments_title">Zobrazit komentáře</string>
     <string name="show_comments_summary">Deaktivovat zobrazování komentářů</string>
-    <string name="autoplay_title">Automatické přehrávání</string>
+    <string name="autoplay_and_fullscreen_title">Automatické přehrávání</string>
     <string name="no_comments">Žádné komentáře</string>
     <string name="error_unable_to_load_comments">Nelze načíst komentáře</string>
     <string name="close">Zavřít</string>
@@ -625,7 +625,7 @@
     <string name="search_showing_result_for">Ukazuji výsledky pro: %s</string>
     <string name="never">Nikdy</string>
     <string name="wifi_only">Pouze na Wi-Fi</string>
-    <string name="autoplay_summary">Zahájit playback automaticky — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Zahájit playback automaticky — %s</string>
     <string name="title_activity_play_queue">Přehrát frontu</string>
     <string name="unsupported_url_dialog_message">Nelze rozpoznat zadané URL. Otevřít pomocí jiné aplikace\?</string>
     <string name="auto_queue_toggle">Auto-fronta</string>

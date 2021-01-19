@@ -325,7 +325,7 @@
     <string name="events">رویدادها</string>
     <string name="show_comments_title">نمایش نظرات</string>
     <string name="show_comments_summary">خاموش کنید تا نظرات پنهان شوند</string>
-    <string name="autoplay_title">پخش خودکار</string>
+    <string name="autoplay_and_fullscreen_title">پخش خودکار</string>
     <string name="no_comments">بدون نظر</string>
     <string name="error_unable_to_load_comments">ناتوانی در دریافت نظرات</string>
     <string name="resume_on_audio_focus_gain_title">پخش ادامه یابد</string>
@@ -612,7 +612,7 @@
     <string name="pause_downloads_on_mobile">توقف روی شبکه‌های محدودشده</string>
     <string name="never">هرگز</string>
     <string name="wifi_only">فقط روی وای‌فای</string>
-    <string name="autoplay_summary">شروع خودکار پخش — %s</string>
+    <string name="autoplay_and_fullscreen_summary">شروع خودکار پخش — %s</string>
     <string name="title_activity_play_queue">پخش صف</string>
     <string name="settings_category_notification_title">اعلان</string>
     <string name="unsupported_url_dialog_message">نشانی قابل تشخیص نبود. با برنامه دیگری باز شود؟</string>

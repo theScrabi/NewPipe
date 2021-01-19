@@ -459,7 +459,7 @@
     <string name="error_timeout">Konexioaren denbora muga</string>
     <string name="show_comments_title">Erakutsi iruzkinak</string>
     <string name="show_comments_summary">Desgaitu iruzkinak ezkutatzeko</string>
-    <string name="autoplay_title">Erreprodukzio automatikoa</string>
+    <string name="autoplay_and_fullscreen_title">Erreprodukzio automatikoa</string>
     <string name="no_comments">Iruzkinik ez</string>
     <string name="error_unable_to_load_comments">Ezin izan dira iruzkinak kargatu</string>
     <string name="close">Itxi</string>
@@ -606,7 +606,7 @@
     <string name="remove_watched">Ikusitako bideoak ezabatu</string>
     <string name="never">Inoiz ez</string>
     <string name="wifi_only">Bakarrik WiFi-arekin</string>
-    <string name="autoplay_summary">Erreprodukzioa automatikoki hasi — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Erreprodukzioa automatikoki hasi — %s</string>
     <string name="show_memory_leaks">Erakutsi memoria galerak</string>
     <string name="title_activity_play_queue">Ilara erreproduzitu</string>
     <string name="no_playlist_bookmarked_yet">Oraindik ez dago erreprodukzio-zerrenda laster-markarik</string>

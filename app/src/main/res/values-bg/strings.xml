@@ -401,7 +401,7 @@
     <string name="events">Събития</string>
     <string name="show_comments_title">Показвай коментари</string>
     <string name="show_comments_summary">Деактивиране за скриване на коментарите</string>
-    <string name="autoplay_title">Автоматично пускане</string>
+    <string name="autoplay_and_fullscreen_title">Автоматично пускане</string>
     <string name="tab_new">Нов раздел</string>
     <string name="tab_choose">Избери раздел</string>
     <string name="settings_category_updates_title">Промени</string>

@@ -53,7 +53,7 @@
     <string name="popup_mode_share_menu_title">Üzən pəncərə</string>
     <string name="screen_rotation">fırlanma</string>
     <string name="open_in_popup_mode">Ani pəncərə rejimində aç</string>
-    <string name="autoplay_title">Avto-oxutma</string>
+    <string name="autoplay_and_fullscreen_title">Avto-oxutma</string>
     <string name="download_dialog_title">Yüklə</string>
     <string name="resume_on_audio_focus_gain_summary">Kəsintilərdən sonra (məs. telefon zəngi) oxutmağa davam et</string>
     <string name="resume_on_audio_focus_gain_title">Oxutmağa davam et</string>

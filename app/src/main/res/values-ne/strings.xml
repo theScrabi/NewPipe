@@ -89,7 +89,7 @@
     <string name="resume_on_audio_focus_gain_title">प्लेयर पुनर्स्थापना गर्नुहोस्</string>
     <string name="resume_on_audio_focus_gain_summary">रुकावट (जस्तै फोन कल) पछि प्लेयर जारी</string>
     <string name="download_dialog_title">डाउनलोड</string>
-    <string name="autoplay_title">अटोप्ले</string>
+    <string name="autoplay_and_fullscreen_title">अटोप्ले</string>
     <string name="show_next_and_similar_title">\'अर्को\' र \'समान\' भिडियो देखाउन</string>
     <string name="show_hold_to_append_title">\"होल्ड संलग्न गर्न\" टिप देखाउन</string>
     <string name="show_hold_to_append_summary">पृष्ठभूमि वा भिडियो मा पपअप बटन थिच्दा टिप देखाउन \"विवरण:\"</string>

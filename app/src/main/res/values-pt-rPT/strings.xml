@@ -202,7 +202,7 @@
     <string name="minimize_on_exit_background_description">Ativar reprodutor em segundo plano</string>
     <string name="later">Mais tarde</string>
     <string name="recaptcha_request_toast">Desafio reCAPTCHA solicitado</string>
-    <string name="autoplay_title">Reprodução automática</string>
+    <string name="autoplay_and_fullscreen_title">Reprodução automática</string>
     <string name="peertube_instance_add_exists">Instância já existe</string>
     <string name="donation_encouragement">NewPipe é desenvolvido por voluntários que utilizam o seu tempo livre para nos proporcionar a melhor experiência. Retribua para ajudar os programadores a tornarem NewPipe ainda melhor.</string>
     <string name="msg_url_malform">URL inválido ou Internet não disponível</string>
@@ -614,7 +614,7 @@
     <string name="feed_use_dedicated_fetch_method_disable_button">Desativar modo rápido</string>
     <string name="never">Nunca</string>
     <string name="wifi_only">Apenas em Wi-Fi</string>
-    <string name="autoplay_summary">Iniciar reprodução automaticamente — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Iniciar reprodução automaticamente — %s</string>
     <string name="title_activity_play_queue">Reproduzir fila</string>
     <string name="settings_category_notification_title">Notificação</string>
     <string name="unsupported_url_dialog_message">URL não reconhecido. Abrir com outra aplicação\?</string>

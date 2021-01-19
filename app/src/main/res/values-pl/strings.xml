@@ -461,7 +461,7 @@
     <string name="missions_header_pending">Oczekuje</string>
     <string name="show_comments_title">Pokaż komentarze</string>
     <string name="show_comments_summary">Wyłącz, aby ukryć komentarze</string>
-    <string name="autoplay_title">Automatyczne odtwarzanie</string>
+    <string name="autoplay_and_fullscreen_title">Automatyczne odtwarzanie</string>
     <string name="no_comments">Brak komentarzy</string>
     <string name="error_unable_to_load_comments">Nie można załadować komentarzy</string>
     <string name="close">Zamknij</string>
@@ -625,7 +625,7 @@
     <string name="search_showing_result_for">Wyświetlono wyniki dla: %s</string>
     <string name="never">Nigdy</string>
     <string name="wifi_only">Tylko przez Wi-Fi</string>
-    <string name="autoplay_summary">Rozpocznij odtwarzanie automatycznie — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Rozpocznij odtwarzanie automatycznie — %s</string>
     <string name="title_activity_play_queue">Playlista</string>
     <string name="unsupported_url_dialog_message">Nie udało się rozpoznać adresu URL. Otworzyć w innej aplikacji\?</string>
     <string name="auto_queue_toggle">Automatyczna kolejka</string>

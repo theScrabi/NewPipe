@@ -492,6 +492,13 @@ public final class VideoDetailFragment
                 break;
             case R.id.detail_thumbnail_root_layout:
                 autoPlayEnabled = true; // forcefully start playing
+                if (PlayerHelper.getAutoplayType(requireContext())
+                        == PlayerHelper.AutoplayType.AUTOPLAY_TYPE_NEVER_AND_START_IN_FULLSCREEN
+                        && !isLandscape()
+                        && PlayerHelper.globalScreenOrientationLocked(requireContext())) {
+                    // open directly in fullscreen TODO does it work for large-land layouts?
+                    onScreenRotationButtonClicked();
+                }
                 openVideoPlayer();
                 break;
             case R.id.detail_title_root_layout:
@@ -900,6 +907,7 @@ public final class VideoDetailFragment
                                 stack.push(new StackItem(serviceId, url, title, playQueue));
                             }
                         }
+
                         if (isAutoplayEnabled()) {
                             openVideoPlayer();
                         }
@@ -1142,8 +1150,8 @@ public final class VideoDetailFragment
         }
         addVideoPlayerView();
 
-        final Intent playerIntent = NavigationHelper
-                .getPlayerIntent(requireContext(), MainPlayer.class, queue, true, autoPlayEnabled);
+        final Intent playerIntent = NavigationHelper.getPlayerIntent(requireContext(),
+                MainPlayer.class, queue, true, autoPlayEnabled);
         activity.startService(playerIntent);
     }
 
@@ -2021,7 +2029,7 @@ public final class VideoDetailFragment
         }
     }
 
-    private boolean isLandscape() {
+    public boolean isLandscape() {
         return getResources().getDisplayMetrics().heightPixels < getResources()
                 .getDisplayMetrics().widthPixels;
     }

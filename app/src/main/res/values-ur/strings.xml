@@ -452,7 +452,7 @@
     <string name="conferences">کانفرنسیں</string>
     <string name="show_comments_title">تبصرے دکھائیں</string>
     <string name="show_comments_summary">تبصرے چھپانے کیلئے بند کریں</string>
-    <string name="autoplay_title">آٹوپلے</string>
+    <string name="autoplay_and_fullscreen_title">آٹوپلے</string>
     <string name="no_comments">کوئی تبصرہ نہیں</string>
     <string name="error_unable_to_load_comments">تبصرے لوڈ نہیں ہو سکے</string>
     <string name="close">بند کریں</string>

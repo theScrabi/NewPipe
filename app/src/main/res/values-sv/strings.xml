@@ -448,7 +448,7 @@
     <string name="enable_playback_resume_summary">Återställ den senaste uppspelningspositionen</string>
     <string name="enable_playback_state_lists_title">Positioner i listor</string>
     <string name="download_choose_new_path">Ändra nedladdningsmapp för att träda i kraft</string>
-    <string name="autoplay_title">Spela automatiskt</string>
+    <string name="autoplay_and_fullscreen_title">Spela automatiskt</string>
     <string name="settings_category_clear_data_title">Töm data</string>
     <string name="seek_duration_title">Snabbspola -framåt/-bakåt</string>
     <string name="enable_playback_state_lists_summary">Visa positionindikationer i listor</string>
@@ -594,7 +594,7 @@
     <string name="notification_scale_to_square_image_title">Skala tumnagel till 1:1 ratio</string>
     <string name="wifi_only">Endast på Wi-Fi</string>
     <string name="notification_scale_to_square_image_summary">Skala videominiatyrbilden som visast i underrättelsen frän 16:9 till 1:1 aspekt (kan orsaka snedvridningar)</string>
-    <string name="autoplay_summary">Starta avspelning automatiskt—%s</string>
+    <string name="autoplay_and_fullscreen_summary">Starta avspelning automatiskt—%s</string>
     <string name="title_activity_play_queue">Spel kö</string>
     <string name="settings_category_notification_title">Underrättelse</string>
     <string name="unsupported_url_dialog_message">Kunde inte igenkänna URL. Öppna med annat program\?</string>

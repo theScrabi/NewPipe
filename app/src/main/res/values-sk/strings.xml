@@ -462,7 +462,7 @@
     <string name="pause_downloads_on_mobile_desc">Je to užitočné pri prechode na mobilné dáta, niektoré sťahovania však nemožno pozastaviť</string>
     <string name="show_comments_title">Zobraziť komentáre</string>
     <string name="show_comments_summary">Vypnutím tejto funkcie sa nebudú zobrazovať komentáre</string>
-    <string name="autoplay_title">Automatické prehrávanie</string>
+    <string name="autoplay_and_fullscreen_title">Automatické prehrávanie</string>
     <string name="no_comments">Žiadne komentáre</string>
     <string name="error_unable_to_load_comments">Nemožno načítať komentáre</string>
     <string name="close">Zatvoriť</string>
@@ -622,7 +622,7 @@
     <string name="feed_group_show_only_ungrouped_subscriptions">Zobraziť iba nezoskupené odbery</string>
     <string name="never">Nikdy</string>
     <string name="wifi_only">Iba na WiFi</string>
-    <string name="autoplay_summary">Spustiť automatické prehrávanie — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Spustiť automatické prehrávanie — %s</string>
     <string name="title_activity_play_queue">Prehrať zoznam</string>
     <string name="no_playlist_bookmarked_yet">Zatiaľ bez záložiek zoznamu</string>
     <string name="select_a_playlist">Vyberte zoznam skladieb</string>

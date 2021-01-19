@@ -87,7 +87,7 @@
     <string name="enable_watch_history_summary">เก็บประวัติการเข้าดูวีดิโอไว้</string>
     <string name="resume_on_audio_focus_gain_summary">เล่นต่อหลังการขัดจังหวะ (เช่น การรับโทรศัพท์)</string>
     <string name="download_dialog_title">ดาวน์โหลด</string>
-    <string name="autoplay_title">เล่นอัตโนมัติ</string>
+    <string name="autoplay_and_fullscreen_title">เล่นอัตโนมัติ</string>
     <string name="show_next_and_similar_title">แสดงวิดีโอ \'ถัดไป\' และ \'ที่คล้ายกัน\'</string>
     <string name="show_hold_to_append_title">แสดงเคล็ดลับ \"แตะค้างเพื่อเพิ่ม\"</string>
     <string name="show_hold_to_append_summary">แสดงเคล็ดลับเมื่อกดปุ่มพื้นหลังหรือป๊อปอัพในหน้ารายละเอียดวิดีโอ</string>

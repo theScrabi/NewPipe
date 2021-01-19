@@ -437,7 +437,7 @@
     <string name="conferences">सम्मेलनों</string>
     <string name="show_comments_title">टिप्पणियाँ दिखाएं</string>
     <string name="show_comments_summary">टिप्पणियाँ न देखने के लिए बंद करे</string>
-    <string name="autoplay_title">ऑटोप्ले</string>
+    <string name="autoplay_and_fullscreen_title">ऑटोप्ले</string>
     <string name="no_comments">कोई टिपण्णी नहीं</string>
     <string name="error_unable_to_load_comments">टिप्पणियाँ लोड नहीं कर सका</string>
     <string name="close">बंद करे</string>

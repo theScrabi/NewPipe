@@ -72,7 +72,7 @@
     <string name="grid">网格</string>
     <string name="app_update_notification_content_title">新版 NewPipe 已可升级！</string>
     <string name="error_http_unsupported_range">服务器不接受 接收 multi-threaded 下载, 以 @string/msg_threads = 1 重试</string>
-    <string name="autoplay_title">自动播放</string>
+    <string name="autoplay_and_fullscreen_title">自动播放</string>
     <string name="settings_category_clear_data_title">清除数据</string>
     <string name="watch_history_deleted">观看记录已删除</string>
     <string name="detail_likes_img_view_description">喜欢</string>

@@ -457,7 +457,7 @@
     <string name="pause_downloads_on_mobile_desc">Nyttig ved veksling til mobildata, selv om noen nedlastinger ikke kan settes på pause</string>
     <string name="show_comments_title">Vis kommentarer</string>
     <string name="show_comments_summary">Skru av for å skjule kommentarer</string>
-    <string name="autoplay_title">Spill av automatisk</string>
+    <string name="autoplay_and_fullscreen_title">Spill av automatisk</string>
     <string name="no_comments">Ingen kommenterer</string>
     <string name="error_unable_to_load_comments">Kunne ikke laste inn kommentarer</string>
     <string name="close">Lukk</string>
@@ -615,7 +615,7 @@
     <string name="new_seek_duration_toast">Som følge av begrensninger i ExoPlayer er blafringsdistansen begrenset til %d sekunder</string>
     <string name="remove_watched_popup_warning">Videoer som har blitt sett før og etter at de er lagt til spillelisten, vil bli fjernet.
 \nEr du sikker\? Dette kan ikke angres!</string>
-    <string name="autoplay_summary">Start avspilling automatisk — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Start avspilling automatisk — %s</string>
     <string name="unsupported_url_dialog_message">Kunne ikke gjenkjenne angitt nettadresse. Åpne den med annet program\?</string>
     <string name="content_not_supported">Innholdet støttes ikke enda av NewPipe.
 \n
