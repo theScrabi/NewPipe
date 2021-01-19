@@ -42,6 +42,7 @@ import org.schabi.newpipe.player.Player;
 import org.schabi.newpipe.player.playqueue.PlayQueue;
 import org.schabi.newpipe.player.playqueue.PlayQueueItem;
 import org.schabi.newpipe.player.playqueue.SinglePlayQueue;
+import org.schabi.newpipe.util.DeviceUtils;
 import org.schabi.newpipe.util.ListHelper;
 
 import java.lang.annotation.Retention;
@@ -275,8 +276,12 @@ public final class PlayerHelper {
         } else if (type.equals(
                 context.getString(R.string.autoplay_never_and_start_in_fullscreen_key))) {
             return AUTOPLAY_TYPE_NEVER_AND_START_IN_FULLSCREEN;
+        } else if (type.equals(context.getString(R.string.autoplay_wifi_key))) {
+            return AUTOPLAY_TYPE_WIFI;
         } else {
-            return AUTOPLAY_TYPE_WIFI; // default
+            // nothing was set by the user -> use default values
+            return DeviceUtils.isTv(context) ? AUTOPLAY_TYPE_NEVER_AND_START_IN_FULLSCREEN
+                    : AUTOPLAY_TYPE_WIFI;
         }
     }
 

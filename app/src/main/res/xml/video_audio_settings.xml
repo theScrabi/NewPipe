@@ -106,7 +106,6 @@
             app:iconSpaceReserved="false" />
 
         <ListPreference
-            android:defaultValue="@string/autoplay_value"
             android:entries="@array/autoplay_type_description"
             android:entryValues="@array/autoplay_type_key"
             android:key="@string/autoplay_key"

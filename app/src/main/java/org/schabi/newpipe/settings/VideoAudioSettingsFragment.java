@@ -13,6 +13,7 @@ import androidx.preference.ListPreference;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.schabi.newpipe.R;
+import org.schabi.newpipe.util.DeviceUtils;
 import org.schabi.newpipe.util.PermissionHelper;
 
 import java.util.LinkedList;
@@ -23,6 +24,14 @@ public class VideoAudioSettingsFragment extends BasePreferenceFragment {
 
     @Override
     public void onCreatePreferences(final Bundle savedInstanceState, final String rootKey) {
+        final String autoplayFullscreenKey = getString(R.string.autoplay_key);
+        if (!defaultPreferences.contains(autoplayFullscreenKey)) {
+            defaultPreferences.edit().putString(autoplayFullscreenKey,
+                    getString(DeviceUtils.isTv(requireContext())
+                            ? R.string.autoplay_never_and_start_in_fullscreen_key
+                            : R.string.autoplay_wifi_key)).apply();
+        }
+
         addPreferencesFromResource(R.xml.video_audio_settings);
 
         updateSeekOptions();
