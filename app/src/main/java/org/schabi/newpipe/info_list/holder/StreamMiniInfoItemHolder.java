@@ -13,6 +13,7 @@ import org.schabi.newpipe.extractor.InfoItem;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
 import org.schabi.newpipe.extractor.stream.StreamType;
 import org.schabi.newpipe.info_list.InfoItemBuilder;
+import org.schabi.newpipe.info_list.LivePreviewDispatcher;
 import org.schabi.newpipe.ktx.ViewUtils;
 import org.schabi.newpipe.local.history.HistoryRecordManager;
 import org.schabi.newpipe.util.ImageDisplayConstants;
@@ -27,10 +28,14 @@ public class StreamMiniInfoItemHolder extends InfoItemHolder {
     public final TextView itemUploaderView;
     public final TextView itemDurationView;
     private final AnimatedProgressBar itemProgressView;
+    protected final LivePreviewDispatcher previewDispatcher;
 
-    StreamMiniInfoItemHolder(final InfoItemBuilder infoItemBuilder, final int layoutId,
-                             final ViewGroup parent) {
+    StreamMiniInfoItemHolder(final InfoItemBuilder infoItemBuilder,
+                             final int layoutId,
+                             final ViewGroup parent,
+                             final LivePreviewDispatcher previewDispatcher) {
         super(infoItemBuilder, layoutId, parent);
+        this.previewDispatcher = previewDispatcher;
 
         itemThumbnailView = itemView.findViewById(R.id.itemThumbnailView);
         itemVideoTitleView = itemView.findViewById(R.id.itemVideoTitleView);
@@ -39,8 +44,10 @@ public class StreamMiniInfoItemHolder extends InfoItemHolder {
         itemProgressView = itemView.findViewById(R.id.itemProgressView);
     }
 
-    public StreamMiniInfoItemHolder(final InfoItemBuilder infoItemBuilder, final ViewGroup parent) {
-        this(infoItemBuilder, R.layout.list_stream_mini_item, parent);
+    public StreamMiniInfoItemHolder(final InfoItemBuilder infoItemBuilder,
+                                    final ViewGroup parent,
+                                    final LivePreviewDispatcher previewDispatcher) {
+        this(infoItemBuilder, R.layout.list_stream_mini_item, parent, previewDispatcher);
     }
 
     @Override
@@ -94,6 +101,12 @@ public class StreamMiniInfoItemHolder extends InfoItemHolder {
             }
         });
 
+        if (item.getStreamType() == StreamType.VIDEO_STREAM) {
+            enableLivePreview(item);
+        } else {
+            disableLivePreview();
+        }
+
         switch (item.getStreamType()) {
             case AUDIO_STREAM:
             case VIDEO_STREAM:
@@ -145,5 +158,17 @@ public class StreamMiniInfoItemHolder extends InfoItemHolder {
     private void disableLongClick() {
         itemView.setLongClickable(false);
         itemView.setOnLongClickListener(null);
+    }
+
+    private void enableLivePreview(final StreamInfoItem item) {
+        itemThumbnailView.setOnLongClickListener(view -> {
+            previewDispatcher.show((ImageView) view, item);
+            return true;
+        });
+    }
+
+    private void disableLivePreview() {
+        itemThumbnailView.setOnLongClickListener(null);
+        previewDispatcher.cancel(itemThumbnailView);
     }
 }

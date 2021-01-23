@@ -11,6 +11,7 @@ import org.schabi.newpipe.extractor.InfoItem;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
 import org.schabi.newpipe.extractor.stream.StreamType;
 import org.schabi.newpipe.info_list.InfoItemBuilder;
+import org.schabi.newpipe.info_list.LivePreviewDispatcher;
 import org.schabi.newpipe.local.history.HistoryRecordManager;
 import org.schabi.newpipe.util.Localization;
 
@@ -43,13 +44,17 @@ import static org.schabi.newpipe.MainActivity.DEBUG;
 public class StreamInfoItemHolder extends StreamMiniInfoItemHolder {
     public final TextView itemAdditionalDetails;
 
-    public StreamInfoItemHolder(final InfoItemBuilder infoItemBuilder, final ViewGroup parent) {
-        this(infoItemBuilder, R.layout.list_stream_item, parent);
+    public StreamInfoItemHolder(final InfoItemBuilder infoItemBuilder,
+                                final ViewGroup parent,
+                                final LivePreviewDispatcher previewDispatcher) {
+        this(infoItemBuilder, R.layout.list_stream_item, parent, previewDispatcher);
     }
 
-    public StreamInfoItemHolder(final InfoItemBuilder infoItemBuilder, final int layoutId,
-                                final ViewGroup parent) {
-        super(infoItemBuilder, layoutId, parent);
+    public StreamInfoItemHolder(final InfoItemBuilder infoItemBuilder,
+                                final int layoutId,
+                                final ViewGroup parent,
+                                final LivePreviewDispatcher previewDispatcher) {
+        super(infoItemBuilder, layoutId, parent, previewDispatcher);
         itemAdditionalDetails = itemView.findViewById(R.id.itemAdditionalDetails);
     }
 

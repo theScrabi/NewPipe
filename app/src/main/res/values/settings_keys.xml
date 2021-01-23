@@ -203,6 +203,7 @@
     <string name="show_meta_info_key" translatable="false">show_meta_info</string>
     <string name="stream_info_selected_tab_key" translatable="false">stream_info_selected_tab</string>
     <string name="show_hold_to_append_key" translatable="false">show_hold_to_append</string>
+    <string name="show_live_preview_key" translatable="false">show_live_preview</string>
     <string name="content_language_key" translatable="false">content_language</string>
     <string name="peertube_instance_setup_key" translatable="false">peertube_instance_setup</string>
     <string name="peertube_selected_instance_key" translatable="false">peertube_selected_instance</string>

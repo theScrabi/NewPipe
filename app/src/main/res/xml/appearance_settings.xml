@@ -28,6 +28,13 @@
         android:title="@string/list_view_mode"
         app:iconSpaceReserved="false" />
 
+    <SwitchPreference
+        app:iconSpaceReserved="false"
+        android:defaultValue="true"
+        android:key="@string/show_live_preview_key"
+        android:title="@string/show_live_preview_title"
+        android:summary="@string/show_live_preview_summary"/>
+
     <Preference
         android:key="@string/caption_settings_key"
         android:summary="@string/caption_setting_description"

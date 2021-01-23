@@ -9,7 +9,7 @@
 
   <suppress checks="FinalParameters"
     files="InfoListAdapter.java"
-    lines="253,325"/>
+    lines="255,327"/>
 
   <suppress checks="FinalParameters"
     files="ListHelper.java"

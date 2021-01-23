@@ -131,6 +131,8 @@
     <string name="show_hold_to_append_summary">Show tip when pressing the background or the popup button in video \"Details:\"</string>
     <string name="unsupported_url">Unsupported URL</string>
     <string name="unsupported_url_dialog_message">Could not recognize the URL. Open with another app?</string>
+    <string name="show_live_preview_title">Show streams live previews</string>
+    <string name="show_live_preview_summary">Show live preview by long press on stream thumbnail</string>
     <string name="default_content_country_title">Default content country</string>
     <string name="service_title">Service</string>
     <string name="content_language_title">Default content language</string>

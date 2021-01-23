@@ -238,6 +238,8 @@
     <string name="channel_unsubscribed">Подписка отменена</string>
     <string name="show_hold_to_append_title">\"Зажмите, чтобы добавить\"</string>
     <string name="show_hold_to_append_summary">Показать подсказку при нажатии \"В окне\" или \"В фоне\" на странице сведений о видео</string>
+    <string name="show_live_preview_title">Предпросмотр видео</string>
+    <string name="show_live_preview_summary">Отображать предпросмотр видео в списках по длительному нажатию на миниатюру</string>
     <string name="unknown_content">[Неизвестно]</string>
     <string name="player_recoverable_failure">Восстановление после ошибки плеера</string>
     <string name="hold_to_append">Зажмите, чтобы добавить в очередь</string>
