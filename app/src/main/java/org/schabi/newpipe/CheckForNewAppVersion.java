@@ -10,19 +10,22 @@ import android.content.pm.Signature;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceManager;
+
 import com.grack.nanojson.JsonObject;
 import com.grack.nanojson.JsonParser;
 import com.grack.nanojson.JsonParserException;
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.core.Maybe;
-import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.rxjava3.schedulers.Schedulers;
+
+import org.schabi.newpipe.report.ErrorActivity;
+import org.schabi.newpipe.report.ErrorInfo;
+import org.schabi.newpipe.report.UserAction;
+
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.security.MessageDigest;
@@ -31,9 +34,13 @@ import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
-import org.schabi.newpipe.report.ErrorActivity;
-import org.schabi.newpipe.report.ErrorInfo;
-import org.schabi.newpipe.report.UserAction;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Maybe;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public final class CheckForNewAppVersion {
     private CheckForNewAppVersion() { }
@@ -236,10 +243,17 @@ public final class CheckForNewAppVersion {
                             }
                         },
                         e -> {
-                            // connectivity problems, do not alarm user and fail silently
+                            // connectivity or server side problems
+                            // do not alarm user and fail silently
                             if (DEBUG) {
                                 Log.w(TAG, "Could not get NewPipe API: network problem", e);
                             }
+                            // wait at least an hour before making the next attempt to get API data
+                            final long newExpiry = Instant.now()
+                                    .plus(1, ChronoUnit.HOURS).getEpochSecond();
+                            prefs.edit()
+                                    .putLong(app.getString(R.string.update_expiry_key), newExpiry)
+                                    .apply();
                         });
     }
 }
