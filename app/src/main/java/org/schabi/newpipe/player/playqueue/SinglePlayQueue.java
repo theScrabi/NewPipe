@@ -4,20 +4,19 @@ import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public final class SinglePlayQueue extends PlayQueue {
     public SinglePlayQueue(final StreamInfoItem item) {
-        super(0, Collections.singletonList(new PlayQueueItem(item)));
+        super(0, List.of(new PlayQueueItem(item)));
     }
 
     public SinglePlayQueue(final StreamInfo info) {
-        super(0, Collections.singletonList(new PlayQueueItem(info)));
+        super(0, List.of(new PlayQueueItem(info)));
     }
 
     public SinglePlayQueue(final StreamInfo info, final long startPosition) {
-        super(0, Collections.singletonList(new PlayQueueItem(info)));
+        super(0, List.of(new PlayQueueItem(info)));
         getItem().setRecoveryPosition(startPosition);
     }
 

@@ -13,7 +13,6 @@ import com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector;
 import com.google.android.exoplayer2.util.Util;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static android.support.v4.media.session.PlaybackStateCompat.ACTION_SKIP_TO_NEXT;
@@ -81,7 +80,7 @@ public class PlayQueueNavigator implements MediaSessionConnector.QueueNavigator 
 
     private void publishFloatingQueueWindow() {
         if (callback.getQueueSize() == 0) {
-            mediaSession.setQueue(Collections.emptyList());
+            mediaSession.setQueue(List.of());
             activeQueueItemId = MediaSessionCompat.QueueItem.UNKNOWN_ID;
             return;
         }

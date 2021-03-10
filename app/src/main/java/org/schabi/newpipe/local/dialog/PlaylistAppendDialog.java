@@ -25,7 +25,6 @@ import org.schabi.newpipe.player.playqueue.PlayQueueItem;
 import org.schabi.newpipe.util.OnClickGesture;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -59,7 +58,7 @@ public final class PlaylistAppendDialog extends PlaylistDialog {
 
     public static PlaylistAppendDialog fromStreamInfo(final StreamInfo info) {
         final PlaylistAppendDialog dialog = new PlaylistAppendDialog();
-        dialog.setInfo(Collections.singletonList(new StreamEntity(info)));
+        dialog.setInfo(List.of(new StreamEntity(info)));
         return dialog;
     }
 

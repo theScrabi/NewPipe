@@ -43,7 +43,7 @@ import org.schabi.newpipe.report.ErrorInfo;
 import org.schabi.newpipe.report.UserAction;
 
 import java.io.FileNotFoundException;
-import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -157,8 +157,8 @@ public abstract class BaseImportExportService extends Service {
 
         final ErrorInfo errorInfo = ErrorInfo
                 .make(UserAction.SUBSCRIPTION, "unknown", request, R.string.general_error);
-        ErrorActivity.reportError(this, error != null ? Collections.singletonList(error)
-                        : Collections.emptyList(), null, null, errorInfo);
+        ErrorActivity.reportError(this, error != null ? List.of(error) : List.of(),
+                null, null, errorInfo);
     }
 
     protected void postErrorResult(final String title, final String text) {

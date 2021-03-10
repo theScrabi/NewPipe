@@ -68,7 +68,6 @@ import org.schabi.newpipe.report.ErrorActivity;
 import org.schabi.newpipe.report.ErrorInfo;
 import org.schabi.newpipe.report.UserAction;
 
-import java.util.Collections;
 import java.util.List;
 
 import io.reactivex.rxjava3.core.Maybe;
@@ -121,9 +120,7 @@ public final class ExtractorHelper {
         return Single.fromCallable(() -> {
             final SuggestionExtractor extractor = NewPipe.getService(serviceId)
                     .getSuggestionExtractor();
-            return extractor != null
-                    ? extractor.suggestionList(query)
-                    : Collections.emptyList();
+            return extractor != null ? extractor.suggestionList(query) : List.of();
         });
     }
 

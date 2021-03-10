@@ -11,7 +11,6 @@ import org.schabi.newpipe.extractor.Page;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import io.reactivex.rxjava3.core.SingleObserver;
@@ -28,7 +27,7 @@ abstract class AbstractInfoPlayQueue<T extends ListInfo, U extends InfoItem> ext
     private transient Disposable fetchReactor;
 
     AbstractInfoPlayQueue(final U item) {
-        this(item.getServiceId(), item.getUrl(), null, Collections.emptyList(), 0);
+        this(item.getServiceId(), item.getUrl(), null, List.of(), 0);
     }
 
     AbstractInfoPlayQueue(final int serviceId, final String url, final Page nextPage,

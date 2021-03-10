@@ -19,7 +19,6 @@ import org.schabi.newpipe.extractor.stream.VideoStream;
 
 import java.io.Serializable;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Callable;
 
@@ -178,15 +177,13 @@ public class StreamItemAdapter<T extends Stream, U extends Stream> extends BaseA
      */
     public static class StreamSizeWrapper<T extends Stream> implements Serializable {
         private static final StreamSizeWrapper<Stream> EMPTY = new StreamSizeWrapper<>(
-                Collections.emptyList(), null);
+                List.of(), null);
         private final List<T> streamsList;
         private final long[] streamSizes;
         private final String unknownSize;
 
         public StreamSizeWrapper(final List<T> sL, final Context context) {
-            this.streamsList = sL != null
-                    ? sL
-                    : Collections.emptyList();
+            this.streamsList = sL != null ? sL : List.of();
             this.streamSizes = new long[streamsList.size()];
             this.unknownSize = context == null
                     ? "--.-" : context.getString(R.string.unknown_content);

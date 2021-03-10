@@ -6,7 +6,6 @@ import org.schabi.newpipe.extractor.linkhandler.ListLinkHandler;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class RelatedStreamInfo extends ListInfo<InfoItem> {
@@ -17,7 +16,7 @@ public class RelatedStreamInfo extends ListInfo<InfoItem> {
 
     public static RelatedStreamInfo getInfo(final StreamInfo info) {
         final ListLinkHandler handler = new ListLinkHandler(
-                info.getOriginalUrl(), info.getUrl(), info.getId(), Collections.emptyList(), null);
+                info.getOriginalUrl(), info.getUrl(), info.getId(), List.of(), null);
         final RelatedStreamInfo relatedStreamInfo = new RelatedStreamInfo(
                 info.getServiceId(), handler, info.getName());
         final List<InfoItem> streams = new ArrayList<>(info.getRelatedStreams());

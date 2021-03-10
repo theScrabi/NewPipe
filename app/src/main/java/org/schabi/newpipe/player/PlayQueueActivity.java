@@ -41,7 +41,6 @@ import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.PermissionHelper;
 import org.schabi.newpipe.util.ThemeHelper;
 
-import java.util.Collections;
 import java.util.List;
 
 import static org.schabi.newpipe.player.helper.PlayerHelper.formatSpeed;
@@ -305,7 +304,7 @@ public final class PlayQueueActivity extends AppCompatActivity
         final MenuItem append = popupMenu.getMenu().add(RECYCLER_ITEM_POPUP_MENU_GROUP_ID, 2,
                 Menu.NONE, R.string.append_playlist);
         append.setOnMenuItemClickListener(menuItem -> {
-            openPlaylistAppendDialog(Collections.singletonList(item));
+            openPlaylistAppendDialog(List.of(item));
             return true;
         });
 

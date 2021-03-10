@@ -453,7 +453,7 @@ public class StatisticsPlaylistFragment
 
     private PlayQueue getPlayQueue(final int index) {
         if (itemListAdapter == null) {
-            return new SinglePlayQueue(Collections.emptyList(), 0);
+            return new SinglePlayQueue(List.of(), 0);
         }
 
         final List<LocalItem> infoItems = itemListAdapter.getItemsList();

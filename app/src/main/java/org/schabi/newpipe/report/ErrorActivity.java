@@ -41,7 +41,6 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
-import java.util.Vector;
 
 import static org.schabi.newpipe.util.Localization.assureCorrectAppLanguage;
 
@@ -118,25 +117,14 @@ public class ErrorActivity extends AppCompatActivity {
     public static void reportError(final Context context, final Throwable e,
                                    final Class returnActivity, final View rootView,
                                    final ErrorInfo errorInfo) {
-        List<Throwable> el = null;
-        if (e != null) {
-            el = new Vector<>();
-            el.add(e);
-        }
-        reportError(context, el, returnActivity, rootView, errorInfo);
+        reportError(context, List.of(e), returnActivity, rootView, errorInfo);
     }
 
     // async call
     public static void reportError(final Handler handler, final Context context,
                                    final Throwable e, final Class returnActivity,
                                    final View rootView, final ErrorInfo errorInfo) {
-
-        List<Throwable> el = null;
-        if (e != null) {
-            el = new Vector<>();
-            el.add(e);
-        }
-        reportError(handler, context, el, returnActivity, rootView, errorInfo);
+        reportError(handler, context, List.of(e), returnActivity, rootView, errorInfo);
     }
 
     // async call

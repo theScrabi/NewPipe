@@ -33,7 +33,6 @@ import org.schabi.newpipe.util.Constants;
 import org.schabi.newpipe.util.FilePickerActivityHelper;
 import org.schabi.newpipe.util.ServiceHelper;
 
-import java.util.Collections;
 import java.util.List;
 
 import icepick.State;
@@ -84,7 +83,7 @@ public class SubscriptionsImportFragment extends BaseFragment {
 
         setupServiceVariables();
         if (supportedSources.isEmpty() && currentServiceId != Constants.NO_SERVICE_ID) {
-            ErrorActivity.reportError(activity, Collections.emptyList(), null, null,
+            ErrorActivity.reportError(activity, List.of(), null, null,
                     ErrorInfo.make(UserAction.SOMETHING_ELSE,
                             NewPipe.getNameOfService(currentServiceId),
                             "Service don't support importing", R.string.general_error));
@@ -211,7 +210,7 @@ public class SubscriptionsImportFragment extends BaseFragment {
             }
         }
 
-        supportedSources = Collections.emptyList();
+        supportedSources = List.of();
         relatedUrl = null;
         instructionsString = 0;
     }

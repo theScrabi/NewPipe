@@ -13,7 +13,6 @@ import org.schabi.newpipe.player.MainPlayer;
 import org.schabi.newpipe.player.helper.PlayerHolder;
 import org.schabi.newpipe.player.playqueue.SinglePlayQueue;
 
-import java.util.Collections;
 import java.util.List;
 
 import static org.schabi.newpipe.player.MainPlayer.PlayerType.AUDIO;
@@ -60,8 +59,7 @@ public enum StreamDialogEntry {
 
     append_playlist(R.string.append_playlist, (fragment, item) -> {
         if (fragment.getFragmentManager() != null) {
-            final PlaylistAppendDialog d = PlaylistAppendDialog
-                    .fromStreamInfoItems(Collections.singletonList(item));
+            final PlaylistAppendDialog d = PlaylistAppendDialog.fromStreamInfoItems(List.of(item));
 
             PlaylistAppendDialog.onPlaylistFound(fragment.getContext(),
                 () -> d.show(fragment.getFragmentManager(), "StreamDialogEntry@append_playlist"),

@@ -35,7 +35,6 @@ import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.net.SocketException;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import io.reactivex.rxjava3.disposables.Disposable;
@@ -154,7 +153,7 @@ public class App extends MultiDexApplication {
                 if (actualThrowable instanceof CompositeException) {
                     errors = ((CompositeException) actualThrowable).getExceptions();
                 } else {
-                    errors = Collections.singletonList(actualThrowable);
+                    errors = List.of(actualThrowable);
                 }
 
                 for (final Throwable error : errors) {

@@ -35,7 +35,6 @@ import org.schabi.newpipe.report.ErrorInfo;
 import org.schabi.newpipe.report.UserAction;
 import org.schabi.newpipe.util.InfoCache;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -277,8 +276,7 @@ public abstract class BaseStateFragment<I> extends BaseFragment implements ViewC
     public void onUnrecoverableError(final Throwable exception, final UserAction userAction,
                                      final String serviceName, final String request,
                                      @StringRes final int errorId) {
-        onUnrecoverableError(Collections.singletonList(exception), userAction, serviceName,
-                request, errorId);
+        onUnrecoverableError(List.of(exception), userAction, serviceName, request, errorId);
     }
 
     public void onUnrecoverableError(final List<Throwable> exception, final UserAction userAction,
@@ -296,8 +294,7 @@ public abstract class BaseStateFragment<I> extends BaseFragment implements ViewC
     public void showSnackBarError(final Throwable exception, final UserAction userAction,
                                   final String serviceName, final String request,
                                   @StringRes final int errorId) {
-        showSnackBarError(Collections.singletonList(exception), userAction, serviceName, request,
-                errorId);
+        showSnackBarError(List.of(exception), userAction, serviceName, request, errorId);
     }
 
     /**

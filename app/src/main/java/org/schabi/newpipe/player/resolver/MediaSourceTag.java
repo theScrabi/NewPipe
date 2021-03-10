@@ -7,7 +7,6 @@ import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.extractor.stream.VideoStream;
 
 import java.io.Serializable;
-import java.util.Collections;
 import java.util.List;
 
 public class MediaSourceTag implements Serializable {
@@ -27,7 +26,7 @@ public class MediaSourceTag implements Serializable {
     }
 
     public MediaSourceTag(@NonNull final StreamInfo metadata) {
-        this(metadata, Collections.emptyList(), /*indexNotAvailable=*/-1);
+        this(metadata, List.of(), /*indexNotAvailable=*/-1);
     }
 
     @NonNull
