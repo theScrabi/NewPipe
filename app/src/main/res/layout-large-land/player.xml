@@ -286,6 +286,20 @@
                         tools:ignore="RtlHardcoded" />
 
                     <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/screenLock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:contentDescription="@string/lock_screen"
+                        android:focusable="true"
+                        android:padding="@dimen/player_main_buttons_padding"
+                        android:scaleType="fitXY"
+                        app:srcCompat="@drawable/ic_lock_open_white_24dp"
+                        tools:ignore="RtlHardcoded" />
+
+                    <androidx.appcompat.widget.AppCompatImageButton
                         android:id="@+id/openInBrowser"
                         android:layout_width="wrap_content"
                         android:layout_height="35dp"
@@ -464,6 +478,47 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/ic_next_white_24dp"
                 tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/lockedRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/video_overlay_color"
+        android:visibility="gone"
+        tools:visibility="visible" >
+
+        <LinearLayout
+            android:id="@+id/unlockView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            tools:ignore="RtlHardcoded">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/unlockButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_lock_white_24dp"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/holdToUnlock"
+                android:text="@string/hold_to_unlock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

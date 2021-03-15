@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.graphics.Bitmap;
@@ -288,6 +289,7 @@ public final class Player implements
     private boolean isFullscreen = false;
     private boolean isVerticalVideo = false;
     private boolean fragmentIsVisible = false;
+    private boolean isLocked = false;
 
     private List<VideoStream> availableStreams;
     private int selectedStreamIndex;
@@ -515,6 +517,7 @@ public final class Player implements
         binding.playPauseButton.setOnClickListener(this);
         binding.playPreviousButton.setOnClickListener(this);
         binding.playNextButton.setOnClickListener(this);
+        binding.unlockButton.setOnLongClickListener(this);
 
         binding.moreOptionsButton.setOnClickListener(this);
         binding.moreOptionsButton.setOnLongClickListener(this);
@@ -523,6 +526,7 @@ public final class Player implements
         binding.screenRotationButton.setOnClickListener(this);
         binding.playWithKodi.setOnClickListener(this);
         binding.openInBrowser.setOnClickListener(this);
+        binding.screenLock.setOnClickListener(this);
         binding.playerCloseButton.setOnClickListener(this);
         binding.switchMute.setOnClickListener(this);
 
@@ -937,6 +941,7 @@ public final class Player implements
             binding.secondaryControls.setTranslationY(0);
             binding.share.setVisibility(View.GONE);
             binding.playWithKodi.setVisibility(View.GONE);
+            binding.screenLock.setVisibility(View.GONE);
             binding.openInBrowser.setVisibility(View.GONE);
             binding.switchMute.setVisibility(View.GONE);
             binding.playerCloseButton.setVisibility(View.GONE);
@@ -966,6 +971,7 @@ public final class Player implements
             binding.topControls.setClickable(true);
             binding.topControls.setFocusable(true);
         }
+        showHideLockButton();
         showHideKodiButton();
 
         if (isFullscreen) {
@@ -1011,6 +1017,11 @@ public final class Player implements
         binding.playbackSpeed.setPadding(buttonsPad, buttonsPad, buttonsPad, buttonsPad);
         binding.playbackSpeed.setMinimumWidth(buttonsMinWidth);
         binding.captionTextView.setPadding(buttonsPad, buttonsPad, buttonsPad, buttonsPad);
+    }
+
+    private void showHideLockButton() {
+        final boolean showLockButton = !DeviceUtils.isTv(context) && isFullscreen;
+        binding.screenLock.setVisibility(showLockButton ? View.VISIBLE : View.GONE);
     }
 
     private void showHideKodiButton() {
@@ -1610,7 +1621,10 @@ public final class Player implements
     //region
 
     public boolean isControlsVisible() {
-        return binding != null && binding.playbackControlRoot.getVisibility() == View.VISIBLE;
+        return binding != null && (
+            binding.playbackControlRoot.getVisibility() == View.VISIBLE
+            || binding.lockedRoot.getVisibility() == View.VISIBLE
+        );
     }
 
     /**
@@ -1682,42 +1696,82 @@ public final class Player implements
         if (DEBUG) {
             Log.d(TAG, "showControlsThenHide() called");
         }
-        showOrHideButtons();
-        showSystemUIPartially();
-
         final int hideTime = binding.playbackControlRoot.isInTouchMode()
-                ? DEFAULT_CONTROLS_HIDE_TIME
-                : DPAD_CONTROLS_HIDE_TIME;
-
-        showHideShadow(true, DEFAULT_CONTROLS_DURATION);
-        animate(binding.playbackControlRoot, true, DEFAULT_CONTROLS_DURATION,
-                AnimationType.ALPHA, 0, () -> hideControls(DEFAULT_CONTROLS_DURATION, hideTime));
+            ? DEFAULT_CONTROLS_HIDE_TIME
+            : DPAD_CONTROLS_HIDE_TIME;
+        showControls(
+            DEFAULT_CONTROLS_DURATION,
+            () -> hideControls(DEFAULT_CONTROLS_DURATION, hideTime)
+        );
     }
 
     public void showControls(final long duration) {
+        showControls(duration, null);
+    }
+
+    public void showControls(final long duration, @Nullable final Runnable callback) {
         if (DEBUG) {
             Log.d(TAG, "showControls() called");
         }
-        showOrHideButtons();
-        showSystemUIPartially();
+
+        final RelativeLayout layoutToShow;
+        if (!isLocked) {
+            showOrHideButtons();
+            showSystemUIPartially();
+            layoutToShow = binding.playbackControlRoot;
+        } else {
+            layoutToShow = binding.lockedRoot;
+        }
+
         controlsVisibilityHandler.removeCallbacksAndMessages(null);
         showHideShadow(true, duration);
-        animate(binding.playbackControlRoot, true, duration);
+        animate(
+            layoutToShow,
+            true,
+            duration,
+            AnimationType.ALPHA,
+            0,
+            callback
+        );
     }
 
     public void hideControls(final long duration, final long delay) {
+        hideControls(duration, delay, null);
+    }
+
+    public void hideControls(
+        final long duration,
+        final long delay,
+        @Nullable final Runnable callback) {
         if (DEBUG) {
             Log.d(TAG, "hideControls() called with: duration = [" + duration
                     + "], delay = [" + delay + "]");
         }
 
-        showOrHideButtons();
+        final RelativeLayout layoutToHide;
+        if (!isLocked) {
+            showOrHideButtons();
+            layoutToHide = binding.playbackControlRoot;
+        } else {
+            layoutToHide = binding.lockedRoot;
+        }
 
         controlsVisibilityHandler.removeCallbacksAndMessages(null);
         controlsVisibilityHandler.postDelayed(() -> {
             showHideShadow(false, duration);
-            animate(binding.playbackControlRoot, false, duration, AnimationType.ALPHA,
-                    0, this::hideSystemUIIfNeeded);
+            animate(
+                layoutToHide,
+                false,
+                duration,
+                AnimationType.ALPHA,
+                0,
+                () -> {
+                    hideSystemUIIfNeeded();
+                    if (callback != null) {
+                        callback.run();
+                    }
+                }
+            );
         }, delay);
     }
 
@@ -2048,6 +2102,11 @@ public final class Player implements
         changePopupWindowFlags(IDLE_WINDOW_FLAGS);
 
         NotificationUtil.getInstance().createNotificationIfNeededAndUpdate(this, false);
+
+        if (isLocked) {
+            unlockScreen();
+        }
+
         if (isFullscreen) {
             toggleFullscreen();
         }
@@ -2746,6 +2805,7 @@ public final class Player implements
         registerStreamViewed();
         updateStreamRelatedViews();
         showHideKodiButton();
+        showHideLockButton();
 
         binding.titleTextView.setText(tag.getMetadata().getName());
         binding.channelTextView.setText(tag.getMetadata().getUploaderName());
@@ -3438,6 +3498,9 @@ public final class Player implements
             onPlayWithKodiClicked();
         } else if (v.getId() == binding.openInBrowser.getId()) {
             onOpenInBrowserClicked();
+        } else if (v.getId() == binding.screenLock.getId()) {
+            onScreenLockClicked();
+            return;
         } else if (v.getId() == binding.fullScreenButton.getId()) {
             setRecovery();
             NavigationHelper.playOnMainPlayer(context, playQueue, true);
@@ -3482,6 +3545,8 @@ public final class Player implements
             fragmentListener.onMoreOptionsLongClicked();
             hideControls(0, 0);
             hideSystemUIIfNeeded();
+        } else if (v.getId() == binding.unlockButton.getId()) {
+            onUnlockClicked();
         }
         return true;
     }
@@ -3586,6 +3651,28 @@ public final class Player implements
                     currentMetadata.getMetadata().getOriginalUrl());
         }
     }
+
+    private void onScreenLockClicked() {
+        hideControls(DEFAULT_CONTROLS_DURATION, 0, () -> {
+            getParentActivity().setRequestedOrientation(isVerticalVideo
+                ? ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT
+                : ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+            );
+            this.isLocked = true;
+        });
+    }
+
+    private void unlockScreen() {
+        this.isLocked = false;
+        getParentActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+    }
+
+    private void onUnlockClicked() {
+        hideControls(DEFAULT_CONTROLS_DURATION, 0, () -> {
+            unlockScreen();
+            showControlsThenHide();
+        });
+    }
     //endregion
 
 
@@ -3655,6 +3742,8 @@ public final class Player implements
         //changeState(STATE_BLOCKED); TODO check what this does
 
         isFullscreen = !isFullscreen;
+        isLocked = false;
+        binding.lockedRoot.setVisibility(View.GONE);
         if (!isFullscreen) {
             // Apply window insets because Android will not do it when orientation changes
             // from landscape to portrait (open vertical video to reproduce)
@@ -3663,7 +3752,7 @@ public final class Player implements
             // Android needs tens milliseconds to send new insets but a user is able to see
             // how controls changes it's position from `0` to `nav bar height` padding.
             // So just hide the controls to hide this visual inconsistency
-            hideControls(0, 0);
+            hideControls(0, 0, () -> isLocked = false);
         }
         fragmentListener.onFullscreenStateChanged(isFullscreen);
 
@@ -3678,6 +3767,7 @@ public final class Player implements
                     videoPlayerSelected() ? View.VISIBLE : View.GONE);
         }
         setupScreenRotationButton();
+        showHideLockButton();
     }
 
     public void checkLandscape() {
@@ -3986,6 +4076,10 @@ public final class Player implements
 
     public boolean isFullscreen() {
         return isFullscreen;
+    }
+
+    public boolean isLocked() {
+        return isLocked;
     }
 
     public boolean isVerticalVideo() {

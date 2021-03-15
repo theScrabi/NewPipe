@@ -55,12 +55,16 @@ public class PlayerGestureListener
             player.hideControls(0, 0);
         }
 
-        if (portion == DisplayPortion.LEFT) {
-            player.fastRewind();
-        } else if (portion == DisplayPortion.MIDDLE) {
-            player.playPause();
-        } else if (portion == DisplayPortion.RIGHT) {
-            player.fastForward();
+        if (player.isLocked()) {
+            player.showControlsThenHide();
+        } else {
+            if (portion == DisplayPortion.LEFT) {
+                player.fastRewind();
+            } else if (portion == DisplayPortion.MIDDLE) {
+                player.playPause();
+            } else if (portion == DisplayPortion.RIGHT) {
+                player.fastForward();
+            }
         }
     }
 
@@ -104,8 +108,9 @@ public class PlayerGestureListener
         }
         if (playerType == MainPlayer.PlayerType.VIDEO) {
             final boolean isBrightnessGestureEnabled =
-                PlayerHelper.isBrightnessGestureEnabled(service);
-            final boolean isVolumeGestureEnabled = PlayerHelper.isVolumeGestureEnabled(service);
+                PlayerHelper.isBrightnessGestureEnabled(service) && !player.isLocked();
+            final boolean isVolumeGestureEnabled =
+                PlayerHelper.isVolumeGestureEnabled(service) && !player.isLocked();
 
             if (isBrightnessGestureEnabled && isVolumeGestureEnabled) {
                 if (portion == DisplayPortion.LEFT_HALF) {
