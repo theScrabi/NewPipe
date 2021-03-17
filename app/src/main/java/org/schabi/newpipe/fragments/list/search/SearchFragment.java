@@ -55,6 +55,7 @@ import org.schabi.newpipe.extractor.services.youtube.linkHandler.YoutubeSearchQu
 import org.schabi.newpipe.fragments.BackPressable;
 import org.schabi.newpipe.fragments.list.BaseListFragment;
 import org.schabi.newpipe.ktx.AnimationType;
+import org.schabi.newpipe.ktx.ExceptionUtils;
 import org.schabi.newpipe.local.history.HistoryRecordManager;
 import org.schabi.newpipe.settings.NewPipeSettings;
 import org.schabi.newpipe.util.Constants;
@@ -763,7 +764,8 @@ public class SearchFragment extends BaseListFragment<SearchInfo, ListExtractor.I
                             && query.length() >= THRESHOLD_NETWORK_SUGGESTION;
 
                     if (showLocalSuggestions && shallShowRemoteSuggestionsNow) {
-                        return Observable.zip(getLocalSuggestionsObservable(query, 3),
+                        return Observable.zip(
+                                getLocalSuggestionsObservable(query, 3),
                                 getRemoteSuggestionsObservable(query),
                                 (local, remote) -> {
                                     remote.removeIf(remoteItem -> local.stream().anyMatch(
@@ -791,8 +793,10 @@ public class SearchFragment extends BaseListFragment<SearchInfo, ListExtractor.I
                         if (listNotification.getValue() != null) {
                             handleSuggestions(listNotification.getValue());
                         }
-                    } else if (listNotification.isOnError()) {
-                        showError(new ErrorInfo(listNotification.getError(),
+                    } else if (listNotification.isOnError()
+                            && listNotification.getError() != null
+                            && !ExceptionUtils.isInterruptedCaused(listNotification.getError())) {
+                        showSnackBarError(new ErrorInfo(listNotification.getError(),
                                 UserAction.GET_SUGGESTIONS, searchString, serviceId));
                     }
                 });
