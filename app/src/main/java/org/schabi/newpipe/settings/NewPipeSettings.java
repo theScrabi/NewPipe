@@ -59,6 +59,10 @@ public final class NewPipeSettings {
             isFirstRun = true;
         }
 
+        // first run migrations, then setDefaultValues, since the latter requires the correct types
+        SettingMigrations.initMigrations(context, isFirstRun);
+
+        // readAgain is true so that if new settings are added their default value is set
         PreferenceManager.setDefaultValues(context, R.xml.main_settings, true);
         PreferenceManager.setDefaultValues(context, R.xml.video_audio_settings, true);
         PreferenceManager.setDefaultValues(context, R.xml.download_settings, true);
@@ -71,8 +75,6 @@ public final class NewPipeSettings {
 
         saveDefaultVideoDownloadDirectory(context);
         saveDefaultAudioDownloadDirectory(context);
-
-        SettingMigrations.initMigrations(context, isFirstRun);
     }
 
     static void saveDefaultVideoDownloadDirectory(final Context context) {
