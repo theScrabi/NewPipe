@@ -193,7 +193,7 @@ public class MissionsFragment extends Fragment {
                 prompt.setMessage(R.string.confirm_prompt);
                 // Intentionally misusing button's purpose in order to achieve good order
                 prompt.setNegativeButton(R.string.clear_download_history, (dialog, which) -> mAdapter.clearFinishedDownloads(false));
-                prompt.setPositiveButton(R.string.delete_downloaded_files, (dialog, which) -> mAdapter.clearFinishedDownloads(true));
+                prompt.setPositiveButton(R.string.delete_downloaded_files, (dialog, which) -> showDeleteFileConfirmationAlert());
                 prompt.setNeutralButton(R.string.cancel, null);
                 prompt.create().show();
                 return true;
@@ -206,6 +206,14 @@ public class MissionsFragment extends Fragment {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void showDeleteFileConfirmationAlert(){
+        AlertDialog.Builder prompt = new AlertDialog.Builder(mContext);
+        prompt.setTitle(R.string.confirm_delete_all_downloads);
+        prompt.setPositiveButton(R.string.no,  null);
+        prompt.setNegativeButton(R.string.yes, (dialog, which) -> mAdapter.clearFinishedDownloads(true));
+        prompt.create().show();
     }
 
     private void updateList() {
