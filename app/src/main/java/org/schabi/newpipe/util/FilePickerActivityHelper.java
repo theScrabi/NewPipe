@@ -26,7 +26,10 @@ import org.schabi.newpipe.R;
 import java.io.File;
 
 public class FilePickerActivityHelper extends com.nononsenseapps.filepicker.FilePickerActivity {
+    public static final String EXTRA_FILTER_EXTENSION = "nononsense.intent" + ".FILTER_EXTENSION";
+
     private CustomFilePickerFragment currentFragment;
+    private String filteredExtension = null;
 
     public static Intent chooseSingleFile(@NonNull final Context context) {
         return new Intent(context, FilePickerActivityHelper.class)
@@ -62,6 +65,11 @@ public class FilePickerActivityHelper extends com.nononsenseapps.filepicker.File
             this.setTheme(R.style.FilePickerThemeDark);
         }
         super.onCreate(savedInstanceState);
+
+        final Intent intent = getIntent();
+        if (intent != null) {
+            filteredExtension = intent.getStringExtra(EXTRA_FILTER_EXTENSION);
+        }
     }
 
     @Override
@@ -83,6 +91,7 @@ public class FilePickerActivityHelper extends com.nononsenseapps.filepicker.File
                                                            final boolean allowExistingFile,
                                                            final boolean singleClick) {
         final CustomFilePickerFragment fragment = new CustomFilePickerFragment();
+        fragment.setFilterFileExtension(filteredExtension);
         fragment.setArgs(startPath != null ? startPath
                         : Environment.getExternalStorageDirectory().getPath(),
                 mode, allowMultiple, allowCreateDir, allowExistingFile, singleClick);
@@ -95,6 +104,8 @@ public class FilePickerActivityHelper extends com.nononsenseapps.filepicker.File
     //////////////////////////////////////////////////////////////////////////*/
 
     public static class CustomFilePickerFragment extends FilePickerFragment {
+        private String filterFileExtension = "";
+
         @Override
         public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                                  final Bundle savedInstanceState) {
@@ -131,12 +142,44 @@ public class FilePickerActivityHelper extends com.nononsenseapps.filepicker.File
             super.onClickOk(view);
         }
 
+        /**
+         * @param file File getting the extension from.
+         * @return The file extension. If file has no extension, it returns null.
+         */
+        @Nullable
+        private String getExtension(@NonNull final File file) {
+            final String path = file.getPath();
+            final int i = path.lastIndexOf(".");
+            if (i < 0) {
+                return null;
+            } else {
+                return path.substring(i);
+            }
+        }
+
         @Override
         protected boolean isItemVisible(@NonNull final File file) {
             if (file.isDirectory() && file.isHidden()) {
                 return true;
             }
-            return super.isItemVisible(file);
+            final boolean ret = super.isItemVisible(file);
+            if (ret && !isDir(file) && !filterFileExtension.isEmpty()
+                    && (mode == MODE_FILE || mode == MODE_FILE_AND_DIR)) {
+                final String ext = getExtension(file);
+                return ext != null && filterFileExtension.equalsIgnoreCase(ext);
+            }
+            return ret;
+        }
+
+        /**
+         * Limits the shown file types within the picker to the provided one.
+         *
+         * @param extension Extension of the files which should filtered, for example, "zip".
+         */
+        public void setFilterFileExtension(@Nullable final String extension) {
+            if (extension != null && !extension.isEmpty()) {
+                this.filterFileExtension = "." + extension;
+            }
         }
 
         public File getBackTop() {

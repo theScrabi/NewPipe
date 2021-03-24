@@ -167,6 +167,18 @@ class ContentSettingsManagerTest {
     }
 
     @Test
+    fun `IsValid must return false if the zip has not the two necessary files`() {
+        val newpipe = File(classloader.getResource("settings/newpipe.zip")?.file!!)
+        val empty = File(classloader.getResource("settings/empty.zip")?.file!!)
+
+        val newpipeValid = ContentSettingsManager(fileLocator).isValidBackupFile(newpipe.path)
+        val emptyValid = ContentSettingsManager(fileLocator).isValidBackupFile(empty.path)
+
+        assertTrue(newpipeValid)
+        assertFalse(emptyValid)
+    }
+
+    @Test
     fun `Preferences must be set from the settings file`() {
         val settings = File(classloader.getResource("settings/newpipe.settings")!!.path)
         `when`(fileLocator.settings).thenReturn(settings)
