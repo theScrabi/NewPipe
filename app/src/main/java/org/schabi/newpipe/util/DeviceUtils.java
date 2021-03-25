@@ -11,6 +11,7 @@ import android.view.KeyEvent;
 
 import androidx.annotation.Dimension;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import org.schabi.newpipe.App;
@@ -87,5 +88,14 @@ public final class DeviceUtils {
                 TypedValue.COMPLEX_UNIT_SP,
                 sp,
                 context.getResources().getDisplayMetrics());
+    }
+
+    public static boolean isLandscape(final Context context) {
+        return context.getResources().getDisplayMetrics().heightPixels < context.getResources()
+                .getDisplayMetrics().widthPixels;
+    }
+
+    public static boolean isInMultiWindow(final AppCompatActivity activity) {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && activity.isInMultiWindowMode();
     }
 }

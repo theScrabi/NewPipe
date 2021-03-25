@@ -367,7 +367,7 @@ public final class NavigationHelper {
 
                 // Starting directly in fullscreen if the previous player type was popup.
                 if (playerType == MainPlayer.PlayerType.POPUP
-                        && !detailFragment.isLandscape()
+                        && !DeviceUtils.isLandscape(context)
                         && PlayerHelper.globalScreenOrientationLocked(context)) {
                     detailFragment.onScreenRotationButtonClicked();
                 }
