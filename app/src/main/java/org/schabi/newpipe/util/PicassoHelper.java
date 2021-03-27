@@ -68,6 +68,10 @@ public final class PicassoHelper {
         picassoInstance.cancelTag(tag);
     }
 
+    public static void setIndicatorsEnabled(final boolean enabled) {
+        picassoInstance.setIndicatorsEnabled(enabled); // useful for debugging
+    }
+
     public static void setShouldLoadImages(final boolean shouldLoadImages) {
         PicassoHelper.shouldLoadImages = shouldLoadImages;
     }

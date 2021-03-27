@@ -37,6 +37,13 @@
         android:title="@string/disable_media_tunneling_title"
         app:iconSpaceReserved="false" />
 
+    <SwitchPreferenceCompat
+        android:defaultValue="false"
+        android:key="@string/show_image_indicators_key"
+        android:summary="@string/show_image_indicators_summary"
+        android:title="@string/show_image_indicators_title"
+        app:iconSpaceReserved="false" />
+
     <Preference
         android:key="@string/crash_the_app_key"
         android:title="@string/crash_the_app"

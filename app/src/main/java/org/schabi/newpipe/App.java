@@ -101,9 +101,12 @@ public class App extends MultiDexApplication {
         ServiceHelper.initServices(this);
 
         // Initialize image loader
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         PicassoHelper.init(this);
-        PicassoHelper.setShouldLoadImages(PreferenceManager.getDefaultSharedPreferences(this)
-                .getBoolean(getString(R.string.download_thumbnail_key), true));
+        PicassoHelper.setShouldLoadImages(
+                prefs.getBoolean(getString(R.string.download_thumbnail_key), true));
+        PicassoHelper.setIndicatorsEnabled(BuildConfig.DEBUG
+                && prefs.getBoolean(getString(R.string.show_image_indicators_key), false));
 
         configureRxJavaErrorHandler();
 
