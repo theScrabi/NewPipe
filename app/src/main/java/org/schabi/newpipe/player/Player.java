@@ -1223,12 +1223,18 @@ public final class Player implements
                                 context.getResources()
                                         .getDimension(R.dimen.player_notification_thumbnail_width),
                                 source.getWidth());
-                        return Bitmap.createScaledBitmap(
+
+                        final Bitmap result = Bitmap.createScaledBitmap(
                                 source,
                                 (int) notificationThumbnailWidth,
                                 (int) (source.getHeight()
                                         / (source.getWidth() / notificationThumbnailWidth)),
                                 true);
+
+                        if (result != source) {
+                            source.recycle();
+                        }
+                        return result;
                     }
 
                     @Override
