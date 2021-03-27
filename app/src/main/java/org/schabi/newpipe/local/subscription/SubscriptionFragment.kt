@@ -58,9 +58,9 @@ import org.schabi.newpipe.local.subscription.services.SubscriptionsImportService
 import org.schabi.newpipe.local.subscription.services.SubscriptionsImportService.KEY_VALUE
 import org.schabi.newpipe.local.subscription.services.SubscriptionsImportService.PREVIOUS_EXPORT_MODE
 import org.schabi.newpipe.streams.io.StoredFileHelper
-import org.schabi.newpipe.util.external_communication.ShareUtils
 import org.schabi.newpipe.util.NavigationHelper
 import org.schabi.newpipe.util.OnClickGesture
+import org.schabi.newpipe.util.external_communication.ShareUtils
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -300,8 +300,10 @@ class SubscriptionFragment : BaseStateFragment<SubscriptionState>() {
 
         val actions = DialogInterface.OnClickListener { _, i ->
             when (i) {
-                0 -> ShareUtils.shareText(requireContext(), selectedItem.name, selectedItem.url,
-                    selectedItem.thumbnailUrl)
+                0 -> ShareUtils.shareText(
+                    requireContext(), selectedItem.name, selectedItem.url,
+                    selectedItem.thumbnailUrl
+                )
                 1 -> ShareUtils.openUrlInBrowser(requireContext(), selectedItem.url)
                 2 -> deleteChannel(selectedItem)
             }

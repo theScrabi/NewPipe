@@ -8,7 +8,7 @@ import org.schabi.newpipe.extractor.InfoItem;
 import org.schabi.newpipe.extractor.channel.ChannelInfoItem;
 import org.schabi.newpipe.info_list.InfoItemBuilder;
 import org.schabi.newpipe.local.history.HistoryRecordManager;
-import org.schabi.newpipe.util.ImageDisplayConstants;
+import org.schabi.newpipe.util.PicassoHelper;
 import org.schabi.newpipe.util.Localization;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -43,10 +43,7 @@ public class ChannelMiniInfoItemHolder extends InfoItemHolder {
         itemTitleView.setText(item.getName());
         itemAdditionalDetailView.setText(getDetailLine(item));
 
-        itemBuilder.getImageLoader()
-                .displayImage(item.getThumbnailUrl(),
-                        itemThumbnailView,
-                        ImageDisplayConstants.DISPLAY_THUMBNAIL_OPTIONS);
+        PicassoHelper.loadThumbnail(item.getThumbnailUrl()).into(itemThumbnailView);
 
         itemView.setOnClickListener(view -> {
             if (itemBuilder.getOnChannelSelectedListener() != null) {

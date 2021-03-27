@@ -18,6 +18,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
+import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Build;
@@ -79,9 +80,9 @@ import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.FailReason;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
+import com.squareup.picasso.Transformation;
 
 import org.schabi.newpipe.DownloaderImpl;
 import org.schabi.newpipe.MainActivity;
@@ -122,10 +123,10 @@ import org.schabi.newpipe.player.resolver.AudioPlaybackResolver;
 import org.schabi.newpipe.player.resolver.MediaSourceTag;
 import org.schabi.newpipe.player.resolver.VideoPlaybackResolver;
 import org.schabi.newpipe.util.DeviceUtils;
-import org.schabi.newpipe.util.ImageDisplayConstants;
 import org.schabi.newpipe.util.external_communication.KoreUtils;
 import org.schabi.newpipe.util.ListHelper;
 import org.schabi.newpipe.util.NavigationHelper;
+import org.schabi.newpipe.util.PicassoHelper;
 import org.schabi.newpipe.util.SerializedCache;
 import org.schabi.newpipe.util.external_communication.ShareUtils;
 import org.schabi.newpipe.views.ExpandableSurfaceView;
@@ -190,7 +191,6 @@ import static org.schabi.newpipe.util.Localization.containsCaseInsensitive;
 public final class Player implements
         EventListener,
         PlaybackListener,
-        ImageLoadingListener,
         VideoListener,
         SeekBar.OnSeekBarChangeListener,
         View.OnClickListener,
@@ -243,6 +243,9 @@ public final class Player implements
     private static final float[] PLAYBACK_SPEEDS = {0.5f, 0.75f, 1.0f, 1.25f, 1.5f, 1.75f, 2.0f};
 
     private static final int RENDERER_UNAVAILABLE = -1;
+
+    private static final String PICASSO_PLAYER_TAG = "PICASSO_PLAYER_TAG";
+    private static final String PICASSO_TRANSFORMATION_KEY = "PICASSO_TRANSFORMATION_KEY";
 
     /*//////////////////////////////////////////////////////////////////////////
     // Playback
@@ -808,7 +811,7 @@ public final class Player implements
 
         databaseUpdateDisposable.clear();
         progressUpdateDisposable.set(null);
-        ImageLoader.getInstance().stop();
+        PicassoHelper.cancelTag(PICASSO_PLAYER_TAG);
 
         if (binding != null) {
             binding.endScreen.setImageBitmap(null);
@@ -1203,14 +1206,71 @@ public final class Player implements
 
     private void initThumbnail(final String url) {
         if (DEBUG) {
-            Log.d(TAG, "Thumbnail - initThumbnail() called");
+            Log.d(TAG, "Thumbnail - initThumbnail() called with url = ["
+                    + (url == null ? "null" : url) + "]");
         }
         if (url == null || url.isEmpty()) {
             return;
         }
-        ImageLoader.getInstance().resume();
-        ImageLoader.getInstance()
-                .loadImage(url, ImageDisplayConstants.DISPLAY_THUMBNAIL_OPTIONS, this);
+
+        // scale down the notification thumbnail for performance
+        PicassoHelper.loadThumbnail(url)
+                .tag(PICASSO_PLAYER_TAG)
+                .transform(new Transformation() {
+                    @Override
+                    public Bitmap transform(final Bitmap source) {
+                        final float notificationThumbnailWidth = Math.min(
+                                context.getResources()
+                                        .getDimension(R.dimen.player_notification_thumbnail_width),
+                                source.getWidth());
+                        return Bitmap.createScaledBitmap(
+                                source,
+                                (int) notificationThumbnailWidth,
+                                (int) (source.getHeight()
+                                        / (source.getWidth() / notificationThumbnailWidth)),
+                                true);
+                    }
+
+                    @Override
+                    public String key() {
+                        return PICASSO_TRANSFORMATION_KEY;
+                    }
+                })
+                .into(new Target() {
+                    @Override
+                    public void onBitmapLoaded(final Bitmap bitmap, final Picasso.LoadedFrom from) {
+
+                        if (DEBUG) {
+                            Log.d(TAG, "Thumbnail - onLoadingComplete() called with: "
+                                    + "url = [" + url + "], " + "loadedImage = [" + bitmap + " -> "
+                                    + bitmap.getWidth() + "x" + bitmap.getHeight()
+                                    + "], from = [" + from + "]");
+                        }
+
+                        currentThumbnail = bitmap;
+                        NotificationUtil.getInstance()
+                                .createNotificationIfNeededAndUpdate(Player.this, false);
+                        // there is a new thumbnail, so changed the end screen thumbnail, too.
+                        updateEndScreenThumbnail();
+                    }
+
+                    @Override
+                    public void onBitmapFailed(final Exception e, final Drawable errorDrawable) {
+                        Log.e(TAG, "Thumbnail - onBitmapFailed() called with: url = ["
+                                + url + "]", e);
+                        currentThumbnail = null;
+                        NotificationUtil.getInstance()
+                                .createNotificationIfNeededAndUpdate(Player.this, false);
+                    }
+
+                    @Override
+                    public void onPrepareLoad(final Drawable placeHolderDrawable) {
+                        if (DEBUG) {
+                            Log.d(TAG, "Thumbnail - onLoadingStarted() called with: url = ["
+                                    + url + "]");
+                        }
+                    }
+                });
     }
 
     /**
@@ -1283,61 +1343,6 @@ public final class Player implements
         } else { // fullscreen player: max height is the device height
             return Math.min(currentThumbnail.getHeight(), screenHeight);
         }
-    }
-
-    @Override
-    public void onLoadingStarted(final String imageUri, final View view) {
-        if (DEBUG) {
-            Log.d(TAG, "Thumbnail - onLoadingStarted() called on: "
-                    + "imageUri = [" + imageUri + "], view = [" + view + "]");
-        }
-    }
-
-    @Override
-    public void onLoadingFailed(final String imageUri, final View view,
-                                final FailReason failReason) {
-        Log.e(TAG, "Thumbnail - onLoadingFailed() called on imageUri = [" + imageUri + "]",
-                failReason.getCause());
-        currentThumbnail = null;
-        NotificationUtil.getInstance().createNotificationIfNeededAndUpdate(this, false);
-    }
-
-    @Override
-    public void onLoadingComplete(final String imageUri, final View view,
-                                  final Bitmap loadedImage) {
-        // scale down the notification thumbnail for performance
-        final float notificationThumbnailWidth = Math.min(
-                context.getResources().getDimension(R.dimen.player_notification_thumbnail_width),
-                loadedImage.getWidth());
-        currentThumbnail = Bitmap.createScaledBitmap(
-                loadedImage,
-                (int) notificationThumbnailWidth,
-                (int) (loadedImage.getHeight()
-                        / (loadedImage.getWidth() / notificationThumbnailWidth)),
-                true);
-
-        if (DEBUG) {
-            Log.d(TAG, "Thumbnail - onLoadingComplete() called with: "
-                    + "imageUri = [" + imageUri + "], view = [" + view + "], "
-                    + "loadedImage = [" + loadedImage + "], "
-                    + loadedImage.getWidth() + "x" + loadedImage.getHeight()
-                    + ", scaled notification width = " + notificationThumbnailWidth);
-        }
-
-        NotificationUtil.getInstance().createNotificationIfNeededAndUpdate(this, false);
-
-        // there is a new thumbnail, thus the end screen thumbnail needs to be changed, too.
-        updateEndScreenThumbnail();
-    }
-
-    @Override
-    public void onLoadingCancelled(final String imageUri, final View view) {
-        if (DEBUG) {
-            Log.d(TAG, "Thumbnail - onLoadingCancelled() called with: "
-                    + "imageUri = [" + imageUri + "], view = [" + view + "]");
-        }
-        currentThumbnail = null;
-        NotificationUtil.getInstance().createNotificationIfNeededAndUpdate(this, false);
     }
     //endregion
 

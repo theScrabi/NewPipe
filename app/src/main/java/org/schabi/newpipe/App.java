@@ -12,10 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.multidex.MultiDexApplication;
 import androidx.preference.PreferenceManager;
 
-import com.nostra13.universalimageloader.cache.memory.impl.LRULimitedMemoryCache;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-
 import org.acra.ACRA;
 import org.acra.config.ACRAConfigurationException;
 import org.acra.config.CoreConfiguration;
@@ -29,6 +25,7 @@ import org.schabi.newpipe.extractor.downloader.Downloader;
 import org.schabi.newpipe.ktx.ExceptionUtils;
 import org.schabi.newpipe.settings.NewPipeSettings;
 import org.schabi.newpipe.util.Localization;
+import org.schabi.newpipe.util.PicassoHelper;
 import org.schabi.newpipe.util.ServiceHelper;
 import org.schabi.newpipe.util.StateSaver;
 
@@ -66,9 +63,9 @@ import io.reactivex.rxjava3.plugins.RxJavaPlugins;
  */
 
 public class App extends MultiDexApplication {
-    protected static final String TAG = App.class.toString();
-    private static App app;
     public static final String PACKAGE_NAME = BuildConfig.APPLICATION_ID;
+    private static final String TAG = App.class.toString();
+    private static App app;
 
     @Nullable
     private Disposable disposable = null;
@@ -104,7 +101,9 @@ public class App extends MultiDexApplication {
         ServiceHelper.initServices(this);
 
         // Initialize image loader
-        ImageLoader.getInstance().init(getImageLoaderConfigurations(10, 50));
+        PicassoHelper.init(this);
+        PicassoHelper.setShouldLoadImages(PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean(getString(R.string.download_thumbnail_key), true));
 
         configureRxJavaErrorHandler();
 
@@ -118,6 +117,7 @@ public class App extends MultiDexApplication {
             disposable.dispose();
         }
         super.onTerminate();
+        PicassoHelper.terminate();
     }
 
     protected Downloader getDownloader() {
@@ -200,15 +200,6 @@ public class App extends MultiDexApplication {
                         .uncaughtException(Thread.currentThread(), throwable);
             }
         });
-    }
-
-    private ImageLoaderConfiguration getImageLoaderConfigurations(final int memoryCacheSizeMb,
-                                                                  final int diskCacheSizeMb) {
-        return new ImageLoaderConfiguration.Builder(this)
-                .memoryCache(new LRULimitedMemoryCache(memoryCacheSizeMb * 1024 * 1024))
-                .diskCacheSize(diskCacheSizeMb * 1024 * 1024)
-                .imageDownloader(new ImageDownloader(getApplicationContext()))
-                .build();
     }
 
     /**

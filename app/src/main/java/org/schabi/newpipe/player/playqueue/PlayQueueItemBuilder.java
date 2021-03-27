@@ -5,11 +5,9 @@ import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
-
 import org.schabi.newpipe.extractor.NewPipe;
-import org.schabi.newpipe.util.ImageDisplayConstants;
 import org.schabi.newpipe.util.Localization;
+import org.schabi.newpipe.util.PicassoHelper;
 
 public class PlayQueueItemBuilder {
     private static final String TAG = PlayQueueItemBuilder.class.toString();
@@ -35,8 +33,7 @@ public class PlayQueueItemBuilder {
             holder.itemDurationView.setVisibility(View.GONE);
         }
 
-        ImageLoader.getInstance().displayImage(item.getThumbnailUrl(), holder.itemThumbnailView,
-                ImageDisplayConstants.DISPLAY_THUMBNAIL_OPTIONS);
+        PicassoHelper.loadThumbnail(item.getThumbnailUrl()).into(holder.itemThumbnailView);
 
         holder.itemRoot.setOnClickListener(view -> {
             if (onItemClickListener != null) {

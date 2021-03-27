@@ -1,6 +1,5 @@
 package org.schabi.newpipe.info_list.holder;
 
-import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.URLSpan;
@@ -11,7 +10,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.PreferenceManager;
 
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.error.ErrorActivity;
@@ -21,10 +19,10 @@ import org.schabi.newpipe.info_list.InfoItemBuilder;
 import org.schabi.newpipe.local.history.HistoryRecordManager;
 import org.schabi.newpipe.util.CommentTextOnTouchListener;
 import org.schabi.newpipe.util.DeviceUtils;
-import org.schabi.newpipe.util.ImageDisplayConstants;
 import org.schabi.newpipe.util.Localization;
 import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.external_communication.ShareUtils;
+import org.schabi.newpipe.util.PicassoHelper;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -35,16 +33,13 @@ public class CommentsMiniInfoItemHolder extends InfoItemHolder {
     private static final int COMMENT_DEFAULT_LINES = 2;
     private static final int COMMENT_EXPANDED_LINES = 1000;
     private static final Pattern PATTERN = Pattern.compile("(\\d+:)?(\\d+)?:(\\d+)");
-    private final String downloadThumbnailKey;
     private final int commentHorizontalPadding;
     private final int commentVerticalPadding;
 
-    private SharedPreferences preferences = null;
     private final RelativeLayout itemRoot;
     public final CircleImageView itemThumbnailView;
     private final TextView itemContentView;
     private final TextView itemLikesCountView;
-    private final TextView itemDislikesCountView;
     private final TextView itemPublishedTime;
 
     private String commentText;
@@ -77,12 +72,8 @@ public class CommentsMiniInfoItemHolder extends InfoItemHolder {
         itemRoot = itemView.findViewById(R.id.itemRoot);
         itemThumbnailView = itemView.findViewById(R.id.itemThumbnailView);
         itemLikesCountView = itemView.findViewById(R.id.detail_thumbs_up_count_view);
-        itemDislikesCountView = itemView.findViewById(R.id.detail_thumbs_down_count_view);
         itemPublishedTime = itemView.findViewById(R.id.itemPublishedTime);
         itemContentView = itemView.findViewById(R.id.itemCommentContentView);
-
-        downloadThumbnailKey = infoItemBuilder.getContext().
-                getString(R.string.download_thumbnail_key);
 
         commentHorizontalPadding = (int) infoItemBuilder.getContext()
                 .getResources().getDimension(R.dimen.comments_horizontal_padding);
@@ -103,14 +94,8 @@ public class CommentsMiniInfoItemHolder extends InfoItemHolder {
         }
         final CommentsInfoItem item = (CommentsInfoItem) infoItem;
 
-        preferences = PreferenceManager.getDefaultSharedPreferences(itemBuilder.getContext());
-
-        itemBuilder.getImageLoader()
-                .displayImage(item.getUploaderAvatarUrl(),
-                        itemThumbnailView,
-                        ImageDisplayConstants.DISPLAY_THUMBNAIL_OPTIONS);
-
-        if (preferences.getBoolean(downloadThumbnailKey, true)) {
+        PicassoHelper.loadAvatar(item.getUploaderAvatarUrl()).into(itemThumbnailView);
+        if (PicassoHelper.getShouldLoadImages()) {
             itemThumbnailView.setVisibility(View.VISIBLE);
             itemRoot.setPadding(commentVerticalPadding, commentVerticalPadding,
                     commentVerticalPadding, commentVerticalPadding);

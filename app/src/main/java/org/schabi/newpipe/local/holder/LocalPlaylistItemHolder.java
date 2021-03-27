@@ -7,7 +7,7 @@ import org.schabi.newpipe.database.LocalItem;
 import org.schabi.newpipe.database.playlist.PlaylistMetadataEntry;
 import org.schabi.newpipe.local.LocalItemBuilder;
 import org.schabi.newpipe.local.history.HistoryRecordManager;
-import org.schabi.newpipe.util.ImageDisplayConstants;
+import org.schabi.newpipe.util.PicassoHelper;
 import org.schabi.newpipe.util.Localization;
 
 import java.time.format.DateTimeFormatter;
@@ -36,8 +36,7 @@ public class LocalPlaylistItemHolder extends PlaylistItemHolder {
                 itemStreamCountView.getContext(), item.streamCount));
         itemUploaderView.setVisibility(View.INVISIBLE);
 
-        itemBuilder.displayImage(item.thumbnailUrl, itemThumbnailView,
-                ImageDisplayConstants.DISPLAY_PLAYLIST_OPTIONS);
+        PicassoHelper.loadPlaylistThumbnail(item.thumbnailUrl).into(itemThumbnailView);
 
         super.updateFromItem(localItem, historyRecordManager, dateTimeFormatter);
     }

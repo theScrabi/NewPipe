@@ -17,7 +17,6 @@ import org.schabi.newpipe.util.InfoCache;
 import org.schabi.newpipe.util.TLSSocketFactoryCompat;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.security.KeyManagementException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
@@ -191,36 +190,6 @@ public final class DownloaderImpl extends Downloader {
             throw new IOException("Invalid content length", e);
         } catch (final ReCaptchaException e) {
             throw new IOException(e);
-        }
-    }
-
-    public InputStream stream(final String siteUrl) throws IOException {
-        try {
-            final okhttp3.Request.Builder requestBuilder = new okhttp3.Request.Builder()
-                    .method("GET", null).url(siteUrl)
-                    .addHeader("User-Agent", USER_AGENT);
-
-            final String cookies = getCookies(siteUrl);
-            if (!cookies.isEmpty()) {
-                requestBuilder.addHeader("Cookie", cookies);
-            }
-
-            final okhttp3.Request request = requestBuilder.build();
-            final okhttp3.Response response = client.newCall(request).execute();
-            final ResponseBody body = response.body();
-
-            if (response.code() == 429) {
-                throw new ReCaptchaException("reCaptcha Challenge requested", siteUrl);
-            }
-
-            if (body == null) {
-                response.close();
-                return null;
-            }
-
-            return body.byteStream();
-        } catch (final ReCaptchaException e) {
-            throw new IOException(e.getMessage(), e.getCause());
         }
     }
 

@@ -14,9 +14,6 @@ import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-
 import org.schabi.newpipe.NewPipeDatabase;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.database.AppDatabase;
@@ -29,6 +26,7 @@ import org.schabi.newpipe.error.ErrorInfo;
 import org.schabi.newpipe.error.UserAction;
 import org.schabi.newpipe.local.playlist.LocalPlaylistManager;
 import org.schabi.newpipe.local.playlist.RemotePlaylistManager;
+import org.schabi.newpipe.util.PicassoHelper;
 
 import java.util.List;
 import java.util.Vector;
@@ -38,13 +36,6 @@ import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.disposables.Disposable;
 
 public class SelectPlaylistFragment extends DialogFragment {
-    /**
-     * This contains the base display options for images.
-     */
-    private static final DisplayImageOptions DISPLAY_IMAGE_OPTIONS
-            = new DisplayImageOptions.Builder().cacheInMemory(true).build();
-
-    private final ImageLoader imageLoader = ImageLoader.getInstance();
 
     private OnSelectedListener onSelectedListener = null;
 
@@ -170,16 +161,15 @@ public class SelectPlaylistFragment extends DialogFragment {
 
                 holder.titleView.setText(entry.name);
                 holder.view.setOnClickListener(view -> clickedItem(position));
-                imageLoader.displayImage(entry.thumbnailUrl, holder.thumbnailView,
-                        DISPLAY_IMAGE_OPTIONS);
+                PicassoHelper.loadPlaylistThumbnail(entry.thumbnailUrl).into(holder.thumbnailView);
 
             } else if (selectedItem instanceof PlaylistRemoteEntity) {
                 final PlaylistRemoteEntity entry = ((PlaylistRemoteEntity) selectedItem);
 
                 holder.titleView.setText(entry.getName());
                 holder.view.setOnClickListener(view -> clickedItem(position));
-                imageLoader.displayImage(entry.getThumbnailUrl(), holder.thumbnailView,
-                        DISPLAY_IMAGE_OPTIONS);
+                PicassoHelper.loadPlaylistThumbnail(entry.getThumbnailUrl())
+                        .into(holder.thumbnailView);
             }
         }
 

@@ -3,14 +3,13 @@ package org.schabi.newpipe.local.subscription.item
 import android.content.Context
 import android.widget.ImageView
 import android.widget.TextView
-import com.nostra13.universalimageloader.core.ImageLoader
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
 import org.schabi.newpipe.R
 import org.schabi.newpipe.extractor.channel.ChannelInfoItem
-import org.schabi.newpipe.util.ImageDisplayConstants
 import org.schabi.newpipe.util.Localization
 import org.schabi.newpipe.util.OnClickGesture
+import org.schabi.newpipe.util.PicassoHelper
 
 class ChannelItem(
     private val infoItem: ChannelInfoItem,
@@ -40,10 +39,7 @@ class ChannelItem(
             itemChannelDescriptionView.text = infoItem.description
         }
 
-        ImageLoader.getInstance().displayImage(
-            infoItem.thumbnailUrl, itemThumbnailView,
-            ImageDisplayConstants.DISPLAY_THUMBNAIL_OPTIONS
-        )
+        PicassoHelper.loadThumbnail(infoItem.thumbnailUrl).into(itemThumbnailView)
 
         gesturesListener?.run {
             viewHolder.root.setOnClickListener { selected(infoItem) }

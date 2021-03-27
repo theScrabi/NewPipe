@@ -3,13 +3,12 @@ package org.schabi.newpipe.info_list
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import com.nostra13.universalimageloader.core.ImageLoader
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
 import org.schabi.newpipe.R
 import org.schabi.newpipe.extractor.stream.StreamSegment
-import org.schabi.newpipe.util.ImageDisplayConstants
 import org.schabi.newpipe.util.Localization
+import org.schabi.newpipe.util.PicassoHelper
 
 class StreamSegmentItem(
     private val item: StreamSegment,
@@ -24,10 +23,8 @@ class StreamSegmentItem(
 
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         item.previewUrl?.let {
-            ImageLoader.getInstance().displayImage(
-                it, viewHolder.root.findViewById<ImageView>(R.id.previewImage),
-                ImageDisplayConstants.DISPLAY_THUMBNAIL_OPTIONS
-            )
+            PicassoHelper.loadThumbnail(it)
+                .into(viewHolder.root.findViewById<ImageView>(R.id.previewImage))
         }
         viewHolder.root.findViewById<TextView>(R.id.textViewTitle).text = item.title
         if (item.channelName == null) {
