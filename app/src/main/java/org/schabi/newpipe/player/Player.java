@@ -1231,10 +1231,21 @@ public final class Player implements
                                         / (source.getWidth() / notificationThumbnailWidth)),
                                 true);
 
-                        if (result != source) {
+                        if (result == source) {
+                            // create a new mutable bitmap to prevent strange crashes on some
+                            // devices (see #4638)
+                            final Bitmap copied = Bitmap.createScaledBitmap(
+                                    source,
+                                    (int) notificationThumbnailWidth - 1,
+                                    (int) (source.getHeight() / (source.getWidth()
+                                            / (notificationThumbnailWidth - 1))),
+                                    true);
                             source.recycle();
+                            return copied;
+                        } else {
+                            source.recycle();
+                            return result;
                         }
-                        return result;
                     }
 
                     @Override
