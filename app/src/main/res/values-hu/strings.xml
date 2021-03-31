@@ -386,7 +386,7 @@
     <string name="file_deleted">File törölve</string>
     <string name="settings_category_updates_title">Frissítések</string>
     <string name="show_hold_to_append_summary">Tipp mutatása háttér vagy felbukkanó gomb megnyomásakor a videó részletei oldalon</string>
-    <string name="autoplay_title">Automatikus lejátszás</string>
+    <string name="autoplay_and_fullscreen_title">Automatikus lejátszás</string>
     <string name="settings_category_clear_data_title">Adatok törlése</string>
     <string name="enable_playback_state_lists_summary">Lejátszási pozíciók mutatása a listákban</string>
     <string name="enable_playback_state_lists_title">Pozíciók a listákban</string>

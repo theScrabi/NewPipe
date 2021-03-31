@@ -457,7 +457,7 @@
     <string name="pause_downloads_on_mobile_desc">Korisno pri prelasku na mobilne podatke, iako se neka preuzimanja ne mogu obustaviti</string>
     <string name="show_comments_title">Prikaži komentare</string>
     <string name="show_comments_summary">Isključi, kako bi se komentari sakrili</string>
-    <string name="autoplay_title">Automatska reprodukcija</string>
+    <string name="autoplay_and_fullscreen_title">Automatska reprodukcija</string>
     <string name="no_comments">Nema komentara</string>
     <string name="error_unable_to_load_comments">Komentare nije moguće učitati</string>
     <string name="close">Zatvori</string>
@@ -603,7 +603,7 @@
     <string name="select_a_playlist">Odaberi playlistu</string>
     <string name="recovering">obnavljanje</string>
     <string name="wifi_only">Samo na Wi-Fi mreži</string>
-    <string name="autoplay_summary">Pokreni automatski – %s</string>
+    <string name="autoplay_and_fullscreen_summary">Pokreni automatski – %s</string>
     <string name="show_memory_leaks">Prikaži curenje memorije</string>
     <plurals name="watching">
         <item quantity="one">%s gledatelj</item>

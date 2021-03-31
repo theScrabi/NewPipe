@@ -42,6 +42,7 @@ import org.schabi.newpipe.player.Player;
 import org.schabi.newpipe.player.playqueue.PlayQueue;
 import org.schabi.newpipe.player.playqueue.PlayQueueItem;
 import org.schabi.newpipe.player.playqueue.SinglePlayQueue;
+import org.schabi.newpipe.util.DeviceUtils;
 import org.schabi.newpipe.util.ListHelper;
 
 import java.lang.annotation.Retention;
@@ -65,6 +66,7 @@ import static org.schabi.newpipe.player.Player.IDLE_WINDOW_FLAGS;
 import static org.schabi.newpipe.player.Player.PLAYER_TYPE;
 import static org.schabi.newpipe.player.helper.PlayerHelper.AutoplayType.AUTOPLAY_TYPE_ALWAYS;
 import static org.schabi.newpipe.player.helper.PlayerHelper.AutoplayType.AUTOPLAY_TYPE_NEVER;
+import static org.schabi.newpipe.player.helper.PlayerHelper.AutoplayType.AUTOPLAY_TYPE_NEVER_AND_START_IN_FULLSCREEN;
 import static org.schabi.newpipe.player.helper.PlayerHelper.AutoplayType.AUTOPLAY_TYPE_WIFI;
 import static org.schabi.newpipe.player.helper.PlayerHelper.MinimizeMode.MINIMIZE_ON_EXIT_MODE_BACKGROUND;
 import static org.schabi.newpipe.player.helper.PlayerHelper.MinimizeMode.MINIMIZE_ON_EXIT_MODE_NONE;
@@ -79,11 +81,12 @@ public final class PlayerHelper {
 
     @Retention(SOURCE)
     @IntDef({AUTOPLAY_TYPE_ALWAYS, AUTOPLAY_TYPE_WIFI,
-            AUTOPLAY_TYPE_NEVER})
+            AUTOPLAY_TYPE_NEVER, AUTOPLAY_TYPE_NEVER_AND_START_IN_FULLSCREEN})
     public @interface AutoplayType {
         int AUTOPLAY_TYPE_ALWAYS = 0;
         int AUTOPLAY_TYPE_WIFI = 1;
         int AUTOPLAY_TYPE_NEVER = 2;
+        int AUTOPLAY_TYPE_NEVER_AND_START_IN_FULLSCREEN = 3;
     }
 
     @Retention(SOURCE)
@@ -270,14 +273,22 @@ public final class PlayerHelper {
             return AUTOPLAY_TYPE_ALWAYS;
         } else if (type.equals(context.getString(R.string.autoplay_never_key))) {
             return AUTOPLAY_TYPE_NEVER;
+        } else if (type.equals(
+                context.getString(R.string.autoplay_never_and_start_in_fullscreen_key))) {
+            return AUTOPLAY_TYPE_NEVER_AND_START_IN_FULLSCREEN;
+        } else if (type.equals(context.getString(R.string.autoplay_wifi_key))) {
+            return AUTOPLAY_TYPE_WIFI;
         } else {
-            return AUTOPLAY_TYPE_WIFI; // default
+            // nothing was set by the user -> use default values
+            return DeviceUtils.isTv(context) ? AUTOPLAY_TYPE_NEVER_AND_START_IN_FULLSCREEN
+                    : AUTOPLAY_TYPE_WIFI;
         }
     }
 
     public static boolean isAutoplayAllowedByUser(@NonNull final Context context) {
         switch (PlayerHelper.getAutoplayType(context)) {
             case PlayerHelper.AutoplayType.AUTOPLAY_TYPE_NEVER:
+            case PlayerHelper.AutoplayType.AUTOPLAY_TYPE_NEVER_AND_START_IN_FULLSCREEN:
                 return false;
             case PlayerHelper.AutoplayType.AUTOPLAY_TYPE_WIFI:
                 return !ListHelper.isMeteredNetwork(context);

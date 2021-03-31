@@ -106,12 +106,11 @@
             app:iconSpaceReserved="false" />
 
         <ListPreference
-            android:defaultValue="@string/autoplay_value"
             android:entries="@array/autoplay_type_description"
             android:entryValues="@array/autoplay_type_key"
             android:key="@string/autoplay_key"
-            android:summary="@string/autoplay_summary"
-            android:title="@string/autoplay_title"
+            android:summary="@string/autoplay_and_fullscreen_summary"
+            android:title="@string/autoplay_and_fullscreen_title"
             app:iconSpaceReserved="false" />
 
         <SwitchPreferenceCompat

@@ -352,7 +352,7 @@
     <string name="dismiss">সরাও</string>
     <string name="create">তৈরি করো</string>
     <string name="undo">ফিরে যাও</string>
-    <string name="autoplay_title">স্বয়ংক্রিয়</string>
+    <string name="autoplay_and_fullscreen_title">স্বয়ংক্রিয়</string>
     <string name="resume_on_audio_focus_gain_title">পুনরায় চালু করো</string>
     <string name="enable_watch_history_summary">দেখা ভিডিওগুলোর হিসেব</string>
     <string name="settings_category_clear_data_title">ডাটা মুছে ফেলুন</string>

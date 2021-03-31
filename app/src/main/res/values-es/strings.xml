@@ -484,7 +484,7 @@
     <string name="app_update_notification_content_text">Pulsa para descargar</string>
     <string name="show_comments_title">Mostrar comentarios</string>
     <string name="show_comments_summary">Desactivar para ocultar comentarios</string>
-    <string name="autoplay_title">Reproducción automática</string>
+    <string name="autoplay_and_fullscreen_title">Reproducción automática</string>
     <string name="no_comments">Sin comentarios</string>
     <string name="error_unable_to_load_comments">No se pudo cargar comentarios</string>
     <string name="close">Cerrar</string>
@@ -620,7 +620,7 @@
     <string name="notification_scale_to_square_image_title">Escalar miniatura a relación de aspecto 1:1</string>
     <string name="never">Nunca</string>
     <string name="wifi_only">Solo en Wi-Fi</string>
-    <string name="autoplay_summary">Comenzar reproducción automáticamente — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Comenzar reproducción automáticamente — %s</string>
     <string name="title_activity_play_queue">Reproducir cola</string>
     <string name="settings_category_notification_title">Notificación</string>
     <string name="unsupported_url_dialog_message">No se pudo reconocer la URL. ¿Abrir con otra aplicación\?</string>

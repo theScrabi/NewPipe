@@ -127,7 +127,7 @@
     <string name="resume_on_audio_focus_gain_title">Resume playing</string>
     <string name="resume_on_audio_focus_gain_summary">Continue playing after interruptions (e.g. phonecalls)</string>
     <string name="download_dialog_title">Download</string>
-    <string name="autoplay_title">Autoplay</string>
+    <string name="autoplay_and_fullscreen_title">Autoplay and fullscreen</string>
     <string name="show_hold_to_append_title">Show \"Hold to append\" tip</string>
     <string name="show_hold_to_append_summary">Show tip when pressing the background or the popup button in video \"Details:\"</string>
     <string name="unsupported_url">Unsupported URL</string>
@@ -575,9 +575,10 @@
     <string name="minimize_on_exit_background_description">Minimize to background player</string>
     <string name="minimize_on_exit_popup_description">Minimize to popup player</string>
     <!-- Autoplay behavior -->
-    <string name="autoplay_summary">Start playback automatically — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Start playback automatically — %s</string>
     <string name="wifi_only">Only on Wi-Fi</string>
     <string name="never">Never</string>
+    <string name="never_and_start_in_fullscreen">Never, and directly enter fullscreen when tapping on the thumbnail</string>
     <string name="list_view_mode">List view mode</string>
     <string name="list">List</string>
     <string name="grid">Grid</string>

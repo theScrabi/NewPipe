@@ -465,7 +465,7 @@
     <string name="pause_downloads_on_mobile_desc">Корисно під час переходу на мобільні дані, хоча деякі завантаження не можуть бути призупинені</string>
     <string name="show_comments_title">Показувати коментарі</string>
     <string name="show_comments_summary">Вимкніть, щоб сховати коментарі</string>
-    <string name="autoplay_title">Автопрогравання</string>
+    <string name="autoplay_and_fullscreen_title">Автопрогравання</string>
     <string name="no_comments">Коментарі відсутні</string>
     <string name="error_unable_to_load_comments">Не вдалося підвантажити коментарів</string>
     <string name="close">Закрити</string>

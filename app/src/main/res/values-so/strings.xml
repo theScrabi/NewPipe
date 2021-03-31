@@ -447,7 +447,7 @@
     <string name="show_hold_to_append_summary">Tus sharaxaada marka la riixayo batoonka xaga dambe ama midka daaqada ee ku yaala xaga \"Faahfaahinta:\" muuqaalka</string>
     <string name="show_hold_to_append_title">Tus sharaxaada \"Farta ku hay si aad iskugu darto\"</string>
     <string name="show_next_and_similar_title">Muuqaalada \'Ka xiga\' iyo \'Kuwa Lamidka ah\'</string>
-    <string name="autoplay_title">isdaarida</string>
+    <string name="autoplay_and_fullscreen_title">isdaarida</string>
     <string name="download_dialog_title">Daji</string>
     <string name="resume_on_audio_focus_gain_summary">Sii wad wixii daaraa marka la dhabqiyo kadib (tusaale marka wicitaan kusoo galo)</string>
     <string name="resume_on_audio_focus_gain_title">Sii wad daaridda</string>
@@ -505,7 +505,7 @@
     <string name="playback_step">Talaabo</string>
     <string name="mute">Aamusii</string>
     <string name="selection">Calaamadin</string>
-    <string name="autoplay_summary">Daaridda si iskeed ah u bilow — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Daaridda si iskeed ah u bilow — %s</string>
     <string name="feed_subscription_not_loaded_count">Lama soo kicinin: %d</string>
     <string name="download_already_pending">Waxaa jirta dajin hormada ku jirta oo magacan leh</string>
     <string name="max_retry_desc">Tirada dib iskugu dayida sixida soodajinta intaan la iska daynin dajinta</string>

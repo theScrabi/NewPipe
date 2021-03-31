@@ -459,7 +459,7 @@
     <string name="error_timeout">Time-out van verbinding</string>
     <string name="show_comments_title">Reacties tonen</string>
     <string name="show_comments_summary">Schakel dit uit om reacties te verbergen</string>
-    <string name="autoplay_title">Automatisch afspelen</string>
+    <string name="autoplay_and_fullscreen_title">Automatisch afspelen</string>
     <string name="no_comments">Geen reacties</string>
     <string name="error_unable_to_load_comments">Kan reacties niet laden</string>
     <string name="close">Sluiten</string>
@@ -615,7 +615,7 @@
     <string name="search_showing_result_for">Gevonden resultaten voor: %s</string>
     <string name="never">Nooit</string>
     <string name="wifi_only">Enkel via Wi-Fi</string>
-    <string name="autoplay_summary">Start automatisch met afspelen — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Start automatisch met afspelen — %s</string>
     <string name="title_activity_play_queue">Speel wachtrij af</string>
     <string name="settings_category_notification_title">Notificatie</string>
     <string name="unsupported_url_dialog_message">Kon de URL niet herkennen. In een andere app openen\?</string>

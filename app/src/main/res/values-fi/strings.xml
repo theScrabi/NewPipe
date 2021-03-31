@@ -453,7 +453,7 @@
     <string name="peertube_instance_url_help">Hae instansseja, joista pidät, osoitteesta %s</string>
     <string name="peertube_instance_url_summary">Valitse PeerTube-suosikki-instanssisi</string>
     <string name="peertube_instance_url_title">PeerTube-instanssit</string>
-    <string name="autoplay_title">Automaattinen toisto</string>
+    <string name="autoplay_and_fullscreen_title">Automaattinen toisto</string>
     <string name="settings_category_clear_data_title">Tietojen tyhjennys</string>
     <string name="enable_playback_resume_title">Jatka toistoa</string>
     <string name="download_choose_new_path">Vaihda latauskansioita, että muutokset tulevat voimaan</string>
@@ -615,7 +615,7 @@
     <string name="search_showing_result_for">Näytetään tulokset haulle: %s</string>
     <string name="never">Ei koskaan</string>
     <string name="wifi_only">Vain Wi-Fi-verkossa</string>
-    <string name="autoplay_summary">Aloita toisto automaattisesti — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Aloita toisto automaattisesti — %s</string>
     <string name="title_activity_play_queue">Toistojono</string>
     <string name="settings_category_notification_title">Ilmoitus</string>
     <string name="unsupported_url_dialog_message">Ei tunnistettu URL:ää. Avataanko toisessa sovelluksessa\?</string>

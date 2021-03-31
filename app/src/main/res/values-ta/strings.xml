@@ -201,7 +201,7 @@
     <string name="events">நிகழ்வுகள்</string>
     <string name="show_comments_title">கருத்துக்களை காண்பி</string>
     <string name="show_comments_summary">கருத்துக்களை காண்பிப்பதை நிறுத்துதலை செயலிழக்கசெய்</string>
-    <string name="autoplay_title">தானாக ஓட்டு</string>
+    <string name="autoplay_and_fullscreen_title">தானாக ஓட்டு</string>
     <string name="enable_playback_resume_title">திரையிடலை தொடங்கு</string>
     <string name="enable_playback_state_lists_title">பட்டியலில் இடங்கள்</string>
     <string name="settings_category_clear_data_title">தரவை நீக்கு</string>

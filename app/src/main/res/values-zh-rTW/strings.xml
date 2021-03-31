@@ -453,7 +453,7 @@
     <string name="error_timeout">連線已逾時</string>
     <string name="show_comments_title">顯示留言</string>
     <string name="show_comments_summary">關閉以隱藏留言</string>
-    <string name="autoplay_title">自動播放</string>
+    <string name="autoplay_and_fullscreen_title">自動播放</string>
     <string name="no_comments">沒有留言</string>
     <string name="error_unable_to_load_comments">無法載入留言</string>
     <string name="close">關閉</string>
@@ -605,7 +605,7 @@
     <string name="search_showing_result_for">正在顯示結果：%s</string>
     <string name="never">從不</string>
     <string name="wifi_only">僅在 Wi-Fi 上</string>
-    <string name="autoplay_summary">自動開始播放 — %s</string>
+    <string name="autoplay_and_fullscreen_summary">自動開始播放 — %s</string>
     <string name="title_activity_play_queue">播放佇列</string>
     <string name="unsupported_url_dialog_message">無法識別 URL。要用其他應用程式開啟嗎？</string>
     <string name="auto_queue_toggle">自動佇列</string>

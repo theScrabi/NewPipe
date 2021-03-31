@@ -541,7 +541,7 @@
     <string name="show_hold_to_append_summary">Trego ndihmën kur shtypet sfondi ose butoni i popup në \"Detajet:\" e videos</string>
     <string name="show_hold_to_append_title">Trego ndihmën \"Mbaje shtypur për ta shtuar në listë\"</string>
     <string name="show_next_and_similar_title">Trego \'Tjetra\' dhe videot \'E ngjashme\'</string>
-    <string name="autoplay_title">Luajtje automatike</string>
+    <string name="autoplay_and_fullscreen_title">Luajtje automatike</string>
     <string name="resume_on_audio_focus_gain_summary">Vazhdoje luajtjen pas ndërprerjeve (psh. telefonatat)</string>
     <string name="resume_on_audio_focus_gain_title">Vazhdoje luajtjen</string>
     <string name="settings_category_clear_data_title">Fshij të dhënat</string>
@@ -613,7 +613,7 @@
     <string name="wifi_only">Vetëm në Wi-Fi</string>
     <string name="notification_actions_summary">Redakto çdo veprim njoftimi më poshtë duke shtypur mbi të. Zgjidhni deri në tre prej tyre që të shfaqen në njoftimin kompakt duke përdorur kutitë në të djathtë.</string>
     <string name="never">Kurrë</string>
-    <string name="autoplay_summary">Nise luajtjen automatikisht — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Nise luajtjen automatikisht — %s</string>
     <string name="title_activity_play_queue">Lista e luajtjes</string>
     <string name="settings_category_notification_title">Njoftim</string>
     <string name="unsupported_url_dialog_message">Nuk u njoh URL. Të hapet me një aplikacion tjetër\?</string>

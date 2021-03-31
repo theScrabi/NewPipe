@@ -451,7 +451,7 @@
     <string name="conferences">ਕਾਨਫਰੰਸਾਂ</string>
     <string name="show_comments_title">ਟਿੱਪਣੀਆਂ ਦਿਖਾਓ</string>
     <string name="show_comments_summary">ਟਿੱਪਣੀਆਂ ਵਿਖਾਉਣਾ ਰੋਕਣ ਲਈ ਇਸਨੂੰ ਬੰਦ ਕਰੋ</string>
-    <string name="autoplay_title">ਆਟੋ-ਪਲੇ</string>
+    <string name="autoplay_and_fullscreen_title">ਆਟੋ-ਪਲੇ</string>
     <string name="no_comments">ਕੋਈ ਟਿੱਪਣੀ ਨਹੀਂ ਕੀਤੀ ਗਈ</string>
     <string name="error_unable_to_load_comments">ਟਿੱਪਣੀਆਂ ਲੋਡ ਨਹੀਂ ਹੋ ਸਕੀਆਂ</string>
     <string name="close">ਬੰਦ ਕਰੋ</string>

@@ -24,7 +24,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +35,7 @@ import androidx.core.content.ContextCompat;
 
 import org.schabi.newpipe.App;
 import org.schabi.newpipe.databinding.PlayerBinding;
+import org.schabi.newpipe.util.DeviceUtils;
 import org.schabi.newpipe.util.ThemeHelper;
 
 import static org.schabi.newpipe.util.Localization.assureCorrectAppLanguage;
@@ -214,11 +214,8 @@ public final class MainPlayer extends Service {
     boolean isLandscape() {
         // DisplayMetrics from activity context knows about MultiWindow feature
         // while DisplayMetrics from app context doesn't
-        final DisplayMetrics metrics = (player != null
-                && player.getParentActivity() != null
-                ? player.getParentActivity().getResources()
-                : getResources()).getDisplayMetrics();
-        return metrics.heightPixels < metrics.widthPixels;
+        return DeviceUtils.isLandscape(player != null && player.getParentActivity() != null
+                ? player.getParentActivity() : this);
     }
 
     @Nullable

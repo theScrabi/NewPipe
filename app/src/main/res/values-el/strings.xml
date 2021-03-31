@@ -459,7 +459,7 @@
     <string name="pause_downloads_on_mobile_desc">Χρήσιμο κατά τη μετάβαση σε δεδομένα κινητής τηλεφωνίας, αν και ορισμένες λήψεις δεν μπορούν να ανασταλούν</string>
     <string name="show_comments_title">Προβολή σχολίων</string>
     <string name="show_comments_summary">Απενεργοποίηση για διακοπή της εμφάνιση σχολίων</string>
-    <string name="autoplay_title">Αυτόματη αναπαραγωγή</string>
+    <string name="autoplay_and_fullscreen_title">Αυτόματη αναπαραγωγή</string>
     <string name="no_comments">Χωρίς σχόλια</string>
     <string name="error_unable_to_load_comments">Δεν ήταν δυνατή η φόρτωση σχολίων</string>
     <string name="close">Κλείσιμο</string>
@@ -623,7 +623,7 @@
     <string name="clear_download_history">Εκκαθάριση ιστορικού λήψεων</string>
     <string name="never">Ποτέ</string>
     <string name="wifi_only">Μόνο με Wi-Fi</string>
-    <string name="autoplay_summary">Αυτόματη έναρξη αναπαραγωγής — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Αυτόματη έναρξη αναπαραγωγής — %s</string>
     <string name="show_original_time_ago_summary">Τα αυθεντικά κείμενα των υπηρεσιών θα εμφανίζονται στα αντικείμενα ροής</string>
     <string name="show_memory_leaks">Εμφάνιση διαρροών μνήμης</string>
     <string name="unmute">Κατάργηση σίγασης</string>

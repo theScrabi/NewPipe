@@ -10,6 +10,7 @@ import org.schabi.newpipe.R;
 import org.schabi.newpipe.error.ErrorActivity;
 import org.schabi.newpipe.error.ErrorInfo;
 import org.schabi.newpipe.error.UserAction;
+import org.schabi.newpipe.util.DeviceUtils;
 
 import static org.schabi.newpipe.MainActivity.DEBUG;
 
@@ -18,7 +19,7 @@ public final class SettingMigrations {
     /**
      * Version number for preferences. Must be incremented every time a migration is necessary.
      */
-    public static final int VERSION = 2;
+    public static final int VERSION = 3;
     private static SharedPreferences sp;
 
     public static final Migration MIGRATION_0_1 = new Migration(0, 1) {
@@ -54,6 +55,26 @@ public final class SettingMigrations {
         }
     };
 
+    public static final Migration MIGRATION_2_3 = new Migration(2, 3) {
+        @Override
+        protected void migrate(final Context context) {
+            // #5459 introduced the option to start playing directly in fullscreen when autoplay
+            // is disabled (the "Never, and directly enter fullscreen when tapping on the thumbnail
+            // if applicable" option in the "Autoplay and fullscreen" menu). This migration sets
+            // the "Autoplay and fullscreen" setting to "Never, and directly..." on Android TVs
+            // (always) and on tablets (only if it previously was "Never"). On phones the setting is
+            // not touched.
+            final String autoplayKey = context.getString(R.string.autoplay_key);
+            final String autoplayNeverKey = context.getString(R.string.autoplay_never_key);
+            final String autoplayNeverAndStartInFullscreenKey =
+                    context.getString(R.string.autoplay_never_and_start_in_fullscreen_key);
+            if (DeviceUtils.isTv(context) || (DeviceUtils.isTablet(context)
+                    && sp.getString(autoplayKey, "").equals(autoplayNeverKey))) {
+                sp.edit().putString(autoplayKey, autoplayNeverAndStartInFullscreenKey).apply();
+            }
+        }
+    };
+
     /**
      * List of all implemented migrations.
      * <p>
@@ -62,7 +83,8 @@ public final class SettingMigrations {
      */
     private static final Migration[] SETTING_MIGRATIONS = {
             MIGRATION_0_1,
-            MIGRATION_1_2
+            MIGRATION_1_2,
+            MIGRATION_2_3,
     };
 
 

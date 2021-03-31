@@ -454,7 +454,7 @@
     <string name="conferences">컨퍼런스</string>
     <string name="show_comments_title">댓글 보기</string>
     <string name="show_comments_summary">댓글 숨기기</string>
-    <string name="autoplay_title">자동 재생</string>
+    <string name="autoplay_and_fullscreen_title">자동 재생</string>
     <string name="no_comments">댓글 없음</string>
     <string name="error_unable_to_load_comments">댓글을 불러올 수 없음</string>
     <string name="close">닫기</string>

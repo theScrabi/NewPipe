@@ -463,7 +463,7 @@
     <string name="pause_downloads_on_mobile_desc">שימושי בעת מעבר לחיבור רשת סלולרית, למרות שישנן הורדות שלא ניתן להשהות</string>
     <string name="show_comments_title">הצגת תגובות</string>
     <string name="show_comments_summary">יש להשבית כדי להפסיק הסתרת תגובות</string>
-    <string name="autoplay_title">ניגון אוטומטי</string>
+    <string name="autoplay_and_fullscreen_title">ניגון אוטומטי</string>
     <string name="no_comments">אין תגובות</string>
     <string name="error_unable_to_load_comments">לא ניתן לטעון תגובות</string>
     <string name="close">סגירה</string>
@@ -635,7 +635,7 @@
     <string name="search_showing_result_for">מוצגות תוצאות עבור: %s</string>
     <string name="never">אף פעם לא</string>
     <string name="wifi_only">רק עם רשת אלחוטית</string>
-    <string name="autoplay_summary">להתחיל לנגן אוטומטית — %s</string>
+    <string name="autoplay_and_fullscreen_summary">להתחיל לנגן אוטומטית — %s</string>
     <string name="title_activity_play_queue">לנגן את התור</string>
     <string name="unsupported_url_dialog_message">לא ניתן לזהות את הכתובת. לפתוח אותה ביישומון אחר\?</string>
     <string name="auto_queue_toggle">תור אוטומטי</string>

@@ -277,7 +277,7 @@
     <string name="recovering">دەگەڕێنرێتەوە</string>
     <string name="action_open_website">کردنەوەی ماڵپەڕ</string>
     <string name="autoplay_by_calling_app_summary">ڤیدیۆ کارپێبکرێ کاتێ ئەپەکە لە ئەپێکیتر کرایەوە</string>
-    <string name="autoplay_title">کارپێکردنی خۆکاری</string>
+    <string name="autoplay_and_fullscreen_title">کارپێکردنی خۆکاری</string>
     <string name="max_retry_msg">زیاترین هەوڵدانەکان</string>
     <string name="service_title">خزمەتگوزاری</string>
     <string name="new_and_hot">نوێ وە چالاک</string>
@@ -606,7 +606,7 @@
     <string name="feed_group_show_only_ungrouped_subscriptions">تەنها ئابوونە گروپنەکراوەکان پیشان بدە</string>
     <string name="never">هەرگیز</string>
     <string name="wifi_only">تەنها لەسەر وای فای</string>
-    <string name="autoplay_summary">دەست کردن بە پەخشکردنەوە خودکار — %s</string>
+    <string name="autoplay_and_fullscreen_summary">دەست کردن بە پەخشکردنەوە خودکار — %s</string>
     <string name="title_activity_play_queue">پەخشکردنی ڕیز</string>
     <string name="no_playlist_bookmarked_yet">هێشتا هیچ نیشانەیەکی لیستی پەخشکردن نییە</string>
     <string name="select_a_playlist">لیستی پەخشکردن دیاریبکە</string>

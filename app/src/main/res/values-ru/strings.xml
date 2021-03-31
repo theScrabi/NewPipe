@@ -468,7 +468,7 @@
     <string name="error_timeout">Время соединения истекло</string>
     <string name="show_comments_title">Показать комментарии</string>
     <string name="show_comments_summary">Отключите, чтобы скрыть комментарии</string>
-    <string name="autoplay_title">Автовоспроизведение</string>
+    <string name="autoplay_and_fullscreen_title">Автовоспроизведение</string>
     <string name="no_comments">Нет комментариев</string>
     <string name="error_unable_to_load_comments">Не удалось загрузить комментарии</string>
     <string name="watch_history_states_deleted">Позиции воспроизведения удалены.</string>
@@ -626,7 +626,7 @@
     <string name="copy_for_github">Копировать отформатированный отчёт</string>
     <string name="never">Никогда</string>
     <string name="wifi_only">Только по Wi-Fi</string>
-    <string name="autoplay_summary">Автовоспроизведение — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Автовоспроизведение — %s</string>
     <string name="title_activity_play_queue">Очередь воспроизведения</string>
     <string name="unsupported_url_dialog_message">Не удалось распознать URL. Открыть в другом приложении\?</string>
     <string name="auto_queue_toggle">Авто-очередь</string>

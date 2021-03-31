@@ -450,7 +450,7 @@
     <string name="error_http_not_found">No s\'ha trobat</string>
     <string name="show_comments_title">Mostra els comentaris</string>
     <string name="show_comments_summary">Desactiveu-ho amagar els comentaris</string>
-    <string name="autoplay_title">Reproducció automàtica</string>
+    <string name="autoplay_and_fullscreen_title">Reproducció automàtica</string>
     <string name="no_comments">Cap comentari</string>
     <string name="error_unable_to_load_comments">No s\'han pogut carregar els comentaris</string>
     <string name="close">Tanca</string>
@@ -607,7 +607,7 @@
     <string name="recovering">en recuperació</string>
     <string name="never">Mai</string>
     <string name="wifi_only">Només en Wi-Fi</string>
-    <string name="autoplay_summary">Comença la reproducció automàticament — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Comença la reproducció automàticament — %s</string>
     <string name="show_original_time_ago_summary">Els textos originals dels serveis seran visibles en els directes</string>
     <string name="show_memory_leaks">Mostra les fuites de memòria</string>
     <string name="enqueued">Ja a la cua</string>

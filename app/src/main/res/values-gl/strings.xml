@@ -597,7 +597,7 @@
     <string name="peertube_instance_url_summary">Selecciona as instancias favoritas de PeerTube</string>
     <string name="peertube_instance_url_title">Instancias de PeerTube</string>
     <string name="content_language_title">Idioma do contido predeterminado</string>
-    <string name="autoplay_title">Reprodución automática</string>
+    <string name="autoplay_and_fullscreen_title">Reprodución automática</string>
     <string name="settings_category_clear_data_title">Eliminar datos</string>
     <string name="enable_playback_state_lists_title">Posicións nas listas</string>
     <string name="enable_playback_resume_summary">Restaurar a última posición de reprodución</string>

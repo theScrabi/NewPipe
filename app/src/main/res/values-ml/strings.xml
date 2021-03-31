@@ -362,7 +362,7 @@
     <string name="show_hold_to_append_summary">പോപ്പപ്പ്/ബാക്ക്ഗ്രൗണ്ട് ബട്ടൺ അമർത്തുമ്പോൾ \"വിശദാംശങ്ങൾ\" എന്ന ടിപ് കാണിക്കും</string>
     <string name="show_hold_to_append_title">\"ഹോൾഡ് ടു അപ്പെൻഡ്\" എന്ന ടിപ് കാണിക്കുക</string>
     <string name="show_next_and_similar_title">\'അടുത്ത\' , \'സമാനമായ\' വീഡിയോകൾ കാണിക്കുക</string>
-    <string name="autoplay_title">ഓട്ടോപ്ലേ</string>
+    <string name="autoplay_and_fullscreen_title">ഓട്ടോപ്ലേ</string>
     <string name="download_dialog_title">ഡൗൺലോഡ്</string>
     <string name="resume_on_audio_focus_gain_summary">തടസങ്ങൾക്ക് ശേഷം പ്ലേ ചെയ്യുന്നത് തുടരുക (eg. ഫോൺകോളുകൾക്ക് ശേഷം)</string>
     <string name="resume_on_audio_focus_gain_title">പ്ലേ ചെയ്യുന്നത് തുടരുക</string>

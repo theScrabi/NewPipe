@@ -595,6 +595,9 @@ public final class Player implements
             return;
         }
 
+        // needed for tablets, check the function for a better explanation
+        directlyOpenFullscreenIfNeeded();
+
         final PlaybackParameters savedParameters = retrievePlaybackParametersFromPrefs(this);
         final float playbackSpeed = savedParameters.speed;
         final float playbackPitch = savedParameters.pitch;
@@ -706,6 +709,22 @@ public final class Player implements
             playPause();
         }
         NavigationHelper.sendPlayerStartedEvent(context);
+    }
+
+    private void directlyOpenFullscreenIfNeeded() {
+        if (fragmentListener != null
+                && PlayerHelper.getAutoplayType(service)
+                    == PlayerHelper.AutoplayType.AUTOPLAY_TYPE_NEVER_AND_START_IN_FULLSCREEN
+                && DeviceUtils.isTablet(service)
+                && videoPlayerSelected()
+                && PlayerHelper.globalScreenOrientationLocked(service)) {
+            // Open fullscreen on tablets where the "auto play" option is set to "never, and
+            // directly enter fullscreen when tapping on the thumbnail". Rotating the device to
+            // landscape is already done in VideoDetailFragment when the thumbnail is clicked, and
+            // that's enough for phones, but not for tablets since the mini player can be also shown
+            // in landscape.
+            fragmentListener.onScreenRotationButtonClicked();
+        }
     }
 
     private void initPlayback(@NonNull final PlayQueue queue,
@@ -3726,11 +3745,9 @@ public final class Player implements
         if (DEBUG) {
             Log.d(TAG, "toggleFullscreen() called");
         }
-        if (popupPlayerSelected() || exoPlayerIsNull() || currentMetadata == null
-                || fragmentListener == null) {
+        if (popupPlayerSelected() || exoPlayerIsNull() || fragmentListener == null) {
             return;
         }
-        //changeState(STATE_BLOCKED); TODO check what this does
 
         isFullscreen = !isFullscreen;
         if (!isFullscreen) {

@@ -316,7 +316,7 @@
     <string name="peertube_instance_add_help">ইন্সটান্স এর ইউ আর এল</string>
     <string name="peertube_instance_url_summary">আপনার পছন্দের পিয়ার টিউব ইন্সটান্স</string>
     <string name="peertube_instance_url_title">পিয়ার টিউব এর ইন্সটান্স সমূহ</string>
-    <string name="autoplay_title">স্বয়ংক্রিয়</string>
+    <string name="autoplay_and_fullscreen_title">স্বয়ংক্রিয়</string>
     <string name="enable_watch_history_summary">দেখা ভিডিও গুলির হিসেব</string>
     <string name="enable_playback_state_lists_title">তালিকা তে পজিশন</string>
     <string name="enable_playback_resume_summary">শেষ প্লে ব্যাক পজিশন এ যান</string>

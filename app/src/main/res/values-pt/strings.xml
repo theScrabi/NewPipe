@@ -458,7 +458,7 @@
     <string name="missions_header_pending">Pendente</string>
     <string name="show_comments_title">Mostrar comentários</string>
     <string name="show_comments_summary">Desative para ocultar comentários</string>
-    <string name="autoplay_title">Reprodução automática</string>
+    <string name="autoplay_and_fullscreen_title">Reprodução automática</string>
     <string name="no_comments">Sem comentários</string>
     <string name="error_unable_to_load_comments">Não foi possível carregar os comentários</string>
     <string name="close">Fechar</string>
@@ -619,7 +619,7 @@
     <string name="notification_action_0_title">Primeiro botão de ação</string>
     <string name="notification_scale_to_square_image_summary">Ajustar miniatura de vídeo mostrada na notificação de 16:9 para 1:1 (pode introduzir distorções)</string>
     <string name="notification_scale_to_square_image_title">Ajustar miniatura à proporção de 1:1</string>
-    <string name="autoplay_summary">Iniciar reprodução automaticamente — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Iniciar reprodução automaticamente — %s</string>
     <string name="title_activity_play_queue">Reproduzir fila</string>
     <string name="never">Nunca</string>
     <string name="notification_action_buffering">Processamento...</string>

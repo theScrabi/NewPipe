@@ -454,7 +454,7 @@
     <string name="missions_header_pending">Beklemede</string>
     <string name="show_comments_title">Yorumları göster</string>
     <string name="show_comments_summary">Yorumları gizlemek için kapatın</string>
-    <string name="autoplay_title">Kendiliğinden oynat</string>
+    <string name="autoplay_and_fullscreen_title">Kendiliğinden oynat</string>
     <string name="no_comments">Yorum yok</string>
     <string name="error_unable_to_load_comments">Yorumlar yüklenemedi</string>
     <string name="close">Kapat</string>
@@ -615,7 +615,7 @@
     <string name="no_playlist_bookmarked_yet">Henüz oynatma listesi yer imleri yok</string>
     <string name="never">Asla</string>
     <string name="wifi_only">Yalnızca Wi-Fi\'de</string>
-    <string name="autoplay_summary">Oynatmayı kendiliğinden başlat — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Oynatmayı kendiliğinden başlat — %s</string>
     <string name="title_activity_play_queue">Oynatma kuyruğu</string>
     <string name="unsupported_url_dialog_message">URL tanınamadı. Başka bir uygulamayla açılsın mı\?</string>
     <string name="auto_queue_toggle">Kendiliğinden kuyruğa ekle</string>

@@ -516,7 +516,7 @@
     <string name="show_hold_to_append_summary">Ammustra un\'impòsitu cando incarcas in su butone de isfundu o de sa ventanedda in sa pàgina de sos detàllios de unu vìdeu</string>
     <string name="show_hold_to_append_title">Ammustra s\'impòsitu \"Mantene incarcadu pro pònnere in elencu\"</string>
     <string name="show_next_and_similar_title">Ammustra sos vìdeos imbenientes e simigiantes</string>
-    <string name="autoplay_title">Riprodutzione automàtica</string>
+    <string name="autoplay_and_fullscreen_title">Riprodutzione automàtica</string>
     <string name="download_dialog_title">Iscàrriga</string>
     <string name="resume_on_audio_focus_gain_summary">Sighi a riproduire a pustis de sas interrutziones (a es. una mutida)</string>
     <string name="resume_on_audio_focus_gain_title">Sighi a riproduire</string>
@@ -614,7 +614,7 @@
 \n</string>
     <string name="never">Mai</string>
     <string name="wifi_only">Cun su Wi-Fi ebbia</string>
-    <string name="autoplay_summary">Incumintza cun sa riprodutzione automaticamente — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Incumintza cun sa riprodutzione automaticamente — %s</string>
     <string name="title_activity_play_queue">Lista de riprodutzione</string>
     <string name="unsupported_url_dialog_message">Reconnoschimentu de s\'URL fallidu. Lu cheres abèrrere cun un\'àtera aplicatzione\?</string>
     <string name="auto_queue_toggle">Annanghe a sa lista automaticamente</string>

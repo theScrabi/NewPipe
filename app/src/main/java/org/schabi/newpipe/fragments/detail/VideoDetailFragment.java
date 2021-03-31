@@ -219,7 +219,7 @@ public final class VideoDetailFragment
             return;
         }
 
-        if (isLandscape()) {
+        if (DeviceUtils.isLandscape(requireContext())) {
             // If the video is playing but orientation changed
             // let's make the video in fullscreen again
             checkLandscape();
@@ -492,6 +492,13 @@ public final class VideoDetailFragment
                 break;
             case R.id.detail_thumbnail_root_layout:
                 autoPlayEnabled = true; // forcefully start playing
+                if (PlayerHelper.getAutoplayType(requireContext())
+                        == PlayerHelper.AutoplayType.AUTOPLAY_TYPE_NEVER_AND_START_IN_FULLSCREEN
+                        && !DeviceUtils.isLandscape(requireContext())
+                        && PlayerHelper.globalScreenOrientationLocked(requireContext())) {
+                    // toggle landscape in order to open directly in fullscreen
+                    onScreenRotationButtonClicked();
+                }
                 openVideoPlayer();
                 break;
             case R.id.detail_title_root_layout:
@@ -900,6 +907,7 @@ public final class VideoDetailFragment
                                 stack.push(new StackItem(serviceId, url, title, playQueue));
                             }
                         }
+
                         if (isAutoplayEnabled()) {
                             openVideoPlayer();
                         }
@@ -1142,8 +1150,8 @@ public final class VideoDetailFragment
         }
         addVideoPlayerView();
 
-        final Intent playerIntent = NavigationHelper
-                .getPlayerIntent(requireContext(), MainPlayer.class, queue, true, autoPlayEnabled);
+        final Intent playerIntent = NavigationHelper.getPlayerIntent(requireContext(),
+                MainPlayer.class, queue, true, autoPlayEnabled);
         activity.startService(playerIntent);
     }
 
@@ -1249,7 +1257,7 @@ public final class VideoDetailFragment
                     final DisplayMetrics metrics = getResources().getDisplayMetrics();
 
                     if (getView() != null) {
-                        final int height = (isInMultiWindow()
+                        final int height = (DeviceUtils.isInMultiWindow(activity)
                                 ? requireView()
                                 : activity.getWindow().getDecorView()).getHeight();
                         setHeightThumbnail(height, metrics);
@@ -1272,7 +1280,7 @@ public final class VideoDetailFragment
         requireView().getViewTreeObserver().removeOnPreDrawListener(preDrawListener);
 
         if (player != null && player.isFullscreen()) {
-            final int height = (isInMultiWindow()
+            final int height = (DeviceUtils.isInMultiWindow(activity)
                     ? requireView()
                     : activity.getWindow().getDecorView()).getHeight();
             // Height is zero when the view is not yet displayed like after orientation change
@@ -1863,13 +1871,14 @@ public final class VideoDetailFragment
         // from landscape to portrait every time.
         // Just turn on fullscreen mode in landscape orientation
         // or portrait & unlocked global orientation
+        final boolean isLandscape = DeviceUtils.isLandscape(requireContext());
         if (DeviceUtils.isTablet(activity)
-                && (!globalScreenOrientationLocked(activity) || isLandscape())) {
+                && (!globalScreenOrientationLocked(activity) || isLandscape)) {
             player.toggleFullscreen();
             return;
         }
 
-        final int newOrientation = isLandscape()
+        final int newOrientation = isLandscape
                 ? ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
                 : ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE;
 
@@ -1941,15 +1950,17 @@ public final class VideoDetailFragment
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+
         // In multiWindow mode status bar is not transparent for devices with cutout
         // if I include this flag. So without it is better in this case
-        if (!isInMultiWindow()) {
+        final boolean isInMultiWindow = DeviceUtils.isInMultiWindow(activity);
+        if (!isInMultiWindow) {
             visibility |= View.SYSTEM_UI_FLAG_FULLSCREEN;
         }
         activity.getWindow().getDecorView().setSystemUiVisibility(visibility);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
-                && (isInMultiWindow() || (player != null && player.isFullscreen()))) {
+                && (isInMultiWindow || (player != null && player.isFullscreen()))) {
             activity.getWindow().setStatusBarColor(Color.TRANSPARENT);
             activity.getWindow().setNavigationBarColor(Color.TRANSPARENT);
         }
@@ -2019,15 +2030,6 @@ public final class VideoDetailFragment
         if (globalScreenOrientationLocked(activity) && !player.isPlaying()) {
             player.play();
         }
-    }
-
-    private boolean isLandscape() {
-        return getResources().getDisplayMetrics().heightPixels < getResources()
-                .getDisplayMetrics().widthPixels;
-    }
-
-    private boolean isInMultiWindow() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && activity.isInMultiWindowMode();
     }
 
     /*
@@ -2212,7 +2214,7 @@ public final class VideoDetailFragment
                         setOverlayElementsClickable(false);
                         hideSystemUiIfNeeded();
                         // Conditions when the player should be expanded to fullscreen
-                        if (isLandscape()
+                        if (DeviceUtils.isLandscape(requireContext())
                                 && player != null
                                 && player.isPlaying()
                                 && !player.isFullscreen()

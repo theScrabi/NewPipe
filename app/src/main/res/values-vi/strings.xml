@@ -455,7 +455,7 @@
     <string name="label_code">Mã</string>
     <string name="show_comments_title">Hiện bình luận</string>
     <string name="show_comments_summary">Tắt để ẩn bình luận</string>
-    <string name="autoplay_title">Tự động phát</string>
+    <string name="autoplay_and_fullscreen_title">Tự động phát</string>
     <string name="no_comments">Không có bình luận</string>
     <string name="error_unable_to_load_comments">Không thể tải bình luận</string>
     <string name="close">Đóng</string>
@@ -599,7 +599,7 @@
     <string name="feed_group_show_only_ungrouped_subscriptions">Chỉ hiện các kênh chưa được nhóm</string>
     <string name="never">Không bao giờ</string>
     <string name="wifi_only">Chỉ trên Wi-Fi</string>
-    <string name="autoplay_summary">Hành vi tự động phát — %s</string>
+    <string name="autoplay_and_fullscreen_summary">Hành vi tự động phát — %s</string>
     <string name="title_activity_play_queue">Hàng đợi phát</string>
     <string name="no_playlist_bookmarked_yet">Không có danh sách nào ở đây</string>
     <string name="select_a_playlist">Chọn danh sách</string>
