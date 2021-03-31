@@ -28,10 +28,8 @@ import org.reactivestreams.Subscription;
 import org.schabi.newpipe.NewPipeDatabase;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.database.LocalItem;
-import org.schabi.newpipe.database.history.model.StreamHistoryEntry;
 import org.schabi.newpipe.database.playlist.PlaylistStreamEntry;
 import org.schabi.newpipe.database.stream.model.StreamEntity;
-import org.schabi.newpipe.database.stream.model.StreamStateEntity;
 import org.schabi.newpipe.databinding.LocalPlaylistHeaderBinding;
 import org.schabi.newpipe.databinding.PlaylistControlBinding;
 import org.schabi.newpipe.error.ErrorInfo;
@@ -40,7 +38,6 @@ import org.schabi.newpipe.extractor.stream.StreamInfoItem;
 import org.schabi.newpipe.extractor.stream.StreamType;
 import org.schabi.newpipe.info_list.InfoItemDialog;
 import org.schabi.newpipe.local.BaseLocalListFragment;
-import org.schabi.newpipe.local.history.HistoryRecordManager;
 import org.schabi.newpipe.player.helper.PlayerHolder;
 import org.schabi.newpipe.player.playqueue.PlayQueue;
 import org.schabi.newpipe.player.playqueue.SinglePlayQueue;
@@ -53,17 +50,14 @@ import org.schabi.newpipe.util.StreamDialogEntry;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import icepick.State;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.rxjava3.schedulers.Schedulers;
 import io.reactivex.rxjava3.subjects.PublishSubject;
 
 import static org.schabi.newpipe.ktx.ViewUtils.animate;
@@ -374,76 +368,13 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
         isRemovingWatched = true;
         showLoading();
 
-        disposables.add(playlistManager.getPlaylistStreams(playlistId)
-                .subscribeOn(Schedulers.io())
-                .map((List<PlaylistStreamEntry> playlist) -> {
-                    // Playlist data
-                    final Iterator<PlaylistStreamEntry> playlistIter = playlist.iterator();
-
-                    // History data
-                    final HistoryRecordManager recordManager
-                            = new HistoryRecordManager(getContext());
-                    final Iterator<StreamHistoryEntry> historyIter = recordManager
-                            .getStreamHistorySortedById().blockingFirst().iterator();
-
-                    // Remove Watched, Functionality data
-                    final List<PlaylistStreamEntry> notWatchedItems = new ArrayList<>();
-                    boolean thumbnailVideoRemoved = false;
-
-                    // already sorted by ^ getStreamHistorySortedById(), binary search can be used
-                    final ArrayList<Long> historyStreamIds = new ArrayList<>();
-                    while (historyIter.hasNext()) {
-                        historyStreamIds.add(historyIter.next().getStreamId());
-                    }
-
-                    if (removePartiallyWatched) {
-                        while (playlistIter.hasNext()) {
-                            final PlaylistStreamEntry playlistItem = playlistIter.next();
-                            final int indexInHistory = Collections.binarySearch(historyStreamIds,
-                                    playlistItem.getStreamId());
-
-                            if (indexInHistory < 0) {
-                                notWatchedItems.add(playlistItem);
-                            } else if (!thumbnailVideoRemoved
-                                    && playlistManager.getPlaylistThumbnail(playlistId)
-                                    .equals(playlistItem.getStreamEntity().getThumbnailUrl())) {
-                                thumbnailVideoRemoved = true;
-                            }
-                        }
-                    } else {
-                        final Iterator<StreamStateEntity> streamStatesIter = recordManager
-                                .loadLocalStreamStateBatch(playlist).blockingGet().iterator();
-
-                        while (playlistIter.hasNext()) {
-                            final PlaylistStreamEntry playlistItem = playlistIter.next();
-                            final int indexInHistory = Collections.binarySearch(historyStreamIds,
-                                    playlistItem.getStreamId());
-
-                            final boolean hasState = streamStatesIter.next() != null;
-                            if (indexInHistory < 0 ||  hasState) {
-                                notWatchedItems.add(playlistItem);
-                            } else if (!thumbnailVideoRemoved
-                                    && playlistManager.getPlaylistThumbnail(playlistId)
-                                    .equals(playlistItem.getStreamEntity().getThumbnailUrl())) {
-                                thumbnailVideoRemoved = true;
-                            }
-                        }
-                    }
-
-                    return Flowable.just(notWatchedItems, thumbnailVideoRemoved);
-                })
+        disposables.add(playlistManager.clearWatched(playlistId, removePartiallyWatched)
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(flow -> {
-                    final List<PlaylistStreamEntry> notWatchedItems =
-                            (List<PlaylistStreamEntry>) flow.blockingFirst();
-                    final boolean thumbnailVideoRemoved = (Boolean) flow.blockingLast();
-
+                .subscribe(notWatchedItems -> {
                     itemListAdapter.clearStreamItemList();
                     itemListAdapter.addItems(notWatchedItems);
-                    saveChanges();
 
-
-                    if (thumbnailVideoRemoved) {
+                    if (!playlistManager.anyEntryIsSetAsThumbnail(playlistId, notWatchedItems)) {
                         updateThumbnailUrl();
                     }
 
@@ -600,8 +531,7 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
         }
 
         itemListAdapter.removeItem(item);
-        if (playlistManager.getPlaylistThumbnail(playlistId)
-                .equals(item.getStreamEntity().getThumbnailUrl())) {
+        if (playlistManager.anyEntryIsSetAsThumbnail(playlistId, Collections.singletonList(item))) {
             updateThumbnailUrl();
         }
 

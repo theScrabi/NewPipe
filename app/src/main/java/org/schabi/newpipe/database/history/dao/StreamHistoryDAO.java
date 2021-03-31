@@ -59,6 +59,12 @@ public abstract class StreamHistoryDAO implements HistoryDAO<StreamHistoryEntity
             + " ORDER BY " + STREAM_ID + " ASC")
     public abstract Flowable<List<StreamHistoryEntry>> getHistorySortedById();
 
+    @Query("SELECT " + STREAM_ID + " FROM " + STREAM_TABLE
+            + " INNER JOIN " + STREAM_HISTORY_TABLE
+            + " ON " + STREAM_ID + " = " + JOIN_STREAM_ID
+            + " ORDER BY " + STREAM_ID + " ASC")
+    public abstract Flowable<List<Long>> getHistoryStreamIdsSortedById();
+
     @Query("SELECT * FROM " + STREAM_HISTORY_TABLE + " WHERE " + JOIN_STREAM_ID
             + " = :streamId ORDER BY " + STREAM_ACCESS_DATE + " DESC LIMIT 1")
     @Nullable

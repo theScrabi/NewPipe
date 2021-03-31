@@ -3,6 +3,7 @@ package org.schabi.newpipe.local.playlist;
 import androidx.annotation.Nullable;
 
 import org.schabi.newpipe.database.AppDatabase;
+import org.schabi.newpipe.database.history.dao.StreamHistoryDAO;
 import org.schabi.newpipe.database.playlist.PlaylistMetadataEntry;
 import org.schabi.newpipe.database.playlist.PlaylistStreamEntry;
 import org.schabi.newpipe.database.playlist.dao.PlaylistDAO;
@@ -13,7 +14,9 @@ import org.schabi.newpipe.database.stream.dao.StreamDAO;
 import org.schabi.newpipe.database.stream.model.StreamEntity;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Flowable;
@@ -26,12 +29,14 @@ public class LocalPlaylistManager {
     private final StreamDAO streamTable;
     private final PlaylistDAO playlistTable;
     private final PlaylistStreamDAO playlistStreamTable;
+    private final StreamHistoryDAO streamHistoryDAO;
 
     public LocalPlaylistManager(final AppDatabase db) {
         database = db;
         streamTable = db.streamDAO();
         playlistTable = db.playlistDAO();
         playlistStreamTable = db.playlistStreamDAO();
+        streamHistoryDAO = db.streamHistoryDAO();
     }
 
     public Maybe<List<Long>> createPlaylist(final String name, final List<StreamEntity> streams) {
@@ -82,6 +87,52 @@ public class LocalPlaylistManager {
         })).subscribeOn(Schedulers.io());
     }
 
+    public Maybe<List<PlaylistStreamEntry>> clearWatched(final long playlistId,
+                                                         final boolean removePartiallyWatched) {
+        return Flowable.combineLatest(getPlaylistStreams(playlistId),
+                    streamHistoryDAO.getHistoryStreamIdsSortedById(),
+                    (streams, historyIds) -> {
+                        final List<PlaylistStreamEntry> notWatched;
+                        if (removePartiallyWatched) {
+                            notWatched = streams.stream()
+                                    .filter(s -> Collections.binarySearch(historyIds,
+                                            s.getStreamId()) < 0)
+                                    .collect(Collectors.toList());
+                        } else {
+                            notWatched = streams.stream()
+                                    .filter(s -> Collections.binarySearch(historyIds,
+                                            s.getStreamId()) < 0 || s.getProgressTime() > 0)
+                                    .collect(Collectors.toList());
+                        }
+                        return Flowable.just(notWatched);
+                    }
+                )
+                .subscribeOn(Schedulers.io())
+                .observeOn(Schedulers.io())
+                .flatMap(flow -> {
+                    final List<PlaylistStreamEntry> notWatchedItems = flow.blockingFirst();
+
+                    final List<Long> streamIds = notWatchedItems.stream()
+                            .map(PlaylistStreamEntry::getStreamId)
+                            .collect(Collectors.toList());
+
+                    final List<PlaylistStreamEntity> joinEntities =
+                            new ArrayList<>(streamIds.size());
+                    for (int i = 0; i < streamIds.size(); i++) {
+                        joinEntities.add(
+                                new PlaylistStreamEntity(playlistId, streamIds.get(i), i));
+                    }
+                    database.runInTransaction(() -> {
+                        playlistStreamTable.deleteBatch(playlistId);
+                        playlistStreamTable.insertAll(joinEntities);
+                    });
+
+                    return Flowable.just(notWatchedItems);
+                })
+                .firstElement()
+                .subscribeOn(Schedulers.io());
+    }
+
     public Flowable<List<PlaylistMetadataEntry>> getPlaylists() {
         return playlistStreamTable.getPlaylistMetadata().subscribeOn(Schedulers.io());
     }
@@ -104,8 +155,12 @@ public class LocalPlaylistManager {
         return modifyPlaylist(playlistId, null, thumbnailUrl);
     }
 
-    public String getPlaylistThumbnail(final long playlistId) {
-        return playlistTable.getPlaylist(playlistId).blockingFirst().get(0).getThumbnailUrl();
+    public boolean anyEntryIsSetAsThumbnail(final long playlistId,
+                                            final List<PlaylistStreamEntry> entries) {
+        final String currentThumbnail = playlistTable.getPlaylist(playlistId).blockingFirst()
+                .get(0).getThumbnailUrl();
+        return entries.stream()
+                .anyMatch(e -> currentThumbnail.equals(e.getStreamEntity().getThumbnailUrl()));
     }
 
     private Maybe<Integer> modifyPlaylist(final long playlistId,
