@@ -163,6 +163,10 @@ class AboutActivity : AppCompatActivity() {
                 "https://square.github.io/okhttp/", StandardLicenses.APACHE2
             ),
             SoftwareComponent(
+                "Picasso", "2013", "Square, Inc.",
+                "https://square.github.io/picasso/", StandardLicenses.APACHE2
+            ),
+            SoftwareComponent(
                 "PrettyTime", "2012 - 2020", "Lincoln Baxter, III",
                 "https://github.com/ocpsoft/prettytime", StandardLicenses.APACHE2
             ),
@@ -177,11 +181,6 @@ class AboutActivity : AppCompatActivity() {
             SoftwareComponent(
                 "RxJava", "2016 - 2020", "RxJava Contributors",
                 "https://github.com/ReactiveX/RxJava", StandardLicenses.APACHE2
-            ),
-            SoftwareComponent(
-                "Universal Image Loader", "2011 - 2015", "Sergey Tarasevich",
-                "https://github.com/nostra13/Android-Universal-Image-Loader",
-                StandardLicenses.APACHE2
             )
         )
         private const val POS_ABOUT = 0
