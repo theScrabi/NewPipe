@@ -81,6 +81,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
+import org.jetbrains.annotations.NotNull;
 import org.schabi.newpipe.DownloaderImpl;
 import org.schabi.newpipe.MainActivity;
 import org.schabi.newpipe.R;
@@ -96,6 +97,7 @@ import org.schabi.newpipe.info_list.StreamSegmentAdapter;
 import org.schabi.newpipe.ktx.AnimationType;
 import org.schabi.newpipe.local.history.HistoryRecordManager;
 import org.schabi.newpipe.player.MainPlayer.PlayerType;
+import org.schabi.newpipe.player.event.DisplayPortion;
 import org.schabi.newpipe.player.event.PlayerEventListener;
 import org.schabi.newpipe.player.event.PlayerGestureListener;
 import org.schabi.newpipe.player.event.PlayerServiceEventListener;
@@ -126,6 +128,8 @@ import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.SerializedCache;
 import org.schabi.newpipe.util.ShareUtils;
 import org.schabi.newpipe.views.ExpandableSurfaceView;
+import org.schabi.newpipe.views.player.CircleClipTapView;
+import org.schabi.newpipe.views.player.PlayerSeekOverlay;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -232,6 +236,7 @@ public final class Player implements
     public static final int DEFAULT_CONTROLS_DURATION = 300; // 300 millis
     public static final int DEFAULT_CONTROLS_HIDE_TIME = 2000;  // 2 Seconds
     public static final int DPAD_CONTROLS_HIDE_TIME = 7000;  // 7 Seconds
+    public static final int SEEK_OVERLAY_DURATION = 450; // 450 millis
 
     /*//////////////////////////////////////////////////////////////////////////
     // Other constants
@@ -351,6 +356,7 @@ public final class Player implements
 
     private int maxGestureLength; // scaled
     private GestureDetector gestureDetector;
+    private PlayerGestureListener playerGestureListener;
 
     /*//////////////////////////////////////////////////////////////////////////
     // Listeners and disposables
@@ -506,9 +512,10 @@ public final class Player implements
         binding.resizeTextView.setOnClickListener(this);
         binding.playbackLiveSync.setOnClickListener(this);
 
-        final PlayerGestureListener listener = new PlayerGestureListener(this, service);
-        gestureDetector = new GestureDetector(context, listener);
-        binding.getRoot().setOnTouchListener(listener);
+        playerGestureListener = new PlayerGestureListener(this, service);
+        gestureDetector = new GestureDetector(context, playerGestureListener);
+        binding.getRoot().setOnTouchListener(playerGestureListener);
+        setupPlayerSeekOverlay();
 
         binding.queueButton.setOnClickListener(this);
         binding.segmentsButton.setOnClickListener(this);
@@ -559,6 +566,82 @@ public final class Player implements
                                 v.getPaddingRight(),
                                 v.getPaddingBottom()));
     }
+
+    private void setupPlayerSeekOverlay() {
+        binding.seekOverlay.showCircle(true)
+                .circleBackgroundColorInt(CircleClipTapView.COLOR_DARK_TRANSPARENT)
+                .seekSeconds((int) (retrieveSeekDurationFromPreferences(this) / 1000.0f))
+                .performListener(new PlayerSeekOverlay.PerformListener() {
+
+                    @Override
+                    public void onPrepare() {
+                        if (invalidSeekConditions()) {
+                            playerGestureListener.endMultiDoubleTap();
+                            return;
+                        }
+                        binding.seekOverlay.arcSize(
+                                CircleClipTapView.Companion.calculateArcSize(getSurfaceView())
+                        );
+                    }
+
+                    @Override
+                    public void onAnimationStart() {
+                        animate(binding.seekOverlay, true, SEEK_OVERLAY_DURATION);
+                        animate(binding.playbackControlsShadow,
+                                !simpleExoPlayer.getPlayWhenReady(), SEEK_OVERLAY_DURATION);
+                        animate(binding.playerTopShadow, false, SEEK_OVERLAY_DURATION);
+                        animate(binding.playerBottomShadow, false, SEEK_OVERLAY_DURATION);
+                        animate(binding.playbackControlRoot, false, SEEK_OVERLAY_DURATION);
+                        hideSystemUIIfNeeded();
+                    }
+
+                    @Override
+                    public void onAnimationEnd() {
+                        animate(binding.seekOverlay, false, SEEK_OVERLAY_DURATION);
+                        if (!simpleExoPlayer.getPlayWhenReady()) {
+                            showControls(SEEK_OVERLAY_DURATION);
+                        } else {
+                            showHideShadow(false, SEEK_OVERLAY_DURATION);
+                        }
+                    }
+
+                    @Override
+                    public Boolean shouldFastForward(@NotNull final DisplayPortion portion) {
+                        // Null indicates an invalid area or condition e.g. the middle portion
+                        // or video start or end was reached during double tap seeking
+                        if (invalidSeekConditions()) {
+                            return null;
+                        }
+                        if (portion == DisplayPortion.LEFT
+                                // Small puffer to eliminate infinite rewind seeking
+                                && simpleExoPlayer.getCurrentPosition() > 500L) {
+                            return false;
+                        } else if (portion == DisplayPortion.RIGHT) {
+                            return true;
+                        } else /* portion == DisplayPortion.MIDDLE */ {
+                            return null;
+                        }
+                    }
+
+                    @Override
+                    public void seek(final boolean forward) {
+                        playerGestureListener.keepInDoubleTapMode();
+                        if (forward) {
+                            fastForward();
+                        } else {
+                            fastRewind();
+                        }
+                    }
+
+                    private boolean invalidSeekConditions() {
+                        return simpleExoPlayer.getCurrentPosition() == simpleExoPlayer.getDuration()
+                                || currentState == STATE_COMPLETED
+                                || !isPrepared;
+                    }
+                });
+        playerGestureListener.doubleTapControls(binding.seekOverlay);
+    }
+
     //endregion
 
 
@@ -1810,6 +1893,7 @@ public final class Player implements
     }
 
     private void showHideShadow(final boolean show, final long duration) {
+        animate(binding.playbackControlsShadow, show, duration, AnimationType.ALPHA, 0, null);
         animate(binding.playerTopShadow, show, duration, AnimationType.ALPHA, 0, null);
         animate(binding.playerBottomShadow, show, duration, AnimationType.ALPHA, 0, null);
     }
@@ -2085,18 +2169,22 @@ public final class Player implements
             stopProgressLoop();
         }
 
-        showControls(400);
-        binding.loadingPanel.setVisibility(View.GONE);
+        // Don't let UI elements popup during double tap seeking. This state is entered sometimes
+        // during seeking/loading. This if-else check ensures that the controls aren't popping up.
+        if (!playerGestureListener.isDoubleTapping()) {
+            showControls(400);
+            binding.loadingPanel.setVisibility(View.GONE);
 
-        animate(binding.playPauseButton, false, 80, AnimationType.SCALE_AND_ALPHA, 0,
-                () -> {
-                    binding.playPauseButton.setImageResource(R.drawable.ic_play_arrow_white_24dp);
-                    animatePlayButtons(true, 200);
-                    if (!isQueueVisible) {
-                        binding.playPauseButton.requestFocus();
-                    }
-                });
-
+            animate(binding.playPauseButton, false, 80, AnimationType.SCALE_AND_ALPHA, 0,
+                    () -> {
+                        binding.playPauseButton.setImageResource(
+                                R.drawable.ic_play_arrow_white_24dp);
+                        animatePlayButtons(true, 200);
+                        if (!isQueueVisible) {
+                            binding.playPauseButton.requestFocus();
+                        }
+                    });
+        }
         changePopupWindowFlags(IDLE_WINDOW_FLAGS);
 
         // Remove running notification when user does not want minimization to background or popup
@@ -2728,7 +2816,6 @@ public final class Player implements
         }
         seekBy(retrieveSeekDurationFromPreferences(this));
         triggerProgressUpdate();
-        showAndAnimateControl(R.drawable.ic_fast_forward_white_24dp, true);
     }
 
     public void fastRewind() {
@@ -2737,7 +2824,6 @@ public final class Player implements
         }
         seekBy(-retrieveSeekDurationFromPreferences(this));
         triggerProgressUpdate();
-        showAndAnimateControl(R.drawable.ic_fast_rewind_white_24dp, true);
     }
     //endregion
 
@@ -4135,6 +4221,10 @@ public final class Player implements
 
     public TextView getCurrentDisplaySeek() {
         return binding.currentDisplaySeek;
+    }
+
+    public PlayerSeekOverlay getSeekOverlay() {
+        return binding.seekOverlay;
     }
 
     @Nullable

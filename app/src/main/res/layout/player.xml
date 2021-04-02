@@ -53,11 +53,19 @@
         tools:ignore="ContentDescription"
         tools:visibility="visible" />
 
+    <View
+        android:id="@+id/playbackControlsShadow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_alignBottom="@+id/playbackControlRoot"
+        android:background="@color/video_overlay_color"
+        tools:visibility="visible" />
+
     <RelativeLayout
         android:id="@+id/playbackControlRoot"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/video_overlay_color"
         android:fitsSystemWindows="true"
         android:visibility="gone"
         tools:visibility="visible">
@@ -697,5 +705,12 @@
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:visibility="gone" />
+
+    <org.schabi.newpipe.views.player.PlayerSeekOverlay
+        android:id="@+id/seekOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:alpha="0" /> <!-- Required for the first appearance fading corectly -->
 
 </RelativeLayout>

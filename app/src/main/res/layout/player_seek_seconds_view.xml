@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ContentDescription"
+    tools:layout_height="wrap_content"
+    tools:layout_width="match_parent"
+    tools:orientation="vertical"
+    tools:parentTag="android.widget.LinearLayout">
+
+    <LinearLayout
+        android:id="@+id/triangle_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/icon_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_play_seek_triangle"
+            tools:alpha="0.18" />
+
+        <ImageView
+            android:id="@+id/icon_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_play_seek_triangle"
+            tools:alpha="0.5" />
+
+        <ImageView
+            android:id="@+id/icon_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_play_seek_triangle"
+            tools:alpha="1" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_seconds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="4dp"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        tools:text="20 seconds" />
+
+</merge>

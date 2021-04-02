@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_constraint_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <org.schabi.newpipe.views.player.CircleClipTapView
+        android:id="@+id/circle_clip_tap_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="false"
+        android:focusable="false"
+        android:visibility="invisible" />
+
+    <org.schabi.newpipe.views.player.SecondsView
+        android:id="@+id/seconds_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.5" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

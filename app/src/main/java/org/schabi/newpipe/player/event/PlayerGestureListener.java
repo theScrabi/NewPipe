@@ -55,12 +55,10 @@ public class PlayerGestureListener
             player.hideControls(0, 0);
         }
 
-        if (portion == DisplayPortion.LEFT) {
-            player.fastRewind();
+        if (portion == DisplayPortion.LEFT || portion == DisplayPortion.RIGHT) {
+            startMultiDoubleTap(event);
         } else if (portion == DisplayPortion.MIDDLE) {
             player.playPause();
-        } else if (portion == DisplayPortion.RIGHT) {
-            player.fastForward();
         }
     }
 
@@ -250,6 +248,7 @@ public class PlayerGestureListener
         player.getLoadingPanel().setVisibility(View.GONE);
 
         player.hideControls(0, 0);
+        animate(player.getSeekOverlay(), false, 0);
         animate(player.getCurrentDisplaySeek(), false, 0, ALPHA, 0);
     }
 
