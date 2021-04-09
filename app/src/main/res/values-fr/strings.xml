@@ -114,7 +114,7 @@
     <string name="popup_playing_toast">Lecture en mode flottant</string>
     <string name="yes">Oui</string>
     <string name="no">Non</string>
-    <string name="confirm_delete_all_downloads">Êtes-vous sûr de supprimer tous vos fichiers téléchargés ?</string>
+    <string name="confirm_delete_all_downloads">Êtes-vous sûr de vouloir supprimer tous vos fichiers téléchargés ?</string>
     <string name="later">Plus tard</string>
     <string name="disabled">Désactivés</string>
     <string name="info_labels">Quoi :\\nRequête :\\nLangue du contenu :\\nPays du contenu :\\nLangue de l’application :\\nService :\\nDate UTC :\\nPaquet :\\nVersion :\\nVersion du système d’exploitation :</string>
