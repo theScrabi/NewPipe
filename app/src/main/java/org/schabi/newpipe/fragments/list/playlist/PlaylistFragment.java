@@ -313,13 +313,7 @@ public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
                     ImageDisplayConstants.DISPLAY_AVATAR_OPTIONS);
         }
 
-        final int playlistOverallDurationSeconds = result.getRelatedItems().stream()
-            .mapToInt(x -> Math.toIntExact(x.getDuration())).sum();
-        headerBinding.playlistStreamCount.setText(
-            Localization.concatenateStrings(
-                Localization.localizeStreamCount(getContext(), result.getStreamCount()),
-                Localization.getDurationString(playlistOverallDurationSeconds))
-        );
+        setVideoCountAndOverallDuration(result.getRelatedItems());
 
         if (!result.getErrors().isEmpty()) {
             showSnackBarError(new ErrorInfo(result.getErrors(), UserAction.REQUESTED_PLAYLIST,
@@ -474,4 +468,20 @@ public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
         playlistBookmarkButton.setIcon(drawable);
         playlistBookmarkButton.setTitle(titleRes);
     }
+
+    private void setVideoCountAndOverallDuration(final List<StreamInfoItem> itemsList) {
+        if (activity != null && headerBinding != null) {
+            final long videoCount = itemsList.size();
+            final int playlistOverallDurationSeconds = itemsList.stream().mapToInt(x ->
+                Math.toIntExact(x
+                    .getDuration()))
+                .sum();
+            headerBinding.playlistStreamCount.setText(
+                Localization.concatenateStrings(
+                    Localization.localizeStreamCount(activity, videoCount),
+                    Localization.getDurationString(playlistOverallDurationSeconds))
+            );
+        }
+    }
+
 }
