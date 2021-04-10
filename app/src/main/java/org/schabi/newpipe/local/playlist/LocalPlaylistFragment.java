@@ -450,7 +450,12 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
                     }
 
                     final long videoCount = itemListAdapter.getItemsList().size();
-                    setVideoCount(videoCount);
+                    final int playlistOverallDurationSeconds = itemListAdapter.getItemsList()
+                        .stream().mapToInt(x ->
+                            Math.toIntExact(((PlaylistStreamEntry) x).getStreamEntity()
+                            .getDuration()))
+                        .sum();
+                    setVideoCountAndOverallDuration(videoCount, playlistOverallDurationSeconds);
                     if (videoCount == 0) {
                         showEmptyState();
                     }
@@ -480,7 +485,12 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
             itemsList.getLayoutManager().onRestoreInstanceState(itemsListState);
             itemsListState = null;
         }
-        setVideoCount(itemListAdapter.getItemsList().size());
+        final long videoCount = itemListAdapter.getItemsList().size();
+        final int playlistOverallDurationSeconds = itemListAdapter.getItemsList()
+            .stream().mapToInt(x ->
+                Math.toIntExact(((PlaylistStreamEntry) x).getStreamEntity().getDuration()))
+            .sum();
+        setVideoCountAndOverallDuration(videoCount, playlistOverallDurationSeconds);
 
         playlistControlBinding.playlistCtrlPlayAllButton.setOnClickListener(view ->
                 NavigationHelper.playOnMainPlayer(activity, getPlayQueue()));
@@ -607,7 +617,12 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
             updateThumbnailUrl();
         }
 
-        setVideoCount(itemListAdapter.getItemsList().size());
+        final long videoCount = itemListAdapter.getItemsList().size();
+        final int playlistOverallDurationSeconds = itemListAdapter.getItemsList()
+            .stream().mapToInt(x ->
+                Math.toIntExact(((PlaylistStreamEntry) x).getStreamEntity().getDuration()))
+            .sum();
+        setVideoCountAndOverallDuration(videoCount, playlistOverallDurationSeconds);
         saveChanges();
     }
 
@@ -791,10 +806,14 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
         this.name = !TextUtils.isEmpty(title) ? title : "";
     }
 
-    private void setVideoCount(final long count) {
+    private void setVideoCountAndOverallDuration(final long count,
+                                                 final long playlistOverallDurationSeconds) {
         if (activity != null && headerBinding != null) {
-            headerBinding.playlistStreamCount.setText(Localization
-                    .localizeStreamCount(activity, count));
+            headerBinding.playlistStreamCount.setText(
+                    Localization.concatenateStrings(
+                            Localization.localizeStreamCount(activity, count),
+                            Localization.getDurationString(playlistOverallDurationSeconds))
+            );
         }
     }
 
