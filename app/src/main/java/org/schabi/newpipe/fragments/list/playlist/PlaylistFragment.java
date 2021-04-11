@@ -313,8 +313,7 @@ public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
                     ImageDisplayConstants.DISPLAY_AVATAR_OPTIONS);
         }
 
-        headerBinding.playlistStreamCount.setText(Localization
-                .localizeStreamCount(getContext(), result.getStreamCount()));
+        setVideoCountAndOverallDuration(result);
 
         if (!result.getErrors().isEmpty()) {
             showSnackBarError(new ErrorInfo(result.getErrors(), UserAction.REQUESTED_PLAYLIST,
@@ -469,4 +468,21 @@ public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
         playlistBookmarkButton.setIcon(drawable);
         playlistBookmarkButton.setTitle(titleRes);
     }
+
+    private void setVideoCountAndOverallDuration(final PlaylistInfo result) {
+        if (activity != null && headerBinding != null) {
+            final long videoCount = result.getStreamCount();
+            final int playlistOverallDurationSeconds = result.getRelatedItems().stream()
+                .mapToInt(x -> Math.toIntExact(x.getDuration()))
+                .sum();
+            final boolean isDurationLongerThanCalculated = result.hasNextPage();
+            final String durationPrefix = isDurationLongerThanCalculated ? ">" : "";
+            headerBinding.playlistStreamCount.setText(
+                Localization.concatenateStrings(
+                    Localization.localizeStreamCount(activity, videoCount),
+                    durationPrefix + Localization.getDurationString(playlistOverallDurationSeconds))
+            );
+        }
+    }
+
 }
