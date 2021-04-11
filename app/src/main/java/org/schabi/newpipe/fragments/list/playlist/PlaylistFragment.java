@@ -78,6 +78,9 @@ public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
 
     private MenuItem playlistBookmarkButton;
 
+    private long videoCount;
+    private int playlistOverallDurationSeconds;
+
     public static PlaylistFragment getInstance(final int serviceId, final String url,
                                                final String name) {
         final PlaylistFragment instance = new PlaylistFragment();
@@ -271,6 +274,13 @@ public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
     }
 
     @Override
+    public void handleNextItems(final ListExtractor.InfoItemsPage result) {
+        super.handleNextItems(result);
+        playlistOverallDurationSeconds += calcSumDuration(result.getItems());
+        setVideoCountAndOverallDuration(result.hasNextPage());
+    }
+
+    @Override
     public void handleResult(@NonNull final PlaylistInfo result) {
         super.handleResult(result);
 
@@ -313,7 +323,9 @@ public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
                     ImageDisplayConstants.DISPLAY_AVATAR_OPTIONS);
         }
 
-        setVideoCountAndOverallDuration(result);
+        videoCount = result.getStreamCount();
+        playlistOverallDurationSeconds = calcSumDuration(result.getRelatedItems());
+        setVideoCountAndOverallDuration(result.hasNextPage());
 
         if (!result.getErrors().isEmpty()) {
             showSnackBarError(new ErrorInfo(result.getErrors(), UserAction.REQUESTED_PLAYLIST,
@@ -469,20 +481,23 @@ public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
         playlistBookmarkButton.setTitle(titleRes);
     }
 
-    private void setVideoCountAndOverallDuration(final PlaylistInfo result) {
+    private void setVideoCountAndOverallDuration(final boolean isDurationLongerThanCalculated) {
         if (activity != null && headerBinding != null) {
-            final long videoCount = result.getStreamCount();
-            final int playlistOverallDurationSeconds = result.getRelatedItems().stream()
-                .mapToInt(x -> Math.toIntExact(x.getDuration()))
-                .sum();
-            final boolean isDurationLongerThanCalculated = result.hasNextPage();
-            final String durationPrefix = isDurationLongerThanCalculated ? ">" : "";
+            final String durationPostfix = isDurationLongerThanCalculated ? "+" : "";
             headerBinding.playlistStreamCount.setText(
                 Localization.concatenateStrings(
                     Localization.localizeStreamCount(activity, videoCount),
-                    durationPrefix + Localization.getDurationString(playlistOverallDurationSeconds))
+                    Localization.getDurationString(playlistOverallDurationSeconds)
+                            + durationPostfix)
             );
         }
+    }
+
+    private int calcSumDuration(final List<StreamInfoItem> list) {
+        final int duration = list.stream()
+            .mapToInt(x -> Math.toIntExact(x.getDuration()))
+            .sum();
+        return duration;
     }
 
 }
