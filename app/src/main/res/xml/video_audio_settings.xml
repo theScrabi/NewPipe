@@ -96,6 +96,13 @@
             android:title="@string/preferred_open_action_settings_title"
             app:iconSpaceReserved="false" />
 
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="@string/prioritize_enqueue"
+            android:summary="@string/prioritize_enqueue_summary"
+            android:title="@string/prioritize_enqueue_title"
+            app:iconSpaceReserved="false" />
+
         <ListPreference
             android:defaultValue="@string/minimize_on_exit_value"
             android:entries="@array/minimize_on_exit_action_description"

@@ -222,6 +222,7 @@
     <string name="peertube_selected_instance_key" translatable="false">peertube_selected_instance</string>
     <string name="peertube_instance_list_key" translatable="false">peertube_instance_list</string>
     <string name="content_country_key" translatable="false">content_country</string>
+    <string name="prioritize_enqueue" translatable="false">prioritize_enqueue</string>
     <string name="show_age_restricted_content" translatable="false">show_age_restricted_content</string>
     <string name="youtube_restricted_mode_enabled" translatable="false">youtube_restricted_mode_enabled</string>
     <string name="use_tor_key" translatable="false">use_tor</string>

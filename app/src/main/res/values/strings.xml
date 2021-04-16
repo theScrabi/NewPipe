@@ -160,6 +160,8 @@
     <string name="popup_playing_append">Queued on popup player</string>
     <string name="c3s_url" translatable="false">https://www.c3s.cc/</string>
     <string name="content">Content</string>
+    <string name="prioritize_enqueue_title">Prioritize stream queuing</string>
+    <string name="prioritize_enqueue_summary">Attempt to enqueue streams for shared URLs instead of playing them immediately</string>
     <string name="show_age_restricted_content_title">Show age restricted content</string>
     <string name="show_age_restricted_content_summary">Show content possibly unsuitable for children because it has an age limit (like 18+)</string>
     <string name="youtube_restricted_mode_enabled_title">Turn on YouTube\'s \"Restricted Mode\"</string>
@@ -715,4 +717,5 @@
     <string name="night_theme_summary">Select your favorite night theme — %s</string>
     <string name="select_night_theme_toast">You can select your favorite night theme below</string>
     <string name="download_has_started">Download has started</string>
+    <string name="advanced_options">Advanced Options</string>
 </resources>
