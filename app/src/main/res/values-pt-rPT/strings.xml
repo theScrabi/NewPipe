@@ -678,4 +678,5 @@
     <string name="night_theme_summary">Escolha o seu tema escuro favorito — %s</string>
     <string name="auto_device_theme_title">Automático (Tema do aparelho)</string>
     <string name="night_theme_title">Tema Escuro</string>
+    <string name="show_channel_details">Mostrar detalhes do canal</string>
 </resources>

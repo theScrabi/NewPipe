@@ -678,4 +678,5 @@
     <string name="night_theme_summary">Ischerta su tema pro sa note preferidu tuo — %s</string>
     <string name="auto_device_theme_title">Automàticu (tema de su dispositivu)</string>
     <string name="night_theme_title">Tema pro sa note</string>
+    <string name="show_channel_details">Ammustra sos detàllios de su canale</string>
 </resources>

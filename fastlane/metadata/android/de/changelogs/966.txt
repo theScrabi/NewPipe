@@ -1,13 +1,14 @@
 Neu:
-•  Neuer Service hinzugefügt: Bandcamp
+• Neuer Service: Bandcamp
 
 Verbessert:
-•  Die App kann jetzt die Design Einstellungen des Gerätes befolgen
-• Verbessertes Fehler-Pannel
-•  Es werden mehr Informationen angezeigt, warum ein Inhalt nicht verfügbar ist.
-•  Videos können über die Leertaste abgespielt/angehalten werden.
+• Die App kann jetzt die Design Einstellungen des Gerätes befolgen
+• Verbessertes Fehler-Fenster
+• Es werden mehr Informationen angezeigt, warum ein Inhalt nicht verfügbar ist
+• Videos können über die Leertaste abgespielt/angehalten werden
+• Zeige "Download gestartet" Toast
 
 Behoben:
-•  sehr kleine Vorschaubilder wenn Videos im Hintergrund abgespielt werden
-•  leerer Titel im minimierten Video-Player
-•  vorheriger Video Modus wurde nicht wiederhergestellt
+• sehr kleine Vorschaubilder wenn Videos im Hintergrund abgespielt werden
+• leerer Titel im minimierten Video-Player
+• vorheriger Video Modus wurde nicht wiederhergestellt

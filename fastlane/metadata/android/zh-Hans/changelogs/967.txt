@@ -1,0 +1,2 @@
+修正了YouTube在欧盟国家无法正常使用的问题;
+由于新的cookie和隐私系统, 需要NewPipe同意并保存一个cookie

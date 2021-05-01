@@ -687,4 +687,7 @@
     <string name="restricted_video_no_stream">Это видео имеет возрастные ограничения.
 \nСогласно новой политике YouTube в отношении видео с возрастными ограничениями NewPipe не может иметь доступ ни к одному потоку этого видео и, таким образом, не имеет возможности воспроизвести его.</string>
     <string name="night_theme_title">Ночная тема</string>
+    <string name="featured">Рекомендуемые</string>
+    <string name="recaptcha_solve">Решить</string>
+    <string name="show_channel_details">Подробно о канале</string>
 </resources>

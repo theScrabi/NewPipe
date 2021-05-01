@@ -678,4 +678,5 @@
     <string name="night_theme_summary">Επιλέξτε το αγαπημένο σας νυχτερινό θέμα — %s</string>
     <string name="auto_device_theme_title">Αυτόματο (θέμα συσκευής)</string>
     <string name="night_theme_title">Νυχτερινό θέμα</string>
+    <string name="show_channel_details">Εμφάνιση λεπτομερειών καναλιού</string>
 </resources>

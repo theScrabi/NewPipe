@@ -678,4 +678,5 @@
     <string name="night_theme_summary">Gözde gece temanızı seçin — %s</string>
     <string name="auto_device_theme_title">Kendiliğinden (aygıt teması)</string>
     <string name="night_theme_title">Gece Teması</string>
+    <string name="show_channel_details">Kanal ayrıntılarını göster</string>
 </resources>

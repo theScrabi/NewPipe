@@ -2077,6 +2077,7 @@ public final class Player implements
             Log.d(TAG, "onBuffering() called");
         }
         binding.loadingPanel.setBackgroundColor(Color.TRANSPARENT);
+        binding.loadingPanel.setVisibility(View.VISIBLE);
 
         binding.getRoot().setKeepScreenOn(true);
 

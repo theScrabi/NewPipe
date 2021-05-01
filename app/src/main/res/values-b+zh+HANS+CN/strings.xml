@@ -321,7 +321,7 @@
     <string name="delete_playlist">删除</string>
     <string name="rename_playlist">重命名</string>
     <string name="name">名称</string>
-    <string name="append_playlist">添加到播放列表</string>
+    <string name="append_playlist">添加至播放列表</string>
     <string name="set_as_playlist_thumbnail">设为播放列表封面</string>
     <string name="bookmark_playlist">收藏播放列表</string>
     <string name="unbookmark_playlist">删除收藏</string>
@@ -671,4 +671,5 @@
     <string name="select_night_theme_toast">在此选择您最喜欢的夜间主题</string>
     <string name="night_theme_summary">选择你最喜欢的夜间主题 - %s</string>
     <string name="night_theme_title">夜间主题</string>
+    <string name="show_channel_details">显示频道详情</string>
 </resources>

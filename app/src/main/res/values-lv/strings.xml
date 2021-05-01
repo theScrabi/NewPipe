@@ -5,8 +5,8 @@
     <string name="playlist_thumbnail_change_success">Atskaņošanas saraksta attēls nomainīts.</string>
     <string name="playlist_creation_success">Atskaņošanas saraksts radīts</string>
     <string name="delete_playlist_prompt">Dzēst atskaņošanas sarakstu\?</string>
-    <string name="set_as_playlist_thumbnail">Iestatīt, kā Atskaņošanas Saraksta Attēlu</string>
-    <string name="append_playlist">Pievienot Atskaņošanas Sarakstam</string>
+    <string name="set_as_playlist_thumbnail">Iestatīt, kā atskaņošanas saraksta attēlu</string>
+    <string name="append_playlist">Pievienot atskaņošanas sarakstam</string>
     <string name="name">Vārds</string>
     <string name="rename_playlist">Pārsaukt</string>
     <string name="delete_playlist">Dzēst</string>
@@ -673,4 +673,21 @@
     <string name="search">Meklēt</string>
     <string name="controls_download_desc">Lejupielādēt video failu</string>
     <string name="download">Lejupielādēt</string>
+    <string name="featured">Populāri</string>
+    <string name="download_has_started">Lejupielāde ir sākusies</string>
+    <string name="select_night_theme_toast">Jūs varat izvēlēties savu iecienītāko nakts motīvu zemāk</string>
+    <string name="night_theme_summary">Izvēlieties savu iecienītāko nakts motīvu - %s</string>
+    <string name="auto_device_theme_title">Automātiski (ierīces motīvs)</string>
+    <string name="radio">Radio</string>
+    <string name="paid_content">Šis saturs ir pieejams tikai lietotājiem, kuri ir samaksājuši, tāpēc to nevar straumēt vai lejupielādēt ar Newpipe.</string>
+    <string name="youtube_music_premium_content">Šis videoklips ir pieejams tikai YouTube Mūzikas Prēmijas dalībniekiem, tāpēc to nevar straumēt vai lejupielādēt ar Newpipe.</string>
+    <string name="private_content">Šis saturs ir privāts, tāpēc Newpipe to nevar straumēt vai lejupielādēt.</string>
+    <string name="soundcloud_go_plus_content">Šis ir SoundCloud Go+ audio, vismaz jūsu valstī, tāpēc to nevar straumēt vai lejupielādēt ar Newpipe.</string>
+    <string name="georestricted_content">Šis saturs nav pieejams jūsu valstī.</string>
+    <string name="crash_the_app">Avarēt aplikāciju</string>
+    <string name="show_channel_details">Rādīt kanāla informāciju</string>
+    <string name="recaptcha_solve">Atrisināt</string>
+    <string name="restricted_video_no_stream">Šis video ir ierobežots ar vecumu.
+\nŅemot vērā jauno YouTube politiku ar vecuma ierobežotiem videoklipiem, Newpipe nevar piekļūt šim videoklipam.</string>
+    <string name="night_theme_title">Nakts Motīvs</string>
 </resources>

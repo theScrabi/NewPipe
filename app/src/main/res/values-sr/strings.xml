@@ -14,7 +14,7 @@
     <string name="share_dialog_title">Подели помоћу</string>
     <string name="choose_browser">Отвори помоћу</string>
     <string name="screen_rotation">ротација</string>
-    <string name="download_path_title">Одредиште преузимања снимака</string>
+    <string name="download_path_title">Фасцикла за преузимање снимака</string>
     <string name="download_path_summary">Преузети снимци се чувају овде</string>
     <string name="download_path_dialog_title">Изаберите фасциклу за преузимање видео снимака</string>
     <string name="default_resolution_title">Подразумевана резолуција</string>
@@ -54,7 +54,7 @@
     <string name="could_not_load_thumbnails">Не могох да учитам све сличице</string>
     <string name="youtube_signature_deobfuscation_error">Не могу да дешифрујем потпис видео урл-а</string>
     <string name="parsing_error">Не могу да рашчланим веб-сајт</string>
-    <string name="content_not_available">Садржај није доступан</string>
+    <string name="content_not_available">Садржај је недоступан</string>
     <string name="content">Садржај</string>
     <string name="show_age_restricted_content_title">Прикажи старосно-ограничени садржај</string>
     <string name="could_not_setup_download_menu">Не могу да поставим мени преузимања</string>
@@ -97,7 +97,7 @@
     <string name="msg_running_detail">Тапните за детаље</string>
     <string name="msg_wait">Сачекајте…</string>
     <string name="msg_copied">Копирано у привремену меморију</string>
-    <string name="no_available_dir">Одредите доступну фасциклу за преузимање</string>
+    <string name="no_available_dir">Молимо Вас да дефинишите фасциклу за преузимање касније у подешавањима</string>
     <string name="downloads">Преузимања</string>
     <string name="downloads_title">Преузимања</string>
     <string name="error_report_title">Извештај о грешци</string>
@@ -105,7 +105,7 @@
     <string name="app_ui_crash">Апликација/УИ је краховала</string>
     <string name="info_labels">Шта:\\nЗахтев:\\nЈезик садржаја:\\nЗемља садржаја:\\nЈезик апликације:\\nУслуга:\\nГМТ време:\\nПакет:\\nИздање:\\nИздање ОС-а:</string>
     <string name="title_activity_recaptcha">reCAPTCHA стопка</string>
-    <string name="recaptcha_request_toast">Решите reCAPTCHA стопку</string>
+    <string name="recaptcha_request_toast">Решите reCAPTCHA задатак</string>
     <string name="black_theme_title">Црна</string>
     <string name="all">Сви</string>
     <string name="channel">Канал</string>
@@ -224,12 +224,12 @@
     <string name="feed_page_summary">Страница довода</string>
     <string name="channel_page_summary">Страница канала</string>
     <string name="select_a_channel">Изаберите канал</string>
-    <string name="no_channel_subscribed_yet">Још нема претплата на канал</string>
+    <string name="no_channel_subscribed_yet">Још увек нема претплате на канале</string>
     <string name="select_a_kiosk">Изаберите киоск</string>
     <string name="kiosk">Киоск</string>
     <string name="trending">У тренду</string>
     <string name="top_50">Топ 50</string>
-    <string name="new_and_hot">Ново и вруће</string>
+    <string name="new_and_hot">Ново и популарно</string>
     <string name="play_queue_remove">Уклони</string>
     <string name="play_queue_stream_detail">Детаљи</string>
     <string name="play_queue_audio_settings">Поставке звука</string>
@@ -244,11 +244,11 @@
     <string name="always">Увек</string>
     <string name="just_once">Само једном</string>
     <string name="unknown_content">[непознато]</string>
-    <string name="show_hold_to_append_title">Прикажи поруку \"задржи ради стављања у ред\"</string>
+    <string name="show_hold_to_append_title">Прикажи поруку „задржи ради стављања у ред”</string>
     <string name="donation_title">Донирај</string>
-    <string name="donation_encouragement">ЊуПајп су развили волонтери који своје слободно време проводе доносећи вам најбоље корисничко искуство. Узвратите како бисте помогли програмерима да ЊуПајп учине чак и бољим док уживају у шољи кафе.</string>
+    <string name="donation_encouragement">ЊуПајп су развили волонтери који своје слободно време проводе доносећи вам најбоље корисничко искуство. Донирајте да бисте помогли програмерима да ЊуПајп постане још бољи док уживају у чашици ракије.</string>
     <string name="give_back">Узврати</string>
-    <string name="website_title">Вебсајт</string>
+    <string name="website_title">Веб страна</string>
     <string name="website_encouragement">За више информација и новости посетите ЊуПајпов вебсајт.</string>
     <string name="hold_to_append">Задржи за стављање у ред</string>
     <string name="start_here_on_main">Пусти одавде</string>
@@ -463,7 +463,7 @@
     <string name="recaptcha_done_button">Готово</string>
     <string name="recaptcha_solve">Реши</string>
     <string name="subtitle_activity_recaptcha">Притисните „Готово“ кад решите</string>
-    <string name="one_item_deleted">Избрисана је 1 ставка</string>
+    <string name="one_item_deleted">Избрисана је 1 ставка.</string>
     <string name="msg_calculating_hash">Израчунавање хеша</string>
     <string name="rename">Преименуј</string>
     <string name="dismiss">Одбаци</string>
@@ -610,4 +610,84 @@
     <string name="notification_scale_to_square_image_title">Смањите сличице на 1: 1 размеру</string>
     <string name="search_showing_result_for">Приказивање резултата за :%s</string>
     <string name="open_with">Отвори са</string>
+    <string name="download_has_started">Преузимање је започело</string>
+    <string name="select_night_theme_toast">Испод можете одабрати своју омиљену ноћну тему</string>
+    <string name="night_theme_summary">Изаберите своју омиљену ноћну тему — %s</string>
+    <string name="auto_device_theme_title">Аутоматски (тема уређаја)</string>
+    <string name="radio">Радио</string>
+    <string name="featured">Истакнуто</string>
+    <string name="paid_content">Овај садржај је доступан само корисницима који су платили, тако да га ЊуПајп не може стримовати или преузимати.</string>
+    <string name="youtube_music_premium_content">Овај видео је доступан само премиум члановима Јутјуб Музике, тако да га ЊуПајп не може стримовати или преузимати.</string>
+    <string name="private_content">Овај садржај је приватан, тако да га ЊуПајп не може стримовати или преузимати.</string>
+    <string name="soundcloud_go_plus_content">Ово је СаундКлауд Го+ нумера, барем у вашој земљи, тако да га ЊуПајп не може стримовати или преузимати.</string>
+    <string name="georestricted_content">Овај садржај није доступан у вашој земљи.</string>
+    <string name="no_app_to_open_intent">Ниједна апликација на уређају не може да отвори ово</string>
+    <string name="chapters">Поглавља</string>
+    <string name="recent">Скорашњи</string>
+    <string name="show_thumbnail_summary">Користите сличицу и за позадину закључаног екрана и за обавештења</string>
+    <string name="show_thumbnail_title">Прикажи сличицу</string>
+    <string name="playlist_page_summary">Страница плејлисте</string>
+    <string name="video_detail_by">Од %s</string>
+    <string name="channel_created_by">Направио %s</string>
+    <string name="detail_sub_channel_thumbnail_view_description">Минијатурна слика канала</string>
+    <string name="content_not_supported">ЊуПајп још увек не подржава овај садржај.
+\n
+\nНадамо се да ће бити подржан у будућој верзији.</string>
+    <string name="feed_use_dedicated_fetch_method_help_text">Да ли мислите да је убацивање фида преспоро\? Ако је то случај, покушајте да омогућите брзо учитавање (можете га променити у подешавањима или притиском на доње дугме).
+\n
+\nЊуПајп нуди две стратегије улагања фида:
+\n• Преузимање целог канала за претплату, који је спор, али потпун.
+\n• Коришћење наменске крајње тачке услуге, која је брза, али обично није потпуна.
+\n
+\nРазлика између њих две је у томе што брзом обично недостају неке информације, попут трајања или врсте ставке (не могу се разликовати видео снимци уживо од уобичајених), а можда ће вратити и мање предмета.
+\n
+\nЈутјуб је пример услуге која нуди овај брзи метод са својим РСС фидом.
+\n
+\nДакле, избор се своди на оно што више волите: брзину или прецизне информације.</string>
+    <string name="feed_use_dedicated_fetch_method_disable_button">Онемогући брзи режим</string>
+    <string name="feed_use_dedicated_fetch_method_enable_button">Омогућите брзи режим</string>
+    <string name="feed_use_dedicated_fetch_method_summary">Доступно у неким услугама, обично је много брже, али може вратити ограничену количину предмета и често непотпуне информације (нпр. нема трајања, врсте предмета, нема статуса уживо).</string>
+    <string name="feed_use_dedicated_fetch_method_title">Преузми из наменског фида када је доступан</string>
+    <string name="feed_update_threshold_option_always_update">Увек ажурирај</string>
+    <string name="feed_update_threshold_summary">Време након последњег ажурирања пре него што се претплата сматра застарелом — %s</string>
+    <string name="feed_update_threshold_title">Праг ажурирања фида</string>
+    <string name="settings_category_feed_title">Фид</string>
+    <string name="feed_group_show_only_ungrouped_subscriptions">Прикажи само негруписане претплате</string>
+    <string name="feed_create_new_group_button_title">Нови</string>
+    <string name="feed_group_dialog_delete_message">Да ли желите да избришете ову групу\?</string>
+    <string name="feed_group_dialog_empty_name">Празно име групе</string>
+    <plurals name="feed_group_dialog_selection_count">
+        <item quantity="one">%d одабрани</item>
+        <item quantity="few">%d одабрана</item>
+        <item quantity="other">%d одабраних</item>
+    </plurals>
+    <string name="feed_group_dialog_empty_selection">Није изабрана ниједна претплата</string>
+    <string name="feed_group_dialog_select_subscriptions">Изаберите претплате</string>
+    <string name="feed_processing_message">Обрада фида…</string>
+    <string name="feed_notification_loading">Учитавање фида…</string>
+    <string name="feed_subscription_not_loaded_count">Није учитано: %d</string>
+    <string name="feed_oldest_subscription_update">Последње ажурирање фида: %s</string>
+    <string name="feed_groups_header_title">Групе канала</string>
+    <plurals name="days">
+        <item quantity="one">%d дан</item>
+        <item quantity="few">%d дана</item>
+        <item quantity="other">%d дана</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="one">%d сат</item>
+        <item quantity="few">%d сати</item>
+        <item quantity="other">%d сати</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">%d минут</item>
+        <item quantity="few">%d минута</item>
+        <item quantity="other">%d минута</item>
+    </plurals>
+    <plurals name="seconds">
+        <item quantity="one">%d секунда</item>
+        <item quantity="few">%d секунди</item>
+        <item quantity="other">%d секунди</item>
+    </plurals>
+    <string name="show_channel_details">Прикажи детаље о каналу</string>
+    <string name="related_items_tab_description">Повезани предмети</string>
 </resources>

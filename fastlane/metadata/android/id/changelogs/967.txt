@@ -1,0 +1,1 @@
+YouTube Tetap tidak berfungsi dengan baik di UE. Ini disebabkan oleh sebuah sistem cookie dan persetujuan privasi baru yang membutuhkan NewPipe untuk menetapkan cookie PERSETUJUAN.

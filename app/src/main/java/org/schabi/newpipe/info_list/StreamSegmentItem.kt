@@ -1,5 +1,6 @@
 package org.schabi.newpipe.info_list
 
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.nostra13.universalimageloader.core.ImageLoader
@@ -29,6 +30,17 @@ class StreamSegmentItem(
             )
         }
         viewHolder.root.findViewById<TextView>(R.id.textViewTitle).text = item.title
+        if (item.channelName == null) {
+            viewHolder.root.findViewById<TextView>(R.id.textViewChannel).visibility = View.GONE
+            // When the channel name is displayed there is less space
+            // and thus the segment title needs to be only one line height.
+            // But when there is no channel name displayed, the title can be two lines long.
+            // The default maxLines value is set to 1 to display all elements in the AS preview,
+            viewHolder.root.findViewById<TextView>(R.id.textViewTitle).maxLines = 2
+        } else {
+            viewHolder.root.findViewById<TextView>(R.id.textViewChannel).text = item.channelName
+            viewHolder.root.findViewById<TextView>(R.id.textViewChannel).visibility = View.VISIBLE
+        }
         viewHolder.root.findViewById<TextView>(R.id.textViewStartSeconds).text =
             Localization.getDurationString(item.startTimeSeconds.toLong())
         viewHolder.root.setOnClickListener { onClick.onItemClick(this, item.startTimeSeconds) }

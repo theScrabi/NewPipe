@@ -17,8 +17,8 @@ android {
         resValue "string", "app_name", "NewPipe"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 966
-        versionName "0.21.0"
+        versionCode 968
+        versionName "0.21.2"
 
         multiDexEnabled true
 
@@ -66,6 +66,9 @@ android {
         // Or, if you prefer, you can continue to check for errors in release builds,
         // but continue the build even when errors are found:
         abortOnError false
+        // suppress false warning ("Resource IDs will be non-final in Android Gradle Plugin version
+        // 5.0, avoid using them in switch case statements"), which affects only library projects
+        disable 'NonConstantResourceId'
     }
 
     compileOptions {
@@ -180,7 +183,7 @@ dependencies {
 /** NewPipe libraries **/
     // You can use a local version by uncommenting a few lines in settings.gradle
     implementation 'com.github.TeamNewPipe:nanojson:1d9e1aea9049fc9f85e68b43ba39fe7be1c1f751'
-    implementation 'com.github.TeamNewPipe:NewPipeExtractor:90afd6162a60171aa3fae968b0c3ba7768e4824e'
+    implementation 'com.github.TeamNewPipe:NewPipeExtractor:v0.21.2'
 
 /** Checkstyle **/
     checkstyle "com.puppycrawl.tools:checkstyle:${checkstyleVersion}"

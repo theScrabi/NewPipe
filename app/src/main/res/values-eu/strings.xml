@@ -678,4 +678,5 @@
     <string name="night_theme_summary">Hautatu zure gaueko gai gogokoena — %s</string>
     <string name="auto_device_theme_title">Automatikoa (gailuaren gaia)</string>
     <string name="night_theme_title">Gau Gaia</string>
+    <string name="show_channel_details">kanalaren xehetasunak erakutsi</string>
 </resources>

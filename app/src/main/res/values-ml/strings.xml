@@ -17,11 +17,14 @@
 \n2. ഈ URL- ലേക്ക് പോകുക: %1$s
 \n3. ആവശ്യപ്പെടുമ്പോൾ ലോഗിൻ ചെയ്യുക
 \n4. നിങ്ങളെ റീഡയറക്‌ടുചെയ്‌ത പ്രൊഫൈൽ URL പകർത്തുക.</string>
-    <string name="import_youtube_instructions">എക്‌സ്‌പോർട്ട് ഫയൽ ഡൗൺലോഡുചെയ്‌തുകൊണ്ട് YouTube സബ്‌സ്‌ക്രിപ്‌ഷനുകൾ ഇമ്പോർട്ടുചെയ്യുക:
+    <string name="import_youtube_instructions">ഗൂഗിൾ ടേക്ക് ഔട്ടിൽ നിന്ന് യൂട്യൂബ് സബ്‌സ്‌ക്രിപ്‌ഷനുകൾ ഇമ്പോർട്ടുചെയ്യുക:
 \n
 \n1. ഈ URL ലേക്ക് പോകുക: %1$s
 \n2. ആവശ്യപ്പെടുമ്പോൾ ലോഗിൻ ചെയ്യുക
-\n3. ഒരു ഡൗൺലോഡ് തുടങ്ങണം (അതാണ് എക്‌സ്‌പോർട്ട് ഫയൽ)</string>
+\n3. \"All data included\" ക്ലിക്കുചെയ്യുക, തുടർന്ന് \"Deselect all\" എന്നതിൽ ക്ലിക്കുചെയ്യുക, തുടർന്ന് \"subscriptions\" മാത്രം തിരഞ്ഞെടുത്ത് \"OK\" ക്ലിക്കുചെയ്യുക.
+\n4. \"Next Export\" ക്ലിക്കുചെയ്യുക, തുടർന്ന് \"Create Export\" ക്ലിക്കുചെയ്യുക
+\n5. \"Download\" ബട്ടൺ പ്രത്യക്ഷപ്പെട്ടതിനുശേഷം അതിൽ ക്ലിക്കുചെയ്യുക
+\n6. ഡൗൺ‌ലോഡുചെയ്‌ത ടേക്ക്ഔട്ട് സിപ്പിൽ നിന്ന് .json ഫയൽ എക്‌സ്‌ട്രാക്റ്റുചെയ്യുക (സാധാരണയായി \"YouTube, YouTube Music / subscription / subscription.json\" ന് കീഴിൽ) അത് ഇവിടെ ഇറക്കുമതി ചെയ്യുക.</string>
     <string name="subscriptions_export_unsuccessful">സബ്‌സ്‌ക്രിപ്‌ഷനുകൾ എക്‌സ്‌പോർട്ടുചെയ്യാനായില്ല</string>
     <string name="subscriptions_import_unsuccessful">സബ്‌സ്‌ക്രിപ്‌ഷനുകൾ ഇറക്കുമതി ചെയ്യാൻ കഴിഞ്ഞില്ല</string>
     <string name="previous_export">മുമ്പത്തെ എക്സ്പോർട്ട്</string>
@@ -80,7 +83,7 @@
     <string name="most_liked">ഏറ്റവും ഇഷ്ടപ്പെട്ടത്</string>
     <string name="recently_added">സമീപകാലത്ത് ചേർത്തത്</string>
     <string name="local">പ്രാദേശികം</string>
-    <string name="new_and_hot">ന്യൂ &amp; ഹോട്ട്</string>
+    <string name="new_and_hot">പുതിയതും ചൂടേറിയതും</string>
     <string name="top_50">മികച്ച 50</string>
     <string name="trending">ട്രെൻഡിങ്ങ്</string>
     <string name="kiosk">കിയോസ്ക്</string>
@@ -218,7 +221,7 @@
     <string name="audio">ഓഡിയോ</string>
     <string name="video">വീഡിയോ</string>
     <string name="info_dir_created">\'%1$s\' ഡൗൺലോഡ് പട്ടിക നിലവിൽ വന്നു</string>
-    <string name="err_dir_create">\'%1$s\' ഡൗൺലോഡ് പട്ടിക ഉണ്ടാക്കാൻ സാധിച്ചില്ല</string>
+    <string name="err_dir_create">\'%1$s\' ഡൗൺ‌ലോഡ് ഡയറക്‌ടറി സൃഷ്‌ടിക്കാൻ‌ സാധിച്ചില്ല</string>
     <string name="detail_drag_description">പുനക്രമീകരിക്കാൻ വലിച്ചിടുക</string>
     <string name="empty_subscription_feed_subtitle">¡ഇബടെ ഒരു കുന്തോമില്ല!</string>
     <string name="search_no_results">ഫലങ്ങൾ ലഭ്യമല്ല</string>
@@ -284,8 +287,8 @@
     <string name="delete_view_history_alert">മൊത്തം കാഴ്ച ചരിത്രം നീക്കട്ടെയോ\?</string>
     <string name="clear_views_history_summary">കണ്ട സ്ട്രീമുകളുടെയും പ്ലേബാക്ക് സ്ഥാനങ്ങളുടെയും ചരിത്രം നീക്കം ചെയ്യും</string>
     <string name="clear_views_history_title">കാഴ്ച ചരിത്രം നീക്കുക</string>
-    <string name="export_data_summary">ചരിത്രം, സബ്സ്ക്രിബ്ഷനുകൾ, പ്ലേലിസ്റ്റുകൾ എന്നിവ ഇറക്കുമതി ചെയ്യുക</string>
-    <string name="import_data_summary">ഇപ്പോഴുള്ള ചരിത്രത്തെയും സബ്സ്ക്രിബ്ഷനെയും അസാധുവാക്കും</string>
+    <string name="export_data_summary">ചരിത്രം, സബ്സ്ക്രിബ്ഷനുകൾ, പ്ലേലിസ്റ്റുകൾ, സജ്ജീകരണങ്ങൾ എന്നിവ ഇറക്കുമതി ചെയ്യുക</string>
+    <string name="import_data_summary">നിങ്ങളുടെ നിലവിലെ ചരിത്രം, സബ്‌സ്‌ക്രിപ്‌ഷനുകൾ, പ്ലേലിസ്റ്റുകൾ (ഓപ്‌ഷണലായി) ക്രമീകരണങ്ങൾ അസാധുവാക്കുന്നു</string>
     <string name="export_data_title">ഡാറ്റാബേസ് കയറ്റുമതി ചെയ്യുക</string>
     <string name="import_data_title">ഡാറ്റാബേസ് അവതരിപ്പിക്കുക</string>
     <string name="accept">അംഗീകരിക്കുക</string>
@@ -329,10 +332,10 @@
     <string name="downloads_title">ഡൗൺലോഡുകൾ</string>
     <string name="downloads">ഡൗൺലോഡുകൾ</string>
     <string name="duration_live">ലൈവ്</string>
-    <string name="restricted_video">ഈ വീഡിയോ പ്രായപരിമിതി ഉള്ളതാണ്. 
+    <string name="restricted_video">ഈ വീഡിയോ പ്രായപരിമിതി ഉള്ളതാണ്.
 \n
-\nഇത് കാണണമെങ്കിൽ പ്രായനിയന്ത്രണ ക്രമീകരണങ്ങളിൽ മാറ്റം വരുത്തുക.</string>
-    <string name="show_age_restricted_content_title">പ്രായപരിമിതപ്പെടുത്തിയ കന്റെന്റ്</string>
+\nനിങ്ങൾക്ക് ഇത് കാണണമെങ്കിൽ ക്രമീകരണങ്ങളിൽ \"%1$s\" ഓണാക്കുക.</string>
+    <string name="show_age_restricted_content_title">പ്രായ നിയന്ത്രിത ഉള്ളടക്കം കാണിക്കുക</string>
     <string name="content">കന്റെന്റ്</string>
     <string name="popup_playing_append">പോപ്പപ്പ് പ്ലേയറിൽ ക്യൂ ചെയ്തിരിക്കുന്നു</string>
     <string name="background_player_append">ബാക്ക്ഗ്രൗണ്ട് പ്ലേയറിൽ ക്യൂ ചെയ്തിരിക്കുന്നു</string>
@@ -600,7 +603,7 @@
     <string name="detail_sub_channel_thumbnail_view_description">ചാനൽ ലഘുചിത്രം</string>
     <string name="show_original_time_ago_summary">സേവനങ്ങളിൽ നിന്നുള്ള യഥാർത്ഥ വാചകങ്ങൾ സ്ട്രീം ഇനങ്ങളിൽ ദൃശ്യമാകും</string>
     <string name="show_original_time_ago_title">ഇനങ്ങളിൽ യഥാർത്ഥ സമയം മുമ്പ് കാണിക്കുക</string>
-    <string name="youtube_restricted_mode_enabled_title">യുട്യൂബ് നിയന്ത്രിത മോഡ്</string>
+    <string name="youtube_restricted_mode_enabled_title">YouTube- ന്റെ \"നിയന്ത്രിത മോഡ്\" ഓണാക്കുക</string>
     <string name="search_showing_result_for">ഇതിനായുള്ള ഫലങ്ങൾ കാണിക്കുന്നു: %s</string>
     <string name="feed_group_show_only_ungrouped_subscriptions">ഗ്രൂപ്പുചെയ്യാത്ത സബ്‌സ്‌ക്രിപ്‌ഷനുകൾ മാത്രം കാണിക്കുക</string>
     <string name="no_playlist_bookmarked_yet">ഇതുവരെ ഒരു പ്ലേലിസ്റ്റ് ബുക്ക്മാർക്കുകളും ഇല്ല</string>
@@ -608,14 +611,71 @@
     <string name="error_report_open_github_notice">നിങ്ങളുടെ ക്രാഷ് ചർച്ച ചെയ്യുന്ന ഒരു പ്രശ്നം ഇതിനകം നിലവിലുണ്ടോയെന്ന് ദയവായി പരിശോധിക്കുക. തനിപ്പകർപ്പ് ആയ ടിക്കറ്റുകള്‍ സൃഷ്ടിക്കുമ്പോൾ, യഥാർത്ഥ ബഗ് പരിഹരിക്കുവാന്‍ വേണ്ടി ഞങ്ങ‍ള്‍ക്ക് ചെലവഴിക്കാൻ കഴിയുമായിരുന്ന സമയം നിങ്ങൾ ഞങ്ങളിൽ നിന്ന് എടുക്കുകയാണ് ചെയ്യുന്നത്.</string>
     <string name="copy_for_github">ഫോർമാറ്റുചെയ്‌ത റിപ്പോർട്ട് പകർത്തുക</string>
     <string name="playlist_page_summary">പ്ലേലിസ്റ്റ് പേജ്</string>
-    <string name="error_report_open_issue_button_text">തെറ്റ് GitHub ല്‍ റിപ്പോര്‍ട്ട് ചെയ്യുക</string>
+    <string name="error_report_open_issue_button_text">GitHub- ൽ റിപ്പോർട്ട് ചെയ്യുക</string>
     <string name="notification_scale_to_square_image_title">ലഘുചിത്രം 1: 1 വീക്ഷണാനുപാതത്തിലേക്ക് സ്കെയിൽ ചെയ്യുക</string>
-    <string name="notification_colorize_summary">"വീഡിയോ കവർ ചിത്രത്തിന്റെ മെയിൻ കളറിന്     അനുസരിച്ചു നോട്ടിഫിക്കേഷന്റെ കളർ മാറ്റാൻ ആൻഡ്രോയ്ഡിനെ അനുവദിക്കുക (ഇത് എല്ലാം ഉപകരണങ്ങളിലും ലഭ്യമല്ല )"</string>
+    <string name="notification_colorize_summary">വീഡിയോ കവർ ചിത്രത്തിന്റെ പ്രധാന നിറത്തിന് അനുസരിച്ചു നോട്ടിഫിക്കേഷന്റെ കളർ മാറ്റാൻ ആൻഡ്രോയ്ഡിനെ അനുവദിക്കുക (ഇത് എല്ലാം ഉപകരണങ്ങളിലും ലഭ്യമല്ല )</string>
     <string name="notification_colorize_title">നോട്ടിഫിക്കേഷൻ വർണ്ണാഭമാകുക</string>
     <string name="notification_action_nothing">ഒന്നുമില്ല</string>
     <string name="notification_action_shuffle">ക്രമരഹിതം</string>
     <string name="notification_action_repeat">ആവർത്തിക്കുക</string>
-    <string name="notification_actions_at_most_three">നിങ്ങൾക്ക് കോംപാക്ട് നോട്ടിഫിക്കേഷൻ ആയി കാണിക്കാൻ മൂന്ന് നോട്ടിഫിക്കേഷൻ വരെ തിരഞ്ഞെടുക്കാം.</string>
+    <string name="notification_actions_at_most_three">കോം‌പാക്റ്റ് അറിയിപ്പിൽ‌ കാണിക്കുന്നതിന് നിങ്ങൾക്ക് പരമാവധി മൂന്ന് പ്രവർ‌ത്തനങ്ങൾ‌ തിരഞ്ഞെടുക്കാനാകും!</string>
     <string name="open_with">ഇതിനോടൊപ്പം തുറക്കുക</string>
     <string name="notification_scale_to_square_image_summary">നോട്ടിഫിക്കേഷനിൽ കാണിക്കുന്ന വീഡിയോ കവർ ചിത്രം 16:9 എന്ന അനുപാതത്തിൽ നിന്നും 1:1 ലേക്ക് മാറ്റാം (പ്രശ്നങ്ങൾ ഉണ്ടാവാൻ സാധ്യത )</string>
+    <string name="download_has_started">ഡൗൺലോഡ് ആരംഭിച്ചു</string>
+    <string name="select_night_theme_toast">ചുവടെ നിങ്ങളുടെ പ്രിയപ്പെട്ട രാത്രി തീം തിരഞ്ഞെടുക്കാം</string>
+    <string name="night_theme_summary">നിങ്ങളുടെ പ്രിയപ്പെട്ട രാത്രി തീം തിരഞ്ഞെടുക്കുക — %s</string>
+    <string name="auto_device_theme_title">യാന്ത്രികം (ഉപകരണ തീം)</string>
+    <string name="radio">റേഡിയോ</string>
+    <string name="featured">തിരഞ്ഞെടുത്തത്</string>
+    <string name="paid_content">പണമടച്ച ഉപയോക്താക്കൾക്ക് മാത്രമേ ഈ ഉള്ളടക്കം ലഭ്യമാകൂ, അതിനാൽ ഇത് ന്യൂപൈപ്പ് സ്ട്രീം ചെയ്യാനോ ഡൗൺലോഡ് ചെയ്യാനോ കഴിയില്ല.</string>
+    <string name="youtube_music_premium_content">ഈ വീഡിയോ യൂട്യൂബ് മ്യൂസിക് പ്രീമിയം അംഗങ്ങൾക്ക് മാത്രമേ ലഭ്യമാകൂ, അതിനാൽ ഇത് ന്യൂപൈപ്പ് സ്ട്രീം ചെയ്യാനോ ഡൗൺലോഡ് ചെയ്യാനോ കഴിയില്ല.</string>
+    <string name="private_content">ഈ ഉള്ളടക്കം സ്വകാര്യമാണ്, അതിനാൽ ഇത് ന്യൂപൈപ്പ് സ്ട്രീം ചെയ്യാനോ ഡൗൺലോഡ് ചെയ്യാനോ കഴിയില്ല.</string>
+    <string name="soundcloud_go_plus_content">ഇത് നിങ്ങളുടെ രാജ്യത്തെങ്കിലും ഒരു സൗണ്ട്ക്ലൗഡ് ഗോ + ട്രാക്കാണ്, അതിനാൽ ഇത് ന്യൂപൈപ്പ് സ്ട്രീം ചെയ്യാനോ ഡൗൺലോഡ് ചെയ്യാനോ കഴിയില്ല.</string>
+    <string name="georestricted_content">ഈ ഉള്ളടക്കം നിങ്ങളുടെ രാജ്യത്ത് ലഭ്യമല്ല.</string>
+    <string name="no_app_to_open_intent">നിങ്ങളുടെ ഉപകരണത്തിലെ ഒരു അപ്ലിക്കേഷനും ഇത് തുറക്കാൻ കഴിയില്ല</string>
+    <string name="chapters">അധ്യായങ്ങൾ</string>
+    <string name="recent">സമീപകാലം</string>
+    <string name="show_thumbnail_summary">ലോക്ക് സ്ക്രീൻ പശ്ചാത്തലത്തിനും അറിയിപ്പുകൾക്കും ലഘുചിത്രം ഉപയോഗിക്കുക</string>
+    <string name="show_thumbnail_title">ലഘുചിത്രം കാണിക്കുക</string>
+    <string name="never">ഒരിക്കലും</string>
+    <string name="wifi_only">വൈഫൈയിൽ മാത്രം</string>
+    <string name="autoplay_summary">പ്ലേബാക്ക് സ്വപ്രേരിതമായി ആരംഭിക്കുക — %s</string>
+    <string name="crash_the_app">അപ്ലിക്കേഷൻ ക്രാഷ് ചെയ്യുക</string>
+    <string name="show_memory_leaks">മെമ്മറി ലീക്കുകൾ കാണിക്കുക</string>
+    <string name="enqueued">എൻക്യൂ ചെയ്തു</string>
+    <string name="enqueue_stream">എൻക്യൂ</string>
+    <string name="show_channel_details">ചാനൽ വിശദാംശങ്ങൾ കാണിക്കുക</string>
+    <string name="title_activity_play_queue">ക്യൂ പ്ലേ ചെയ്യുക</string>
+    <string name="recaptcha_solve">പരിഹരിക്കുക</string>
+    <string name="msg_calculating_hash">ഹാഷ് കണക്കാക്കുന്നു</string>
+    <string name="description_tab_description">വിവരണം</string>
+    <string name="related_items_tab_description">അനുബന്ധ ഇനങ്ങൾ</string>
+    <string name="comments_tab_description">അഭിപ്രായങ്ങൾ</string>
+    <string name="clear_cookie_summary">നിങ്ങൾ ഒരു reCAPTCHA പരിഹരിക്കുമ്പോൾ ന്യൂപൈപ്പ് സംഭരിക്കുന്ന കുക്കികൾ മായ്‌ക്കുക</string>
+    <string name="recaptcha_cookies_cleared">reCAPTCHA കുക്കികൾ‌ മായ്‌ച്ചു</string>
+    <string name="clear_cookie_title">ReCAPTCHA കുക്കികൾ മായ്‌ക്കുക</string>
+    <string name="hash_channel_description">വീഡിയോ ഹാഷിംഗ് പുരോഗതിക്കായുള്ള അറിയിപ്പുകൾ</string>
+    <string name="hash_channel_name">വീഡിയോ ഹാഷ് അറിയിപ്പ്</string>
+    <string name="restricted_video_no_stream">ഈ വീഡിയോ പ്രായപരിധി നിർണ്ണയിച്ചിരിക്കുന്നു.
+\nപ്രായ-നിയന്ത്രിത വീഡിയോകളുള്ള പുതിയ യൂട്യൂബ് നയങ്ങൾ കാരണം, ന്യൂപൈപ്പിന് അതിന്റെ വീഡിയോ സ്ട്രീമുകളിലൊന്നും ആക്സസ് ചെയ്യാൻ കഴിയില്ല, അതിനാൽ ഇത് പ്ലേ ചെയ്യാൻ കഴിയില്ല.</string>
+    <string name="youtube_restricted_mode_enabled_summary">പക്വതയുള്ള ഉള്ളടക്കം മറയ്ക്കുന്ന \"നിയന്ത്രിത മോഡ്\" യൂട്യൂബ് നൽകുന്നു</string>
+    <string name="show_age_restricted_content_summary">കുട്ടികൾക്ക് അനുയോജ്യമല്ലാത്ത ഉള്ളടക്കം കാണിക്കുക കാരണം അതിന് പ്രായപരിധി ഉണ്ട് (18+ പോലെ)</string>
+    <string name="settings_category_notification_title">അറിയിപ്പ്</string>
+    <string name="unsupported_url_dialog_message">URL തിരിച്ചറിയാൻ കഴിഞ്ഞില്ല. മറ്റൊരു അപ്ലിക്കേഷൻ ഉപയോഗിച്ച് തുറക്കണോ\?</string>
+    <string name="auto_queue_toggle">യാന്ത്രിക-ക്യൂ</string>
+    <string name="show_meta_info_summary">സ്ട്രീം സ്രഷ്ടാവ്, സ്ട്രീം ഉള്ളടക്കം അല്ലെങ്കിൽ ഒരു തിരയൽ അഭ്യർത്ഥന എന്നിവയെക്കുറിച്ചുള്ള കൂടുതൽ വിവരങ്ങൾ ഉൾക്കൊള്ളുന്ന മെറ്റാ വിവര ബോക്സുകൾ മറയ്ക്കുന്നതിന് ഓഫാക്കുക.</string>
+    <string name="show_meta_info_title">മെറ്റാഇൻഫോ കാണിക്കുക</string>
+    <string name="show_description_summary">വീഡിയോ വിവരണവും അധിക വിവരങ്ങളും മറയ്ക്കുന്നതിന് ഓഫാക്കുക</string>
+    <string name="show_description_title">വിവരണം കാണിക്കുക</string>
+    <string name="clear_queue_confirmation_description">സജീവ പ്ലെയർ ക്യൂ മാറ്റിസ്ഥാപിക്കും</string>
+    <string name="clear_queue_confirmation_summary">ഒരു പ്ലെയറിൽ നിന്ന് മറ്റൊന്നിലേക്ക് മാറുന്നത് നിങ്ങളുടെ ക്യൂവിനെ പുനഃസ്ഥാപിച്ചേക്കാം</string>
+    <string name="clear_queue_confirmation_title">ഒരു ക്യൂ മായ്‌ക്കുന്നതിന് മുമ്പ് സ്ഥിരീകരണത്തിനായി ആവശ്യപ്പെടുക</string>
+    <string name="night_theme_title">രാത്രി തീം</string>
+    <string name="notification_action_buffering">ബഫറിംഗ്</string>
+    <string name="notification_actions_summary">ചുവടെയുള്ള ഓരോ അറിയിപ്പ് പ്രവർത്തനവും ടാപ്പുചെയ്ത് എഡിറ്റുചെയ്യുക. വലതുവശത്തുള്ള ചെക്ക്ബോക്സുകൾ ഉപയോഗിച്ച് കോംപാക്റ്റ് അറിയിപ്പിൽ കാണിക്കുന്നതിന് അവയിൽ മൂന്നെണ്ണം വരെ തിരഞ്ഞെടുക്കുക.</string>
+    <string name="notification_action_4_title">അഞ്ചാം പ്രവർത്തന ബട്ടൺ</string>
+    <string name="notification_action_3_title">നാലാം പ്രവർത്തന ബട്ടൺ</string>
+    <string name="notification_action_2_title">മൂന്നാം പ്രവർത്തന ബട്ടൺ</string>
+    <string name="notification_action_1_title">രണ്ടാം പ്രവർത്തന ബട്ടൺ</string>
+    <string name="notification_action_0_title">ആദ്യ പ്രവർത്തന ബട്ടൺ</string>
 </resources>

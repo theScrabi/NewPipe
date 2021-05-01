@@ -169,4 +169,33 @@
     <string name="use_external_video_player_title">Asenṭeḍ ameɣri n uvidyu abeṛṛani</string>
     <string name="screen_rotation">abeṛṛem</string>
     <string name="did_you_mean">Txsed ad tarad \"%1$s\"\?</string>
+    <string name="night_theme_title">Asgum n yiḍ</string>
+    <string name="open_with">Ṛẓem s</string>
+    <string name="feed_groups_header_title">Tirubba n tbadut</string>
+    <string name="fragment_feed_title">Matta n umaynu</string>
+    <string name="always_ask_open_action">ttseqsa abda</string>
+    <string name="blank_page_summary">Tasna ixwan</string>
+    <string name="item_deleted">Ittwakkes uferdis</string>
+    <string name="action_open_website">Ṛẓem asit</string>
+    <string name="title_activity_about">Ɣef NewPipe</string>
+    <string name="msg_wait">Ṛaja…</string>
+    <plurals name="listening">
+        <item quantity="one">%s umsflid</item>
+        <item quantity="other">%s imsfliden</item>
+    </plurals>
+    <string name="no_views">Walu tannayin</string>
+    <string name="network_error">Azgal n uẓeṭṭa</string>
+    <string name="just_once">Ɣas yat</string>
+    <string name="radio">Aṛadyu</string>
+    <string name="recaptcha_solve">Fru</string>
+    <string name="comments_tab_description">Ixfawalen</string>
+    <string name="never">Usar</string>
+    <string name="playback_step">Asurif</string>
+    <string name="rename_playlist">Sisem</string>
+    <string name="action_history">Amezray</string>
+    <string name="title_activity_history">Amezray</string>
+    <string name="msg_error">Azgal</string>
+    <string name="rename">Sisem</string>
+    <string name="pause">Sbedd</string>
+    <string name="unknown_content">[Arussin]</string>
 </resources>

@@ -294,7 +294,7 @@
     <string name="rename_playlist">Přejmenovat</string>
     <string name="name">Jméno</string>
     <string name="append_playlist">Přidat do playlistu</string>
-    <string name="set_as_playlist_thumbnail">Nastavit jako náhled playlistu</string>
+    <string name="set_as_playlist_thumbnail">Nastavit jako miniaturu playlistu</string>
     <string name="bookmark_playlist">Přidat playlist do záložek</string>
     <string name="unbookmark_playlist">Smazat záložku</string>
     <string name="delete_playlist_prompt">Smazat tento playlist\?</string>
@@ -673,4 +673,20 @@
     <string name="related_items_tab_description">Podobné strýmy</string>
     <string name="show_description_summary">Vypnout pro skrytí popisu videa a doplňkové informace</string>
     <string name="crash_the_app">Zbořit aplikaci</string>
+    <string name="download_has_started">Stahování bylo zahájeno</string>
+    <string name="select_night_theme_toast">Můžete si zvolit svůj oblíbený motiv níže</string>
+    <string name="night_theme_summary">Zvolte si svůj oblíbený noční motiv -- %s</string>
+    <string name="auto_device_theme_title">Automatický (motiv zařízení)</string>
+    <string name="radio">Radio</string>
+    <string name="featured">Představujeme</string>
+    <string name="paid_content">Tento obsah je dostupný jen platícím uživatelům, a tak jej NewPipe nemůže stáhnout ani přehrát.</string>
+    <string name="youtube_music_premium_content">Toto video je dostupné jen členům YouTube Music Premium, a tak je NewPipe nemůže stáhnout ani přehrát.</string>
+    <string name="private_content">Tento obsah je soukromý, a tak jej NewPipe nemůže stáhnout ani přehrát.</string>
+    <string name="soundcloud_go_plus_content">Toto je stopa SoundCloud Go+, přinejmenším ve Vaší zemi, a tak ji NewPipe nemůže stáhnout ani přehrát.</string>
+    <string name="georestricted_content">Tento obsah není ve Vaší zemi k dispozici.</string>
+    <string name="show_channel_details">Zobrazit podrobnosti kanálu</string>
+    <string name="recaptcha_solve">Vyřešit</string>
+    <string name="restricted_video_no_stream">Toto video je věkově omezeno.
+\nKvůli novým pravidlům YouTube ohledně věkově omezených videí nemůže NewPipe získat přístup na streamy videa, a tak je nemůže přehrát.</string>
+    <string name="night_theme_title">Noční motiv</string>
 </resources>

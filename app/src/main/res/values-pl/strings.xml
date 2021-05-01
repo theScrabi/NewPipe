@@ -294,8 +294,8 @@
     <string name="delete_playlist">Usuń</string>
     <string name="rename_playlist">Zmień</string>
     <string name="name">Nazwa</string>
-    <string name="append_playlist">Dodaj do playlisty</string>
-    <string name="set_as_playlist_thumbnail">Ustaw jako miniaturę playlisty</string>
+    <string name="append_playlist">Dodaj do listy odtwarzania</string>
+    <string name="set_as_playlist_thumbnail">Ustaw jako miniaturę listy odtwarzania</string>
     <string name="bookmark_playlist">Dodaj do zakładek</string>
     <string name="unbookmark_playlist">Usuń z zakładek</string>
     <string name="delete_playlist_prompt">Usunąć tę listę odtwarzania\?</string>
@@ -688,4 +688,5 @@
     <string name="night_theme_summary">Wybierz swój ulubiony motyw nocny — %s</string>
     <string name="auto_device_theme_title">Automatyczny (motyw urządzenia)</string>
     <string name="night_theme_title">Motyw nocny</string>
+    <string name="show_channel_details">Pokaż szczegóły kanału</string>
 </resources>

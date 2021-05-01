@@ -98,7 +98,7 @@
     <string name="msg_server_unsupported">Serveur non pris en charge</string>
     <string name="msg_exists">Fichier déjà existant</string>
     <string name="msg_url_malform">Lien malformé ou accès à Internet indisponible</string>
-    <string name="msg_running">NewPipe télécharge…</string>
+    <string name="msg_running">NewPipe télécharge …</string>
     <string name="msg_running_detail">Appuyer pour plus de détails</string>
     <string name="msg_wait">Veuillez patienter…</string>
     <string name="msg_copied">Copié dans le presse-papiers</string>
@@ -680,4 +680,5 @@
     <string name="night_theme_summary">Choisissez votre thème nuit favori — %s</string>
     <string name="select_night_theme_toast">Vous pouvez choisir votre thème nuit favori</string>
     <string name="download_has_started">Le téléchargement a démarré</string>
+    <string name="show_channel_details">Afficher les détails de la chaîne</string>
 </resources>

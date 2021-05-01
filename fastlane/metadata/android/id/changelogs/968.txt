@@ -1,0 +1,7 @@
+Menambahkan opsi rincian channel ke menu tekan-lama.
+Menambahkan fungsionalitas untuk mengganti Nama Daftar Putar dari antarmuka daftar putar.
+Mengizinkan pengguna berhenti sejenak saat video sedang buffer.
+Polesan tema putih.
+Perbaikan font tumpang tindih saat menggunakan ukuran font yang lebih besar.
+Perbaikan tidak ada video pada perangkat Formuler dan Zephier.
+Perbaikan berbagai crash.

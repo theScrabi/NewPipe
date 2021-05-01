@@ -190,15 +190,16 @@ public class ErrorActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
-        final int id = item.getItemId();
-        if (id == android.R.id.home) {
-            onBackPressed();
-        } else if (id == R.id.menu_item_share_error) {
-            ShareUtils.shareText(this, getString(R.string.error_report_title), buildJson());
-        } else {
-            return false;
+        switch (item.getItemId()) {
+            case R.id.home:
+                onBackPressed();
+                return true;
+            case R.id.menu_item_share_error:
+                ShareUtils.shareText(this, getString(R.string.error_report_title), buildJson());
+                return true;
+            default:
+                return false;
         }
-        return true;
     }
 
     private void openPrivacyPolicyDialog(final Context context, final String action) {

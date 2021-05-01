@@ -1,0 +1,8 @@
+### Verbesserungen
+- Es wurde die Möglichkeit hinzugefügt bei der Verwendung von Mobilen Daten die Videoqualität zu limitieren #1339
+- Die eingestellte Helligkeit wird während der Sitzung beibehalten #1442 
+- Verbesserung der Download-Performance auf schwächeren CPUs #1431 
+- (Funktionierender) Support für "Media session" wurde hinzugefügt #1433
+
+### Fehlerbehebungen
+- Absturz beim Starten von Downloads wurde behoben (Fehlerbehebung nun verfügbar für Release Builds) #1441

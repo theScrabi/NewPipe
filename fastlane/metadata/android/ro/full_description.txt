@@ -1,0 +1,1 @@
+NewPipe nu utilizează nicio librărie framework Google sau API-ul YouTube. Acesta doar analizează site-ul web pentru a obține informațiile de care are nevoie. Ca atare, această aplicație poate fi utilizată pe dispozitive care nu au instalate serviciile Google. De asemenea, nu aveți nevoie de un cont YouTube pentru a utiliza NewPipe și este FLOSS.

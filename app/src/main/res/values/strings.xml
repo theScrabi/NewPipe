@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="main_bg_subtitle">Tap \"Search\" to get started
 \n</string>
@@ -493,10 +493,10 @@
     <string name="delete_playlist">Delete</string>
     <string name="rename_playlist">Rename</string>
     <string name="name">Name</string>
-    <string name="append_playlist">Add To Playlist</string>
+    <string name="append_playlist">Add to playlist</string>
     <string name="mute">Mute</string>
     <string name="unmute">Unmute</string>
-    <string name="set_as_playlist_thumbnail">Set as Playlist Thumbnail</string>
+    <string name="set_as_playlist_thumbnail">Set as playlist thumbnail</string>
     <string name="bookmark_playlist">Bookmark Playlist</string>
     <string name="unbookmark_playlist">Remove Bookmark</string>
     <string name="delete_playlist_prompt">Delete this playlist\?</string>

@@ -1,3 +1,3 @@
-Endlose Abstürze nach Öffnen eines Fehlerberichts wurden behoben.
-Die Liste der PeerTube-Instanzen, die von NewPipe automatisch geöffnet werden können, wurde aktualisisert.
-Übersetzungen wurden aktualisert.
+Endlose Abstürze beim Öffnen eines Fehlerberichts wurden behoben.
+Die Liste der PeerTube-Instanzen, die von NewPipe automatisch geöffnet werden können, wurde aktualisiert.
+Übersetzungen wurden aktualisiert.

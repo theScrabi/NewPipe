@@ -287,8 +287,8 @@
     <string name="delete_playlist">Excluir</string>
     <string name="rename_playlist">Renomear</string>
     <string name="name">Nome</string>
-    <string name="append_playlist">Adicionar à playlist</string>
-    <string name="set_as_playlist_thumbnail">Definir como capa da playlist</string>
+    <string name="append_playlist">Adicionar à Playlist</string>
+    <string name="set_as_playlist_thumbnail">Definir Como Capa da Playlist</string>
     <string name="bookmark_playlist">Favoritar playlist</string>
     <string name="unbookmark_playlist">Desfavoritar</string>
     <string name="delete_playlist_prompt">Excluir esta playlist\?</string>
@@ -678,4 +678,5 @@
     <string name="night_theme_summary">Selecione seu tema noturno favorito — %s</string>
     <string name="auto_device_theme_title">Automático (tema do dispositivo)</string>
     <string name="night_theme_title">Tema Noturno</string>
+    <string name="show_channel_details">Mostrar detalhes do canal</string>
 </resources>

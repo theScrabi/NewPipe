@@ -1,0 +1,4 @@
+Modificări în 0.17.2
+
+Corectări
+- Corectată problema cu nici un video nu e disponibil

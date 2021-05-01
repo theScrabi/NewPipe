@@ -372,7 +372,7 @@ public class RouterActivity extends AppCompatActivity {
             final RadioButton radioButton = ListRadioIconItemBinding.inflate(inflater).getRoot();
             radioButton.setText(item.description);
             TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(radioButton,
-                    AppCompatResources.getDrawable(getApplicationContext(), item.icon),
+                    AppCompatResources.getDrawable(themeWrapperContext, item.icon),
                     null, null, null);
             radioButton.setChecked(false);
             radioButton.setId(id++);

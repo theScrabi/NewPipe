@@ -1,0 +1,8 @@
+### Hobekuntzak
+- Mugikorreko datuak erabiltzen badira bideoaren kalitatea mugatzeko aukera gehitu. #1339
+- Gogoan izan saiorako distira #1442
+- Deskargaren errendimendua CPU ahulagoentzat hobetu #1431
+- gehitu (funtzionatzen duen) multimedia saioentzako euskarria#1433
+
+### Konponduta
+- Konpondu deskargak irekitzean izandako hutsegitea (konponketa bertsioen bertsioetarako erabilgarri dago orain) #1441

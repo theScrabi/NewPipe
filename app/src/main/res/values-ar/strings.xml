@@ -55,7 +55,7 @@
     <string name="general_error">خطأ</string>
     <string name="parsing_error">تعذر تحليل الموقع</string>
     <string name="youtube_signature_deobfuscation_error">تعذر فك تشفير توقيع رابط الفيديو</string>
-    <string name="main_bg_subtitle">انقر \"بحث\" للبدء
+    <string name="main_bg_subtitle">اضغط\"بحث\" للبدء
 \n</string>
     <string name="subscribe_button_title">اشتراك</string>
     <string name="subscribed_button_title">مشترك</string>
@@ -101,7 +101,7 @@
     <string name="enable_watch_history_summary">تتبّع مقاطع الفيديو التي تمّت مشاهدتها</string>
     <string name="resume_on_audio_focus_gain_title">استئناف التشغيل</string>
     <string name="resume_on_audio_focus_gain_summary">متابعة التشغيل بعد المقاطعات (مثل المكالمات الهاتفية)</string>
-    <string name="show_hold_to_append_title">إظهار التلميحات \"اضغط للتجاهل\"</string>
+    <string name="show_hold_to_append_title">إظهار تلميح \"اضغط للفتح\"</string>
     <string name="show_hold_to_append_summary">أظهر تلميح عند الضغط على الخلفية أو الزر المنبثق في الفيديو \"التفاصيل:\"</string>
     <string name="settings_category_player_title">المشغل</string>
     <string name="settings_category_player_behavior_title">السلوك</string>
@@ -292,7 +292,7 @@
     <string name="delete_playlist">حذف قائمة التشغيل</string>
     <string name="rename_playlist">إعادة تسمية</string>
     <string name="name">التسمية</string>
-    <string name="append_playlist">إضافة إلى قائمة تشغيل</string>
+    <string name="append_playlist">أضف إلى قائمة تشغيل</string>
     <string name="delete_playlist_prompt">هل تريد حذف قائمة التشغيل هذه؟</string>
     <string name="playlist_creation_success">تم إنشاء قائمة التشغيل</string>
     <string name="playlist_add_stream_success">تمت إضافتها إلى قائمة التشغيل</string>
@@ -327,7 +327,7 @@
     <string name="metadata_cache_wipe_complete_notice">تم محو ذاكرة التخزين المؤقتّة للبيانات الوصفيّة</string>
     <string name="auto_queue_title">وضع البث القادم تلقائيا في قائمة الإنتظار</string>
     <string name="auto_queue_summary">استمر عند إنهاء قائمة التشغيل (الغير المتكررة) من خلال إلحاق التدفق المرتبط</string>
-    <string name="set_as_playlist_thumbnail">إضافة صورة مصغرة إلى قائمة التشغيل</string>
+    <string name="set_as_playlist_thumbnail">تعيين كصورة مصغرة لقائمة التشغيل</string>
     <string name="bookmark_playlist">تفضيل قائمة التشغيل</string>
     <string name="playlist_thumbnail_change_success">تم تغيير الصورة المصغرة لقائمة التشغيل.</string>
     <string name="caption_none">بدون تسميات توضيحية</string>
@@ -476,7 +476,7 @@
     <string name="close">إغلاق</string>
     <string name="enable_playback_resume_title">استئناف التشغيل</string>
     <string name="enable_playback_resume_summary">استعادة آخر موقف تشغيل</string>
-    <string name="enable_playback_state_lists_title">واضع القوائم</string>
+    <string name="enable_playback_state_lists_title">المواضع في القوائم</string>
     <string name="enable_playback_state_lists_summary">إظهار مؤشّرات وضع التشغيل في القوائم</string>
     <string name="settings_category_clear_data_title">امسح البيانات</string>
     <string name="watch_history_states_deleted">تم حذف وضع التشغيل.</string>
@@ -503,7 +503,7 @@
     <string name="clear_playback_states_title">حذف مواقف التشغيل</string>
     <string name="clear_playback_states_summary">حذف كل مواقف التشغيل</string>
     <string name="delete_playback_states_alert">حذف كل مواقف التشغيل؟</string>
-    <string name="download_choose_new_path">تغيير مجلدات التنزيل إلى حيز التنفيذ‮‮‮</string>
+    <string name="download_choose_new_path">قم بتغيير مجلدات التنزيل لتصبح سارية المفعول</string>
     <string name="drawer_header_description">تبديل الخدمة ، المحدد حاليًا:</string>
     <string name="default_kiosk_page_summary">الكشك الافتراضي</string>
     <string name="no_one_watching">لا توجد مشاهدة</string>
@@ -652,7 +652,7 @@
     <string name="error_report_open_github_notice">يرجى مراجعة ما إذا توجد بالفعل مشكلة تناقش التحطم الموجود بالفعل.عند إنشاء تذاكر مكررة، فإنك تستغرق منا وقتًا يمكن أن نقضيه في إصلاح الخطأ الفعلي.</string>
     <string name="error_report_open_issue_button_text">تقرير على GitHub</string>
     <string name="copy_for_github">نسخ تقرير منسق</string>
-    <string name="search_showing_result_for">إظهار النتائج لـ: %s</string>
+    <string name="search_showing_result_for">عرض نتائج ل: %s</string>
     <string name="never">أبدا</string>
     <string name="wifi_only">فقط على شبكة Wi-Fi</string>
     <string name="autoplay_summary">بدء التشغيل تلقائياً — %s</string>
@@ -709,7 +709,7 @@
     <string name="georestricted_content">هذا المحتوى غير متوفر في بلدك.</string>
     <string name="crash_the_app">اغلق التطبيق قسريا</string>
     <string name="restricted_video_no_stream">هذا الفيديو مقيد بالفئة العمرية.
-\nنظرًا لسياسات YouTube الجديدة المتعلقة بمقاطع الفيديو المقيدة بالفئة العمرية، لا يمكن لـNewPipe الوصول إلى أي من مقاطع الفيديو الخاصة بها وبالتالي يتعذر تشغيلها.</string>
+\nنظرا لسياسات YouTube الجديدة المتعلقة بمقاطع الفيديو المقيدة بالفئة العمرية، لا يمكن ل NewPipe الوصول إلى أي من مقاطع الفيديو الخاصة بها وبالتالي يتعذر تشغيلها.</string>
     <string name="radio">إذاعة</string>
     <string name="featured">المميزة</string>
     <string name="recaptcha_solve">حل</string>
@@ -718,4 +718,5 @@
     <string name="night_theme_summary">حدد موضوعك الليلي المفضل - %s</string>
     <string name="auto_device_theme_title">تلقائي (سمة الجهاز)</string>
     <string name="night_theme_title">الثيم الليلي</string>
+    <string name="show_channel_details">إظهار تفاصيل القناة</string>
 </resources>

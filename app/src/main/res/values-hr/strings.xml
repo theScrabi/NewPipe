@@ -440,8 +440,8 @@
     <string name="overwrite_finished_warning">Preuzeta datoteka s tim nazivom već postoji</string>
     <string name="download_already_running">Datoteka s ovim nazivom se već preuzima</string>
     <string name="label_code">Kod</string>
-    <string name="error_path_creation">Odredišnu mapu nije moguće stvoriti</string>
-    <string name="error_file_creation">Datoteku nije moguće stvoriti</string>
+    <string name="error_path_creation">Odredišna mapa se ne može stvoriti</string>
+    <string name="error_file_creation">Datoteka se ne može stvoriti</string>
     <string name="error_permission_denied">Sustav je odbio dozvolu</string>
     <string name="error_ssl_exception">Nije moguće uspostaviti sigurnu vezu</string>
     <string name="error_unknown_host">Nije moguće pronaći server</string>
@@ -688,4 +688,5 @@
     <string name="crash_the_app">Prekini program</string>
     <string name="recaptcha_solve">Riješi</string>
     <string name="night_theme_title">Noćna tema</string>
+    <string name="show_channel_details">Prikaži detalje kanala</string>
 </resources>

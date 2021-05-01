@@ -698,4 +698,5 @@
     <string name="featured">מובילים</string>
     <string name="recaptcha_solve">לפתור</string>
     <string name="night_theme_title">ערכת עיצוב לילית</string>
+    <string name="show_channel_details">להציג את פרטי הערוץ</string>
 </resources>

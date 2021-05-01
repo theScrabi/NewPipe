@@ -1,0 +1,1 @@
+Fixed YouTube not working properly in the EU. This was caused by a new cookie and privacy consent system which requires NewPipe to set a CONSENT cookie.
