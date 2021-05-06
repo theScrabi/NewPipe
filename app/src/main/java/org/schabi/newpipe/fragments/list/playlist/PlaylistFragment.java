@@ -80,7 +80,7 @@ public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
     private MenuItem playlistBookmarkButton;
 
     private long videoCount;
-    private int playlistOverallDurationSeconds;
+    private long playlistOverallDurationSeconds;
 
     public static PlaylistFragment getInstance(final int serviceId, final String url,
                                                final String name) {
@@ -491,7 +491,7 @@ public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
             } else {
                 final String durationPostfix = isDurationLonger ? "+" : "";
                 playlistOverallDurationSeconds += list.stream()
-                    .mapToInt(x -> Math.toIntExact(x.getDuration()))
+                    .mapToLong(x -> x.getDuration())
                     .sum();
                 headerBinding.playlistStreamCount.setText(
                     Localization.concatenateStrings(
