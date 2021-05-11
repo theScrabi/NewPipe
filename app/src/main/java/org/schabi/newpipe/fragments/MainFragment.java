@@ -1,7 +1,6 @@
 package org.schabi.newpipe.fragments;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,7 +29,6 @@ import org.schabi.newpipe.settings.tabs.Tab;
 import org.schabi.newpipe.settings.tabs.TabsManager;
 import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.ServiceHelper;
-import org.schabi.newpipe.util.ThemeHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,10 +85,10 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
 
         binding = FragmentMainBinding.bind(rootView);
 
-        binding.mainTabLayout.setTabIconTint(ColorStateList.valueOf(
-                ThemeHelper.resolveColorFromAttr(requireContext(), R.attr.colorAccent)));
         binding.mainTabLayout.setupWithViewPager(binding.pager);
         binding.mainTabLayout.addOnTabSelectedListener(this);
+        binding.mainTabLayout.setTabRippleColor(binding.mainTabLayout.getTabRippleColor()
+                .withAlpha(32));
 
         setupTabs();
     }

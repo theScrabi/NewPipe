@@ -8,7 +8,7 @@
     <string name="install">Cài đặt</string>
     <string name="cancel">Hủy</string>
     <string name="open_in_browser">Mở trong trình duyệt</string>
-    <string name="open_in_popup_mode">Mở trong trình phát popup</string>
+    <string name="open_in_popup_mode">Mở trong chế độ popup</string>
     <string name="share">Chia sẻ</string>
     <string name="download">Tải về</string>
     <string name="search">Tìm kiếm</string>
@@ -17,13 +17,13 @@
     <string name="share_dialog_title">Chia sẻ với</string>
     <string name="choose_browser">Chọn trình duyệt</string>
     <string name="use_external_video_player_title">Sử dụng trình phát video bên ngoài</string>
-    <string name="use_external_video_player_summary">Loại bỏ âm thanh ở một số độ phân giải video</string>
+    <string name="use_external_video_player_summary">Loại bỏ âm thanh ở một số độ phân giải</string>
     <string name="use_external_audio_player_title">Sử dụng trình phát audio bên ngoài</string>
     <string name="popup_mode_share_menu_title">Chế độ popup</string>
     <string name="controls_popup_title">Trình phát nổi</string>
     <string name="download_path_title">Thư mục video tải về</string>
     <string name="download_path_summary">Video đã tải về được lưu ở đây</string>
-    <string name="download_path_dialog_title">Chọn vị trí lưu video tải về</string>
+    <string name="download_path_dialog_title">Chọn thư mục lưu video tải về</string>
     <string name="download_path_audio_title">Thư mục tải về audio</string>
     <string name="download_path_audio_summary">Audio đã tải về được lưu ở đây</string>
     <string name="download_path_audio_dialog_title">Chọn vị trí lưu audio tải về</string>
@@ -31,21 +31,21 @@
     <string name="autoplay_by_calling_app_summary">Phát video khi NewPipe được gọi từ một ứng dụng khác</string>
     <string name="default_resolution_title">Độ phân giải mặc định</string>
     <string name="default_popup_resolution_title">Độ phân giải popup mặc định</string>
-    <string name="show_higher_resolutions_title">Hiển thị độ phân giải cao hơn</string>
+    <string name="show_higher_resolutions_title">Hiện độ phân giải cao hơn</string>
     <string name="show_higher_resolutions_summary">Chỉ một số thiết bị hỗ trợ phát video 2K/4K</string>
-    <string name="play_with_kodi_title">Phát với Kodi</string>
+    <string name="play_with_kodi_title">Phát bằng Kodi</string>
     <string name="kore_not_found">Cài đặt ứng dụng Kore\?</string>
-    <string name="show_play_with_kodi_title">Hiển thị tùy chọn \"Phát với Kodi\"</string>
-    <string name="show_play_with_kodi_summary">Hiển thị tùy chọn để phát video qua trung tâm media Kodi</string>
+    <string name="show_play_with_kodi_title">Hiện tùy chọn \"Phát bằng Kodi\"</string>
+    <string name="show_play_with_kodi_summary">Hiện tùy chọn phát video qua trung tâm media Kodi</string>
     <string name="play_audio">Âm thanh</string>
-    <string name="default_audio_format_title">Định dạng audio mặc định</string>
+    <string name="default_audio_format_title">Định dạng âm thanh mặc định</string>
     <string name="default_video_format_title">Định dạng video mặc định</string>
     <string name="controls_background_title">Nền</string>
     <string name="theme_title">Chủ đề</string>
     <string name="light_theme_title">Sáng</string>
     <string name="dark_theme_title">Tối</string>
     <string name="black_theme_title">Đen</string>
-    <string name="popup_remember_size_pos_title">Nhớ kích thước và vị trí của popup</string>
+    <string name="popup_remember_size_pos_title">Nhớ thuộc tính của popup</string>
     <string name="popup_remember_size_pos_summary">Nhớ kích thước và vị trí lần trước của popup</string>
     <string name="player_gesture_controls_title">Điều khiển cử chỉ trình phát</string>
     <string name="player_gesture_controls_summary">Sử dụng cử chỉ để điều chỉnh độ sáng và âm lượng</string>
@@ -127,11 +127,11 @@
     <string name="msg_url_malform">URL không hợp lệ hoặc Internet không khả dụng</string>
     <string name="msg_running">NewPipe đang tải xuống</string>
     <string name="msg_running_detail">Chạm để biết chi tiết</string>
-    <string name="msg_wait">Vui lòng đợi …</string>
-    <string name="msg_copied">Sao chép vào clipboard</string>
-    <string name="no_available_dir">Chọn một thư mục tải về có sẵn trong cài đặt</string>
-    <string name="msg_popup_permission">Cần quyền này để 
-\nmở trong chế độ popup</string>
+    <string name="msg_wait">Xin hãy đợi…</string>
+    <string name="msg_copied">Đã sao chép vào clipboard</string>
+    <string name="no_available_dir">Hãy chọn một thư mục để tải xuống trong phần cài đặt</string>
+    <string name="msg_popup_permission">Chế độ popup cần quyền này
+\n để hoạt động</string>
     <string name="title_activity_recaptcha">reCAPTCHA</string>
     <string name="recaptcha_request_toast">Yêu cầu reCAPTCHA</string>
     <string name="title_activity_about">Giới thiệu về NewPipe</string>
@@ -165,7 +165,7 @@
     <string name="subscription_update_failed">Không thể cập nhật tình trạng đăng ký</string>
     <string name="no_player_found_toast">Không tìm thấy trình phát luồng nào (bạn có thể cài đặt VLC để phát).</string>
     <string name="controls_download_desc">Tải về tệp luồng</string>
-    <string name="show_info">Hiển thị thông tin</string>
+    <string name="show_info">Hiện thông tin</string>
     <string name="tab_main">Trang chủ</string>
     <string name="tab_subscriptions">Đăng ký</string>
     <string name="tab_bookmarks">Danh sách phát được đánh dấu</string>
@@ -174,12 +174,12 @@
     <string name="use_inexact_seek_title">Sử dụng tìm kiếm nhanh không chính xác</string>
     <string name="use_inexact_seek_summary">Tua không chính xác cho phép trình phát tua vị trí nhanh hơn với độ chính xác hạn chế. Tua 5, 15 hay 25 giây không dùng được chế độ này.</string>
     <string name="download_thumbnail_title">Tải hình thu nhỏ</string>
-    <string name="download_thumbnail_summary">Tắt để không tải về các hình thu nhỏ, tiết kiệm lưu lượng mạng và bộ nhớ. Thay đổi điều này sẽ xóa bộ nhớ đệm hình ảnh cả trong RAM và trong bộ nhớ.</string>
+    <string name="download_thumbnail_summary">Tắt để ngăn chặn việc tải các hình thu nhỏ, việc này sẽ tiết kiệm lưu lượng mạng và bộ nhớ. Các thay đổi sẽ xóa bộ nhớ đệm hình ảnh cả trong RAM và trong bộ nhớ.</string>
     <string name="thumbnail_cache_wipe_complete_notice">Đã xóa bộ nhớ cache hình ảnh</string>
     <string name="metadata_cache_wipe_title">Xóa siêu dữ liệu đã lưu vào bộ nhớ cache</string>
     <string name="metadata_cache_wipe_summary">Xóa tất cả dữ liệu trang web được lưu trong bộ nhớ cache</string>
     <string name="metadata_cache_wipe_complete_notice">Đã xóa bộ nhớ cache siêu dữ liệu</string>
-    <string name="auto_queue_title">Tự động phát tiếp theo hàng</string>
+    <string name="auto_queue_title">Tự động thêm luồng phát tiếp theo vào hàng đợi</string>
     <string name="auto_queue_summary">Tiếp tục hàng đợi (không lặp lại) bằng cách thêm một luồng phát liên quan</string>
     <string name="enable_search_history_title">Lịch sử tìm kiếm</string>
     <string name="enable_search_history_summary">Lưu trữ truy vấn tìm kiếm cục bộ</string>
@@ -256,8 +256,8 @@
     <string name="dismiss">Bỏ qua</string>
     <string name="rename">Đổi tên</string>
     <string name="one_item_deleted">Đã xóa 1 mục.</string>
-    <string name="settings_category_downloads_title">Tải về</string>
-    <string name="settings_file_charset_title">Các ký tự được cho phép trong tên tệp</string>
+    <string name="settings_category_downloads_title">Tải xuống</string>
+    <string name="settings_file_charset_title">Các ký tự được cho phép cho tên tệp</string>
     <string name="settings_file_replacement_character_summary">Ký tự không hợp lệ được thay thế bằng giá trị này</string>
     <string name="settings_file_replacement_character_title">Ký tự thay thế</string>
     <string name="charset_letters_and_digits">Chỉ chữ cái và chữ số</string>
@@ -326,8 +326,8 @@
     <string name="delete_playlist">Xóa playlist</string>
     <string name="rename_playlist">Đổi tên playlist</string>
     <string name="name">Tên</string>
-    <string name="append_playlist">Thêm vào playlist</string>
-    <string name="set_as_playlist_thumbnail">Đặt làm hình thu nhỏ của playlist</string>
+    <string name="append_playlist">Thêm vào danh sách phát</string>
+    <string name="set_as_playlist_thumbnail">Đặt làm hình thu nhỏ của danh sách phát</string>
     <string name="bookmark_playlist">Đánh dấu playlist này</string>
     <string name="unbookmark_playlist">Xóa dấu trang</string>
     <string name="delete_playlist_prompt">Xóa playlist này\?</string>
@@ -395,8 +395,8 @@
     <string name="tab_choose">Chọn tab</string>
     <string name="volume_gesture_control_title">Điều khiển âm lượng bằng cử chỉ</string>
     <string name="volume_gesture_control_summary">Sử dụng cử chỉ để điều chỉnh âm lượng</string>
-    <string name="brightness_gesture_control_title">Điều khiển độ sáng màn hình bằng cử chỉ</string>
-    <string name="brightness_gesture_control_summary">Sử dụng cử chỉ để điều chỉnh độ sáng màn hình</string>
+    <string name="brightness_gesture_control_title">Điều khiển độ sáng bằng cử chỉ</string>
+    <string name="brightness_gesture_control_summary">Sử dụng cử chỉ để điều chỉnh độ sáng</string>
     <string name="settings_category_updates_title">Cập nhật</string>
     <string name="events">Sự kiện</string>
     <string name="file_deleted">Đã xóa tập tin</string>
@@ -556,7 +556,7 @@
     <string name="video_detail_by">Bởi %s</string>
     <string name="channel_created_by">Được tạo bởi %s</string>
     <string name="detail_sub_channel_thumbnail_view_description">Ảnh đại diện của kênh</string>
-    <string name="content_not_supported">Nội dung này hiện chưa được hỗ trợ bởi NewPipe.
+    <string name="content_not_supported">NewPipe chưa hỗ trợ loại nội dung này.
 \n
 \nCó thể nó sẽ được hỗ trợ bởi một phiên bản mới hơn trong tương lai.</string>
     <string name="feed_use_dedicated_fetch_method_help_text">Bạn có thấy feed của mình cập nhật chậm không\? Nếu có thì bạn có thể thử chế độ tăng tốc (bạn có thể bật/tắt chế độ này trong cài đặt hoặc bằng cách nhấn nút bên dưới).
@@ -565,20 +565,20 @@
 \n• Tải thông tin cả kênh cho từng kênh một; chậm nhưng chắc.
 \n• Tải từ các nguồn chuyên dụng; nhanh nhưng thường không đầy đủ.
 \n
-\nĐiểm khác biệt giữa 2 cách trên là cách nhanh hơn (chế độ tăng tốc) thường có thể thiếu thông tin - như thời lượng hay loại (VD: không thể phân biệt được giữa video thường và livestream) - và thiếu item hơn.
+\nĐiểm khác biệt giữa 2 cách trên là cách nhanh hơn (chế độ tăng tốc) thường có thể thiếu thông tin - như thời lượng hay loại (VD: không thể phân biệt được giữa video thường và livestream) - và thiếu nội dung hơn.
 \n
-\nYouTube là một trong số các dịch vụ có hỗ trợ cách cập nhật nhanh trên, sử dụng RSS feed.
+\nYouTube là một trong số các dịch vụ có hỗ trợ cập nhật nhanh, sử dụng RSS.
 \n
-\nSuy cho cùng, việc lựa chọn chế độ trên sẽ tùy thuộc vào mong muốn của bạn: tốc độ cập nhật, hay độ chính xác thông tin.</string>
+\nTuy nhiên, việc lựa chọn chế độ tùy thuộc vào mong muốn của bạn: tốc độ hay thông tin.</string>
     <string name="feed_use_dedicated_fetch_method_title">Tải thông tin từ các nguồn chuyên dụng nếu có thể</string>
     <string name="feed_use_dedicated_fetch_method_enable_button">Bật chế độ tăng tốc</string>
     <string name="feed_use_dedicated_fetch_method_disable_button">Tắt chế độ tăng tốc</string>
-    <string name="feed_use_dedicated_fetch_method_summary">Áp dụng cho một vài dịch vụ; thường sẽ nhanh hơn nhưng có thể thiếu một vài item và thông tin không đầy đủ (VD: không có thời lượng, loại item, livestreams).</string>
+    <string name="feed_use_dedicated_fetch_method_summary">Có thể được với một số dịch vụ, thường sẽ nhanh hơn nhưng có thể bị giới hạn nội dung nhận được hoặc nội dung nhận được không đầy đủ (v.d. thời lượng, trạng thái,..).</string>
     <string name="feed_update_threshold_option_always_update">Luôn cập nhật</string>
     <string name="feed_update_threshold_summary">Khoảng thời gian kể từ lần cuối cập nhật thông tin kênh trước khi nó được coi là hết hạn — %s</string>
     <string name="feed_update_threshold_title">Ngưỡng thời gian cập nhật feed</string>
     <string name="settings_category_feed_title">Nguồn cấp (feed)</string>
-    <string name="feed_create_new_group_button_title">Tạo</string>
+    <string name="feed_create_new_group_button_title">Tạo mới</string>
     <string name="feed_group_dialog_delete_message">Bạn muốn xóa nhóm kênh này\?</string>
     <string name="feed_group_dialog_empty_name">Tên nhóm kênh trống</string>
     <plurals name="feed_group_dialog_selection_count">
@@ -610,22 +610,22 @@
     <string name="unsupported_url_dialog_message">Không thể đọc URL này. Mở với app khác\?</string>
     <string name="auto_queue_toggle">Tự động thêm vào hàng đợi</string>
     <string name="clear_queue_confirmation_description">Hàng đợi của trình phát hiện tại sẽ bị thay thế</string>
-    <string name="clear_queue_confirmation_summary">Chuyển từ trình phát này sang trình phát khác có thể sẽ thay thế hàng đợi</string>
-    <string name="clear_queue_confirmation_title">Hỏi trước khi xóa hết hàng đợi</string>
+    <string name="clear_queue_confirmation_summary">Việc chuyển từ trình phát này sang trình phát khác có thể sẽ thay thế hàng đợi</string>
+    <string name="clear_queue_confirmation_title">Hỏi xác nhận trước khi xóa hàng đợi</string>
     <string name="notification_action_nothing">Để trống</string>
     <string name="notification_action_buffering">Đang tải</string>
     <string name="notification_action_shuffle">Ngẫu nhiên</string>
     <string name="notification_action_repeat">Lặp lại</string>
-    <string name="notification_actions_at_most_three">Bạn chỉ có thể chọn tối đa 3 nút trong thông báo thu gọn!</string>
-    <string name="notification_actions_summary">Thay đổi các nút trong thông báo bằng cách nhấn mở nút đó. Chọn tối đa 3 nút để hiện trong thông báo thu gọn bằng cách tick vào các ô bên phải.</string>
-    <string name="notification_action_4_title">Nút thứ năm</string>
-    <string name="notification_action_3_title">Nút thứ tư</string>
-    <string name="notification_action_2_title">Nút thứ ba</string>
-    <string name="notification_action_1_title">Nút thứ hai</string>
-    <string name="notification_action_0_title">Nút đầu tiên</string>
-    <string name="notification_scale_to_square_image_summary">Thu nhỏ ảnh thumbnail trong thông báo từ tỉ lệ 16:9 xuống 1:1 (có thể gây méo ảnh)</string>
-    <string name="notification_scale_to_square_image_title">Thu nhỏ ảnh thumbnail theo tỉ lệ 1:1</string>
-    <string name="search_showing_result_for">Hiện kết quả cho: %s</string>
+    <string name="notification_actions_at_most_three">Bạn có thể chọn tối đa ba hành động để hiện trong thông báo thu gọn!</string>
+    <string name="notification_actions_summary">Chỉnh sửa mỗi hành động trong thông báo ở dưới bằng cách nhấn vào nó. Chọn tối đa ba hành động để hiện trong thông báo thu gọn bằng cách sử dụng các ô đánh dấu bên phải.</string>
+    <string name="notification_action_4_title">Nút hành động thứ năm</string>
+    <string name="notification_action_3_title">Nút hành động thứ tư</string>
+    <string name="notification_action_2_title">Nút hành động thứ ba</string>
+    <string name="notification_action_1_title">Nút hành động thứ hai</string>
+    <string name="notification_action_0_title">Nút hành đông đầu tiên</string>
+    <string name="notification_scale_to_square_image_summary">Phóng ảnh thu nhỏ của video trong thông báo từ tỉ lệ 16:9 xuống 1:1 (có thể gây méo ảnh)</string>
+    <string name="notification_scale_to_square_image_title">Phóng ảnh thu nhỏ theo tỉ lệ 1:1</string>
+    <string name="search_showing_result_for">Đang hiện kết quả cho: %s</string>
     <string name="enqueue_stream">Hàng</string>
     <string name="show_age_restricted_content_summary">Hiển thị nội dung không an toàn cho trẻ em vì có giới hạn độ tuổi (+18)</string>
     <string name="show_thumbnail_summary">Hiện ảnh thu nhỏ (thumbnail) trên nền màn hình khóa và trong thông báo</string>
@@ -636,20 +636,37 @@
     <string name="recaptcha_cookies_cleared">Cookie đã được</string>
     <string name="clear_cookie_title">Xoá bỏ Cookie của</string>
     <string name="youtube_restricted_mode_enabled_summary">YouTube cung cấp \"Chế độ hạn chế\" để ẩn nội dung người lớn</string>
-    <string name="notification_colorize_summary">Yêu cầu Android tùy chỉnh màu của thông báo theo màu chính của video, có thể không khả dụng trong vài thiết bị</string>
-    <string name="notification_colorize_title">àu thông báo</string>
-    <string name="no_app_to_open_intent">Không có ứng dụng nào trên thiết bị của bạn có thể mở cái này</string>
+    <string name="notification_colorize_summary">Yêu cầu Android tùy chỉnh màu của thông báo theo màu chính của ảnh thu nhỏ (lưu ý rằng việc này không khả dụng trên tất cả thiết bị)</string>
+    <string name="notification_colorize_title">Tô màu thông báo</string>
+    <string name="no_app_to_open_intent">Thiết bị của bạn không có ứng dụng để mở tệp này</string>
     <string name="chapters">Chương</string>
     <string name="recent">Gần đây</string>
-    <string name="msg_calculating_hash">Đang tính toán hash</string>
+    <string name="msg_calculating_hash">Đang tính hash</string>
     <string name="description_tab_description">Mô tả</string>
-    <string name="related_streams_tab_description">Stream liên quan</string>
+    <string name="related_items_tab_description">Stream liên quan</string>
     <string name="comments_tab_description">Bình luận</string>
     <string name="hash_channel_description">Thông báo cho quá trình hash video</string>
     <string name="hash_channel_name">Thông báo hash video</string>
-    <string name="show_meta_info_summary">Tắt tùy chọn này để ẩn các hộp thông tin meta chứa thông tin về tác giả/nội dung của stream, hoặc yêu cầu tìm kiếm.</string>
+    <string name="show_meta_info_summary">Tắt để ẩn các hộp thông tin meta chứa thông tin bổ sung về tác giả/nội dung của stream, hoặc yêu cầu tìm kiếm.</string>
     <string name="show_meta_info_title">Hiện thông tin meta</string>
-    <string name="show_description_summary">Tắt tùy chọn này để ẩn mô tả video và các thông tin khác</string>
+    <string name="show_description_summary">Tắt để ẩn mô tả video và các thông tin bổ sung</string>
     <string name="show_description_title">Hiện mô tả</string>
     <string name="open_with">Mở bằng</string>
+    <string name="download_has_started">Tệp đã bắt đầu được tải xuống</string>
+    <string name="select_night_theme_toast">Bạn có thể chọn giao diện tối cho mình bên dưới</string>
+    <string name="night_theme_summary">Chọn giao diện tối của bạn — %s</string>
+    <string name="auto_device_theme_title">Tự động (theme hệ thống)</string>
+    <string name="radio">Radio</string>
+    <string name="paid_content">Nội dung này chỉ dành cho người dùng trả phí, nên NewPipe không thể phát hay tải xuống.</string>
+    <string name="youtube_music_premium_content">Video này chỉ được dành cho thành viên YouTube Music Premium, nên NewPipe không thể phát hay tải xuống.</string>
+    <string name="private_content">Nội dung này được để ở chế độ riêng tư, nên NewPipe không thể phát hay tải xuống.</string>
+    <string name="soundcloud_go_plus_content">Đây là một track SoundCloud Go+, nên NewPipe không thể phát hay tải xuống được, ít nhất là tại quốc gia của bạn.</string>
+    <string name="georestricted_content">Nội dung này không có ở quốc gia của bạn.</string>
+    <string name="crash_the_app">Làm văng ứng dụng</string>
+    <string name="restricted_video_no_stream">Video này đã bị giới hạn độ tuổi.
+\nVì những quy định mới của YouTube, NewPipe không thể phát được video này, vì không thể tìm thấy nguồn phát video.</string>
+    <string name="night_theme_title">Chủ đề ban đêm</string>
+    <string name="featured">Nổi bật</string>
+    <string name="show_channel_details">Hiện chi tiết kênh</string>
+    <string name="recaptcha_solve">Giải</string>
 </resources>

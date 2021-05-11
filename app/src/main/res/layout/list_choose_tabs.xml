@@ -28,7 +28,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="16dp"
             tools:ignore="ContentDescription,RtlHardcoded"
-            tools:src="?attr/ic_kiosk_hot" />
+            tools:src="@drawable/ic_kiosk_hot" />
 
         <TextView
             android:id="@+id/tabName"
@@ -56,7 +56,7 @@
             android:paddingTop="12dp"
             android:paddingRight="16dp"
             android:paddingBottom="12dp"
-            app:srcCompat="?attr/ic_drag_handle"
+            app:srcCompat="@drawable/ic_drag_handle"
             tools:ignore="ContentDescription,RtlHardcoded" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

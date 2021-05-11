@@ -12,8 +12,8 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.ActionBar">
+        android:theme="@style/ThemeOverlay.AppCompat.DayNight.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.DayNight.ActionBar">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -21,6 +21,7 @@
             android:layout_height="?attr/actionBarSize"
             android:layout_weight="1"
             android:background="?attr/colorPrimary"
+            android:theme="@style/ToolbarTheme"
             app:layout_scrollFlags="scroll|enterAlways"
             app:title="@string/app_name" />
 
@@ -138,7 +139,7 @@
                 android:focusable="true"
                 android:scaleType="fitCenter"
                 android:tint="?attr/colorAccent"
-                app:srcCompat="@drawable/ic_pause_white_24dp"
+                app:srcCompat="@drawable/ic_pause"
                 tools:ignore="ContentDescription" />
 
             <ProgressBar
@@ -199,7 +200,7 @@
                 android:minWidth="50dp"
                 android:scaleType="fitCenter"
                 android:tint="?attr/colorAccent"
-                app:srcCompat="@drawable/ic_previous_white_24dp"
+                app:srcCompat="@drawable/ic_previous"
                 tools:ignore="ContentDescription" />
 
             <ImageButton
@@ -214,7 +215,7 @@
                 android:focusable="true"
                 android:scaleType="fitXY"
                 android:tint="?attr/colorAccent"
-                app:srcCompat="@drawable/ic_repeat_white_24dp"
+                app:srcCompat="@drawable/ic_repeat"
                 tools:ignore="ContentDescription" />
 
             <View
@@ -235,7 +236,7 @@
                 android:focusable="true"
                 android:scaleType="fitXY"
                 android:tint="?attr/colorAccent"
-                app:srcCompat="@drawable/ic_shuffle_white_24dp"
+                app:srcCompat="@drawable/ic_shuffle"
                 tools:ignore="ContentDescription" />
 
             <androidx.appcompat.widget.AppCompatImageButton
@@ -253,7 +254,7 @@
                 android:minWidth="50dp"
                 android:scaleType="fitCenter"
                 android:tint="?attr/colorAccent"
-                app:srcCompat="@drawable/ic_next_white_24dp"
+                app:srcCompat="@drawable/ic_next"
                 tools:ignore="ContentDescription" />
         </RelativeLayout>
     </RelativeLayout>
@@ -263,7 +264,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/player_controls_background"
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingLeft="16dp"

@@ -1,0 +1,8 @@
+### Melhorias
+ - Importar/exportar configurações #1333
+ - Reduzir overdraw (melhoria de desempenho) #1371
+ - Pequenas melhorias no código #1375
+ - Adicione tudo sobre o GDPR #1420
+
+### Corrigido
+ - Downloader: corrige falha no carregamento de downloads inacabados de arquivos .giga #1407

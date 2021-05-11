@@ -25,7 +25,7 @@ class FeedGroupIconTest {
         val usedIcons = HashSet<Int>()
 
         for (groupIcon in FeedGroupIcon.values()) {
-            val added = usedIcons.add(groupIcon.drawableResourceAttr)
+            val added = usedIcons.add(groupIcon.drawableResource)
             assertTrue("Repeated icon (current item: ${groupIcon.name} - ${groupIcon.id})", added)
         }
     }

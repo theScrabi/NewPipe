@@ -72,7 +72,6 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
     // Save the list 10 seconds after the last change occurred
     private static final long SAVE_DEBOUNCE_MILLIS = 10000;
     private static final int MINIMUM_INITIAL_DRAG_VELOCITY = 12;
-
     @State
     protected Long playlistId;
     @State
@@ -340,7 +339,8 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
             }
 
             @Override
-            public void onComplete() { }
+            public void onComplete() {
+            }
         };
     }
 
@@ -361,6 +361,8 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
                         .create()
                         .show();
             }
+        } else if (item.getItemId() == R.id.menu_item_rename_playlist) {
+            createRenameDialog();
         } else {
             return super.onOptionsItemSelected(item);
         }
@@ -420,7 +422,7 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
                                     playlistItem.getStreamId());
 
                             final boolean hasState = streamStatesIter.next() != null;
-                            if (indexInHistory < 0 ||  hasState) {
+                            if (indexInHistory < 0 || hasState) {
                                 notWatchedItems.add(playlistItem);
                             } else if (!thumbnailVideoRemoved
                                     && playlistManager.getPlaylistThumbnail(playlistId)
@@ -722,7 +724,8 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
 
             @Override
             public void onSwiped(@NonNull final RecyclerView.ViewHolder viewHolder,
-                                 final int swipeDir) { }
+                                 final int swipeDir) {
+            }
         };
     }
 
@@ -755,7 +758,7 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
                     StreamDialogEntry.append_playlist,
                     StreamDialogEntry.share
             ));
-        } else  {
+        } else {
             entries.addAll(Arrays.asList(
                     StreamDialogEntry.start_here_on_background,
                     StreamDialogEntry.start_here_on_popup,

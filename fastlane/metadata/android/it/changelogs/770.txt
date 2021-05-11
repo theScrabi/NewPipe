@@ -1,4 +1,4 @@
 Modifiche su 0.17.2
 
-Correzionw
+Correzioni
 • Risolto il problema con nessun video disponibile

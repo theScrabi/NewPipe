@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Opening Theme -->
+    <style name="Base.V21.OpeningTheme" parent="Base.V19.OpeningTheme">
+        <item name="android:navigationBarColor">@color/light_youtube_primary_color</item>
+    </style>
+    <style name="Base.OpeningTheme" parent="Base.V21.OpeningTheme" />
+
+    <!-- Base Theme -->
+    <style name="Base.V21" parent="Base.V19"/>
+    <style name="Base" parent="Base.V21"/>
+
+    <!-- Light Theme -->
+    <style name="Base.V21.LightTheme" parent="Base.V19.LightTheme">
+
+    </style>
+    <style name="Base.LightTheme" parent="Base.V21.LightTheme" />
+
+    <!-- Dark Theme -->
+    <style name="Base.V21.DarkTheme" parent="Base.V19.DarkTheme">
+
+    </style>
+    <style name="Base.DarkTheme" parent="Base.V21.DarkTheme" />
+
+    <!-- Black Theme -->
+    <style name="Base.V21.BlackTheme" parent="Base.V19.BlackTheme">
+
+    </style>
+    <style name="Base.BlackTheme" parent="Base.V21.BlackTheme" />
+
+</resources>

@@ -20,7 +20,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            app:srcCompat="?attr/ic_playlist_add"
+            app:srcCompat="@drawable/ic_playlist_add"
             tools:ignore="ContentDescription,RtlHardcoded" />
 
         <TextView

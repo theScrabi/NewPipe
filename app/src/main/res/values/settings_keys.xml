@@ -181,7 +181,7 @@
     <string name="dark_theme_key" translatable="false">dark_theme</string>
     <string name="black_theme_key" translatable="false">black_theme</string>
     <string name="auto_device_theme_key" translatable="false">auto_device_theme</string>
-    <string name="default_theme_value" translatable="false">@string/dark_theme_key</string>
+    <string name="default_theme_value" translatable="false">@string/auto_device_theme_key</string>
     <string name="default_night_theme_value" translatable="false">@string/dark_theme_key</string>
     <string-array name="theme_values_list" translatable="false">
         <item>@string/light_theme_key</item>

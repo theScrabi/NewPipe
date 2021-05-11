@@ -1,0 +1,8 @@
+### Usprawnienia
+- Ustawienia importu/eksportu #1333
+- Redukcja przerysowań (poprawa wydajności) #1371
+- Małe poprawki kodu #1375
+- Dodanie wszystkiego o GDPR #1420
+
+### Poprawiono
+- Downloader: Naprawiono crashowanie przy ładowaniu niedokończonych pobrań z plików .giga #1407

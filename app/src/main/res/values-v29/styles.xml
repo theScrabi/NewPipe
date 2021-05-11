@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base Theme -->
+    <style name="Base.V29" parent="Base.V27">
+        <item name="android:enforceNavigationBarContrast">false</item>
+    </style>
+    <style name="Base" parent="Base.V29"/>
+
+    <!-- Light Theme -->
+    <style name="Base.V29.LightTheme" parent="Base.V27.LightTheme">
+    </style>
+    <style name="Base.LightTheme" parent="Base.V29.LightTheme" />
+
+    <!-- Dark Theme -->
+    <style name="Base.V29.DarkTheme" parent="Base.V27.DarkTheme">
+
+    </style>
+    <style name="Base.DarkTheme" parent="Base.V29.DarkTheme" />
+
+    <!-- Black Theme -->
+    <style name="Base.V29.BlackTheme" parent="Base.V27.BlackTheme">
+
+    </style>
+    <style name="Base.BlackTheme" parent="Base.V29.BlackTheme" />
+
+</resources>

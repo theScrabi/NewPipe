@@ -30,7 +30,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="ContentDescription"
-                tools:src="?attr/ic_asterisk" />
+                tools:src="@drawable/ic_asterisk" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/group_name_input_container"
@@ -109,9 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:gravity="center_vertical"
-                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.ActionBar"
-                app:titleTextAppearance="@style/Toolbar.Title">
+                android:theme="@style/ContrastToolbarTheme">
 
                 <LinearLayout
                     android:id="@+id/subscriptions_header_info_container"
@@ -197,7 +195,7 @@
             android:minWidth="0dp"
             android:scaleType="centerInside"
             android:visibility="gone"
-            app:srcCompat="?attr/ic_delete"
+            app:srcCompat="@drawable/ic_delete"
             tools:ignore="ContentDescription"
             tools:visibility="visible" />
 

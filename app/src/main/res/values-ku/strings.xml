@@ -630,7 +630,7 @@
     <string name="recent">دوایین</string>
     <string name="show_thumbnail_title">پیشاندانی وێنۆچکە</string>
     <string name="description_tab_description">وەسف</string>
-    <string name="related_streams_tab_description">پەخشی لێکچوو</string>
+    <string name="related_items_tab_description">پەخشی لێکچوو</string>
     <string name="comments_tab_description">لێدوانەکان</string>
     <string name="recaptcha_cookies_cleared">شەکرۆکەکانی reCAPTCHA سڕانەوە</string>
     <string name="clear_cookie_title">سڕینەوەی شەکرۆکەکانی RECAPTCHA</string>

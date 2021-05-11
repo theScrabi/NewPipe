@@ -273,14 +273,14 @@ public final class NotificationUtil {
                         || player.getCurrentState() == Player.STATE_BLOCKED
                         || player.getCurrentState() == Player.STATE_BUFFERING) {
                     // null intent -> show hourglass icon that does nothing when clicked
-                    return new NotificationCompat.Action(R.drawable.ic_hourglass_top_white_24dp_png,
+                    return new NotificationCompat.Action(R.drawable.ic_hourglass_top,
                             player.getContext().getString(R.string.notification_action_buffering),
                             null);
                 }
 
             case NotificationConstants.PLAY_PAUSE:
                 if (player.getCurrentState() == Player.STATE_COMPLETED) {
-                    return getAction(player, R.drawable.ic_replay_white_24dp_png,
+                    return getAction(player, R.drawable.ic_replay,
                             R.string.exo_controls_pause_description, ACTION_PLAY_PAUSE);
                 } else if (player.isPlaying()
                         || player.getCurrentState() == Player.STATE_PREFLIGHT
@@ -315,7 +315,7 @@ public final class NotificationUtil {
                 }
 
             case NotificationConstants.CLOSE:
-                return getAction(player, R.drawable.ic_close_white_24dp_png,
+                return getAction(player, R.drawable.ic_close,
                         R.string.close, ACTION_CLOSE);
 
             case NotificationConstants.NOTHING:

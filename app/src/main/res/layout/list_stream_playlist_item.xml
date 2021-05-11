@@ -51,7 +51,7 @@
         android:contentDescription="@string/detail_drag_description"
         android:paddingLeft="@dimen/video_item_search_image_right_margin"
         android:scaleType="center"
-        app:srcCompat="?attr/ic_drag_handle"
+        app:srcCompat="@drawable/ic_drag_handle"
         tools:ignore="RtlHardcoded,RtlSymmetry" />
 
     <TextView

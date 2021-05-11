@@ -457,4 +457,7 @@
     <string name="help">Bantuan</string>
     <string name="settings_category_notification_title">Pemberitahuan</string>
     <string name="open_with">Buka dengan</string>
+    <plurals name="listening">
+        <item quantity="other">%s pendengar</item>
+    </plurals>
 </resources>

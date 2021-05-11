@@ -57,7 +57,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginStart="6dp"
             android:layout_marginEnd="12dp"
-            app:srcCompat="?attr/ic_refresh"
+            app:srcCompat="@drawable/ic_refresh"
             tools:ignore="ContentDescription" />
 
         <View

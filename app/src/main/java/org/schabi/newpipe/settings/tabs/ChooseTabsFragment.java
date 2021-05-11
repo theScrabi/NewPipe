@@ -112,10 +112,8 @@ public class ChooseTabsFragment extends Fragment {
         final MenuItem restoreItem = menu.add(Menu.NONE, MENU_ITEM_RESTORE_ID, Menu.NONE,
                 R.string.restore_defaults);
         restoreItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-
-        final int restoreIcon = ThemeHelper.resolveResourceIdFromAttr(requireContext(),
-                R.attr.ic_restore_defaults);
-        restoreItem.setIcon(AppCompatResources.getDrawable(requireContext(), restoreIcon));
+        restoreItem.setIcon(AppCompatResources.getDrawable(requireContext(),
+                R.drawable.ic_settings_backup_restore));
     }
 
     @Override
@@ -142,7 +140,7 @@ public class ChooseTabsFragment extends Fragment {
     }
 
     private void restoreDefaults() {
-        new AlertDialog.Builder(requireContext(), ThemeHelper.getDialogTheme(requireContext()))
+        new AlertDialog.Builder(requireContext())
                 .setTitle(R.string.restore_defaults)
                 .setMessage(R.string.restore_defaults_confirmation)
                 .setNegativeButton(R.string.cancel, null)
@@ -241,7 +239,7 @@ public class ChooseTabsFragment extends Fragment {
                 case KIOSK:
                     returnList.add(new ChooseTabListItem(tab.getTabId(),
                             getString(R.string.kiosk_page_summary),
-                            ThemeHelper.resolveResourceIdFromAttr(context, R.attr.ic_kiosk_hot)));
+                            R.drawable.ic_whatshot));
                     break;
                 case CHANNEL:
                     returnList.add(new ChooseTabListItem(tab.getTabId(),
@@ -252,8 +250,7 @@ public class ChooseTabsFragment extends Fragment {
                     if (!tabList.contains(tab)) {
                         returnList.add(new ChooseTabListItem(tab.getTabId(),
                                 getString(R.string.default_kiosk_page_summary),
-                                ThemeHelper.resolveResourceIdFromAttr(context,
-                                        R.attr.ic_kiosk_hot)));
+                                R.drawable.ic_whatshot));
                     }
                     break;
                 case PLAYLIST:

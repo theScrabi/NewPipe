@@ -86,7 +86,7 @@ class FeedImportExportItem(
     private fun setupImportFromItems(listHolder: ViewGroup) {
         val previousBackupItem = addItemView(
             listHolder.context.getString(R.string.previous_export),
-            ThemeHelper.resolveResourceIdFromAttr(listHolder.context, R.attr.ic_backup), listHolder
+            R.drawable.ic_backup, listHolder
         )
         previousBackupItem.setOnClickListener { onImportPreviousSelected() }
 
@@ -115,8 +115,7 @@ class FeedImportExportItem(
     private fun setupExportToItems(listHolder: ViewGroup) {
         val previousBackupItem = addItemView(
             listHolder.context.getString(R.string.file),
-            ThemeHelper.resolveResourceIdFromAttr(listHolder.context, R.attr.ic_save),
-            listHolder
+            R.drawable.ic_save, listHolder
         )
         previousBackupItem.setOnClickListener { onExportSelected() }
     }

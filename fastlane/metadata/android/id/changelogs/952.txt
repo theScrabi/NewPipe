@@ -1,0 +1,7 @@
+Peningkatan
+• Pemutar otomatis tersedia untuk semua layanan (tidak hanya pada Youtube)
+
+Perbaikan
+• Memperbaiki siaran yang terkait dengan mendukung feature lanjutkan YouTube
+• Memperbaiki batasan usia video YouTube
+• [Android TV] Memperbaiki sisa overlay sorotan fokus

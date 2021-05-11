@@ -362,7 +362,7 @@
     <string name="notification_scale_to_square_image_title">থাম্বনেলে ১:১ অনুপাতে করো</string>
     <string name="import_export_title">আমদানি/রপ্তানি</string>
     <string name="systems_language">সিস্টেম ডিফল্ট</string>
-    <string name="toast_no_player">এ ফাইলটি চালানোর জন্য কোন অ্য়াপ ইন্সটল নেই</string>
+    <string name="toast_no_player">এ ফাইলটি চালানোর জন্য কোন অ্যাপ ইন্সটলকৃত নেই</string>
     <string name="bookmark_playlist">প্লেলিস্ট বুকমার্ক করুন</string>
     <string name="feed_page_summary">ফিড পৃষ্ঠা</string>
     <string name="feed_use_dedicated_fetch_method_title">"যখন পর্যাপ্ত  নিবেদিত ফিড থেকে ডাটা সংগ্রহ করুন"</string>
@@ -396,4 +396,6 @@
         <item quantity="other">%d মিনিট</item>
     </plurals>
     <string name="website_encouragement">আরও তথ্য এবং খবরের জন্য নিউপাইপ ওয়েবসাইট দেখো।</string>
+    <string name="open_with">দিয়ে খুলো</string>
+    <string name="comments_tab_description">মতামত</string>
 </resources>

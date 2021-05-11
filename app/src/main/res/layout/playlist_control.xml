@@ -27,8 +27,8 @@
             android:text="@string/controls_background_title"
             android:textColor="?attr/colorAccent"
             android:textSize="@dimen/channel_rss_title_size"
-            app:drawableLeftCompat="?attr/ic_headset"
-            app:drawableStartCompat="?attr/ic_headset" />
+            app:drawableLeftCompat="@drawable/ic_headset"
+            app:drawableStartCompat="@drawable/ic_headset" />
     </LinearLayout>
 
     <View
@@ -86,7 +86,7 @@
             android:text="@string/controls_popup_title"
             android:textColor="?attr/colorAccent"
             android:textSize="@dimen/channel_rss_title_size"
-            app:drawableLeftCompat="?attr/ic_popup"
-            app:drawableStartCompat="?attr/ic_popup" />
+            app:drawableLeftCompat="@drawable/ic_picture_in_picture"
+            app:drawableStartCompat="@drawable/ic_picture_in_picture" />
     </LinearLayout>
 </LinearLayout>

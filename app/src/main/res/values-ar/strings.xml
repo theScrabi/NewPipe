@@ -30,13 +30,13 @@
     <string name="open_in_browser">افتح في المتصفح</string>
     <string name="play_audio">الصوت</string>
     <string name="play_with_kodi_title">تشغيل بواسطة كودي</string>
-    <string name="screen_rotation">التدوير</string>
+    <string name="screen_rotation">الدوران</string>
     <string name="search">البحث</string>
     <string name="content_language_title">اللغة الإفتراضية للمحتوى</string>
     <string name="settings">الإعدادات</string>
     <string name="settings_category_appearance_title">المظهر</string>
-    <string name="settings_category_other_title">اخرى</string>
-    <string name="settings_category_video_audio_title">الفيديو و الصوتيات</string>
+    <string name="settings_category_other_title">أخرى</string>
+    <string name="settings_category_video_audio_title">الفيديو والصوت</string>
     <string name="share">مشاركة</string>
     <string name="share_dialog_title">مشاركة بواسطة</string>
     <string name="show_next_and_similar_title">عرض مقاطع الفيديو \"التالية\" و \"المشابهة\"</string>
@@ -55,7 +55,7 @@
     <string name="general_error">خطأ</string>
     <string name="parsing_error">تعذر تحليل الموقع</string>
     <string name="youtube_signature_deobfuscation_error">تعذر فك تشفير توقيع رابط الفيديو</string>
-    <string name="main_bg_subtitle">انقر \"بحث\" للبدء
+    <string name="main_bg_subtitle">اضغط\"بحث\" للبدء
 \n</string>
     <string name="subscribe_button_title">اشتراك</string>
     <string name="subscribed_button_title">مشترك</string>
@@ -66,7 +66,7 @@
     <string name="autoplay_by_calling_app_title">تشغيل تلقائي</string>
     <string name="black_theme_title">أسود</string>
     <string name="enable_watch_history_title">تاريخ المشاهدة</string>
-    <string name="settings_category_history_title">التاريخ و ذاكرة التخزين المؤقت</string>
+    <string name="settings_category_history_title">التاريخ وذاكرة التخزين المؤقّت</string>
     <string name="content">محتوى</string>
     <string name="downloads">التحميلات</string>
     <string name="downloads_title">الملفات المحملة</string>
@@ -84,24 +84,24 @@
     <string name="channel_unsubscribed">تم إلغاء الاشتراك في القناة</string>
     <string name="subscription_change_failed">تعذر تغيير حالة الاشتراك</string>
     <string name="subscription_update_failed">تعذر تحديث الاشتراك</string>
-    <string name="controls_popup_title">نافذة المنبثقة</string>
-    <string name="autoplay_by_calling_app_summary">تشغيل مقطع الفيديو عند إستدعاء NewPipe من تطبيق آخر</string>
-    <string name="default_popup_resolution_title">الدقة الافتراضية لنوافذ المنبثقة</string>
+    <string name="controls_popup_title">نافذة منبثقة</string>
+    <string name="autoplay_by_calling_app_summary">تشغيل مقطع الفيديو عند استدعاء NewPipe من تطبيق آخر</string>
+    <string name="default_popup_resolution_title">الدقة الافتراضية للنوافذ المنبثقة</string>
     <string name="show_higher_resolutions_title">عرض دقّات أعلى</string>
     <string name="show_higher_resolutions_summary">فقط بعض الأجهزة تدعم تشغيل مقاطع فيديو 2K/4K</string>
     <string name="default_video_format_title">صيغة الفيديو الافتراضية</string>
     <string name="popup_remember_size_pos_title">تذكر خصائص النوافذ المنبثقة</string>
-    <string name="popup_remember_size_pos_summary">تذكر آخر مكان و حجم للنافذة المنبثقة</string>
-    <string name="player_gesture_controls_title">اعدادات إيماءة المشغل</string>
-    <string name="player_gesture_controls_summary">استخدم الإيماءات للتحكم بسطوع ومستوى صوت المشغل</string>
+    <string name="popup_remember_size_pos_summary">تذكر آخر مكان وحجم للنافذة المنبثقة</string>
+    <string name="player_gesture_controls_title">إعدادات إيماءة المشغّل</string>
+    <string name="player_gesture_controls_summary">استخدم الإيماءات للتحكم بسطوع ومستوى صوت المشغّل</string>
     <string name="show_search_suggestions_title">اقتراحات البحث</string>
     <string name="show_search_suggestions_summary">عرض الاقتراحات عند البحث</string>
     <string name="enable_search_history_title">سجل البحث</string>
-    <string name="enable_search_history_summary">تخزين طلبات البحث محليا</string>
-    <string name="enable_watch_history_summary">تتبع مقاطع الفيديو التي تمت مشاهدتها</string>
+    <string name="enable_search_history_summary">تخزين طلبات البحث محليًّا</string>
+    <string name="enable_watch_history_summary">تتبّع مقاطع الفيديو التي تمّت مشاهدتها</string>
     <string name="resume_on_audio_focus_gain_title">استئناف التشغيل</string>
     <string name="resume_on_audio_focus_gain_summary">متابعة التشغيل بعد المقاطعات (مثل المكالمات الهاتفية)</string>
-    <string name="show_hold_to_append_title">إظهار التلميحات \"اضغط للتجاهل\"</string>
+    <string name="show_hold_to_append_title">إظهار تلميح \"اضغط للفتح\"</string>
     <string name="show_hold_to_append_summary">أظهر تلميح عند الضغط على الخلفية أو الزر المنبثق في الفيديو \"التفاصيل:\"</string>
     <string name="settings_category_player_title">المشغل</string>
     <string name="settings_category_player_behavior_title">السلوك</string>
@@ -109,7 +109,7 @@
     <string name="popup_playing_toast">تشغيل في وضع منبثق</string>
     <string name="background_player_append">تم وضعه على قائمة الانتظار في مشغل الخلفية</string>
     <string name="popup_playing_append">تم وضعه على قائمة الانتظار في مشغل النافذة المنبثقة</string>
-    <string name="show_age_restricted_content_title">عرض محتوى مقيد حسب العمر</string>
+    <string name="show_age_restricted_content_title">عرض محتوى مقيّد حسب العمر</string>
     <string name="duration_live">بث مباشر</string>
     <string name="error_report_title">تقرير عن المشكلة</string>
     <string name="playlist">قائمة التشغيل</string>
@@ -292,7 +292,7 @@
     <string name="delete_playlist">حذف قائمة التشغيل</string>
     <string name="rename_playlist">إعادة تسمية</string>
     <string name="name">التسمية</string>
-    <string name="append_playlist">إضافة إلى قائمة تشغيل</string>
+    <string name="append_playlist">أضف إلى قائمة تشغيل</string>
     <string name="delete_playlist_prompt">هل تريد حذف قائمة التشغيل هذه؟</string>
     <string name="playlist_creation_success">تم إنشاء قائمة التشغيل</string>
     <string name="playlist_add_stream_success">تمت إضافتها إلى قائمة التشغيل</string>
@@ -322,12 +322,12 @@
     <string name="import_file_title">إستيراد ملف</string>
     <string name="import_soundcloud_instructions_hint">معرفك, soundcloud.com/هويتك</string>
     <string name="download_thumbnail_summary">عند إيقاف تحميل أي صور مصغرة، وتوفير البيانات واستخدام الذاكرة. تعمل التغييرات على محو ذاكرة التخزين المؤقت للصورة الموجودة على الذاكرة أو على القرص.</string>
-    <string name="metadata_cache_wipe_title">امسح البيانات الوصفية المخزنة مؤقتًا</string>
-    <string name="metadata_cache_wipe_summary">إزالة جميع بيانات صفحات الويب المخزنة مؤقتًا</string>
-    <string name="metadata_cache_wipe_complete_notice">تم محو ذاكرة التخزين المؤقت للبيانات الوصفية</string>
+    <string name="metadata_cache_wipe_title">امسح البيانات الوصفيّة المخزّنة مؤقّتًا</string>
+    <string name="metadata_cache_wipe_summary">إزالة جميع بيانات صفحات الويب المخزنة مؤقّتًا</string>
+    <string name="metadata_cache_wipe_complete_notice">تم محو ذاكرة التخزين المؤقتّة للبيانات الوصفيّة</string>
     <string name="auto_queue_title">وضع البث القادم تلقائيا في قائمة الإنتظار</string>
     <string name="auto_queue_summary">استمر عند إنهاء قائمة التشغيل (الغير المتكررة) من خلال إلحاق التدفق المرتبط</string>
-    <string name="set_as_playlist_thumbnail">إضافة صورة مصغرة إلى قائمة التشغيل</string>
+    <string name="set_as_playlist_thumbnail">تعيين كصورة مصغرة لقائمة التشغيل</string>
     <string name="bookmark_playlist">تفضيل قائمة التشغيل</string>
     <string name="playlist_thumbnail_change_success">تم تغيير الصورة المصغرة لقائمة التشغيل.</string>
     <string name="caption_none">بدون تسميات توضيحية</string>
@@ -410,9 +410,9 @@
     <string name="unsubscribe">إلغاء الاشتراك</string>
     <string name="tab_new">علامة تبويب جديدة</string>
     <string name="tab_choose">اختر علامة التبويب</string>
-    <string name="volume_gesture_control_summary">استخدم إيماءات التحكم في صوت المشغل</string>
-    <string name="brightness_gesture_control_title">التحكم بالإيماءات السطوع</string>
-    <string name="brightness_gesture_control_summary">استخدام الإيماءات للتحكم بسطوع المشغل</string>
+    <string name="volume_gesture_control_summary">استخدم إيماءات التحكم في صوت المشغّل</string>
+    <string name="brightness_gesture_control_title">التحكم بإيماءات السطوع</string>
+    <string name="brightness_gesture_control_summary">استخدام الإيماءات للتحكم بسطوع المشغّل</string>
     <string name="settings_category_updates_title">التحديثات</string>
     <string name="file_deleted">تم حذف الملف</string>
     <string name="app_update_notification_channel_name">تتبيه تحديث التطبيق</string>
@@ -475,9 +475,9 @@
     <string name="error_unable_to_load_comments">تعذر تحميل التعليقات</string>
     <string name="close">إغلاق</string>
     <string name="enable_playback_resume_title">استئناف التشغيل</string>
-    <string name="enable_playback_resume_summary">استعادة آخر موقف التشغيل</string>
-    <string name="enable_playback_state_lists_title">واضع القوائم</string>
-    <string name="enable_playback_state_lists_summary">إظهار مؤشرات وضع التشغيل في القوائم</string>
+    <string name="enable_playback_resume_summary">استعادة آخر موقف تشغيل</string>
+    <string name="enable_playback_state_lists_title">المواضع في القوائم</string>
+    <string name="enable_playback_state_lists_summary">إظهار مؤشّرات وضع التشغيل في القوائم</string>
     <string name="settings_category_clear_data_title">امسح البيانات</string>
     <string name="watch_history_states_deleted">تم حذف وضع التشغيل.</string>
     <string name="missing_file">نقل الملف أو حذفه</string>
@@ -503,7 +503,7 @@
     <string name="clear_playback_states_title">حذف مواقف التشغيل</string>
     <string name="clear_playback_states_summary">حذف كل مواقف التشغيل</string>
     <string name="delete_playback_states_alert">حذف كل مواقف التشغيل؟</string>
-    <string name="download_choose_new_path">تغيير مجلدات التنزيل إلى حيز التنفيذ‮‮‮</string>
+    <string name="download_choose_new_path">قم بتغيير مجلدات التنزيل لتصبح سارية المفعول</string>
     <string name="drawer_header_description">تبديل الخدمة ، المحدد حاليًا:</string>
     <string name="default_kiosk_page_summary">الكشك الافتراضي</string>
     <string name="no_one_watching">لا توجد مشاهدة</string>
@@ -652,21 +652,21 @@
     <string name="error_report_open_github_notice">يرجى مراجعة ما إذا توجد بالفعل مشكلة تناقش التحطم الموجود بالفعل.عند إنشاء تذاكر مكررة، فإنك تستغرق منا وقتًا يمكن أن نقضيه في إصلاح الخطأ الفعلي.</string>
     <string name="error_report_open_issue_button_text">تقرير على GitHub</string>
     <string name="copy_for_github">نسخ تقرير منسق</string>
-    <string name="search_showing_result_for">إظهار النتائج ل %s</string>
+    <string name="search_showing_result_for">عرض نتائج ل: %s</string>
     <string name="never">أبدا</string>
     <string name="wifi_only">فقط على شبكة Wi-Fi</string>
     <string name="autoplay_summary">بدء التشغيل تلقائياً — %s</string>
     <string name="title_activity_play_queue">تشغيل قائمة الانتظار</string>
-    <string name="settings_category_notification_title">الاشعار</string>
+    <string name="settings_category_notification_title">الإشعار</string>
     <string name="unsupported_url_dialog_message">تعذر التعرف على الرابط. فتح باستخدام تطبيق آخر؟</string>
-    <string name="auto_queue_toggle">قائمة انتظار تلقائية</string>
+    <string name="auto_queue_toggle">قائمة انتظار تلقائيّة</string>
     <string name="clear_queue_confirmation_description">سيتم استبدال قائمة انتظار للمشغل النشط</string>
     <string name="clear_queue_confirmation_summary">قد يؤدي التبديل من مشغل إلى آخر إلى استبدال قائمة الانتظار الخاصة بك</string>
     <string name="clear_queue_confirmation_title">طلب تأكيد قبل مسح قائمة الانتظار</string>
     <string name="notification_action_nothing">لا شيء</string>
     <string name="notification_action_buffering">جارٍ التحميل</string>
     <string name="notification_action_shuffle">خلط</string>
-    <string name="notification_action_repeat">كرر</string>
+    <string name="notification_action_repeat">كرّر</string>
     <string name="notification_actions_at_most_three">يمكنك تحديد ثلاثة إجراءات كحد أقصى لإظهارها في الإشعار المضغوط!</string>
     <string name="notification_actions_summary">قم بتحرير كل اشعار أدناه من خلال النقر عليه. حدد ما يصل إلى ثلاثة منها لتظهر في الإشعار المضغوط باستخدام مربعات الاختيار الموجودة على اليمين.</string>
     <string name="notification_action_4_title">زر الإجراء الخامس</string>
@@ -685,7 +685,7 @@
     <string name="enqueued">قائمة الانتظار</string>
     <string name="enqueue_stream">قائمة الانتظار</string>
     <string name="notification_colorize_summary">اجعل أندرويد يخصص لون الإشعار وفقا للّون الرئيسي في الصورة المصغرة (لاحظ أن هذا غير متوفر على جميع الأجهزة)</string>
-    <string name="notification_colorize_title">تلوين الاشعارات</string>
+    <string name="notification_colorize_title">تلوين الإشعارات</string>
     <string name="show_thumbnail_summary">استخدم الصورة المصغرة لكل من خلفية شاشة القفل والإشعارات</string>
     <string name="show_thumbnail_title">إظهار الصورة المصغرة</string>
     <string name="show_meta_info_summary">قم بإيقاف التشغيل لإخفاء مربعات المعلومات الوصفية بمعلومات إضافية حول منشئ، البث أو محتوى البث أو طلب البحث.</string>
@@ -697,7 +697,7 @@
     <string name="no_app_to_open_intent">لا يوجد تطبيق على جهازك يمكنه فتح هذا</string>
     <string name="chapters">فصول</string>
     <string name="description_tab_description">وصف</string>
-    <string name="related_streams_tab_description">التيارات ذات الصلة</string>
+    <string name="related_items_tab_description">التيارات ذات الصلة</string>
     <string name="comments_tab_description">تعليقات</string>
     <string name="show_description_summary">قم بإيقاف التشغيل لإخفاء وصف الفيديو والمعلومات الإضافية</string>
     <string name="show_description_title">إظهار الوصف</string>
@@ -709,7 +709,7 @@
     <string name="georestricted_content">هذا المحتوى غير متوفر في بلدك.</string>
     <string name="crash_the_app">اغلق التطبيق قسريا</string>
     <string name="restricted_video_no_stream">هذا الفيديو مقيد بالفئة العمرية.
-\nنظرًا لسياسات YouTube الجديدة المتعلقة بمقاطع الفيديو المقيدة بالفئة العمرية ، لا يمكن لـ NewPipe الوصول إلى أي من مقاطع الفيديو الخاصة بها وبالتالي يتعذر تشغيلها.</string>
+\nنظرا لسياسات YouTube الجديدة المتعلقة بمقاطع الفيديو المقيدة بالفئة العمرية، لا يمكن ل NewPipe الوصول إلى أي من مقاطع الفيديو الخاصة بها وبالتالي يتعذر تشغيلها.</string>
     <string name="radio">إذاعة</string>
     <string name="featured">المميزة</string>
     <string name="recaptcha_solve">حل</string>
@@ -718,4 +718,5 @@
     <string name="night_theme_summary">حدد موضوعك الليلي المفضل - %s</string>
     <string name="auto_device_theme_title">تلقائي (سمة الجهاز)</string>
     <string name="night_theme_title">الثيم الليلي</string>
+    <string name="show_channel_details">إظهار تفاصيل القناة</string>
 </resources>

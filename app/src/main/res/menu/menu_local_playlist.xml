@@ -3,6 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/menu_item_rename_playlist"
+        android:title="@string/rename_playlist"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/menu_item_remove_watched"
         android:title="@string/remove_watched"
         app:showAsAction="never" />

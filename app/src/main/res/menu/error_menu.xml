@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/menu_item_share_error"
-        android:icon="?attr/ic_share"
+        android:icon="@drawable/ic_share"
         android:title="@string/share"
         app:showAsAction="ifRoom" />
 </menu>

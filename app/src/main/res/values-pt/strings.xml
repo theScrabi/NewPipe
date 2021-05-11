@@ -657,7 +657,7 @@
     <string name="no_app_to_open_intent">Não possui qualquer aplicação para abrir este ficheiro</string>
     <string name="chapters">Capítulos</string>
     <string name="description_tab_description">Descrição</string>
-    <string name="related_streams_tab_description">Emissões relacionadas</string>
+    <string name="related_items_tab_description">Emissões relacionadas</string>
     <string name="comments_tab_description">Comentários</string>
     <string name="show_description_summary">Desative para ocultar a descrição do vídeo e informações adicionais</string>
     <string name="show_description_title">Mostrar descrição</string>
@@ -673,4 +673,10 @@
     <string name="radio">Rádio</string>
     <string name="featured">Destaques</string>
     <string name="recaptcha_solve">Resolver</string>
+    <string name="night_theme_summary">Escolha o seu tema escuro favorito — %s</string>
+    <string name="download_has_started">A descarrega começou</string>
+    <string name="select_night_theme_toast">Pode escolher o seu tema escuro favorito abaixo</string>
+    <string name="auto_device_theme_title">Automático (Tema do aparelho)</string>
+    <string name="night_theme_title">Tema Escuro</string>
+    <string name="show_channel_details">Mostrar detalhes do canal</string>
 </resources>

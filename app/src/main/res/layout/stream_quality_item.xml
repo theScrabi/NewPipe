@@ -13,7 +13,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="6dp"
         android:scaleType="fitCenter"
-        app:srcCompat="?attr/ic_volume_off"
+        app:srcCompat="@drawable/ic_volume_off"
         tools:ignore="ContentDescription,RtlHardcoded" />
 
     <TextView

@@ -41,22 +41,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:maxLines="2"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:maxLines="1"
+            android:textAppearance="@style/PlayQueueItemTitle"
             android:textSize="@dimen/video_item_search_title_text_size"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             tools:text="Lorem ipusum is widely used to create long sample text which is used here too" />
+
+        <TextView
+            android:id="@+id/textViewChannel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@style/PlayQueueItemSubtitle"
+            android:textSize="@dimen/video_item_search_title_text_size"
+
+            tools:text="Lorem ipsum creator" />
 
         <TextView
             android:id="@+id/textViewStartSeconds"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textAppearance="@style/PlayQueueItemSubtitle"
             android:textSize="@dimen/video_item_search_upload_date_text_size"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewTitle"
             tools:text="04:26" />
 
     </LinearLayout>

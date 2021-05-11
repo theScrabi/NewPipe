@@ -440,8 +440,8 @@
     <string name="overwrite_finished_warning">Preuzeta datoteka s tim nazivom već postoji</string>
     <string name="download_already_running">Datoteka s ovim nazivom se već preuzima</string>
     <string name="label_code">Kod</string>
-    <string name="error_path_creation">Odredišnu mapu nije moguće stvoriti</string>
-    <string name="error_file_creation">Datoteku nije moguće stvoriti</string>
+    <string name="error_path_creation">Odredišna mapa se ne može stvoriti</string>
+    <string name="error_file_creation">Datoteka se ne može stvoriti</string>
     <string name="error_permission_denied">Sustav je odbio dozvolu</string>
     <string name="error_ssl_exception">Nije moguće uspostaviti sigurnu vezu</string>
     <string name="error_unknown_host">Nije moguće pronaći server</string>
@@ -664,7 +664,7 @@
     <string name="recent">Nedavni</string>
     <string name="show_meta_info_summary">Isključi za skrivanje polja metapodataka s dodatnim podacima o autoru streama, sadržaju streama ili zahtjevu za pretraživanje.</string>
     <string name="show_meta_info_title">Prikaži metapodatke</string>
-    <string name="related_streams_tab_description">Slični videozapisi</string>
+    <string name="related_items_tab_description">Slični videozapisi</string>
     <string name="no_app_to_open_intent">Nijedna aplikacija na vašem uređaju ne može to otvoriti</string>
     <string name="chapters">Poglavlja videozapisa</string>
     <string name="description_tab_description">Opis</string>
@@ -688,4 +688,5 @@
     <string name="crash_the_app">Prekini program</string>
     <string name="recaptcha_solve">Riješi</string>
     <string name="night_theme_title">Noćna tema</string>
+    <string name="show_channel_details">Prikaži detalje kanala</string>
 </resources>

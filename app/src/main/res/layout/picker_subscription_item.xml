@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="2dp"
-    android:background="?attr/focused_selector"
+    android:background="?attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true">
 
@@ -42,7 +42,7 @@
         android:id="@+id/selected_highlight"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#9A000000"
+        android:background="?attr/colorControlHighlight"
         android:visibility="gone"
         tools:visibility="visible">
 
@@ -52,7 +52,8 @@
             android:layout_gravity="top|center_horizontal"
             android:layout_marginTop="4dp"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/ic_done_white_24dp"
+            app:tint="@color/white"
+            app:srcCompat="@drawable/ic_done"
             tools:ignore="ContentDescription" />
     </FrameLayout>
 </FrameLayout>

@@ -56,7 +56,7 @@
         android:layout_below="@id/itemCommentContentView"
         android:layout_toRightOf="@+id/itemThumbnailView"
         android:contentDescription="@string/detail_likes_img_view_description"
-        app:srcCompat="?attr/ic_thumb_up" />
+        app:srcCompat="@drawable/ic_thumb_up" />
 
     <TextView
         android:id="@+id/detail_thumbs_up_count_view"

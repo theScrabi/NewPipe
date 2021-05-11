@@ -53,7 +53,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginRight="16dp"
-            app:srcCompat="?attr/ic_expand_more"
+            app:srcCompat="@drawable/ic_expand_more"
             tools:ignore="ContentDescription,RtlHardcoded" />
     </LinearLayout>
 

@@ -14,31 +14,90 @@
         <item name="colorPrimary">@color/light_youtube_primary_color</item>
         <item name="colorPrimaryDark">@color/light_youtube_dark_color</item>
         <item name="colorAccent">@color/light_settings_accent_color</item>
+
+        <item name="actionColor">@color/white</item>
+        <item name="nnf_toolbarTheme">@style/ToolbarTheme</item>
+
         <item name="android:windowBackground">@color/light_background_color</item>
         <item name="nnf_separator_color">@color/light_separator_color</item>
 
         <item name="alertDialogTheme">@style/FilePickerAlertDialogThemeLight</item>
     </style>
 
-    <style name="FilePickerAlertDialogThemeLight" parent="Theme.AppCompat.Dialog.Alert">
-        <item name="colorPrimary">@color/light_youtube_primary_color</item>
-        <item name="colorPrimaryDark">@color/light_youtube_dark_color</item>
-        <item name="colorAccent">@color/light_settings_accent_color</item>
-    </style>
-
     <style name="FilePickerThemeDark" parent="NNF_BaseTheme">
         <item name="colorPrimary">@color/dark_youtube_primary_color</item>
         <item name="colorPrimaryDark">@color/dark_youtube_dark_color</item>
         <item name="colorAccent">@color/dark_settings_accent_color</item>
+
+        <item name="actionColor">@color/white</item>
+        <item name="nnf_toolbarTheme">@style/ToolbarTheme</item>
+
         <item name="android:windowBackground">@color/dark_background_color</item>
         <item name="nnf_separator_color">@color/black_separator_color</item>
 
         <item name="alertDialogTheme">@style/FilePickerAlertDialogThemeDark</item>
     </style>
 
-    <style name="FilePickerAlertDialogThemeDark" parent="Theme.AppCompat.Dialog.Alert">
+    <style name="FilePickerAlertDialogThemeLight" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+        <item name="colorPrimary">@color/light_youtube_primary_color</item>
+        <item name="colorPrimaryDark">@color/light_youtube_dark_color</item>
+        <item name="colorAccent">@color/light_settings_accent_color</item>
+    </style>
+
+    <style name="FilePickerAlertDialogThemeDark" parent="Theme.AppCompat.DayNight.Dialog.Alert">
         <item name="colorPrimary">@color/dark_youtube_primary_color</item>
         <item name="colorPrimaryDark">@color/dark_youtube_dark_color</item>
         <item name="colorAccent">@color/dark_settings_accent_color</item>
     </style>
+
+    <style name="PlayQueueItemTextTheme">
+        <item name="android:textAppearanceLarge">@style/PlayQueueItemTitle</item>
+        <item name="android:textAppearanceSmall">@style/PlayQueueItemSubtitle</item>
+    </style>
+
+    <style name="PlayQueueItemTitle" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="PlayQueueItemSubtitle" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">@color/white_secondary</item>
+    </style>
+
+    <style name="FloatingActionButtonTheme" parent="Widget.Design.FloatingActionButton">
+        <item name="tint">?attr/actionColor</item>
+    </style>
+
+    <style name="DarkPopupMenu" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:itemBackground">#2E2E2E</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.DayNight.ActionBar</item>
+        <item name="android:textColorPrimary">?attr/actionColor</item>
+        <item name="android:textColorSecondary">?attr/actionColor</item>
+        <item name="tint">?attr/actionColor</item>
+        <item name="iconTint">?attr/actionColor</item>
+    </style>
+    <style name="ContrastToolbarTheme" parent="ThemeOverlay.AppCompat.DayNight.ActionBar">
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.DayNight.ActionBar</item>
+        <item name="android:textColorPrimary">@color/contrastColor</item>
+        <item name="android:textColorSecondary">@color/contrastColor</item>
+        <item name="tint">@color/contrastColor</item>
+        <item name="iconTint">@color/contrastColor</item>
+        <item name="toolbarSearchColor">@color/contrastColor</item>
+    </style>
+
+    <style name="WhiteTintTheme">
+        <item name="tint">@color/white</item>
+        <item name="iconTint">@color/white</item>
+    </style>
+    <style name="ContrastTintTheme">
+        <item name="tint">@color/contrastColor</item>
+        <item name="iconTint">@color/contrastColor</item>
+    </style>
+
+    <style name="ToolbarSearchInputTheme">
+        <item name="colorAccent">?attr/toolbarSearchColor</item>
+    </style>
+
 </resources>

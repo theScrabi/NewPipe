@@ -229,8 +229,10 @@ abstract class BasePlayerGestureListener(
         // because the soft input is visible (the draggable area is currently resized).
         player.updateScreenSize()
         player.checkPopupPositionBounds()
-        initialPopupX = player.popupLayoutParams!!.x
-        initialPopupY = player.popupLayoutParams!!.y
+        player.popupLayoutParams?.let {
+            initialPopupX = it.x
+            initialPopupY = it.y
+        }
         return super.onDown(e)
     }
 
@@ -466,7 +468,7 @@ abstract class BasePlayerGestureListener(
     // ///////////////////////////////////////////////////////////////////
 
     private fun getDisplayPortion(e: MotionEvent): DisplayPortion {
-        return if (player.playerType == MainPlayer.PlayerType.POPUP) {
+        return if (player.playerType == MainPlayer.PlayerType.POPUP && player.popupLayoutParams != null) {
             when {
                 e.x < player.popupLayoutParams!!.width / 3.0 -> DisplayPortion.LEFT
                 e.x > player.popupLayoutParams!!.width * 2.0 / 3.0 -> DisplayPortion.RIGHT

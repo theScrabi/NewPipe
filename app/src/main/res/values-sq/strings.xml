@@ -643,7 +643,7 @@
     <string name="show_thumbnail_title">Shfaq pamjen miniaturë</string>
     <string name="msg_calculating_hash">Duke llogaritur hash</string>
     <string name="description_tab_description">Përshkrimi</string>
-    <string name="related_streams_tab_description">Streams të ngjashme</string>
+    <string name="related_items_tab_description">Streams të ngjashme</string>
     <string name="comments_tab_description">Komentet</string>
     <string name="hash_channel_description">Njoftimet mbi progresin e hash-imit të videove</string>
     <string name="hash_channel_name">Njoftimi për Hash e Videos</string>

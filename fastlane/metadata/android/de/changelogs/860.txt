@@ -1,0 +1,7 @@
+Verbesserungen
+• Sichern und wiederherstellen ob Tonhöhe und Geschwindigkeit gekoppelt sein sollen oder nicht
+• Das Ausschalten des Bildschirms während dem Abspielen
+• Anzahl an Aufrufen und Abonnenten gerundet
+• YouTube optimiert um weniger Daten zu verbrauchen
+
+Mehr als 15 weitere YouTube bezogene Fehler wurden behoben.

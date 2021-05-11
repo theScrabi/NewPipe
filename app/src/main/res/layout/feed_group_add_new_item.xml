@@ -24,7 +24,7 @@
             android:layout_height="14dp"
             android:layout_gravity="center"
             android:scaleType="centerInside"
-            app:srcCompat="?attr/ic_add"
+            app:srcCompat="@drawable/ic_add"
             tools:ignore="ContentDescription" />
 
         <TextView

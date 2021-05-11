@@ -5,28 +5,28 @@
 
     <item
         android:id="@+id/switch_mode"
-        android:icon="?attr/ic_grid"
+        android:icon="@drawable/ic_apps"
         android:title="@string/grid"
         app:showAsAction="always"
         tools:ignore="AlwaysShowAction" />
 
     <item
         android:id="@+id/start_downloads"
-        android:icon="?attr/ic_play_arrow"
+        android:icon="@drawable/ic_play_arrow"
         android:title="@string/start_downloads"
         android:visible="false"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/pause_downloads"
-        android:icon="?attr/ic_pause"
+        android:icon="@drawable/ic_pause"
         android:title="@string/pause_downloads"
         android:visible="false"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/clear_list"
-        android:icon="?attr/ic_delete"
+        android:icon="@drawable/ic_delete"
         android:title="@string/clear_download_history"
         android:visible="false"
         app:showAsAction="ifRoom" />

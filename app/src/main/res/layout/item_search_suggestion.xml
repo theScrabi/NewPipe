@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:theme="@style/ContrastTintTheme">
 
     <LinearLayout
         android:id="@+id/suggestion_search"
@@ -29,7 +30,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             tools:ignore="ContentDescription,RtlHardcoded"
-            tools:src="?attr/ic_history" />
+            tools:src="@drawable/ic_history" />
 
         <TextView
             android:id="@+id/item_suggestion_query"
@@ -63,7 +64,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_gravity="center"
-            app:srcCompat="?attr/ic_search_add"
+            app:srcCompat="@drawable/ic_search_add"
             tools:ignore="ContentDescription,RtlHardcoded" />
     </LinearLayout>
 

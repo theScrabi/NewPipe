@@ -55,6 +55,14 @@ public class Deleter {
     }
 
     public void append(Mission item) {
+
+        /* If a mission is removed from the list while the Snackbar for a previously
+         * removed item is still showing, commit the action for the previous item
+         * immediately. This prevents Snackbars from stacking up in reverse order.
+         */
+        mHandler.removeCallbacks(rCommit);
+        commit();
+
         mIterator.hide(item);
         items.add(0, item);
 

@@ -62,7 +62,8 @@ public final class NavigationHelper {
     public static final String MAIN_FRAGMENT_TAG = "main_fragment_tag";
     public static final String SEARCH_FRAGMENT_TAG = "search_fragment_tag";
 
-    private NavigationHelper() { }
+    private NavigationHelper() {
+    }
 
     /*//////////////////////////////////////////////////////////////////////////
     // Players
@@ -111,18 +112,22 @@ public final class NavigationHelper {
     public static void playOnMainPlayer(final AppCompatActivity activity,
                                         @NonNull final PlayQueue playQueue) {
         final PlayQueueItem item = playQueue.getItem();
-        assert item != null;
-        openVideoDetailFragment(activity, activity.getSupportFragmentManager(),
-                item.getServiceId(), item.getUrl(), item.getTitle(), playQueue, false);
+        if (item != null) {
+            openVideoDetailFragment(activity, activity.getSupportFragmentManager(),
+                    item.getServiceId(), item.getUrl(), item.getTitle(), playQueue,
+                    false);
+        }
     }
 
     public static void playOnMainPlayer(final Context context,
                                         @NonNull final PlayQueue playQueue,
                                         final boolean switchingPlayers) {
         final PlayQueueItem item = playQueue.getItem();
-        assert item != null;
-        openVideoDetail(context,
-                item.getServiceId(), item.getUrl(), item.getTitle(), playQueue, switchingPlayers);
+        if (item != null) {
+            openVideoDetail(context,
+                    item.getServiceId(), item.getUrl(), item.getTitle(), playQueue,
+                    switchingPlayers);
+        }
     }
 
     public static void playOnPopupPlayer(final Context context,

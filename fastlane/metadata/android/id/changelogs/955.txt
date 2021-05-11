@@ -1,0 +1,3 @@
+[YouTube] Perbaiki pencarian untuk beberapa pengguna
+[YouTube] Perbaiki pengecualian dekripsi acak
+[SoundCloud] URL yang berakhir dengan garis miring sekarang diuraikan dengan benar

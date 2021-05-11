@@ -1,0 +1,8 @@
+### Hobekuntzak
+- Inportatu/esportatu ezarpenak #1333
+- Murriztu gainmarrazketa (errendimendu hobekuntza) #1371
+- Kode hobekuntza txikiak #1375
+- Gehitu GDPR-i buruzko guztia #1420
+
+### Konponduta
+- Deskargatzailea: hutsegitea bukatu gabeko deskargatutako .giga fitxategiak kargatzen saiatzerakoan #1407

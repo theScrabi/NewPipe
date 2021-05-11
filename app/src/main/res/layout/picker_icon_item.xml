@@ -11,4 +11,4 @@
     android:padding="8dp"
     android:scaleType="centerInside"
     tools:ignore="ContentDescription"
-    tools:src="?attr/ic_rss" />
+    tools:src="@drawable/ic_rss_feed" />

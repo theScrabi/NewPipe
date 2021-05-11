@@ -18,10 +18,12 @@
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:hint="@string/search"
+        android:textColor="?attr/toolbarSearchColor"
         android:imeOptions="actionSearch|flagNoFullscreen"
         android:inputType="textFilter|textNoSuggestions"
         android:maxLines="1"
         android:nextFocusDown="@+id/suggestions_list"
+        android:theme="@style/ToolbarSearchInputTheme"
         tools:ignore="RtlHardcoded" />
 
     <FrameLayout
@@ -40,12 +42,14 @@
             android:background="?attr/selectableItemBackgroundBorderless" />
 
         <ImageView
+            android:id="@+id/toolbar_search_clear_icon"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center"
             android:contentDescription="@string/search"
             android:scaleType="fitCenter"
-            app:srcCompat="?attr/ic_close"
+            app:tint="?attr/toolbarSearchColor"
+            app:srcCompat="@drawable/ic_close"
             tools:ignore="RtlHardcoded" />
     </FrameLayout>
 

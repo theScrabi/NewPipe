@@ -1,0 +1,8 @@
+### Täiustused
+- Impordi/ekspordi seaded #1333
+- Ülejoonistamise vähendamine (jõudluse parendus) #1371
+- Väikesed koodi täiustused #1375
+- Lisandus igasugune kasutaja andmete kaitse (GDPR) tugi #1420
+
+### Parandused
+- Alla laadija: Parandati krahh, mille põhjustas katkenud .giga failide alla laadimine #1407

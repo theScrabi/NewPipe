@@ -22,7 +22,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            app:srcCompat="?attr/ic_filter_list"
+            app:srcCompat="@drawable/ic_filter_list"
             tools:ignore="ContentDescription,RtlHardcoded" />
 
         <TextView

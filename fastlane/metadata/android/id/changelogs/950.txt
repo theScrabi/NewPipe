@@ -1,0 +1,4 @@
+Rilis terbaru dengan perbaikan kecil:
+• Memperbaiki akses penyimpanan di Adroid 10+
+• Memperbaiki pembuka kiosks
+• Memperbaiki pemecah lama video

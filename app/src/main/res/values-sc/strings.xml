@@ -657,7 +657,7 @@
     <string name="no_app_to_open_intent">Peruna aplicatzione in su dispositivu tuo podet abèrrere custu</string>
     <string name="chapters">Capìtulos</string>
     <string name="description_tab_description">Descritzione</string>
-    <string name="related_streams_tab_description">Flussos ligados</string>
+    <string name="related_items_tab_description">Flussos ligados</string>
     <string name="comments_tab_description">Cummentos</string>
     <string name="show_description_summary">Istuda pro cuare sa descritzione de su vìdeu e sas informatziones additzionales</string>
     <string name="show_description_title">Ammustra sa descritzione</string>
@@ -673,4 +673,10 @@
     <string name="radio">Ràdiu</string>
     <string name="featured">In evidèntzia</string>
     <string name="recaptcha_solve">Risolve</string>
+    <string name="download_has_started">S\'iscarrigamentu est incumintzadu</string>
+    <string name="select_night_theme_toast">Podes ischertare su tema pro sa note preferidu tuo inoghe in suta</string>
+    <string name="night_theme_summary">Ischerta su tema pro sa note preferidu tuo — %s</string>
+    <string name="auto_device_theme_title">Automàticu (tema de su dispositivu)</string>
+    <string name="night_theme_title">Tema pro sa note</string>
+    <string name="show_channel_details">Ammustra sos detàllios de su canale</string>
 </resources>

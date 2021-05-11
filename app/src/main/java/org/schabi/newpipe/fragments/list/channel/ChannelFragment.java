@@ -449,8 +449,8 @@ public class ChannelFragment extends BaseListInfoFragment<ChannelInfo>
 
         if (!TextUtils.isEmpty(currentInfo.getParentChannelName())) {
             headerBinding.subChannelTitleView.setText(String.format(
-                            getString(R.string.channel_created_by),
-                            currentInfo.getParentChannelName())
+                    getString(R.string.channel_created_by),
+                    currentInfo.getParentChannelName())
             );
             headerBinding.subChannelTitleView.setVisibility(View.VISIBLE);
             headerBinding.subChannelAvatarView.setVisibility(View.VISIBLE);
@@ -462,7 +462,13 @@ public class ChannelFragment extends BaseListInfoFragment<ChannelInfo>
             menuRssButton.setVisible(!TextUtils.isEmpty(result.getFeedUrl()));
         }
 
-        playlistControlBinding.getRoot().setVisibility(View.VISIBLE);
+        // PlaylistControls should be visible only if there is some item in
+        // infoListAdapter other than header
+        if (infoListAdapter.getItemCount() != 1) {
+            playlistControlBinding.getRoot().setVisibility(View.VISIBLE);
+        } else {
+            playlistControlBinding.getRoot().setVisibility(View.GONE);
+        }
 
         for (final Throwable throwable : result.getErrors()) {
             if (throwable instanceof ContentNotSupportedException) {

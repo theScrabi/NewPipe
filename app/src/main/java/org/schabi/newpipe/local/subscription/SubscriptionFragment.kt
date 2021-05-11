@@ -1,7 +1,6 @@
 package org.schabi.newpipe.local.subscription
 
 import android.app.Activity
-import android.app.AlertDialog
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.DialogInterface
@@ -17,6 +16,7 @@ import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.preference.PreferenceManager
@@ -62,7 +62,6 @@ import org.schabi.newpipe.util.FilePickerActivityHelper
 import org.schabi.newpipe.util.NavigationHelper
 import org.schabi.newpipe.util.OnClickGesture
 import org.schabi.newpipe.util.ShareUtils
-import org.schabi.newpipe.util.ThemeHelper
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -209,7 +208,8 @@ class SubscriptionFragment : BaseStateFragment<SubscriptionState>() {
         if (data != null && data.data != null && resultCode == Activity.RESULT_OK) {
             if (requestCode == REQUEST_EXPORT_CODE) {
                 val exportFile = Utils.getFileForUri(data.data!!)
-                if (!exportFile.parentFile.canWrite() || !exportFile.parentFile.canRead()) {
+                val parentFile = exportFile.parentFile!!
+                if (!parentFile.canWrite() || !parentFile.canRead()) {
                     Toast.makeText(activity, R.string.invalid_directory, Toast.LENGTH_SHORT).show()
                 } else {
                     activity.startService(
@@ -257,7 +257,7 @@ class SubscriptionFragment : BaseStateFragment<SubscriptionState>() {
             feedGroupsCarousel = FeedGroupCarouselItem(requireContext(), carouselAdapter)
             feedGroupsSortMenuItem = HeaderWithMenuItem(
                 getString(R.string.feed_groups_header_title),
-                ThemeHelper.resolveResourceIdFromAttr(requireContext(), R.attr.ic_sort),
+                R.drawable.ic_sort,
                 menuItemOnClickListener = ::openReorderDialog
             )
             add(Section(feedGroupsSortMenuItem, listOf(feedGroupsCarousel)))

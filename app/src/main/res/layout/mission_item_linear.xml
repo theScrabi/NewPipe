@@ -18,7 +18,8 @@
             android:contentDescription="TODO"
             android:gravity="center"
             android:padding="15dp"
-            android:scaleType="fitXY" />
+            android:scaleType="fitXY"
+            app:tint="?attr/actionColor" />
 
         <TextView
             android:id="@+id/item_name"
@@ -71,7 +72,8 @@
             android:layout_marginRight="4dp"
             android:contentDescription="TODO"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/ic_more_vert_white_24dp" />
+            app:srcCompat="@drawable/ic_more_vert"
+            app:tint="?attr/actionColor" />
 
     </RelativeLayout>
 

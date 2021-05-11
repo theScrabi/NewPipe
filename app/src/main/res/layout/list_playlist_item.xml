@@ -38,7 +38,7 @@
         android:textColor="@color/duration_text_color"
         android:textSize="@dimen/video_item_search_duration_text_size"
         android:textStyle="bold"
-        app:drawableTopCompat="@drawable/ic_playlist_play_white_24dp"
+        app:drawableTopCompat="@drawable/ic_playlist_play"
         tools:ignore="RtlHardcoded"
         tools:text="314159" />
 

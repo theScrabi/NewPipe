@@ -12,7 +12,6 @@
         android:paddingBottom="@dimen/activity_vertical_margin">
 
         <TextView
-            android:id="@+id/app_license_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -23,7 +22,6 @@
             android:textAppearance="@android:style/TextAppearance.Large" />
 
         <TextView
-            android:id="@+id/app_license"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -31,7 +29,7 @@
             android:text="@string/app_license" />
 
         <Button
-            android:id="@+id/app_read_license"
+            android:id="@+id/licenses_app_read_license"
             style="@style/Base.Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,7 +47,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <LinearLayout
-            android:id="@+id/software_components"
+            android:id="@+id/licenses_software_components"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" />

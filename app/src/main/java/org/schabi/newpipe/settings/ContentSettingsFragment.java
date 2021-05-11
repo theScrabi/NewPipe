@@ -1,7 +1,6 @@
 package org.schabi.newpipe.settings;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,6 +9,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceManager;
@@ -169,7 +169,7 @@ public class ContentSettingsFragment extends BasePreferenceFragment {
                 final SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US);
                 exportDatabase(path + "/NewPipeData-" + sdf.format(new Date()) + ".zip");
             } else {
-                final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                final AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
                 builder.setMessage(R.string.override_current_data)
                         .setPositiveButton(getString(R.string.finish),
                                 (d, id) -> importDatabase(path))
@@ -215,7 +215,7 @@ public class ContentSettingsFragment extends BasePreferenceFragment {
 
             //If settings file exist, ask if it should be imported.
             if (manager.extractSettings(filePath)) {
-                final AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
+                final AlertDialog.Builder alert = new AlertDialog.Builder(requireContext());
                 alert.setTitle(R.string.import_settings);
 
                 alert.setNegativeButton(android.R.string.no, (dialog, which) -> {

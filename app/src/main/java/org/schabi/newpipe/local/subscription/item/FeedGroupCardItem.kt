@@ -25,7 +25,7 @@ data class FeedGroupCardItem(
 
     override fun bind(viewBinding: FeedGroupCardItemBinding, position: Int) {
         viewBinding.title.text = name
-        viewBinding.icon.setImageResource(icon.getDrawableRes(viewBinding.root.context))
+        viewBinding.icon.setImageResource(icon.getDrawableRes())
     }
 
     override fun initializeViewBinding(view: View) = FeedGroupCardItemBinding.bind(view)

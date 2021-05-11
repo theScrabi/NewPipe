@@ -17,16 +17,16 @@
     <string name="use_external_video_player_title">Použiť externý prehrávač videa</string>
     <string name="use_external_audio_player_title">Použiť externý prehrávač zvuku</string>
     <string name="download_path_title">Prevzaté video ukladať do</string>
-    <string name="download_path_summary">Tu sú uložené stiahnuté video súbory</string>
-    <string name="download_path_dialog_title">Vyberte adresár pre ukladanie video súborov</string>
+    <string name="download_path_summary">Prevzaté video súbory sú uložené tu</string>
+    <string name="download_path_dialog_title">Vyberte priečinok na ukladanie videí</string>
     <string name="download_path_audio_title">Adresár pre stiahnuté audio</string>
     <string name="download_path_audio_dialog_title">Vyberte adresár pre ukladanie audio súborov</string>
-    <string name="download_path_audio_summary">Tu sú uložené stiahnuté audio súbory</string>
+    <string name="download_path_audio_summary">Prevzaté zvukové súbory sú uložené tu</string>
     <string name="default_resolution_title">Štandardné rozlíšenie</string>
     <string name="play_with_kodi_title">Prehrať cez Kodi</string>
     <string name="kore_not_found">Nainštalovať chýbajúcu aplikáciu Kore\?</string>
     <string name="show_play_with_kodi_title">Zobraziť možnosť \"Prehrať cez Kodi\"</string>
-    <string name="show_play_with_kodi_summary">Zobrazovať možnosť prehrať video cez multimediálne centrum Kodi</string>
+    <string name="show_play_with_kodi_summary">Zobraziť možnosť \"Prehraj cez Kodi\"</string>
     <string name="play_audio">Zvuk</string>
     <string name="default_audio_format_title">Predvolený zvukový formát</string>
     <string name="theme_title">Téma</string>
@@ -54,7 +54,7 @@
     <string name="use_tor_title">Použiť Tor</string>
     <string name="use_tor_summary">(Experimentálne) Vyžadovať preberanie cez Tor pre väčšie súkromie (streamovanie videa momentálne nie je podporované).</string>
     <string name="err_dir_create">Nemožno vytvoriť adresár na preberanie \'%1$s\'</string>
-    <string name="info_dir_created">Adresár na preberanie bol vytvorený \'%1$s\'</string>
+    <string name="info_dir_created">Zložka na preberanie bola vytvorená \'%1$s\'</string>
     <string name="main_bg_subtitle">Ťuknite na \"Vyhľadávanie\"
 \n</string>
     <string name="autoplay_by_calling_app_title">Automatické prehrávanie</string>
@@ -69,7 +69,7 @@
     <string name="sorry_string">Pardon, toto sa nemalo stať.</string>
     <string name="error_report_button_text">Nahlásiť túto chybu mejlom</string>
     <string name="error_snackbar_message">Pardon, niečo sa pokazilo.</string>
-    <string name="error_snackbar_action">Nahlásiť</string>
+    <string name="error_snackbar_action">Správa</string>
     <string name="what_device_headline">Info:</string>
     <string name="what_happened_headline">Čo sa stalo:</string>
     <string name="your_comment">Váš komentár (v Angličtine):</string>
@@ -79,7 +79,7 @@
     <string name="video">Video</string>
     <string name="audio">Zvuk</string>
     <string name="retry">Znova</string>
-    <string name="storage_permission_denied">Najskôr povoľte prístup na úložisko</string>
+    <string name="storage_permission_denied">Najprv povoľte prístup k uložisku</string>
     <string name="start">Štart</string>
     <string name="pause">Pauza</string>
     <string name="view">Prehrať</string>
@@ -110,7 +110,7 @@
     <string name="channel">Kanál</string>
     <string name="short_thousand">k</string>
     <string name="short_million">M</string>
-    <string name="short_billion">mld.</string>
+    <string name="short_billion">B</string>
     <string name="recaptcha_request_toast">Požiadavka reCAPTCHA</string>
     <string name="yes">Áno</string>
     <string name="later">Neskôr</string>
@@ -129,7 +129,7 @@
     <string name="filter">Filter</string>
     <string name="refresh">Obnoviť</string>
     <string name="clear">Vyčistiť</string>
-    <string name="use_external_video_player_summary">Odoberie audio pri niektorých rozlíšeniach</string>
+    <string name="use_external_video_player_summary">Neprehrá audio pri niektorých rozlíšeniach</string>
     <string name="popup_remember_size_pos_title">Zapamätať si parametre mini okna</string>
     <string name="popup_remember_size_pos_summary">Zapamätať si posledné nastavenie veľkosti a pozície mini okna</string>
     <string name="player_gesture_controls_title">Ovládanie prehrávača gestami</string>
@@ -151,7 +151,7 @@
     <string name="enable_watch_history_title">História pozretí</string>
     <string name="enable_watch_history_summary">Ukladať históriu pozretých videí</string>
     <string name="resume_on_audio_focus_gain_title">Pokračovať v prehrávaní</string>
-    <string name="resume_on_audio_focus_gain_summary">Pokračovať po prerušeniach (napr. hlasový hovor)</string>
+    <string name="resume_on_audio_focus_gain_summary">Pokračovať po prerušeniach (napr. telefonát)</string>
     <string name="notification_channel_name">NewPipe notifikácie</string>
     <string name="notification_channel_description">Notifikácie pre NewPipe na pozadí a v mini okne</string>
     <string name="settings_category_downloads_title">Preberanie</string>
@@ -170,7 +170,7 @@
     <string name="tab_about">O</string>
     <string name="tab_contributors">Prispievatelia</string>
     <string name="tab_licenses">Licencie</string>
-    <string name="app_description">Ľahké streamovanie v systéme Android.</string>
+    <string name="app_description">Ľahké prehrávanie na Androide.</string>
     <string name="view_on_github">Pozrieť na GitHube</string>
     <string name="app_license_title">Licencia NewPipe</string>
     <string name="contribution_encouragement">Či už máte nápady, prekladáte, spravíte zmenu dizajnu, čistenie kódu alebo skutočné ťažké zmeny v kóde, pomoc je vždy vítaná. Čím viac, tým lepšie!</string>
@@ -246,7 +246,7 @@
     <string name="dismiss">Zrušiť</string>
     <string name="rename">Premenovať</string>
     <string name="donation_title">Prispieť</string>
-    <string name="donation_encouragement">Aplikácia NewPipe je vyvíjaná dobrovoľníkmi. Ak sa vám aplikácia páči, odmeňte vývojárov aby mohli NewPipe naďalej vylepšovať. Určite ich poteší napríklad šálka dobrej kávy.</string>
+    <string name="donation_encouragement">Aplikácia NewPipe je vyvíjaná dobrovoľníkmi v ich voľnom čase snažiac sa vám priniesť najlepší zážitok z appky, ak sa vám páči, odmeňte vývojárov aby mohli NewPipe naďalej vylepšovať napríklad pri šálke dobrej kávy.</string>
     <string name="give_back">Daruj</string>
     <string name="website_title">Webstránka</string>
     <string name="website_encouragement">Pre viac informácií a noviniek navštívte webstránku NewPipe.</string>
@@ -264,8 +264,8 @@
     <string name="select_a_channel">Vyberte si kanál</string>
     <string name="no_channel_subscribed_yet">Zatiaľ nemáte žiadne odbery kanálov</string>
     <string name="select_a_kiosk">Vyberte si kiosk</string>
-    <string name="export_complete_toast">Vyexportované</string>
-    <string name="import_complete_toast">Naimportované</string>
+    <string name="export_complete_toast">Export dokončený</string>
+    <string name="import_complete_toast">Import dokončený</string>
     <string name="no_valid_zip_file">Neplatný ZIP súbor</string>
     <string name="could_not_import_all_files">Upozornenie: Nemožno importovať všetky súbory.</string>
     <string name="override_current_data">Toto prepíše vaše aktuálne nastavenie.</string>
@@ -279,7 +279,7 @@
     <string name="hold_to_append">Podržaním pridať do zoznamu</string>
     <string name="start_here_on_main">Prehrať odtiaľto</string>
     <string name="start_here_on_background">Prehrať (zvuk) odtiaľto na pozadí</string>
-    <string name="start_here_on_popup">Začať prehrávanie v mini okne</string>
+    <string name="start_here_on_popup">Spustiť prehrávanie vo vyskakovacom okne</string>
     <string name="drawer_open">Otvoriť zásuvku</string>
     <string name="drawer_close">Zavrieť zásuvku</string>
     <string name="video_player">Prehrávač videa</string>
@@ -306,7 +306,7 @@
     <string name="resize_fill">Vyplniť</string>
     <string name="resize_zoom">Zväčšiť</string>
     <string name="use_inexact_seek_title">Používať rýchly posun</string>
-    <string name="use_inexact_seek_summary">Rýchly posun umožňuje prejsť na novú pozíciu rýchlejšie, ale s menšou presnosťou. Posúvanie o 5, 15 alebo 25 sekúnd s týmto nastavením nefunguje.</string>
+    <string name="use_inexact_seek_summary">Rýchly posun umožňuje prejsť na novú pozíciu rýchlejšie, ale s menšou presnosťou. Posun o 5, 15 alebo 25 sekúnd v tomto prípade nie je možný.</string>
     <string name="download_thumbnail_title">Načítanie miniatúr</string>
     <string name="download_thumbnail_summary">Vypnutím tejto funkcie sa nebudú vytvárať miniatúry a tým sa ušetrí miesto a pamäť. Zmena nastavení spôsobuje vyčistenie vyrovnávacej pamäte.</string>
     <string name="thumbnail_cache_wipe_complete_notice">Vyrovnávacia pamäť obrázkov vymazaná</string>
@@ -314,7 +314,7 @@
     <string name="metadata_cache_wipe_summary">Odstrániť všetky údaje webových stránok vo vyrovnávacej pamäti</string>
     <string name="metadata_cache_wipe_complete_notice">Vyrovnávacia pamäť metadát bola vymazaná</string>
     <string name="auto_queue_title">Automaticky zaradiť daľší stream</string>
-    <string name="auto_queue_summary">Pokračovať v prehrávaní súvisiacich streamov</string>
+    <string name="auto_queue_summary">Končiaci neopakujúci sa zoznam prehrávania bude pokračovať súvisiacim streamom</string>
     <string name="settings_category_debug_title">Ladenie</string>
     <string name="file">Súbor</string>
     <string name="invalid_directory">Neplatný adresár</string>
@@ -412,7 +412,7 @@
     <string name="app_update_notification_channel_description">Upozornenia na novú verziu NewPipe</string>
     <string name="download_to_sdcard_error_title">Externé úložisko je nedostupné</string>
     <string name="download_to_sdcard_error_message">Sťahovanie na externú SD kartu nie je možné. Obnoviť umiestnenie priečinka na sťahovanie\?</string>
-    <string name="saved_tabs_invalid_json">Nemožno načítať uložené karty, použijú sa predvolené</string>
+    <string name="saved_tabs_invalid_json">Chyba pri načítavaní uložených kariet, použijú sa predvolené</string>
     <string name="restore_defaults">Obnoviť predvolené nastavenia</string>
     <string name="restore_defaults_confirmation">Chcete obnoviť predvolené hodnoty\?</string>
     <string name="subscribers_count_not_available">Počet odberateľov nie je k dispozícii</string>
@@ -466,7 +466,7 @@
     <string name="no_comments">Žiadne komentáre</string>
     <string name="error_unable_to_load_comments">Nemožno načítať komentáre</string>
     <string name="close">Zatvoriť</string>
-    <string name="enable_playback_resume_title">Pokračovať v prehrávaní</string>
+    <string name="enable_playback_resume_title">Obnoviť prehrávanie</string>
     <string name="enable_playback_resume_summary">Obnovenie poslednej pozície prehrávania</string>
     <string name="enable_playback_state_lists_title">Poradie v zoznamoch</string>
     <string name="enable_playback_state_lists_summary">Zobraziť indikátory polohy prehrávania v zoznamoch</string>
@@ -513,7 +513,7 @@
     <string name="seek_duration_title">Dĺžka rýchleho pretáčania</string>
     <string name="peertube_instance_url_title">Inštancie PeerTube</string>
     <string name="peertube_instance_url_summary">Vyberte si svoje obľúbené inštancie PeerTube</string>
-    <string name="peertube_instance_url_help">Vyhladať inštancie, ktoré sa vám páčia, na %s</string>
+    <string name="peertube_instance_url_help">Nájdite inštancie, ktoré chcete na %s</string>
     <string name="peertube_instance_add_title">Pridať inštanciu</string>
     <string name="peertube_instance_add_help">Vložiť URL inštancie</string>
     <string name="peertube_instance_add_fail">Nepodarilo sa overiť inštanciu</string>
@@ -666,7 +666,7 @@
     <string name="show_meta_info_title">Zobrazovať meta informácie</string>
     <string name="chapters">Kapitoly</string>
     <string name="description_tab_description">Popis</string>
-    <string name="related_streams_tab_description">Súvisiace streamy</string>
+    <string name="related_items_tab_description">Súvisiace streamy</string>
     <string name="comments_tab_description">Komentáre</string>
     <string name="show_description_summary">Vypnutím skryjete popis videa a ďalšie informácie</string>
     <string name="show_description_title">Zobraziť popis</string>
@@ -680,4 +680,13 @@
     <string name="crash_the_app">Vynútiť zastavenie</string>
     <string name="restricted_video_no_stream">Toto video je vekovo obmedzené.
 \nNewPipe ho nemôže prehrať z dôvodu nových pravidiel služby YouTube pre videá s vekovým obmedzením.</string>
+    <string name="download_has_started">Sťahovanie začalo</string>
+    <string name="select_night_theme_toast">Dolu si môžete vybrať svoju obľúbenú nočnú tému</string>
+    <string name="night_theme_summary">Vyberte si svoju obľúbenú nočnú tému — %s</string>
+    <string name="auto_device_theme_title">Automatická (téma zariadenia)</string>
+    <string name="radio">Rádio</string>
+    <string name="featured">Najlepšie</string>
+    <string name="show_channel_details">Zobraziť podrobnosti kanála</string>
+    <string name="recaptcha_solve">Vyrieš</string>
+    <string name="night_theme_title">Nočná Téma</string>
 </resources>

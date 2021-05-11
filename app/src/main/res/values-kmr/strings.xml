@@ -73,7 +73,7 @@
     <string name="use_tor_summary">(Ceribandî) Ji bo nepeniya zêde trafîka dakêşanê bi rêya Tor bikişîne (vîdyoyên weşanê hîn piştgirî nabin).</string>
     <string name="use_tor_title">Tor bikar bînin</string>
     <string name="description_tab_description">Terîf</string>
-    <string name="related_streams_tab_description">Çemên pêwendîdar</string>
+    <string name="related_items_tab_description">Çemên pêwendîdar</string>
     <string name="comments_tab_description">Îrove</string>
     <string name="detail_dislikes_img_view_description">Hejmara nefretan</string>
     <string name="detail_likes_img_view_description">Evîn</string>
@@ -200,7 +200,6 @@
     <string name="title_activity_history">Dîrok</string>
     <string name="read_full_license">Destûrê bixwînin</string>
     <string name="app_license">NewPipe nermalava kopîleft libre ye: Hûn dikarin li gorî kêfa xwe bikar bînin, parve bikin û baştir bikin. Bi taybetî hûn dikarin wê di bin mercên Lîsansa Giştî ya GNU ya Giştî ya ku ji hêla Weqfa Nermalava Azad ve hatî weşandin de, an guhertoya 3 ya Lîsansê, an jî (li gorî vebijarka we) guhertoyek paşîn ji nû ve belav bikin û / an biguherînin.</string>
-    <string name="popup_resizing_indicator_title">Mezinahî kirin</string>
     <string name="clear">Zelal</string>
     <string name="refresh">Hênikkirin</string>
     <string name="filter">Parzûn</string>

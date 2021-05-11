@@ -1,88 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="ic_thumb_up" format="reference" />
-    <attr name="ic_thumb_down" format="reference" />
-    <attr name="ic_info_outline" format="reference" />
-    <attr name="ic_headset" format="reference" />
-    <attr name="ic_file_download" format="reference" />
-    <attr name="ic_share" format="reference" />
-    <attr name="ic_cast" format="reference" />
-    <attr name="ic_rss" format="reference" />
-    <attr name="ic_search" format="reference" />
-    <attr name="ic_close" format="reference" />
-    <attr name="ic_filter_list" format="reference" />
-    <attr name="ic_popup" format="reference" />
-    <attr name="ic_expand_more" format="reference" />
-    <attr name="ic_expand_less" format="reference" />
-    <attr name="ic_volume_off" format="reference" />
-    <attr name="ic_volume_up" format="reference" />
-    <attr name="ic_clear_history" format="reference" />
-    <attr name="ic_palette" format="reference" />
-    <attr name="ic_language" format="reference" />
-    <attr name="ic_history" format="reference" />
-    <attr name="ic_drag_handle" format="reference" />
+
     <attr name="ic_selected" format="reference" />
-    <attr name="ic_search_add" format="reference" />
-    <attr name="ic_options" format="reference" />
-    <attr name="ic_play_arrow" format="reference" />
-    <attr name="ic_pause" format="reference" />
-    <attr name="ic_bug_report" format="reference" />
-    <attr name="ic_settings" format="reference" />
-    <attr name="ic_kiosk_hot" format="reference" />
-    <attr name="ic_kiosk_local" format="reference" />
-    <attr name="ic_kiosk_recent" format="reference" />
-    <attr name="ic_channel" format="reference" />
-    <attr name="ic_bookmark" format="reference" />
-    <attr name="ic_playlist_add" format="reference" />
-    <attr name="ic_playlist_check" format="reference" />
-    <attr name="ic_import_export" format="reference" />
-    <attr name="ic_save" format="reference" />
-    <attr name="ic_backup" format="reference" />
-    <attr name="ic_add" format="reference" />
-    <attr name="ic_restore_defaults" format="reference" />
-    <attr name="ic_blank_page" format="reference" />
-    <attr name="ic_refresh" format="reference" />
-    <attr name="ic_list" format="reference" />
-    <attr name="ic_grid" format="reference" />
-    <attr name="ic_delete" format="reference" />
-    <attr name="ic_settings_update" format="reference" />
-    <attr name="ic_done" format="reference" />
-    <attr name="ic_computer" format="reference" />
-    <attr name="ic_videogame_asset" format="reference" />
-    <attr name="ic_music_note" format="reference" />
-    <attr name="ic_stars" format="reference" />
-    <attr name="ic_sports" format="reference" />
-    <attr name="ic_money" format="reference" />
-    <attr name="ic_person" format="reference" />
-    <attr name="ic_people" format="reference" />
-    <attr name="ic_heart" format="reference" />
-    <attr name="ic_child_care" format="reference" />
-    <attr name="ic_fastfood" format="reference" />
-    <attr name="ic_car" format="reference" />
-    <attr name="ic_motorcycle" format="reference" />
-    <attr name="ic_trending_up" format="reference" />
-    <attr name="ic_school" format="reference" />
-    <attr name="ic_asterisk" format="reference" />
-    <attr name="ic_smile" format="reference" />
-    <attr name="ic_edit" format="reference" />
-    <attr name="ic_explore" format="reference" />
-    <attr name="ic_fitness_center" format="reference" />
-    <attr name="ic_restaurant" format="reference" />
-    <attr name="ic_mic" format="reference" />
-    <attr name="ic_radio" format="reference" />
-    <attr name="ic_shopping_cart" format="reference" />
-    <attr name="ic_watch_later" format="reference" />
-    <attr name="ic_work" format="reference" />
-    <attr name="ic_movie" format="reference" />
-    <attr name="ic_pets" format="reference" />
-    <attr name="ic_world" format="reference" />
-    <attr name="ic_sunny" format="reference" />
-    <attr name="ic_telescope" format="reference" />
-    <attr name="ic_megaphone" format="reference" />
-    <attr name="ic_sort" format="reference" />
-    <attr name="ic_help" format="reference" />
-    <attr name="ic_arrow_back" format="reference" />
-    <attr name="ic_live_tv" format="reference" />
 
     <attr name="progress_horizontal_drawable" format="reference" />
     <!-- Can't refer to colors directly in drawable's xml-->
@@ -92,11 +11,12 @@
     <attr name="focused_selector" format="reference" />
     <attr name="dashed_border" format="reference" />
 
+    <attr name="actionColor" format="color" />
     <attr name="separator_color" format="color" />
-    <attr name="queue_background_color" format="color" />
     <attr name="contrast_background_color" format="color" />
     <attr name="windowBackground" format="color" />
     <attr name="colorPrimary" format="color" />
+    <attr name="toolbarSearchColor" format="reference|color" />
 
     <attr name="card_item_background_color" format="color" />
     <attr name="card_item_contrast_color" format="color" />

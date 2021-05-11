@@ -23,7 +23,7 @@ import com.google.android.exoplayer2.Player.RepeatMode;
 import com.google.android.exoplayer2.SeekParameters;
 import com.google.android.exoplayer2.text.CaptionStyleCompat;
 import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
-import com.google.android.exoplayer2.trackselection.TrackSelection;
+import com.google.android.exoplayer2.trackselection.ExoTrackSelection;
 import com.google.android.exoplayer2.ui.AspectRatioFrameLayout;
 import com.google.android.exoplayer2.ui.AspectRatioFrameLayout.ResizeMode;
 import com.google.android.exoplayer2.util.MimeTypes;
@@ -180,10 +180,10 @@ public final class PlayerHelper {
      * if a candidate next video's url already exists in the existing items.
      * </p>
      * <p>
-     * The first item in {@link StreamInfo#getRelatedStreams()} is checked first.
+     * The first item in {@link StreamInfo#getRelatedItems()} is checked first.
      * If it is non-null and is not part of the existing items, it will be used as the next stream.
-     * Otherwise, a random item with non-repeating url will be selected
-     * from the {@link StreamInfo#getRelatedStreams()}.
+     * Otherwise, a random stream with non-repeating url will be selected
+     * from the {@link StreamInfo#getRelatedItems()}. Non-stream items are ignored.
      * </p>
      *
      * @param info          currently playing stream
@@ -198,7 +198,7 @@ public final class PlayerHelper {
             urls.add(item.getUrl());
         }
 
-        final List<InfoItem> relatedItems = info.getRelatedStreams();
+        final List<InfoItem> relatedItems = info.getRelatedItems();
         if (Utils.isNullOrEmpty(relatedItems)) {
             return null;
         }
@@ -297,7 +297,7 @@ public final class PlayerHelper {
     }
 
     public static long getPreferredFileSize() {
-        return 512 * 1024L;
+        return 2 * 1024 * 1024L; // ExoPlayer CacheDataSink.MIN_RECOMMENDED_FRAGMENT_SIZE
     }
 
     /**
@@ -323,7 +323,7 @@ public final class PlayerHelper {
         return 60000;
     }
 
-    public static TrackSelection.Factory getQualitySelector() {
+    public static ExoTrackSelection.Factory getQualitySelector() {
         return new AdaptiveTrackSelection.Factory(
                 1000,
                 AdaptiveTrackSelection.DEFAULT_MAX_DURATION_FOR_QUALITY_DECREASE_MS,

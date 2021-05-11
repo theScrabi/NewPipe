@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <color name="modeColor">@color/white</color>
+    <color name="contrastColor">@color/black</color>
+
     <color name="ic_launcher_background">#CD201F</color>
 
     <!-- Light Theme -->
@@ -44,6 +48,7 @@
     <color name="black_border_color">#25FFFFFF</color>
 
     <!-- Miscellaneous -->
+    <color name="queue_background_color">@color/dark_queue_background_color</color>
     <color name="drawer_header_font_color">#F2FFFFFF</color>
     <color name="duration_background_color">#aa000000</color>
     <color name="live_duration_background_color">#c8E53935</color>
@@ -76,6 +81,8 @@
 
     <!-- GigaGet Component colors -->
     <color name="white">#FFFFFF</color>
+    <color name="white_secondary">#C9CACB</color>
+
     <color name="light_gray">#EFEFEF</color>
     <color name="middle_gray">#E0E0E0</color>
     <color name="gray">#616161</color>

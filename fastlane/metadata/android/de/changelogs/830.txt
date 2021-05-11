@@ -1,1 +1,1 @@
-Aktualisierung der SoundCloud client ID zur behebung von SoundCloud Problemen.
+Aktualisierung der SoundCloud client_id, um SoundCloud-Probleme zu beheben.

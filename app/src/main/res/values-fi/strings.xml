@@ -658,6 +658,24 @@
     <string name="no_app_to_open_intent">Mikään sovellus laitteessasi ei voi avata tätä</string>
     <string name="chapters">Jaksot</string>
     <string name="description_tab_description">Kuvaus</string>
-    <string name="related_streams_tab_description">Samankaltaiset striimit</string>
+    <string name="related_items_tab_description">Samankaltaiset striimit</string>
     <string name="comments_tab_description">Kommentit</string>
+    <string name="download_has_started">Lataus on alkanut</string>
+    <string name="select_night_theme_toast">Voit valita suosikkiyöteemasi alta</string>
+    <string name="night_theme_summary">Valitse suosikki yöteemasi — %s</string>
+    <string name="auto_device_theme_title">Automaattinen (laitteen teema)</string>
+    <string name="radio">Radio</string>
+    <string name="featured">Esitellyt</string>
+    <string name="paid_content">Tämä sisältö on saatavilla vain maksaneille käyttäjillä, joten NewPipe ei voi suoratoistaa tai ladata sitä.</string>
+    <string name="youtube_music_premium_content">Tämä video on saatavilla vain YouTube Music Premium -jäsenille, joten NewPipe ei voi suoratoistaa tai ladata sitä.</string>
+    <string name="private_content">Tämä sisältö on yksityinen, joten NewPipe ei voi suoratoistaa tai ladata sitä.</string>
+    <string name="soundcloud_go_plus_content">Tämä on SoundCloud Go+ -raita maassasi, joten NewPipe ei voi suoratoistaa tai ladata sitä.</string>
+    <string name="georestricted_content">Tämä sisältö ei ole saatavilla maassasi.</string>
+    <string name="crash_the_app">Kaada sovellus</string>
+    <string name="recaptcha_solve">Ratkaise</string>
+    <string name="hash_channel_description">Ilmoitukset videon hajautuksen etenemisestä</string>
+    <string name="hash_channel_name">Videon hajautusilmoitus</string>
+    <string name="restricted_video_no_stream">Tämä video on ikärajoitettu.
+\nYouTuben uusien ikärajoitusperiaatteiden mukaisesti NewPipella ei ole pääsyä videoon eikä sitä voida toistaa.</string>
+    <string name="night_theme_title">Yöteema</string>
 </resources>

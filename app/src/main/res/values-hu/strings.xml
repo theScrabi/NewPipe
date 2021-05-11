@@ -58,7 +58,7 @@
     <string name="autoplay_by_calling_app_title">Automatikus lejátszás</string>
     <string name="autoplay_by_calling_app_summary">Videók automatikus lejátszása, ha a NewPipe egy másik alkalmazásból lett indítva</string>
     <string name="duration_live">ÉLŐ</string>
-    <string name="error_snackbar_action">JELENTÉS</string>
+    <string name="error_snackbar_action">Jelentés</string>
     <string name="what_device_headline">Információ:</string>
     <string name="what_happened_headline">Ez történt:</string>
     <string name="your_comment">Megjegyzésed (angolul):</string>
@@ -165,7 +165,7 @@
     <string name="invalid_url_toast">Hibás cím</string>
     <string name="video_streams_empty">Nem található videó formátum</string>
     <string name="audio_streams_empty">Nem található hang csatorna</string>
-    <string name="info_labels">Mi:\\nKérés:\\nTartalom nyelve:\\nSzolgáltatás:\\nGMT Idő:\\nCsomag:\\nVerzió:\\nOperációs Rendszer verzió:</string>
+    <string name="info_labels">Mi:\\nKérés:\\nTartalom nyelve:\\nTartalom származási országa:\\nAlkalmazás nyelve:\\nSzolgáltatás:\\nGMT idő:\\nCsomag:\\nVerzió:\\nOperációs rendszer verzió:</string>
     <string name="search_no_results">Nincs találat</string>
     <string name="controls_download_desc">Adatfolyam fájl letöltése</string>
     <string name="controls_add_to_playlist_title">Hozzáadás ehhez</string>
@@ -259,8 +259,8 @@
     <string name="privacy_policy_encouragement">A NewPipe projekt komolyan veszi az adataid védelmét. Az alkalmazás nem gyűjt semmilyen adatot a beleegyezésed nélkül.
 \nA NewPipe adatvédelmi irányelve részletesen elmagyarázza, mely adatok kerülnek elküldésre és tárolásra az alkalmazás összeomlásának jelentésekor.</string>
     <string name="read_privacy_policy">Az adatvédelmi irányelvek elolvasása</string>
-    <string name="app_license_title">A NewPipe engedélye</string>
-    <string name="read_full_license">Engedély elolvasása</string>
+    <string name="app_license_title">A NewPipe licence</string>
+    <string name="read_full_license">Licenc elolvasása</string>
     <string name="title_activity_history">Előzmények</string>
     <string name="title_history_search">Keresési előzmények</string>
     <string name="title_history_view">Megtekintési előzmények</string>
@@ -352,7 +352,7 @@
     <string name="playback_pitch">Hangmagasság</string>
     <string name="skip_silence_checkbox">Előrepörgetés csend alatt</string>
     <string name="playback_step">Lépés</string>
-    <string name="playback_reset">Helyreállítás</string>
+    <string name="playback_reset">Visszaállítás</string>
     <string name="accept">Elfogadás</string>
     <string name="decline">Elutasítás</string>
     <string name="limit_data_usage_none_description">Nincs korlát</string>
@@ -466,4 +466,146 @@
     <string name="show_description_title">Leírás megjelenítése</string>
     <string name="notification_action_buffering">Bufferelés</string>
     <string name="open_with">Megnyitás ezzel</string>
+    <string name="unsupported_url_dialog_message">Az URL-t nem lehetett felismerni. Megnyitás másik alkalmazással\?</string>
+    <string name="auto_queue_toggle">Automatikus sorba állítás</string>
+    <string name="show_description_summary">Kapcsold ki a videó leírásának és további adatainak elrejtéséhez</string>
+    <string name="restore_defaults_confirmation">Vissza akarod állítani az alapértelmezéseket\?</string>
+    <string name="restricted_video_no_stream">Ez a videó korhatáros.
+\nÚj, korhatáros videókkal kapcsolatos YouTube irányelvek miatt a NewPipe nem férhet hozzá a videóhoz, így nem tudja lejátszani.</string>
+    <string name="description_tab_description">Leírás</string>
+    <string name="comments_tab_description">Megjegyzések</string>
+    <string name="copy_for_github">Formázott jelentése másolása</string>
+    <string name="permission_display_over_apps">Adj engedélyt a más alkalmazások feletti megjelenéshez</string>
+    <string name="no_playlist_bookmarked_yet">Még nincsenek lejátszási lista könyvjelzők</string>
+    <string name="unmute">Némítás megszüntetése</string>
+    <string name="mute">Némítás</string>
+    <string name="feed_subscription_not_loaded_count">Nincs betöltve: %d</string>
+    <string name="feed_group_dialog_empty_name">Üres csoportnév</string>
+    <string name="feed_group_dialog_delete_message">Törölni szeretnéd ezt a csoportot\?</string>
+    <string name="feed_update_threshold_option_always_update">Mindig frissítsen</string>
+    <string name="channel_created_by">Készítette: %s</string>
+    <string name="playlist_page_summary">Lejátszási listák oldala</string>
+    <string name="show_thumbnail_summary">Bélyegkép használata a zárképernyőn és az értesítéseken is</string>
+    <string name="radio">Rádió</string>
+    <string name="night_theme_summary">Válaszd ki kedvenc éjszakai témád — %s</string>
+    <string name="select_night_theme_toast">Kiválaszthatod a kedvenc éjszakai témádat lentebb</string>
+    <string name="recently_added">Nemrég hozzáadott</string>
+    <string name="new_seek_duration_toast">Az ExoPlayer korlátai miatt az előre- és visszatekerés időtartama %d másodpercre lett állítva</string>
+    <string name="feed_groups_header_title">Csatorna csoportok</string>
+    <string name="systems_language">Rendszer által alapértelmezett</string>
+    <string name="start_accept_privacy_policy">Az Általános adatvédelmi rendeletnek (GDPR) való megfelelés érdekében felhívjuk figyelmed a NewPipe adatvédelmi nyilatkozatára. Kérjük olvasd el figyelmesen.
+\nEl kell fogadnod, ha jelenteni szeretnél programhibákat.</string>
+    <string name="crash_the_app">Alkalmazás összeomlasztása</string>
+    <string name="show_memory_leaks">Memóriaszivárgások mutatása</string>
+    <string name="enable_leak_canary_summary">A memóriaszivárgás-monitorozás az alkalmazás megállását okozhatja amíg a dinamikus memória mentése folyik</string>
+    <string name="playlist_no_uploader">Automatikusan létrehozott (feltöltő nem található)</string>
+    <string name="start_here_on_main">Lejátszás itt</string>
+    <string name="title_activity_play_queue">Lejátszási sor</string>
+    <string name="conferences">Konferenciák</string>
+    <string name="most_liked">Legtöbbet lájkolt</string>
+    <string name="main_page_content_summary">Mely oldalak kerülnek a főoldalon megjelenítésre</string>
+    <plurals name="listening">
+        <item quantity="one">%s hallgató</item>
+        <item quantity="other">%s hallgató</item>
+    </plurals>
+    <string name="no_one_listening">Senki sem hallgatja</string>
+    <plurals name="watching">
+        <item quantity="one">%s néző</item>
+        <item quantity="other">%s néző</item>
+    </plurals>
+    <string name="no_one_watching">Senki sem nézi</string>
+    <string name="subscribers_count_not_available">Feliratkozók száma nem érhető el</string>
+    <string name="local">Helyi</string>
+    <string name="localization_changes_requires_app_restart">A nyelv meg fog változni amint az alkalmazás újra lesz indítva.</string>
+    <string name="error_unable_to_load_comments">Megjegyzések betöltése sikertelen</string>
+    <string name="select_a_playlist">Lejátszási lista kiválasztása</string>
+    <string name="autoplay_summary">Lejátszás automatikus indítása — %s</string>
+    <string name="playback_speed_control">Lejátszás sebességének beállítása</string>
+    <string name="clear_queue_confirmation_summary">Lejátszó váltása törölheti a lejátszási sort</string>
+    <string name="downloads_storage_ask_summary_kitkat">Meg lesz kérdezve, hogy hova kerüljenek a letöltések mentésre.
+\nVálaszd a \'SAF\' opciót, ha külső SD-kártyára szeretnél menteni</string>
+    <string name="wifi_only">Csak Wi-Fi-hálózaton</string>
+    <string name="downloads_storage_use_saf_title">SAF használata</string>
+    <string name="downloads_storage_use_saf_summary">A \'Storage Access Framework\' lehetővé teszi a letöltések külső SD-kártyára történő mentését.
+\nBizonyos eszközökön nem támogatott</string>
+    <string name="permission_denied">A műveletet letiltotta a rendszer</string>
+    <string name="never">Soha</string>
+    <string name="feed_group_dialog_select_subscriptions">Feliratkozások kiválasztása</string>
+    <string name="copyright">© %1$s %2$s, %3$s licenc alatt</string>
+    <string name="title_licenses">Harmadik féltől származó licencek</string>
+    <string name="recaptcha_done_button">Kész</string>
+    <string name="no_comments">Nincsenek megjegyzések</string>
+    <string name="infinite_videos">∞ videó</string>
+    <string name="more_than_100_videos">100+ videó</string>
+    <string name="error_report_open_issue_button_text">Jelentés GitHub-on</string>
+    <string name="restore_defaults">Alapértékek visszaállítása</string>
+    <string name="help">Segítség</string>
+    <string name="clear_cookie_summary">Sütik törlése, amelyeket a NewPipe akkor ment, amikor megoldasz egy reCAPTCHA-t</string>
+    <string name="recaptcha_cookies_cleared">reCAPTCHA sütik törölve</string>
+    <string name="clear_cookie_title">reCAPTCHA sütik törlése</string>
+    <string name="artists">Előadók</string>
+    <string name="albums">Albumok</string>
+    <string name="songs">Dalok</string>
+    <string name="events">Események</string>
+    <string name="videos_string">Videók</string>
+    <string name="restricted_video">Ez a videó korhatáros.
+\n
+\nEngedélyezd a(z) \"%1$s\" beállítást ha meg szeretnéd tekinteni.</string>
+    <string name="show_age_restricted_content_summary">Gyermekek számára potenciálisan nem megfelelő, korhatáros tartalom mutatása (pl. 18+)</string>
+    <string name="settings_category_notification_title">Értesítés</string>
+    <string name="peertube_instance_add_https_only">Csak HTTPS URL-ek támogatottak</string>
+    <string name="show_meta_info_title">Metaadatok mutatása</string>
+    <string name="clear_queue_confirmation_description">A jelenleg aktív lejátszási sor le lesz cserélve</string>
+    <string name="clear_queue_confirmation_title">Kérjen megerősítést a lejátszási sor törlése előtt</string>
+    <string name="night_theme_title">Éjszakai téma</string>
+    <string name="updates_setting_description">Értesítsen, ha egy új verziója érhető el az alkalmazásnak</string>
+    <string name="updates_setting_title">Frissítések</string>
+    <string name="notification_colorize_summary">Az Android igazítsa az értesítés színét a bélyegkép meghatározó színéhez (nem minden eszközön elérhető)</string>
+    <string name="notification_actions_at_most_three">Legfeljebb három választható művelet jeleníthető meg a kompakt értesítésben!</string>
+    <string name="notification_actions_summary">Szabd személyre, hogy az értesítésben megjelenő akciógombok mit csinálnak. Válassz ki legfeljebb hármat a jobb oldali jelölőnégyzetekkel, amelyek a kompakt értesítésben is megjelennek.</string>
+    <string name="notification_action_4_title">Ötödik akciógomb</string>
+    <string name="notification_action_3_title">Negyedik akciógomb</string>
+    <string name="notification_action_2_title">Harmadik akciógomb</string>
+    <string name="notification_action_1_title">Második akciógomb</string>
+    <string name="notification_action_0_title">Első akciógomb</string>
+    <string name="app_language_title">Alkalmazás nyelve</string>
+    <plurals name="seconds">
+        <item quantity="one">%d másodperc</item>
+        <item quantity="other">%d másodperc</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">%d perc</item>
+        <item quantity="other">%d perc</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="one">%d óra</item>
+        <item quantity="other">%d óra</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="one">%d nap</item>
+        <item quantity="other">%d nap</item>
+    </plurals>
+    <string name="feed_group_dialog_empty_selection">Nem lett feliratkozás kiválasztva</string>
+    <plurals name="feed_group_dialog_selection_count">
+        <item quantity="one">%d kiválasztva</item>
+        <item quantity="other">%d kiválasztva</item>
+    </plurals>
+    <string name="feed_create_new_group_button_title">Új</string>
+    <string name="content_not_supported">Ez a tartalmat még nem támogatja a NewPipe.
+\n
+\nRemélhetőleg egy következő verzióban már támogatott lesz.</string>
+    <string name="no_app_to_open_intent">Nincs a készülékeden olyan alkalmazás, amely meg tudja nyitni ezt</string>
+    <string name="youtube_music_premium_content">Ez a videó csak YouTube Music Prémium előfizetők számára érhető el, így nem megtekinthető és nem letölthető NewPipe segítségével.</string>
+    <string name="auto_device_theme_title">Automatikus (rendszertéma)</string>
+    <string name="paid_content">Ez a tartalom csak előfizetőknek érhető el, nem megtekinthető és nem letölthető a NewPipe segítségével.</string>
+    <string name="georestricted_content">Ez a tartalom nem érhető el az országodban.</string>
+    <string name="private_content">Ez a tartalom privát, így nem megtekinthető és nem letölthető a NewPipe segítségével.</string>
+    <string name="download_has_started">A letöltés elkezdődött</string>
+    <string name="notification_scale_to_square_image_summary">Értesítésben megjelenő bélyegkép átméretezése 16:9 helyett 1:1 arányra (torzítással járhat)</string>
+    <string name="chapters">Fejezetek</string>
+    <string name="show_thumbnail_title">Bélyegkép mutatása</string>
+    <string name="start_here_on_popup">Lejátszás felugró ablakban</string>
+    <string name="start_here_on_background">Lejátszás a háttérben</string>
+    <string name="enqueued">Sorhoz hozzáadva</string>
+    <string name="enqueue_stream">Sorhoz adás</string>
 </resources>

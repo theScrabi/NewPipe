@@ -289,7 +289,7 @@
     <string name="delete_playlist">Elimina</string>
     <string name="rename_playlist">Rinomina</string>
     <string name="name">Nome</string>
-    <string name="append_playlist">Aggiungi a playlist</string>
+    <string name="append_playlist">Aggiungi alla playlist</string>
     <string name="set_as_playlist_thumbnail">Imposta come copertina della playlist</string>
     <string name="bookmark_playlist">Salva playlist</string>
     <string name="unbookmark_playlist">Rimuovi playlist</string>
@@ -623,11 +623,11 @@
     <string name="clear_queue_confirmation_title">Chiedi prima di svuotare la coda</string>
     <string name="clear_queue_confirmation_summary">Cambiare tipo di riproduzione potrebbe sostituire gli elementi in coda</string>
     <string name="notification_actions_summary">Le azioni dei pulsanti della notifica possono essere modificate qua sotto. Selezionane fino a 3, utilizzando le caselle di controllo sulla destra. Verranno visualizzate nella notifica compatta.</string>
-    <string name="notification_action_4_title">Azione Pulsante 5</string>
-    <string name="notification_action_3_title">Azione Pulsante 4</string>
-    <string name="notification_action_2_title">Azione Pulsante 3</string>
-    <string name="notification_action_1_title">Azione Pulsante 2</string>
-    <string name="notification_action_0_title">Azione Pulsante 1</string>
+    <string name="notification_action_4_title">Azione pulsante 5</string>
+    <string name="notification_action_3_title">Azione pulsante 4</string>
+    <string name="notification_action_2_title">Azione pulsante 3</string>
+    <string name="notification_action_1_title">Azione pulsante 2</string>
+    <string name="notification_action_0_title">Azione pulsante 1</string>
     <string name="notification_action_buffering">Buffering</string>
     <string name="notification_actions_at_most_three">Nella notifica compatta è possibile visualizzare al massimo 3 azioni!</string>
     <string name="notification_action_shuffle">Casuale</string>
@@ -654,7 +654,7 @@
     <string name="recent">Recente</string>
     <string name="show_meta_info_summary">Disattiva per nascondere i riquadri con informazioni aggiuntive sul contenuto, sul suo creatore o su una richiesta di ricerca.</string>
     <string name="show_meta_info_title">Mostra meta-informazioni</string>
-    <string name="related_streams_tab_description">Contenuti correlati</string>
+    <string name="related_items_tab_description">Contenuti correlati</string>
     <string name="chapters">Capitoli</string>
     <string name="description_tab_description">Descrizione</string>
     <string name="comments_tab_description">Commenti</string>
@@ -673,4 +673,10 @@
     <string name="radio">Radio</string>
     <string name="featured">In evidenza</string>
     <string name="recaptcha_solve">Risolvi</string>
+    <string name="download_has_started">Download avviato</string>
+    <string name="select_night_theme_toast">Qua sotto è possibile selezionare il tema notturno preferito</string>
+    <string name="night_theme_summary">Seleziona il tema notturno preferito — %s</string>
+    <string name="auto_device_theme_title">Automatico (tema del dispositivo)</string>
+    <string name="night_theme_title">Tema notturno</string>
+    <string name="show_channel_details">Mostra dettagli canale</string>
 </resources>

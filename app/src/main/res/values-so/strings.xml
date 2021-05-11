@@ -45,7 +45,7 @@
     <string name="tab_bookmarks">La calaamadsaday</string>
     <string name="tab_subscriptions">Rukunka</string>
     <string name="tab_main">Guud</string>
-    <string name="show_info">Tus faahfaahinta</string>
+    <string name="show_info">Faahfaahinta</string>
     <string name="subscription_update_failed">Lama cusbooneysiin karo rukunka</string>
     <string name="subscription_change_failed">Lama badali karo rukunka</string>
     <string name="channel_unsubscribed">Kanaalka waad iskajoojisay</string>
@@ -94,7 +94,7 @@
     <string name="minimize_on_exit_title">Yaree marka app kale loo gudbo</string>
     <string name="updates_setting_title">Cusboonaysiinta</string>
     <string name="limit_data_usage_none_description">Ha xadidin</string>
-    <string name="playback_reset">Sidii hore ku celi</string>
+    <string name="playback_reset">Sidii hore kuceli</string>
     <string name="skip_silence_checkbox">Horay u dhaafi meelaha aamusan</string>
     <string name="playback_speed_control">Maamulista Xawaaraha</string>
     <string name="import_soundcloud_instructions_hint">ID-gaaga, soundcloud.com/yourid</string>
@@ -126,7 +126,7 @@
     <string name="delete_playlist_prompt">Saar xulkan\?</string>
     <string name="unbookmark_playlist">Ka saar calaamadsashada</string>
     <string name="bookmark_playlist">Calaamadso Xulka</string>
-    <string name="set_as_playlist_thumbnail">Ku Fadhiisi Galka Xulka</string>
+    <string name="set_as_playlist_thumbnail">Ku fadhiisi galka xulka</string>
     <string name="unmute">Ka hadalsii</string>
     <string name="append_playlist">Ku dar xul</string>
     <string name="rename_playlist">Magaca kabadal</string>
@@ -288,7 +288,7 @@
     <string name="short_thousand">K</string>
     <string name="short_million">M</string>
     <string name="storage_permission_denied">U ogolow app-ka kaydka aaalada marka hore</string>
-    <string name="retry">Markale iskuday</string>
+    <string name="retry">Kuceli</string>
     <string name="audio">Dhagaysi</string>
     <string name="video">Muuqaal</string>
     <string name="info_dir_created">Waa la sameeyay galka soodajinta ee \'%1$s\'</string>
@@ -318,7 +318,7 @@
     <string name="error_report_button_text">Khaladkan email ahaan ku warceli</string>
     <string name="sorry_string">Waan ka xunahay, sidaa inay dhacdo ma ahayn.</string>
     <string name="permission_display_over_apps">U ogolow app-ka inuu dul fuulo applicationada kale</string>
-    <string name="restore_defaults_confirmation">Ma rabtaa inaad sidii hore ku celiso\?</string>
+    <string name="restore_defaults_confirmation">Ma rabtaa inaad sidii hore kuceliso\?</string>
     <string name="restore_defaults">Dib ugu celi sidii hore</string>
     <string name="saved_tabs_invalid_json">Lama akhrin karo daaqadihii la kaydiyay, ...isticmaalaya kuwii app-ku kusoo baxay</string>
     <string name="no_streams_available_download">Wax la dajiyo lama heli karo</string>
@@ -656,7 +656,7 @@
     <string name="show_meta_info_title">Faahfaahinta dheeraadka ah</string>
     <string name="chapters">Cutubyada</string>
     <string name="description_tab_description">Faahfaahin</string>
-    <string name="related_streams_tab_description">La xidhiidha</string>
+    <string name="related_items_tab_description">La xidhiidha</string>
     <string name="comments_tab_description">Faallooyin</string>
     <string name="show_description_summary">Xidh si aad u qariso faahfaahinta muuqaalka iyo xogaha dheeraadka ah</string>
     <string name="show_description_title">Tus faahfaahinta</string>
@@ -678,4 +678,5 @@
     <string name="night_theme_summary">Dooro nashqada habaynkii ee aad doorbiday — %s</string>
     <string name="auto_device_theme_title">ismaamulaya (raacaya aalada)</string>
     <string name="night_theme_title">Nashqada Habaynka</string>
+    <string name="show_channel_details">Faahfaahinta kanaalka</string>
 </resources>

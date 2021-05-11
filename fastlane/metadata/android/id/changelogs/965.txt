@@ -1,0 +1,6 @@
+Memperbaiki kerusakan yang terjadi saat menata ulang grup saluran.
+Memperbaiki mendapatkan lebih banyak video YouTube dari saluran dan daftar putar.
+Tetap mendapatkan komentar YouTube.
+Menambahkan dukungan untuk / menonton /, / v / dan / w / subpath di URL YouTube.
+Ekstraksi tetap ID klien SoundCloud dan konten yang dibatasi geografis.
+Menambahkan lokalisasi Kurdi utara.

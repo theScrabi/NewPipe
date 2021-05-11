@@ -524,7 +524,7 @@
     <string name="infinite_videos">∞ ویڈیوز</string>
     <string name="more_than_100_videos">100 سے زائد ویڈیو</string>
     <string name="description_tab_description">‪تفصیل</string>
-    <string name="related_streams_tab_description">متعلقہ سلسلے</string>
+    <string name="related_items_tab_description">متعلقہ سلسلے</string>
     <string name="comments_tab_description">تبصرے</string>
     <string name="error_report_open_github_notice">براہ کرم چیک کریں کہ آیا آپ کے کریش پر بحث کرنے والا مسئلہ پہلے سے موجود ہے۔ جعلی ٹکٹ تیار کرتے وقت، آپ ہم سے وقت نکالتے ہیں جو ہم اصل مسئلے کو ٹھیک کرنے میں گزار سکتے ہیں۔</string>
     <string name="error_report_open_issue_button_text">گِٹ ہب میں اطلاع دیں</string>

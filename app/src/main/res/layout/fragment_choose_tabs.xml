@@ -26,6 +26,6 @@
         android:focusable="true"
         app:backgroundTint="?attr/colorPrimary"
         app:fabSize="auto"
-        app:srcCompat="?attr/ic_add" />
+        app:srcCompat="@drawable/ic_add" />
 
 </RelativeLayout>

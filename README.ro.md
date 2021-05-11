@@ -17,7 +17,7 @@
 <p align="center"><a href="https://newpipe.net">Website</a> &bull; <a href="https://newpipe.net/blog/">Blog</a> &bull; <a href="https://newpipe.net/FAQ/">FAQ</a> &bull; <a href="https://newpipe.net/press/">Presă</a></p>
 <hr>
 
-*Citiţi în alte limbi: [English](README.md), [Español](README.es.md), [한국어](README.ko.md), [Soomaali](README.so.md), [Português Brasil](README.pt_BR.md), [日本語](README.ja.md), [Română](README.ro.md)*
+*Citiţi în alte limbi: [English](README.md), [Español](README.es.md), [한국어](README.ko.md), [Soomaali](README.so.md), [Português Brasil](README.pt_BR.md), [日本語](README.ja.md), [Română](README.ro.md), [Türkçe](README.tr.md).*
 
 <b>Atenţionare: ACEASTA ESTE O VERSIUNE BETA, AŞA CĂ S-AR PUTE SĂ ÎNTÂLNIŢI ERORI. DACĂ SE ÎNTÂMPLĂ ACEST LUCRU, DESCHIDEŢI UN ISSUE PRIN REPSITORY-UL NOSTRU GITHUB.</b>
 

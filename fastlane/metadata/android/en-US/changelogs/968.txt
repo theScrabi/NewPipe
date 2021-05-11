@@ -1,0 +1,7 @@
+Added channel details option to long-press menu.
+Added functionality to rename Playlist Name from playlist interface.
+Allow the user to pause while a video is buffering.
+Polished the white theme.
+Fixed overlapping fonts when using a larger font size.
+Fixed no video on Formuler and Zephier devices.
+Fixed various crashes.

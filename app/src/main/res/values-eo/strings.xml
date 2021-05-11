@@ -579,4 +579,9 @@
     <string name="artists">Artistoj</string>
     <string name="albums">Albumoj</string>
     <string name="songs">Kantoj</string>
+    <string name="notification_action_nothing">Nenio</string>
+    <string name="notification_action_shuffle">Miksi</string>
+    <string name="notification_action_repeat">Ripeti</string>
+    <string name="search_showing_result_for">Montrante rezultojn pri: %s</string>
+    <string name="open_with">Malfermi per</string>
 </resources>

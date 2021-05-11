@@ -61,7 +61,6 @@ import io.reactivex.rxjava3.disposables.Disposable;
 
 import static org.schabi.newpipe.ktx.ViewUtils.animate;
 import static org.schabi.newpipe.ktx.ViewUtils.animateHideRecyclerViewAllowingScrolling;
-import static org.schabi.newpipe.util.ThemeHelper.resolveResourceIdFromAttr;
 
 public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
     private CompositeDisposable disposables;
@@ -307,7 +306,7 @@ public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
                     getResources().getColor(R.color.transparent_background_color));
             headerBinding.uploaderAvatarView.setImageDrawable(
                     AppCompatResources.getDrawable(requireContext(),
-                    resolveResourceIdFromAttr(requireContext(), R.attr.ic_radio))
+                    R.drawable.ic_radio)
             );
         } else {
             IMAGE_LOADER.displayImage(avatarUrl, headerBinding.uploaderAvatarView,
@@ -423,7 +422,9 @@ public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
     @Override
     public void setTitle(final String title) {
         super.setTitle(title);
-        headerBinding.playlistTitleView.setText(title);
+        if (headerBinding != null) {
+            headerBinding.playlistTitleView.setText(title);
+        }
     }
 
     private void onBookmarkClicked() {
@@ -459,13 +460,13 @@ public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
             return;
         }
 
-        final int iconAttr = playlistEntity == null
-                ? R.attr.ic_playlist_add : R.attr.ic_playlist_check;
+        final int drawable = playlistEntity == null
+                ? R.drawable.ic_playlist_add : R.drawable.ic_playlist_add_check;
 
         final int titleRes = playlistEntity == null
                 ? R.string.bookmark_playlist : R.string.unbookmark_playlist;
 
-        playlistBookmarkButton.setIcon(resolveResourceIdFromAttr(activity, iconAttr));
+        playlistBookmarkButton.setIcon(drawable);
         playlistBookmarkButton.setTitle(titleRes);
     }
 }

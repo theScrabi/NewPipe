@@ -40,7 +40,6 @@ import org.schabi.newpipe.util.KoreUtil;
 import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.OnClickGesture;
 import org.schabi.newpipe.util.StreamDialogEntry;
-import org.schabi.newpipe.util.ThemeHelper;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -312,14 +311,13 @@ public class StatisticsPlaylistFragment
         if (sortMode == StatisticSortMode.LAST_PLAYED) {
             sortMode = StatisticSortMode.MOST_PLAYED;
             setTitle(getString(R.string.title_most_played));
-            headerBinding.sortButtonIcon.setImageResource(
-                ThemeHelper.resolveResourceIdFromAttr(requireContext(), R.attr.ic_history));
+            headerBinding.sortButtonIcon.setImageResource(R.drawable.ic_history);
             headerBinding.sortButtonText.setText(R.string.title_last_played);
         } else {
             sortMode = StatisticSortMode.LAST_PLAYED;
             setTitle(getString(R.string.title_last_played));
             headerBinding.sortButtonIcon.setImageResource(
-                ThemeHelper.resolveResourceIdFromAttr(requireContext(), R.attr.ic_filter_list));
+                R.drawable.ic_filter_list);
             headerBinding.sortButtonText.setText(R.string.title_most_played);
         }
         startLoading(true);

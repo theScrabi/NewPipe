@@ -325,7 +325,7 @@
     <string name="one_item_deleted">1 element șters.</string>
     <string name="create_playlist">Playlist nou</string>
     <string name="delete_playlist">Șterge</string>
-    <string name="append_playlist">Adăugați la Playlist</string>
+    <string name="append_playlist">Adăugați la playlist</string>
     <string name="import_title">Importă</string>
     <string name="import_from">Importă din</string>
     <string name="export_to">Exportă spre</string>
@@ -359,7 +359,7 @@
     <string name="preferred_player_fetcher_notification_title">Se obțin informații…</string>
     <string name="preferred_player_fetcher_notification_message">Se încarcă conținutul solicitat</string>
     <string name="rename_playlist">Redenumiți</string>
-    <string name="set_as_playlist_thumbnail">Setați ca miniatură a listei de redare</string>
+    <string name="set_as_playlist_thumbnail">Setați ca miniatură playlistului</string>
     <string name="delete_playlist_prompt">Ștergeți acest playlist\?</string>
     <string name="playlist_thumbnail_change_success">Miniatura playlist-ului a fost schimbată.</string>
     <string name="playlist_delete_failure">Playlist-ul nu a putut fi șters.</string>
@@ -610,7 +610,7 @@
     <string name="playback_step">Etapă</string>
     <string name="skip_silence_checkbox">Înaintează rapid în timpul tăcerii</string>
     <string name="unhook_checkbox">Decuplați (poate provoca distorsiuni)</string>
-    <string name="playback_pitch">Pitch</string>
+    <string name="playback_pitch">Ton</string>
     <string name="import_network_expensive_warning">Rețineți că această operațiune poate fi costisitoare în rețea.
 \n
 \nContinuați\?</string>
@@ -664,7 +664,7 @@
     <string name="no_one_watching">Nimeni nu se uită</string>
     <string name="drawer_header_description">Comutare serviciu, selectat în prezent:</string>
     <string name="description_tab_description">Descriere</string>
-    <string name="related_streams_tab_description">Fluxuri corelate</string>
+    <string name="related_items_tab_description">Fluxuri corelate</string>
     <string name="comments_tab_description">Comentarii</string>
     <string name="error_report_open_github_notice">Vă rugăm să verificați dacă există deja o problemă legată de crash-ul dvs. Când creați bilete duplicat, ne luați timp pe care l-am putea petrece cu remedierea erorii.</string>
     <string name="copy_for_github">Copiați raportul formatat</string>
@@ -672,4 +672,21 @@
     <string name="show_description_summary">Dezactivați pentru a ascunde descrierea videoclipului și informațiile suplimentare</string>
     <string name="show_description_title">Arătați descrierea</string>
     <string name="open_with">Deschideți cu</string>
+    <string name="crash_the_app">Blocați aplicația</string>
+    <string name="recaptcha_solve">Rezolvează</string>
+    <string name="featured">În evidență</string>
+    <string name="select_night_theme_toast">Puteți selecta tema de noapte preferată mai jos</string>
+    <string name="restricted_video_no_stream">Acest videoclip este restricționat în funcție de vârstă.
+\nDin cauza noilor politicile YouTube privind videoclipurile cu restricție de vârstă, NewPipe nu poate accesa niciunul dintre fluxurile sale video și, astfel, nu îl poate reda.</string>
+    <string name="download_has_started">Descărcarea a început</string>
+    <string name="night_theme_summary">Selectați tema de noapte preferată — %s</string>
+    <string name="auto_device_theme_title">Automat (tema dispozitivului)</string>
+    <string name="radio">Radio</string>
+    <string name="paid_content">Acest conținut este disponibil doar pentru utilizatorii care au plătit, ca atare nu poate fi difuzat sau descărcat de NewPipe.</string>
+    <string name="youtube_music_premium_content">Acest videoclip este disponibil doar pentru membrii YouTube Music Premium, ca atare nu poate fi difuzat sau descărcat de NewPipe.</string>
+    <string name="private_content">Acest conținut este privat, ca atare nu poate fi difuzat sau descărcat de NewPipe.</string>
+    <string name="soundcloud_go_plus_content">Aceasta este o piesă SoundCloud Go+, cel puțin în țara ta, ca atare nu poate fi difuzată sau descărcată de NewPipe.</string>
+    <string name="georestricted_content">Acest conținut nu este disponibil în țara dumneavoastră.</string>
+    <string name="show_channel_details">Arată detaliile canalului</string>
+    <string name="night_theme_title">Temă Nocturnă</string>
 </resources>

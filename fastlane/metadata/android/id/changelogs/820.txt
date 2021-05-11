@@ -1,0 +1,4 @@
+old version not being translated. (F-Droid only show updated verson description)
+versi lama tidak diterjemahkan. (FDroid hanya menampilkan deskripsi untuk versi terbaru)
+dan juga
+(weblate notification : Translation text too long! (terjemahan terlalu panjang)

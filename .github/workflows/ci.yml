@@ -5,25 +5,27 @@ on:
     branches:
       - dev
   push:
-    branches: 
+    branches:
       - dev
       - master
 
 jobs:
-  build-and-test:
+  build-and-test-jvm:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: gradle/wrapper-validation-action@v1
 
       - name: create and checkout branch
         # push events already checked out the branch
         if: github.event_name == 'pull_request'
         run: git checkout -B ${{ github.head_ref }}
 
-      - name: set up JDK 1.8
-        uses: actions/setup-java@v1.4.3
+      - name: set up JDK 8
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: 8
+          distribution: "zulu"
 
       - name: Cache Gradle dependencies
         uses: actions/cache@v2
@@ -32,7 +34,7 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
           restore-keys: ${{ runner.os }}-gradle
 
-      - name: Build debug APK and run Tests
+      - name: Build debug APK and run jvm tests
         run: ./gradlew assembleDebug lintDebug testDebugUnitTest --stacktrace
 
       - name: Upload APK
@@ -40,6 +42,32 @@ jobs:
         with:
           name: app
           path: app/build/outputs/apk/debug/*.apk
+  test-android:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        api-level: [21, 29]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: set up JDK 8
+        uses: actions/setup-java@v2
+        with:
+          java-version: 8
+          distribution: "zulu"
+
+      - name: Cache Gradle dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+          restore-keys: ${{ runner.os }}-gradle
+
+      - name: Run android tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ matrix.api-level }}
+          script: ./gradlew connectedCheck
 #   sonar:
 #     runs-on: ubuntu-latest
 #     steps:
@@ -48,9 +76,10 @@ jobs:
 #           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 
 #       - name: Set up JDK 11
-#         uses: actions/setup-java@v1.4.3
+#         uses: actions/setup-java@v2
 #         with:
 #           java-version: 11 # Sonar requires JDK 11
+#           distribution: "zulu"
 
 #       - name: Cache SonarCloud packages
 #         uses: actions/cache@v2

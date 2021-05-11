@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Base.V27.DarkTheme" parent="Base.V7.DarkTheme">
-        <item name="android:navigationBarColor">@color/dark_background_color</item>
+    <!-- Base Theme -->
+    <style name="Base.V27" parent="Base.V21">
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+    <style name="Base" parent="Base.V27"/>
+
+    <!-- Light Theme -->
+    <style name="Base.V27.LightTheme" parent="Base.V21.LightTheme">
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+    <style name="Base.LightTheme" parent="Base.V27.LightTheme" />
+
+    <!-- Dark Theme -->
+    <style name="Base.V27.DarkTheme" parent="Base.V21.DarkTheme">
         <item name="android:windowLightNavigationBar">false</item>
     </style>
-
     <style name="Base.DarkTheme" parent="Base.V27.DarkTheme" />
 
-    <style name="Base.V27.BlackTheme" parent="Base.V7.BlackTheme">
-        <item name="android:navigationBarColor">@android:color/black</item>
+    <!-- Black Theme -->
+    <style name="Base.V27.BlackTheme" parent="Base.V21.BlackTheme">
+        <!-- BlackTheme inherits DarkTheme, so no need to specify windowLightNavigationBar here -->
     </style>
-
     <style name="Base.BlackTheme" parent="Base.V27.BlackTheme" />
+
 </resources>

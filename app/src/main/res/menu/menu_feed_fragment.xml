@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/menu_item_feed_help"
-        android:icon="?attr/ic_help"
+        android:icon="@drawable/ic_help"
         android:title="@string/help"
         app:showAsAction="always" />
 </menu>

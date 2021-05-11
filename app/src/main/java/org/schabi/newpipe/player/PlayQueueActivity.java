@@ -589,15 +589,15 @@ public final class PlayQueueActivity extends AppCompatActivity
         switch (state) {
             case Player.STATE_PAUSED:
                 queueControlBinding.controlPlayPause
-                        .setImageResource(R.drawable.ic_play_arrow_white_24dp);
+                        .setImageResource(R.drawable.ic_play_arrow);
                 break;
             case Player.STATE_PLAYING:
                 queueControlBinding.controlPlayPause
-                        .setImageResource(R.drawable.ic_pause_white_24dp);
+                        .setImageResource(R.drawable.ic_pause);
                 break;
             case Player.STATE_COMPLETED:
                 queueControlBinding.controlPlayPause
-                        .setImageResource(R.drawable.ic_replay_white_24dp);
+                        .setImageResource(R.drawable.ic_replay);
                 break;
             default:
                 break;
@@ -670,8 +670,7 @@ public final class PlayQueueActivity extends AppCompatActivity
             //2) Icon change accordingly to current App Theme
             // using rootView.getContext() because getApplicationContext() didn't work
             final Context context = queueControlBinding.getRoot().getContext();
-            item.setIcon(ThemeHelper.resolveResourceIdFromAttr(context,
-                    player.isMuted() ? R.attr.ic_volume_off : R.attr.ic_volume_up));
+            item.setIcon(player.isMuted() ? R.drawable.ic_volume_off : R.drawable.ic_volume_up);
         }
     }
 }

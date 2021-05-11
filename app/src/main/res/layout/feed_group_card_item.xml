@@ -26,7 +26,7 @@
             android:paddingBottom="2dp"
             android:scaleType="fitCenter"
             tools:ignore="ContentDescription"
-            tools:src="?attr/ic_fastfood" />
+            tools:src="@drawable/ic_fastfood" />
 
         <TextView
             android:id="@+id/title"

@@ -14,7 +14,7 @@
     <string name="share_dialog_title">Подели помоћу</string>
     <string name="choose_browser">Отвори помоћу</string>
     <string name="screen_rotation">ротација</string>
-    <string name="download_path_title">Одредиште преузимања снимака</string>
+    <string name="download_path_title">Фасцикла за преузимање снимака</string>
     <string name="download_path_summary">Преузети снимци се чувају овде</string>
     <string name="download_path_dialog_title">Изаберите фасциклу за преузимање видео снимака</string>
     <string name="default_resolution_title">Подразумевана резолуција</string>
@@ -26,7 +26,7 @@
     <string name="default_audio_format_title">Подразумевани формат звука</string>
     <string name="download_dialog_title">Преузми</string>
     <string name="unsupported_url">УРЛ није подржан</string>
-    <string name="show_next_and_similar_title">Прикажи следећи и слични видео</string>
+    <string name="show_next_and_similar_title">Прикажи \'следећи\' и \'слични\' видео</string>
     <string name="content_language_title">Подразумевани језик садржаја</string>
     <string name="settings_category_video_audio_title">Видео и аудио</string>
     <string name="settings_category_other_title">Остало</string>
@@ -54,7 +54,7 @@
     <string name="could_not_load_thumbnails">Не могох да учитам све сличице</string>
     <string name="youtube_signature_deobfuscation_error">Не могу да дешифрујем потпис видео урл-а</string>
     <string name="parsing_error">Не могу да рашчланим веб-сајт</string>
-    <string name="content_not_available">Садржај није доступан</string>
+    <string name="content_not_available">Садржај је недоступан</string>
     <string name="content">Садржај</string>
     <string name="show_age_restricted_content_title">Прикажи старосно-ограничени садржај</string>
     <string name="could_not_setup_download_menu">Не могу да поставим мени преузимања</string>
@@ -63,7 +63,7 @@
     <string name="could_not_get_stream">Не могу да добавим ниједан ток</string>
     <string name="sorry_string">Нажалост, то не би требало да се деси.</string>
     <string name="error_report_button_text">Пријавите ову грешку е-поштом</string>
-    <string name="error_snackbar_message">Нажалост, десиле су се неке грешке.</string>
+    <string name="error_snackbar_message">Извини, нешто није у реду.</string>
     <string name="error_snackbar_action">Пријава</string>
     <string name="what_device_headline">Подаци:</string>
     <string name="what_happened_headline">Шта се десило:</string>
@@ -75,7 +75,7 @@
     <string name="storage_permission_denied">Прво одобрите приступ складишту</string>
     <string name="report_error">Пријавите грешку</string>
     <string name="user_report">Извештај корисника</string>
-    <string name="duration_live">уживо</string>
+    <string name="duration_live">Уживо</string>
     <string name="main_bg_subtitle">Додирните \"Претражи\" да бисте започели
 \n</string>
     <string name="autoplay_by_calling_app_title">Аутопуштање</string>
@@ -83,21 +83,21 @@
     <string name="start">Почни</string>
     <string name="pause">Паузирај</string>
     <string name="view">Пусти</string>
-    <string name="delete">Обриши</string>
-    <string name="checksum">Хеш</string>
+    <string name="delete">Избриши</string>
+    <string name="checksum">Контролна сума</string>
     <string name="add">Нова мисија</string>
     <string name="finish">У реду</string>
-    <string name="msg_name">Назив фајла</string>
+    <string name="msg_name">Назив документа</string>
     <string name="msg_threads">Нити</string>
     <string name="msg_error">Грешка</string>
-    <string name="msg_server_unsupported">Сервер није подржан</string>
-    <string name="msg_exists">Фајл већ постоји</string>
+    <string name="msg_server_unsupported">Неподржани сервер</string>
+    <string name="msg_exists">Датотека већ постоји</string>
     <string name="msg_url_malform">Неисправан УРЛ или нема интернета</string>
     <string name="msg_running">Њупајп преузимање</string>
     <string name="msg_running_detail">Тапните за детаље</string>
     <string name="msg_wait">Сачекајте…</string>
     <string name="msg_copied">Копирано у привремену меморију</string>
-    <string name="no_available_dir">Одредите доступну фасциклу за преузимање</string>
+    <string name="no_available_dir">Молимо Вас да дефинишите фасциклу за преузимање касније у подешавањима</string>
     <string name="downloads">Преузимања</string>
     <string name="downloads_title">Преузимања</string>
     <string name="error_report_title">Извештај о грешци</string>
@@ -105,7 +105,7 @@
     <string name="app_ui_crash">Апликација/УИ је краховала</string>
     <string name="info_labels">Шта:\\nЗахтев:\\nЈезик садржаја:\\nЗемља садржаја:\\nЈезик апликације:\\nУслуга:\\nГМТ време:\\nПакет:\\nИздање:\\nИздање ОС-а:</string>
     <string name="title_activity_recaptcha">reCAPTCHA стопка</string>
-    <string name="recaptcha_request_toast">Решите reCAPTCHA стопку</string>
+    <string name="recaptcha_request_toast">Решите reCAPTCHA задатак</string>
     <string name="black_theme_title">Црна</string>
     <string name="all">Сви</string>
     <string name="channel">Канал</string>
@@ -156,7 +156,7 @@
     <string name="tab_about">О програму</string>
     <string name="tab_contributors">Доприносиоци</string>
     <string name="tab_licenses">Лиценце</string>
-    <string name="app_description">Слободан и лаган Јутјуб клијент за Андроид.</string>
+    <string name="app_description">Бесплатно и лагано стримовање на Андроид-у.</string>
     <string name="view_on_github">Погледај на Гитхабу</string>
     <string name="read_full_license">Прочитај лиценцу</string>
     <string name="contribution_title">Допринос</string>
@@ -177,13 +177,13 @@
     <string name="subscription_update_failed">Није могуће ажурирати претплату</string>
     <string name="settings_category_player_title">Плејер</string>
     <string name="settings_category_player_behavior_title">Понашање</string>
-    <string name="settings_category_history_title">Историјат</string>
+    <string name="settings_category_history_title">Историја и кеш меморија</string>
     <string name="playlist">Листа пуштања</string>
     <string name="undo">Врати</string>
     <string name="notification_channel_name">Обавештење</string>
-    <string name="notification_channel_description">Обавештења за Нупајп у позадини и искачући прозор</string>
+    <string name="notification_channel_description">Обавештења за Њупајп у позадини и искачуће прозоре</string>
     <string name="search_no_results">Нема резултата</string>
-    <string name="empty_subscription_feed_subtitle">Нема ничега овде</string>
+    <string name="empty_subscription_feed_subtitle">Нема ничега овде осим цврчака</string>
     <string name="no_subscribers">Нема претплатника</string>
     <plurals name="subscribers">
         <item quantity="one">%s претплатник</item>
@@ -196,7 +196,7 @@
         <item quantity="few">%s прегледа</item>
         <item quantity="other">%s прегледа</item>
     </plurals>
-    <string name="no_videos">Нема видеа</string>
+    <string name="no_videos">Нема видео снимака</string>
     <plurals name="videos">
         <item quantity="one">%s видео</item>
         <item quantity="few">%s видеа</item>
@@ -209,11 +209,11 @@
     <string name="app_license_title">Лиценца Њупајпа</string>
     <string name="contribution_encouragement">Помоћ је увек добро дошла, било да имате идеју за превод, дизајн, козметичке или озбиљне измене кôда. Што се више уради, боље је!</string>
     <string name="item_deleted">Ставка обрисана</string>
-    <string name="show_hold_to_append_summary">Приказ савета када је позадинско или искачуће дугме притиснуто на страници детаља видеа</string>
+    <string name="show_hold_to_append_summary">Покажите савет када притиснете позадину или искачуће дугме у видеу „Детаљи:“</string>
     <string name="background_player_append">У реду за позадински плејер</string>
     <string name="popup_playing_append">У реду за искачући плејер</string>
     <string name="play_all">Пусти све</string>
-    <string name="player_stream_failure">Неуспех пуштања овог тока</string>
+    <string name="player_stream_failure">Неуспшно пуштања овог тока</string>
     <string name="player_unrecoverable_failure">Десила се непоправљива грешка плејера</string>
     <string name="player_recoverable_failure">Опорављам се од грешке плејера</string>
     <string name="delete_item_search_history">Желите ли да обришете ову ставку из историјата претраге?</string>
@@ -224,12 +224,12 @@
     <string name="feed_page_summary">Страница довода</string>
     <string name="channel_page_summary">Страница канала</string>
     <string name="select_a_channel">Изаберите канал</string>
-    <string name="no_channel_subscribed_yet">Још нема претплата на канал</string>
+    <string name="no_channel_subscribed_yet">Још увек нема претплате на канале</string>
     <string name="select_a_kiosk">Изаберите киоск</string>
     <string name="kiosk">Киоск</string>
     <string name="trending">У тренду</string>
     <string name="top_50">Топ 50</string>
-    <string name="new_and_hot">Ново и вруће</string>
+    <string name="new_and_hot">Ново и популарно</string>
     <string name="play_queue_remove">Уклони</string>
     <string name="play_queue_stream_detail">Детаљи</string>
     <string name="play_queue_audio_settings">Поставке звука</string>
@@ -244,11 +244,11 @@
     <string name="always">Увек</string>
     <string name="just_once">Само једном</string>
     <string name="unknown_content">[непознато]</string>
-    <string name="show_hold_to_append_title">Прикажи поруку \"задржи ради стављања у ред\"</string>
+    <string name="show_hold_to_append_title">Прикажи поруку „задржи ради стављања у ред”</string>
     <string name="donation_title">Донирај</string>
-    <string name="donation_encouragement">ЊуПајп су развили волонтери који своје слободно време проводе доносећи вам најбоље корисничко искуство. Узвратите како бисте помогли програмерима да ЊуПајп учине чак и бољим док уживају у шољи кафе.</string>
+    <string name="donation_encouragement">ЊуПајп су развили волонтери који своје слободно време проводе доносећи вам најбоље корисничко искуство. Донирајте да бисте помогли програмерима да ЊуПајп постане још бољи док уживају у чашици ракије.</string>
     <string name="give_back">Узврати</string>
-    <string name="website_title">Вебсајт</string>
+    <string name="website_title">Веб страна</string>
     <string name="website_encouragement">За више информација и новости посетите ЊуПајпов вебсајт.</string>
     <string name="hold_to_append">Задржи за стављање у ред</string>
     <string name="start_here_on_main">Пусти одавде</string>
@@ -263,5 +263,430 @@
     <string name="tab_new">Нова картица</string>
     <string name="tab_choose">Одабери картицу</string>
     <string name="show_comments_title">Приказивање коментара</string>
-    <string name="show_comments_summary">Искључите како се не би приказивали коментари</string>
+    <string name="show_comments_summary">Искључите да би сте сакрили коментаре</string>
+    <string name="new_seek_duration_toast">Због ограничења ExoPlayer трајање тражења је постављено на %d секунди</string>
+    <string name="remove_watched_popup_yes_and_partially_watched_videos">Да, и делимично гледани видео снимци</string>
+    <string name="remove_watched_popup_warning">Видео записи који су гледани пре и након додавања на листу песама биће уклоњени.
+\nДа ли сте сигурни\? Ово се не може поништити!</string>
+    <string name="remove_watched_popup_title">Уклонити гледане видео снимке\?</string>
+    <string name="remove_watched">Уклони гледано</string>
+    <string name="systems_language">Подразумевана подешавања система</string>
+    <string name="app_language_title">Језик апликације</string>
+    <string name="choose_instance_prompt">Изаберите инстанцу</string>
+    <string name="downloads_storage_use_saf_summary">\'Storage Access Framework\' омогућава преузимање на спољну СД картицу.
+\nНеки уређаји су некомпатибилни</string>
+    <string name="downloads_storage_use_saf_title">Користи SAF</string>
+    <string name="downloads_storage_ask_summary_kitkat">Питаће вас где да сачувате свако преузимање.
+\nИзаберите SAF ако желите да преузимате на спољну СД картицу</string>
+    <string name="downloads_storage_ask_summary">Питаће вас где да сачувате свако преузимање</string>
+    <string name="downloads_storage_ask_title">Питајте где да преузмете</string>
+    <string name="pause_downloads">Паузирајте преузимања</string>
+    <string name="start_downloads">Започните преузимања</string>
+    <string name="enable_queue_limit_desc">Једно преузимање ће се покретати истовремено</string>
+    <string name="enable_queue_limit">Ограничите ред за преузимање</string>
+    <string name="close">Затвори</string>
+    <string name="pause_downloads_on_mobile_desc">Корисно при преласку на мобилне податке, иако нека преузимања не могу бити обустављена</string>
+    <string name="pause_downloads_on_mobile">Прекид на мереним мрежама</string>
+    <string name="max_retry_desc">Максималан број покушаја пре отказивања преузимања</string>
+    <string name="max_retry_msg">Максималан број поновљених покушаја</string>
+    <string name="stop">Зауставити</string>
+    <string name="deleted_downloads">Избрисан %1$d преузимања</string>
+    <string name="delete_downloaded_files">Избришите преузете датотеке</string>
+    <string name="confirm_prompt">Да ли желите да обришете историју преузимања или избришете све преузете датотеке\?</string>
+    <string name="clear_download_history">Обриши историју преузимања</string>
+    <string name="error_download_resource_gone">Није могуће опоравити ово преузимање</string>
+    <string name="error_timeout">Временско ограничење везе</string>
+    <string name="error_progress_lost">Напредак је изгубљен јер је датотека избрисана</string>
+    <string name="error_insufficient_storage">Недовољно меморије на уређају</string>
+    <string name="error_postprocessing_stopped">ЊуПајп је затворен док је радио на датотеци</string>
+    <string name="error_postprocessing_failed">Накнадна обрада није успела</string>
+    <string name="error_http_not_found">Није пронађено</string>
+    <string name="error_http_unsupported_range">Сервер не прихвата преузимања са више нити, покушајте поново са @string/msg_threads = 1</string>
+    <string name="error_http_no_content">Сервер не шаље податке</string>
+    <string name="error_connect_host">Не могу да се повежем са сервером</string>
+    <string name="error_unknown_host">Није могуће пронаћи сервер</string>
+    <string name="error_ssl_exception">Не могу да успоставим безбедну везу</string>
+    <string name="error_permission_denied">Систем је одбио дозволу</string>
+    <string name="error_path_creation">Није могуће створити одредишну фасциклу</string>
+    <string name="error_file_creation">Датотека се не може створити</string>
+    <string name="label_code">Код</string>
+    <string name="show_error">Прикажи грешку</string>
+    <string name="download_already_pending">Постоји преузимање са овим именом</string>
+    <string name="download_already_running">У току је преузимање са овим именом</string>
+    <string name="overwrite_failed">не може преписати датотеку</string>
+    <string name="overwrite_finished_warning">Преузета датотека са овим именом већ постоји</string>
+    <string name="overwrite_unrelated_warning">Датотека са овим именом већ постоји</string>
+    <string name="overwrite">Препиши</string>
+    <string name="generate_unique_name">Генериши јединствено име</string>
+    <string name="download_finished_more">%s преузимања завршена</string>
+    <string name="download_finished">Преузимање је завршено</string>
+    <string name="download_failed">Преузимање неуспешно</string>
+    <string name="permission_denied">Систем одбија радњу</string>
+    <string name="enqueue">Ред чекања</string>
+    <string name="recovering">опоравља се</string>
+    <string name="post_processing">Пост обрада</string>
+    <string name="queued">у реду</string>
+    <string name="paused">паузирано</string>
+    <string name="missions_header_pending">Нерешено</string>
+    <string name="missions_header_finished">Готовo</string>
+    <string name="app_update_notification_content_text">Додирните за преузимање</string>
+    <string name="app_update_notification_content_title">Доступно је ажурирање за ЊуПајп!</string>
+    <string name="switch_view">Пребаци поглед</string>
+    <string name="auto">Аутоматски</string>
+    <string name="grid">Решетка</string>
+    <string name="list">Листа</string>
+    <string name="list_view_mode">Режим приказа листе</string>
+    <string name="never">Никад</string>
+    <string name="wifi_only">Само на Ви-Фи мрежи</string>
+    <string name="autoplay_summary">Покрените репродукцију аутоматски — %s</string>
+    <string name="minimize_on_exit_popup_description">Смањите на искачући плејер</string>
+    <string name="minimize_on_exit_background_description">Смањите на позадински плејер</string>
+    <string name="minimize_on_exit_none_description">Ниједан</string>
+    <string name="minimize_on_exit_summary">Акција приликом преласка на другу апликацију са главног видео плејера — %s</string>
+    <string name="minimize_on_exit_title">Смањивање пребацивања апликације</string>
+    <string name="updates_setting_description">Прикажите обавештење да затражите ажурирање апликације када буде доступна нова верзија</string>
+    <string name="updates_setting_title">Ажурирања</string>
+    <string name="limit_mobile_data_usage_title">Ограничите резолуцију када користите мобилне податке</string>
+    <string name="decline">Одбиј</string>
+    <string name="limit_data_usage_none_description">Без органичења</string>
+    <string name="accept">Прихвати</string>
+    <string name="start_accept_privacy_policy">Да бисмо били у складу са Европском општом уредбом о заштити података (GDPR), скрећемо вам пажњу на политику приватности апликације ЊуПајпа. Молимо вас да пажљиво прочитате.
+\nМорате га прихватити да бисте нам послали извештај о грешци.</string>
+    <string name="playback_reset">Ресетуј</string>
+    <string name="playback_step">Корак</string>
+    <string name="skip_silence_checkbox">Премотавање унапред током тишине</string>
+    <string name="unhook_checkbox">Откачите (може довести до изобличења)</string>
+    <string name="playback_pitch">Висина тона</string>
+    <string name="playback_tempo">Брзина</string>
+    <string name="playback_speed_control">Контроле брзине репродукције</string>
+    <string name="import_network_expensive_warning">Имајте на уму да ова операција може бити скупа на мрежи.
+\n
+\nДа ли желите да наставите\?</string>
+    <string name="import_soundcloud_instructions_hint">вашИД, soundcloud.com/yourid</string>
+    <string name="import_soundcloud_instructions">Увезите SoundCloud профил тако што ћете откуцати УРЛ или свој ИД:
+\n
+\n1. Омогућите „режим радне површине“ у веб прегледачу (веб локација није доступна за мобилне уређаје)
+\n2. Идите на ову УРЛ адресу: %1$s
+\n3. Пријавите се када вас питају
+\n4. Копирајте УРЛ профила на који сте преусмерени.</string>
+    <string name="import_youtube_instructions">Увезите Јутјуб претплате са Google takeout-а:
+\n
+\n1. Идите на ову УРЛ адресу: %1$s
+\n2. Пријавите се када вас питају
+\n3. Кликните на „Сви подаци су укључени“, затим на „Поништи избор свих“, а затим изаберите само „претплате“ и кликните на „У реду“
+\n4. Кликните на „Следећи корак“, а затим на „Направи извоз“
+\n5. Кликните на дугме „Преузми“ након што се појави и
+\n6. Из преузете зип датотеке за преузимање извадите .json датотеку (обично под „YouTube и YouTube Music/subscriptions/subscriptions.json“) и увезите је овде.</string>
+    <string name="subscriptions_export_unsuccessful">Извоз претплата није успео</string>
+    <string name="subscriptions_import_unsuccessful">Увоз претплата није успео</string>
+    <string name="previous_export">Претходни извоз</string>
+    <string name="import_file_title">Увези датотеку</string>
+    <string name="import_ongoing">Увозим…</string>
+    <string name="export_ongoing">Извозим…</string>
+    <string name="export_to">Извоз у</string>
+    <string name="import_from">Увоз из</string>
+    <string name="import_title">Увоз</string>
+    <string name="import_export_title">Увоз/извоз</string>
+    <string name="crash_the_app">Срушите апликацију</string>
+    <string name="show_original_time_ago_summary">Оригинални текстови са услуга биће видљиви у ставкама стрима</string>
+    <string name="show_original_time_ago_title">Прикажи оригинално време на предметима</string>
+    <string name="enable_disposed_exceptions_summary">Присилни пријављивање Rx изузетака које се неможе испоручити изван фрагмента или животног циклуса активности након одлагања</string>
+    <string name="enable_disposed_exceptions_title">Пријави грешке ван животног циклуса</string>
+    <string name="show_memory_leaks">Прикажи цурење меморије</string>
+    <string name="enable_leak_canary_summary">Надгледање цурења меморије може проузроковати да апликација престане да реагује при одбацивању гомиле</string>
+    <string name="caption_setting_description">Измените скалу титла и стилове позадине за титлове плејера. Захтева поновно покретање апликације да би ступило на снагу.</string>
+    <string name="caption_setting_title">Титлови</string>
+    <string name="caption_auto_generated">Аутоматски генерисано</string>
+    <string name="resize_zoom">Увеличај</string>
+    <string name="resize_fill">Напуните</string>
+    <string name="resize_fit">Фит</string>
+    <string name="caption_none">Без титлова</string>
+    <string name="playlist_no_uploader">Аутоматски генерисано (није пронађен отпремач)</string>
+    <string name="playlist_delete_failure">Брисање плејлисте није успело.</string>
+    <string name="playlist_thumbnail_change_success">Сличица плејлисте је промењена.</string>
+    <string name="playlist_add_stream_success">Плејлиста</string>
+    <string name="playlist_creation_success">Плејлиста је направљена</string>
+    <string name="delete_playlist_prompt">Желите ли да избришете ову плејлисту\?</string>
+    <string name="bookmark_playlist">Обележи плејлисту</string>
+    <string name="unbookmark_playlist">Уклоните обележивач</string>
+    <string name="set_as_playlist_thumbnail">Постави као сличицу плејлисте</string>
+    <string name="unmute">Упали звук</string>
+    <string name="mute">Угаси звук</string>
+    <string name="append_playlist">Додај на плејлисту</string>
+    <string name="name">Име</string>
+    <string name="rename_playlist">Преименуј</string>
+    <string name="delete_playlist">Избриши</string>
+    <string name="create_playlist">Ново плејлиста</string>
+    <string name="preferred_player_fetcher_notification_message">Учитавање захтеваног садржаја</string>
+    <string name="preferred_player_fetcher_notification_title">Добијање информација…</string>
+    <string name="always_ask_open_action">Увек пита</string>
+    <string name="popup_player">Плејер у искачујућем прзору</string>
+    <string name="background_player">Плејер у позадини</string>
+    <string name="video_player">Видео плејер</string>
+    <string name="preferred_open_action_settings_summary">Подразумевана радња приликом отварања садржаја — %s</string>
+    <string name="preferred_open_action_settings_title">Пожељно „отворити“ акција</string>
+    <string name="drawer_header_action_paceholder_text">Нешто ће се овде ускоро појавити ;D</string>
+    <string name="drawer_close">Затвори фиоку</string>
+    <string name="drawer_open">Отворите фиоку</string>
+    <string name="start_here_on_popup">Почните да играте у искачућем прозору</string>
+    <string name="start_here_on_background">Почните да играте у позадини</string>
+    <string name="enqueue_stream">у реду</string>
+    <string name="enqueued">У реду</string>
+    <string name="title_activity_play_queue">Ред репродукције</string>
+    <string name="conferences">Конференције</string>
+    <string name="most_liked">Највише свиђања</string>
+    <string name="recently_added">Недавно додато</string>
+    <string name="local">Локално</string>
+    <string name="localization_changes_requires_app_restart">Језик ће се променити након што се апликација поново покрене.</string>
+    <string name="error_unable_to_load_comments">Учитавање коментара није успело</string>
+    <string name="import_settings">Да ли желите да увезете и поставке\?</string>
+    <string name="override_current_data">Ово ће заменити ваше тренутно подешавање.</string>
+    <string name="could_not_import_all_files">Упозорење: Увоз свих датотека није успео.</string>
+    <string name="no_valid_zip_file">Нема важеће ZIP датотеке</string>
+    <string name="import_complete_toast">Увезено</string>
+    <string name="export_complete_toast">Извезено</string>
+    <string name="no_playlist_bookmarked_yet">Још нема обележивача на плејлисти</string>
+    <string name="select_a_playlist">Изаберите плејлисту</string>
+    <string name="default_kiosk_page_summary">Уобичајни киоск</string>
+    <string name="selection">Избор</string>
+    <string name="main_page_content_summary">Које су картице приказане на главној страници</string>
+    <string name="title_most_played">Највише пуштано</string>
+    <string name="title_last_played">Последња репродукција</string>
+    <string name="delete_all_history_prompt">Да ли сте сигурни да желите да избришете све ставке из историје\?</string>
+    <string name="delete_stream_history_prompt">Да ли желите да избришете ову ставку из историје гледања\?</string>
+    <string name="app_license">ЊуПајп је бесплатни копилефт софтвер: можете га користити, проучавати и делити по жељи. Конкретно, можете га дистрибуирати и / или модификовати под условима ГНУ Опште јавне лиценце коју је објавила Фондација за слободни софтвер, било верзије 3 лиценце, или (по вашој жељи) било које касније верзије.</string>
+    <string name="read_privacy_policy">Прочитајте политику приватности</string>
+    <string name="privacy_policy_encouragement">Пројекат ЊуПајп врло озбиљно схвата вашу приватност. Стога апликација не прикупља никакве податке без вашег пристанка.
+\nПолитика приватности ЊуПајпа детаљно објашњава који се подаци шаљу и чувају када пошаљете извештај о паду апликације.</string>
+    <string name="privacy_policy_title">Политика приватности ЊуПајпа</string>
+    <string name="toast_no_player">Није инсталирана ниједна апликација за репродукцију ове датотеке</string>
+    <string name="recaptcha_done_button">Готово</string>
+    <string name="recaptcha_solve">Реши</string>
+    <string name="subtitle_activity_recaptcha">Притисните „Готово“ кад решите</string>
+    <string name="one_item_deleted">Избрисана је 1 ставка.</string>
+    <string name="msg_calculating_hash">Израчунавање хеша</string>
+    <string name="rename">Преименуј</string>
+    <string name="dismiss">Одбаци</string>
+    <string name="delete_all">Избриши све</string>
+    <string name="delete_one">Избриши један</string>
+    <string name="create">Креирај</string>
+    <string name="no_comments">Нема коментара</string>
+    <string name="infinite_videos">∞ видео снимака</string>
+    <string name="more_than_100_videos">100+ видео снимака</string>
+    <plurals name="listening">
+        <item quantity="one">%s слушалац</item>
+        <item quantity="few">%s слушалац</item>
+        <item quantity="other">%s слушаоци</item>
+    </plurals>
+    <string name="no_one_listening">Нико не слуша</string>
+    <plurals name="watching">
+        <item quantity="one">%s гледалац</item>
+        <item quantity="few">%s гледаоца</item>
+        <item quantity="other">%s гледаоци</item>
+    </plurals>
+    <string name="no_one_watching">Нико не гледа</string>
+    <string name="subscribers_count_not_available">Број претплатника није доступан</string>
+    <string name="drawer_header_description">Укључи / искључи услугу, која је тренутно изабрана:</string>
+    <string name="detail_drag_description">Превуците за преуређивање</string>
+    <string name="description_tab_description">Опис</string>
+    <string name="comments_tab_description">Коментари</string>
+    <string name="error_report_open_github_notice">Проверите да ли већ постоји проблем који говори о вашем паду апликације. Када правите дупликате карата, одузимате нам време које бисмо могли потрошити на исправљање стварне грешке.</string>
+    <string name="error_report_open_issue_button_text">Пријави на GitHub-у</string>
+    <string name="copy_for_github">Копирајте форматирани извештај</string>
+    <string name="permission_display_over_apps">Дајте дозволу за приказ преко других апликација</string>
+    <string name="restore_defaults">Врати уобичајне вредности</string>
+    <string name="restore_defaults_confirmation">Да ли желите да вратите уобичајне вредности\?</string>
+    <string name="saved_tabs_invalid_json">Није могуће прочитати сачуване картице, па користите подразумеване</string>
+    <string name="no_streams_available_download">Није доступан ниједан стрим за преузимање</string>
+    <string name="error_occurred_detail">Дошло је до грешке: %1$s</string>
+    <string name="invalid_file">Датотека не постоји или јој недостаје дозвола за читање или чување</string>
+    <string name="file_name_empty_error">Име датотеке не може бити празно</string>
+    <string name="invalid_source">Не постоји такав извор датотеке / садржаја</string>
+    <string name="invalid_directory">Нема такве фасцикле</string>
+    <string name="missing_file">Датотека је премештена или избрисана</string>
+    <string name="video_streams_empty">Није пронађен ниједан видео ток</string>
+    <string name="audio_streams_empty">Није пронађен ниједан аудио ток</string>
+    <string name="invalid_url_toast">Неважећи УРЛ</string>
+    <string name="external_player_unsupported_link_type">Спољни плејери не подржавају ове врсте веза</string>
+    <string name="download_to_sdcard_error_message">Преузимање на спољну СД картицу није могуће. Желите ли да ресетујете локацију фасцикле за преузимање\?</string>
+    <string name="download_to_sdcard_error_title">Спољно складиште није доступно</string>
+    <string name="help">Помоћ</string>
+    <string name="search_history_deleted">Историја претраживања је избрисана.</string>
+    <string name="delete_search_history_alert">Желите ли да избришете целу историју претраге\?</string>
+    <string name="clear_search_history_summary">Брише историју кључних речи за претрагу</string>
+    <string name="clear_search_history_title">Обришите историју претраге</string>
+    <string name="watch_history_states_deleted">Избрисане су позиције репродукције.</string>
+    <string name="delete_playback_states_alert">Избрисати све позиције репродукције\?</string>
+    <string name="clear_playback_states_summary">Брише све позиције репродукције</string>
+    <string name="clear_playback_states_title">Избришите позиције репродукције</string>
+    <string name="watch_history_deleted">Историја гледања је избрисана.</string>
+    <string name="delete_view_history_alert">Избришите целу историју гледања\?</string>
+    <string name="clear_views_history_summary">Брише историју репродукованих токова и позиције репродукције</string>
+    <string name="clear_views_history_title">Очистите историју гледања</string>
+    <string name="clear_cookie_summary">Очистите колачиће које ЊуПајп чува када решите reCAPTCHA</string>
+    <string name="export_data_summary">Извоз историје, претплате, плејлисте и подешавања</string>
+    <string name="import_data_summary">Замењује вашу тренутну историју, претплате, плејлисте и (опционално) подешавања</string>
+    <string name="recaptcha_cookies_cleared">колачићи reCAPTCHA су очишћени</string>
+    <string name="clear_cookie_title">Очистите reCAPTCHA колачиће</string>
+    <string name="export_data_title">Извоз базе података</string>
+    <string name="import_data_title">Увоз базе података</string>
+    <string name="switch_to_main">Пребаците се на Главни</string>
+    <string name="switch_to_popup">Пребаците се на искочни прозор</string>
+    <string name="switch_to_background">Пребаците се на позадину</string>
+    <string name="toggle_orientation">Пребаци оријентацију</string>
+    <string name="hash_channel_description">Обавештења о напретку хеширања видео записа</string>
+    <string name="hash_channel_name">Обавештење о видео хешу</string>
+    <string name="app_update_notification_channel_description">Обавештења о новој верзији ЊуПајпа</string>
+    <string name="app_update_notification_channel_name">Обавештење о ажурирању апликације</string>
+    <string name="file">Датотека</string>
+    <string name="file_deleted">Датотека је избрисана</string>
+    <string name="artists">Уметници</string>
+    <string name="albums">Албуми</string>
+    <string name="songs">Песме</string>
+    <string name="events">Догађаји</string>
+    <string name="users">Корисници</string>
+    <string name="tracks">Нумере</string>
+    <string name="videos_string">Видео</string>
+    <string name="playlists">Плејлисте</string>
+    <string name="channels">Канали</string>
+    <string name="restricted_video_no_stream">Овај видео је старосно ограничен.
+\nЗбог нових Јутјуб смерница са старосним видео записима, Њупајп не може да приступи ниједном од својих видео токова, па стога није у могућности да га репродукује.</string>
+    <string name="restricted_video">Овај видео је старосно ограничен.
+\n
+\nУкључите „%1$s“ у подешавањима ако желите да га видите.</string>
+    <string name="youtube_restricted_mode_enabled_summary">Јутјуб нуди „Ограничени режим“ који скрива потенцијални садржај за одрасле</string>
+    <string name="youtube_restricted_mode_enabled_title">Укључите Јутјубов „Ограничени режим“</string>
+    <string name="show_age_restricted_content_summary">Прикажите садржај који је можда неприкладан за децу јер има старосну границу (попут 18+)</string>
+    <string name="settings_category_notification_title">Обавештење</string>
+    <string name="settings_category_updates_title">Ажурирања</string>
+    <string name="peertube_instance_add_exists">Инстанца већ постоји</string>
+    <string name="peertube_instance_add_https_only">Подржане су само HTTPS УРЛ адресе</string>
+    <string name="peertube_instance_add_fail">Није могуће потврдити инстанцу</string>
+    <string name="peertube_instance_add_help">Унесите УРЛ адресе инстанце</string>
+    <string name="peertube_instance_add_title">Додајте инстанцу</string>
+    <string name="peertube_instance_url_help">Пронађите инстанце које вам се свиђају на %s</string>
+    <string name="peertube_instance_url_title">PeerTube инстанца</string>
+    <string name="peertube_instance_url_summary">Изаберите своје омиљене инстанце PeerTube</string>
+    <string name="unsupported_url_dialog_message">УРЛ није препознат. Отворити помоћу друге апликације\?</string>
+    <string name="autoplay_title">Аутоматско покретање</string>
+    <string name="settings_category_clear_data_title">Очисти податке</string>
+    <string name="enable_playback_state_lists_summary">Прикажите индикаторе положаја репродукције на листама</string>
+    <string name="enable_playback_state_lists_title">Позиције на листама</string>
+    <string name="enable_playback_resume_summary">Вратите последњу позицију репродукције</string>
+    <string name="enable_playback_resume_title">Наставите репродукцију</string>
+    <string name="brightness_gesture_control_summary">Користите покрете за контролу осветљености плејера</string>
+    <string name="brightness_gesture_control_title">Контрола геста осветљености</string>
+    <string name="volume_gesture_control_summary">Користите покрете за контролу јачине звука играча</string>
+    <string name="volume_gesture_control_title">Контрола кретања јачине звука</string>
+    <string name="auto_queue_toggle">Аутоматски ред</string>
+    <string name="auto_queue_summary">Наставите да завршавате (не понављајући) ред репродукције додавањем повезаног стрима</string>
+    <string name="auto_queue_title">Следећи стрим аутоматски ставља у ред</string>
+    <string name="metadata_cache_wipe_complete_notice">Кеш метаподатака обрисан</string>
+    <string name="show_meta_info_summary">Искључите да бисте сакрили оквире са мета подацима са додатним информацијама о творцу стрима, садржају стрима или захтеву за претрагу.</string>
+    <string name="show_meta_info_title">Прикажи мета информације</string>
+    <string name="show_description_summary">Искључите да бисте сакрили опис видеа и додатне информације</string>
+    <string name="show_description_title">Прикажи опис</string>
+    <string name="clear_queue_confirmation_description">Ред активног играча ће бити замењен</string>
+    <string name="clear_queue_confirmation_summary">Пребацивање са једног играча на другог може заменити ваш ред</string>
+    <string name="clear_queue_confirmation_title">Питај за потврду пре него што очистите ред</string>
+    <string name="seek_duration_title">Брзо мотање-напред/-назад тражење трајања</string>
+    <string name="night_theme_title">Ноћна тема</string>
+    <string name="notification_colorize_summary">Нека Андроид прилагоди боју обавештења према главној боји на сличици (имајте на уму да ово није доступно на свим уређајима)</string>
+    <string name="notification_colorize_title">Обоји обавештења</string>
+    <string name="notification_action_nothing">Ништа</string>
+    <string name="notification_action_buffering">Учитавање</string>
+    <string name="notification_action_shuffle">Мешање</string>
+    <string name="notification_action_repeat">Понављање</string>
+    <string name="notification_actions_at_most_three">Можете да изаберете највише три радње за приказ у компактном обавештењу!</string>
+    <string name="notification_actions_summary">Уредите сваку радњу обавештења у наставку тапкајући је. Означите до три од њих која ће се приказивати у компактном обавештењу помоћу поља за потврду с десне стране.</string>
+    <string name="notification_action_4_title">Пето акционо дугме</string>
+    <string name="notification_action_3_title">Четврто акционо дугме</string>
+    <string name="notification_action_2_title">Треће акционо дугме</string>
+    <string name="notification_action_1_title">Дугме друге акције</string>
+    <string name="notification_action_0_title">Дугме прве акције</string>
+    <string name="notification_scale_to_square_image_summary">Смањите сличице видео записа приказаног у обавештењу са односа 16: 9 на 1: 1 (може довести до изобличења)</string>
+    <string name="download_choose_new_path">Промените фасцикле за преузимање да би дејствовало</string>
+    <string name="notification_scale_to_square_image_title">Смањите сличице на 1: 1 размеру</string>
+    <string name="search_showing_result_for">Приказивање резултата за :%s</string>
+    <string name="open_with">Отвори са</string>
+    <string name="download_has_started">Преузимање је започело</string>
+    <string name="select_night_theme_toast">Испод можете одабрати своју омиљену ноћну тему</string>
+    <string name="night_theme_summary">Изаберите своју омиљену ноћну тему — %s</string>
+    <string name="auto_device_theme_title">Аутоматски (тема уређаја)</string>
+    <string name="radio">Радио</string>
+    <string name="featured">Истакнуто</string>
+    <string name="paid_content">Овај садржај је доступан само корисницима који су платили, тако да га ЊуПајп не може стримовати или преузимати.</string>
+    <string name="youtube_music_premium_content">Овај видео је доступан само премиум члановима Јутјуб Музике, тако да га ЊуПајп не може стримовати или преузимати.</string>
+    <string name="private_content">Овај садржај је приватан, тако да га ЊуПајп не може стримовати или преузимати.</string>
+    <string name="soundcloud_go_plus_content">Ово је СаундКлауд Го+ нумера, барем у вашој земљи, тако да га ЊуПајп не може стримовати или преузимати.</string>
+    <string name="georestricted_content">Овај садржај није доступан у вашој земљи.</string>
+    <string name="no_app_to_open_intent">Ниједна апликација на уређају не може да отвори ово</string>
+    <string name="chapters">Поглавља</string>
+    <string name="recent">Скорашњи</string>
+    <string name="show_thumbnail_summary">Користите сличицу и за позадину закључаног екрана и за обавештења</string>
+    <string name="show_thumbnail_title">Прикажи сличицу</string>
+    <string name="playlist_page_summary">Страница плејлисте</string>
+    <string name="video_detail_by">Од %s</string>
+    <string name="channel_created_by">Направио %s</string>
+    <string name="detail_sub_channel_thumbnail_view_description">Минијатурна слика канала</string>
+    <string name="content_not_supported">ЊуПајп још увек не подржава овај садржај.
+\n
+\nНадамо се да ће бити подржан у будућој верзији.</string>
+    <string name="feed_use_dedicated_fetch_method_help_text">Да ли мислите да је убацивање фида преспоро\? Ако је то случај, покушајте да омогућите брзо учитавање (можете га променити у подешавањима или притиском на доње дугме).
+\n
+\nЊуПајп нуди две стратегије улагања фида:
+\n• Преузимање целог канала за претплату, који је спор, али потпун.
+\n• Коришћење наменске крајње тачке услуге, која је брза, али обично није потпуна.
+\n
+\nРазлика између њих две је у томе што брзом обично недостају неке информације, попут трајања или врсте ставке (не могу се разликовати видео снимци уживо од уобичајених), а можда ће вратити и мање предмета.
+\n
+\nЈутјуб је пример услуге која нуди овај брзи метод са својим РСС фидом.
+\n
+\nДакле, избор се своди на оно што више волите: брзину или прецизне информације.</string>
+    <string name="feed_use_dedicated_fetch_method_disable_button">Онемогући брзи режим</string>
+    <string name="feed_use_dedicated_fetch_method_enable_button">Омогућите брзи режим</string>
+    <string name="feed_use_dedicated_fetch_method_summary">Доступно у неким услугама, обично је много брже, али може вратити ограничену количину предмета и често непотпуне информације (нпр. нема трајања, врсте предмета, нема статуса уживо).</string>
+    <string name="feed_use_dedicated_fetch_method_title">Преузми из наменског фида када је доступан</string>
+    <string name="feed_update_threshold_option_always_update">Увек ажурирај</string>
+    <string name="feed_update_threshold_summary">Време након последњег ажурирања пре него што се претплата сматра застарелом — %s</string>
+    <string name="feed_update_threshold_title">Праг ажурирања фида</string>
+    <string name="settings_category_feed_title">Фид</string>
+    <string name="feed_group_show_only_ungrouped_subscriptions">Прикажи само негруписане претплате</string>
+    <string name="feed_create_new_group_button_title">Нови</string>
+    <string name="feed_group_dialog_delete_message">Да ли желите да избришете ову групу\?</string>
+    <string name="feed_group_dialog_empty_name">Празно име групе</string>
+    <plurals name="feed_group_dialog_selection_count">
+        <item quantity="one">%d одабрани</item>
+        <item quantity="few">%d одабрана</item>
+        <item quantity="other">%d одабраних</item>
+    </plurals>
+    <string name="feed_group_dialog_empty_selection">Није изабрана ниједна претплата</string>
+    <string name="feed_group_dialog_select_subscriptions">Изаберите претплате</string>
+    <string name="feed_processing_message">Обрада фида…</string>
+    <string name="feed_notification_loading">Учитавање фида…</string>
+    <string name="feed_subscription_not_loaded_count">Није учитано: %d</string>
+    <string name="feed_oldest_subscription_update">Последње ажурирање фида: %s</string>
+    <string name="feed_groups_header_title">Групе канала</string>
+    <plurals name="days">
+        <item quantity="one">%d дан</item>
+        <item quantity="few">%d дана</item>
+        <item quantity="other">%d дана</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="one">%d сат</item>
+        <item quantity="few">%d сати</item>
+        <item quantity="other">%d сати</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">%d минут</item>
+        <item quantity="few">%d минута</item>
+        <item quantity="other">%d минута</item>
+    </plurals>
+    <plurals name="seconds">
+        <item quantity="one">%d секунда</item>
+        <item quantity="few">%d секунди</item>
+        <item quantity="other">%d секунди</item>
+    </plurals>
+    <string name="show_channel_details">Прикажи детаље о каналу</string>
+    <string name="related_items_tab_description">Повезани предмети</string>
 </resources>

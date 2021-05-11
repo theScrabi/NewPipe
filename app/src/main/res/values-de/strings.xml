@@ -38,7 +38,7 @@
     <string name="use_external_audio_player_title">Externen Audio-Player verwenden</string>
     <string name="background_player_playing_toast">Im Hintergrund abspielen</string>
     <string name="use_tor_title">Tor benutzen</string>
-    <string name="use_tor_summary">(Experimentell) Herunterladen über Tor zur Verbesserung des Datenschutzes erzwingen (Videostreaming wird noch nicht unterstützt).</string>
+    <string name="use_tor_summary">(Experimentell) Download über Tor zur Verbesserung des Datenschutzes erzwingen (Videostreaming wird noch nicht unterstützt).</string>
     <string name="network_error">Netzwerkfehler</string>
     <string name="download_path_audio_title">Downloadordner für Audiodateien</string>
     <string name="download_path_audio_summary">Heruntergeladene Audiodateien werden hier gespeichert</string>
@@ -271,7 +271,7 @@
     <string name="could_not_import_all_files">Warnung: Nicht alle Dateien konnten importiert werden.</string>
     <string name="override_current_data">Dies wird deine aktuellen Einstellungen überschreiben.</string>
     <string name="show_info">Infos anzeigen</string>
-    <string name="tab_bookmarks">Lesezeichen für Wiedergabelisten</string>
+    <string name="tab_bookmarks">Eigene Wiedergabelisten</string>
     <string name="controls_add_to_playlist_title">Hinzufügen</string>
     <string name="detail_drag_description">Zum Neuordnen ziehen</string>
     <string name="create">Erstellen</string>
@@ -358,11 +358,11 @@
 \n3. Melde dich an, falls du dazu aufgefordert wirst
 \n4. Kopiere die Profil-URL, zu der du weitergeleitet wurdest.</string>
     <string name="import_soundcloud_instructions_hint">yourID, soundcloud.com/yourid</string>
-    <string name="no_streams_available_download">Keine Streams zum Herunterladen verfügbar</string>
+    <string name="no_streams_available_download">Keine Streams zum Download verfügbar</string>
     <string name="preferred_open_action_settings_title">Bevorzugte „Öffnen“-Aktion</string>
     <string name="preferred_open_action_settings_summary">Standardaktion beim Öffnen von Inhalten — %s</string>
     <string name="caption_setting_title">Untertitel</string>
-    <string name="caption_setting_description">Textgröße und Hintergrund der Untertitel im Player anpassen. Wird erst nach Neustart der App wirksam.</string>
+    <string name="caption_setting_description">Textgröße und Hintergrund der Untertitel im Player anpassen. Erfordert Neustart der App.</string>
     <string name="toast_no_player">Keine App zum Abspielen dieser Datei installiert</string>
     <string name="clear_views_history_title">Wiedergabeverlauf löschen</string>
     <string name="clear_views_history_summary">Den Verlauf der wiedergegebenen Streams und die Wiedergabepositionen löschen</string>
@@ -398,8 +398,8 @@
     <string name="tracks">Titel</string>
     <string name="users">Benutzer</string>
     <string name="unsubscribe">Deabonnieren</string>
-    <string name="tab_new">Neue Registerkarte</string>
-    <string name="tab_choose">Registerkarte wählen</string>
+    <string name="tab_new">Neuer Tab</string>
+    <string name="tab_choose">Tab wählen</string>
     <string name="volume_gesture_control_title">Gestensteuerung für Lautstärke</string>
     <string name="volume_gesture_control_summary">Gesten verwenden, um die Lautstärke einzustellen</string>
     <string name="brightness_gesture_control_title">Gestensteuerung für Helligkeit</string>
@@ -410,18 +410,18 @@
     <string name="app_update_notification_channel_description">Benachrichtigung bei neuer NewPipe-Version</string>
     <string name="download_to_sdcard_error_title">Kein externer Speicher verfügbar</string>
     <string name="download_to_sdcard_error_message">Herunterladen auf externe SD-Karte ist nicht möglich. Downloadordner zurücksetzen\?</string>
-    <string name="saved_tabs_invalid_json">Fehler beim Lesen der gespeicherten Registerkarten – es werden die Voreinstellungen benutzt</string>
+    <string name="saved_tabs_invalid_json">Konnte gespeicherte Tabs nicht lesen, daher werden die Voreinstellungen genutzt</string>
     <string name="restore_defaults">Standardwerte wiederherstellen</string>
-    <string name="restore_defaults_confirmation">Möchtest Du die Standardwerte wiederherstellen\?</string>
+    <string name="restore_defaults_confirmation">Möchtest du die Standardwerte wiederherstellen\?</string>
     <string name="subscribers_count_not_available">Abonnentenzahl nicht abrufbar</string>
-    <string name="main_page_content_summary">Welche Rigisterkarten auf der Hauptseite angezeigt werden</string>
+    <string name="main_page_content_summary">Welche Tabs auf der Hauptseite angezeigt werden</string>
     <string name="selection">Auswahl</string>
     <string name="updates_setting_title">Aktualisierungen</string>
     <string name="updates_setting_description">Per Benachrichtigung zur Aktualisierung der App auffordern, wenn eine neue Version verfügbar ist</string>
     <string name="list_view_mode">Art der Ansicht</string>
     <string name="list">Liste</string>
-    <string name="grid">Gitter</string>
-    <string name="auto">Auto</string>
+    <string name="grid">Raster</string>
+    <string name="auto">Automatisch</string>
     <string name="switch_view">Ansicht wechseln</string>
     <string name="app_update_notification_content_title">Eine NewPipe-Aktualisierung ist verfügbar!</string>
     <string name="app_update_notification_content_text">Zum Herunterladen antippen</string>
@@ -634,7 +634,7 @@
     <string name="title_activity_play_queue">Warteschlange abspielen</string>
     <string name="auto_queue_toggle">Automatische Warteschlange</string>
     <string name="clear_queue_confirmation_summary">Der Wechsel von einem Abspielprogramm zu einem anderen kann Ihre Warteschlange überschreiben</string>
-    <string name="clear_queue_confirmation_title">Nach einer Bestätigung fragen, bevor eine Warteschlange zu säubern</string>
+    <string name="clear_queue_confirmation_title">Überschreiben der Warteschlange bestätigen</string>
     <string name="clear_queue_confirmation_description">Die aktive Player-Warteschlange wird ersetzt</string>
     <string name="enqueued">Eingereiht</string>
     <string name="youtube_restricted_mode_enabled_summary">YouTube bietet einen „Eingeschränkten Modus“, der potenzielle Inhalte für Erwachsene ausblendet</string>
@@ -656,7 +656,7 @@
     <string name="show_meta_info_summary">Deaktiviere diese Option, um Meta-Infofelder mit zusätzlichen Informationen zum Stream-Ersteller, zum Stream-Inhalt oder zu einer Suchanforderung auszublenden.</string>
     <string name="chapters">Kapitel</string>
     <string name="description_tab_description">Beschreibung</string>
-    <string name="related_streams_tab_description">Verwandte Streams</string>
+    <string name="related_items_tab_description">Verwandte Streams</string>
     <string name="comments_tab_description">Kommentare</string>
     <string name="show_description_summary">Ausschalten, um Videobeschreibung und Zusatzinformationen auszublenden</string>
     <string name="show_description_title">Beschreibung anzeigen</string>
@@ -665,7 +665,7 @@
     <string name="private_content">Dieser Inhalt ist privat, kann also nicht von NewPipe gestreamt oder heruntergeladen werden.</string>
     <string name="paid_content">Diese Inhalte sind nur für Benutzer verfügbar, die bezahlt haben, können also nicht von NewPipe gestreamt oder heruntergeladen werden.</string>
     <string name="youtube_music_premium_content">Dieses Video ist nur für YouTube Music Premium-Mitglieder verfügbar und kann daher nicht von NewPipe gestreamt oder heruntergeladen werden.</string>
-    <string name="soundcloud_go_plus_content">Dies ist ein SoundCloud Go+ Track, zumindest in deinem Land, kann er nicht gestreamt oder von NewPipe heruntergeladen werden.</string>
+    <string name="soundcloud_go_plus_content">Dies ist ein SoundCloud Go+ Track, zumindest in deinem Land, kann er von NewPipe nicht gestreamt oder heruntergeladen werden.</string>
     <string name="georestricted_content">Dieser Inhalt ist in deinem Land nicht verfügbar.</string>
     <string name="crash_the_app">Absturz der App</string>
     <string name="restricted_video_no_stream">Dieses Video ist altersbeschränkt.
@@ -675,7 +675,8 @@
     <string name="recaptcha_solve">Lösen</string>
     <string name="download_has_started">Download hat begonnen</string>
     <string name="select_night_theme_toast">Du kannst dein bevorzugtes Nachtdesign unten auswählen</string>
-    <string name="night_theme_summary">Wähle dein bevorzugtes Nachtdesign — %s</string>
+    <string name="night_theme_summary">Wähle dein bevorzugtes Nachtdesign – %s</string>
     <string name="auto_device_theme_title">Automatisch (Gerätedesign)</string>
     <string name="night_theme_title">Nachtdesign</string>
+    <string name="show_channel_details">Kanal-Details anzeigen</string>
 </resources>

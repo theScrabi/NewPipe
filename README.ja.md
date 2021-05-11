@@ -17,7 +17,7 @@
 <p align="center"><a href="https://newpipe.net">ウェブサイト</a> &bull; <a href="https://newpipe.net/blog/">ブログ</a> &bull; <a href="https://newpipe.net/FAQ/">FAQ</a> &bull; <a href="https://newpipe.net/press/">ニュース</a></p>
 <hr>
 
-*他の言語で読む: [English](README.md), [Español](README.es.md), [한국어](README.ko.md), [Soomaali](README.so.md), [Português Brasil](README.pt.br.md), [日本語](README.ja.md), [Română](README.ro.md) 。*
+*他の言語で読む: [English](README.md), [Español](README.es.md), [한국어](README.ko.md), [Soomaali](README.so.md), [Português Brasil](README.pt.br.md), [日本語](README.ja.md), [Română](README.ro.md), [Türkçe](README.tr.md)。*
 
 <b>注意: これはベータ版のため、バグが発生する可能性があります。もしバグが発生した場合、GitHub のリポジトリで Issue を開いてください。</b>
 

@@ -656,7 +656,7 @@
     <string name="show_meta_info_title">Εμφάνιση μεταδεδομένων</string>
     <string name="chapters">Κεφάλαια</string>
     <string name="description_tab_description">Περιγραφή</string>
-    <string name="related_streams_tab_description">Σχετιζόμενες ροές</string>
+    <string name="related_items_tab_description">Σχετιζόμενες ροές</string>
     <string name="comments_tab_description">Σχόλια</string>
     <string name="show_description_summary">Απενεργοποιήστε για απόκρυψη περιγραφής και πρόσθετων πληροφοριών</string>
     <string name="show_description_title">Εμφάνιση περιγραφής</string>
@@ -678,4 +678,5 @@
     <string name="night_theme_summary">Επιλέξτε το αγαπημένο σας νυχτερινό θέμα — %s</string>
     <string name="auto_device_theme_title">Αυτόματο (θέμα συσκευής)</string>
     <string name="night_theme_title">Νυχτερινό θέμα</string>
+    <string name="show_channel_details">Εμφάνιση λεπτομερειών καναλιού</string>
 </resources>

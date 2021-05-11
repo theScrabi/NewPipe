@@ -1,7 +1,6 @@
 package us.shandian.giga.ui.fragment;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -232,10 +232,9 @@ public class MissionsFragment extends Fragment {
         mList.setAdapter(mAdapter);
 
         if (mSwitch != null) {
-            mSwitch.setIcon(ThemeHelper.resolveResourceIdFromAttr(
-                    requireContext(), mLinear
-                            ? R.attr.ic_grid
-                            : R.attr.ic_list));
+            mSwitch.setIcon(mLinear
+                            ? R.drawable.ic_apps
+                            : R.drawable.ic_list);
             mSwitch.setTitle(mLinear ? R.string.grid : R.string.list);
             mPrefs.edit().putBoolean("linear", mLinear).apply();
         }

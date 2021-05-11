@@ -458,7 +458,7 @@
     <string name="show_comments_title">Vis kommentarer</string>
     <string name="show_comments_summary">Skru av for å skjule kommentarer</string>
     <string name="autoplay_title">Spill av automatisk</string>
-    <string name="no_comments">Ingen kommenterer</string>
+    <string name="no_comments">Ingen kommentarer</string>
     <string name="error_unable_to_load_comments">Kunne ikke laste inn kommentarer</string>
     <string name="close">Lukk</string>
     <string name="missions_header_pending">Venter</string>
@@ -657,7 +657,7 @@
     <string name="no_app_to_open_intent">Ingen programmer på enheten din kan åpne dette</string>
     <string name="chapters">Kapitler</string>
     <string name="description_tab_description">Beskrivelse</string>
-    <string name="related_streams_tab_description">Relaterte strømmer</string>
+    <string name="related_items_tab_description">Relaterte strømmer</string>
     <string name="comments_tab_description">Kommentarer</string>
     <string name="show_description_summary">Skru av for å skjule videobeskrivelse og ytterligere info</string>
     <string name="show_description_title">Vis beskrivelse</string>
@@ -678,4 +678,5 @@
     <string name="featured">Framhevet</string>
     <string name="recaptcha_solve">Løs</string>
     <string name="night_theme_title">Nattdrakt</string>
+    <string name="show_channel_details">Vis kanaldetaljer</string>
 </resources>

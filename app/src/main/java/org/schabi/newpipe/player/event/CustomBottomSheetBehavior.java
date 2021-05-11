@@ -26,7 +26,7 @@ public class CustomBottomSheetBehavior extends BottomSheetBehavior<FrameLayout> 
     Rect globalRect = new Rect();
     private boolean skippingInterception = false;
     private final List<Integer> skipInterceptionOfElements = Arrays.asList(
-            R.id.detail_content_root_layout, R.id.relatedStreamsLayout,
+            R.id.detail_content_root_layout, R.id.relatedItemsLayout,
             R.id.itemsListPanel, R.id.view_pager, R.id.tab_layout, R.id.bottomControls,
             R.id.playPauseButton, R.id.playPreviousButton, R.id.playNextButton);
 

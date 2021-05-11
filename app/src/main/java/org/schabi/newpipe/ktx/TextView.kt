@@ -2,13 +2,12 @@
 
 package org.schabi.newpipe.ktx
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
 import android.animation.ArgbEvaluator
 import android.animation.ValueAnimator
 import android.util.Log
 import android.widget.TextView
 import androidx.annotation.ColorInt
+import androidx.core.animation.addListener
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import org.schabi.newpipe.MainActivity
 
@@ -34,14 +33,6 @@ fun TextView.animateTextColor(duration: Long, @ColorInt colorStart: Int, @ColorI
     viewPropertyAnimator.interpolator = FastOutSlowInInterpolator()
     viewPropertyAnimator.duration = duration
     viewPropertyAnimator.addUpdateListener { setTextColor(it.animatedValue as Int) }
-    viewPropertyAnimator.addListener(object : AnimatorListenerAdapter() {
-        override fun onAnimationEnd(animation: Animator) {
-            setTextColor(colorEnd)
-        }
-
-        override fun onAnimationCancel(animation: Animator) {
-            setTextColor(colorEnd)
-        }
-    })
+    viewPropertyAnimator.addListener(onCancel = { setTextColor(colorEnd) }, onEnd = { setTextColor(colorEnd) })
     viewPropertyAnimator.start()
 }

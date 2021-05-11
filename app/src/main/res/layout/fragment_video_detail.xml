@@ -187,7 +187,7 @@
                         android:layout_gravity="top|end"
                         android:layout_marginTop="11dp"
                         android:layout_marginEnd="10dp"
-                        app:srcCompat="@drawable/ic_expand_more_white_24dp"
+                        app:srcCompat="@drawable/ic_expand_more"
                         tools:ignore="ContentDescription" />
 
                 </FrameLayout>
@@ -321,7 +321,7 @@
                                 android:text="@string/rss_button_title"
                                 android:textSize="12sp"
                                 android:theme="@style/RedButton"
-                                app:drawableLeftCompat="@drawable/ic_rss_feed_white_24dp"
+                                app:drawableLeftCompat="@drawable/ic_rss_feed"
                                 tools:ignore="RtlHardcoded"
                                 android:visibility="gone"/>-->
                         </LinearLayout>
@@ -355,7 +355,7 @@
                                 android:layout_height="@dimen/video_item_detail_like_image_height"
                                 android:layout_below="@id/detail_view_count_view"
                                 android:contentDescription="@string/detail_likes_img_view_description"
-                                app:srcCompat="?attr/ic_thumb_up" />
+                                app:srcCompat="@drawable/ic_thumb_up" />
 
                             <TextView
                                 android:id="@+id/detail_thumbs_up_count_view"
@@ -379,7 +379,7 @@
                                 android:layout_marginLeft="12dp"
                                 android:layout_toRightOf="@id/detail_thumbs_up_count_view"
                                 android:contentDescription="@string/detail_dislikes_img_view_description"
-                                app:srcCompat="?attr/ic_thumb_down"
+                                app:srcCompat="@drawable/ic_thumb_down"
                                 tools:ignore="RtlHardcoded" />
 
                             <TextView
@@ -436,7 +436,7 @@
                             android:paddingVertical="@dimen/detail_control_padding"
                             android:text="@string/controls_add_to_playlist_title"
                             android:textSize="@dimen/detail_control_text_size"
-                            app:drawableTopCompat="?attr/ic_playlist_add" />
+                            app:drawableTopCompat="@drawable/ic_playlist_add" />
 
                         <TextView
                             android:id="@+id/detail_controls_background"
@@ -452,7 +452,7 @@
                             android:paddingVertical="@dimen/detail_control_padding"
                             android:text="@string/controls_background_title"
                             android:textSize="@dimen/detail_control_text_size"
-                            app:drawableTopCompat="?attr/ic_headset" />
+                            app:drawableTopCompat="@drawable/ic_headset" />
 
                         <TextView
                             android:id="@+id/detail_controls_popup"
@@ -468,7 +468,7 @@
                             android:paddingVertical="@dimen/detail_control_padding"
                             android:text="@string/controls_popup_title"
                             android:textSize="@dimen/detail_control_text_size"
-                            app:drawableTopCompat="?attr/ic_popup" />
+                            app:drawableTopCompat="@drawable/ic_picture_in_picture" />
 
                         <TextView
                             android:id="@+id/detail_controls_download"
@@ -484,7 +484,7 @@
                             android:paddingVertical="@dimen/detail_control_padding"
                             android:text="@string/download"
                             android:textSize="@dimen/detail_control_text_size"
-                            app:drawableTopCompat="?attr/ic_file_download" />
+                            app:drawableTopCompat="@drawable/ic_file_download" />
 
                     </LinearLayout>
 
@@ -513,7 +513,7 @@
                             android:paddingVertical="@dimen/detail_control_padding"
                             android:text="@string/share"
                             android:textSize="@dimen/detail_control_text_size"
-                            app:drawableTopCompat="?attr/ic_share" />
+                            app:drawableTopCompat="@drawable/ic_share" />
 
                         <TextView
                             android:id="@+id/detail_controls_open_in_browser"
@@ -529,7 +529,7 @@
                             android:paddingVertical="@dimen/detail_control_padding"
                             android:text="@string/open_in_browser"
                             android:textSize="@dimen/detail_control_text_size"
-                            app:drawableTopCompat="?attr/ic_language" />
+                            app:drawableTopCompat="@drawable/ic_language" />
 
                         <TextView
                             android:id="@+id/detail_controls_play_with_kodi"
@@ -545,7 +545,7 @@
                             android:paddingVertical="@dimen/detail_control_padding"
                             android:text="@string/play_with_kodi_title"
                             android:textSize="@dimen/detail_control_text_size"
-                            app:drawableTopCompat="?attr/ic_cast" />
+                            app:drawableTopCompat="@drawable/ic_cast" />
 
                     </LinearLayout>
 
@@ -589,6 +589,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
+            app:tabIndicatorGravity="top"
             app:tabIconTint="?attr/colorAccent"
             app:tabBackground="?attr/windowBackground"
             app:tabGravity="fill"
@@ -601,7 +602,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.9"
-        android:background="?attr/windowBackground">
+        android:background="?attr/windowBackground"
+        android:theme="@style/ContrastTintTheme">
 
         <ImageButton
             android:id="@+id/overlay_thumbnail"
@@ -678,7 +680,7 @@
                 android:scaleType="center"
                 android:focusable="true"
                 android:focusedByDefault="true"
-                app:srcCompat="?attr/ic_play_arrow"
+                app:srcCompat="@drawable/ic_play_arrow"
                 tools:ignore="ContentDescription,RtlHardcoded" />
 
             <ImageButton
@@ -689,7 +691,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:padding="10dp"
                 android:scaleType="center"
-                app:srcCompat="?attr/ic_close"
+                app:srcCompat="@drawable/ic_close"
                 tools:ignore="ContentDescription,RtlHardcoded" />
 
         </LinearLayout>

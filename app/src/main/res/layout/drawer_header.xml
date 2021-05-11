@@ -106,7 +106,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="4dp"
-                app:srcCompat="@drawable/ic_arrow_drop_down_white_24dp"
+                app:srcCompat="@drawable/ic_arrow_drop_down"
                 tools:ignore="ContentDescription" />
         </LinearLayout>
     </LinearLayout>

@@ -1,0 +1,15 @@
+Baru:
+• Tambahkan layanan baru: Bandcamp
+
+Ditingkatkan:
+• Tambahkan opsi mengikuti tema perangkat
+• Mencegah beberapa crash dengan panel kesalahan
+• Tampilkan informasi mengapa konten tidak tersedia
+• Tombol Memicu putar/jeda
+• Tampilkan kolom "Unduh Dimulai"
+
+Diperbaiki:
+• Perbaiki thumbnail saat bermain di latar belakang
+• Perbaiki judul kosong
+• Perbaiki mode ulang terakhir
+(weblate notification : Translation text too long! (terjemahan terlalu panjang)

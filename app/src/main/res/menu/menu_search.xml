@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/filter"
-        android:icon="?attr/ic_filter_list"
+        android:icon="@drawable/ic_filter_list"
         android:title="@string/filter"
         app:showAsAction="always">
         <menu>

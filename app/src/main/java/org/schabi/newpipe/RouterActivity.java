@@ -91,7 +91,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.schabi.newpipe.extractor.StreamingService.ServiceInfo.MediaCapability.AUDIO;
 import static org.schabi.newpipe.extractor.StreamingService.ServiceInfo.MediaCapability.VIDEO;
-import static org.schabi.newpipe.util.ThemeHelper.resolveResourceIdFromAttr;
 
 /**
  * Get the url from the intent and open it in the chosen preferred player.
@@ -231,7 +230,7 @@ public class RouterActivity extends AppCompatActivity {
         new AlertDialog.Builder(context)
                 .setTitle(R.string.unsupported_url)
                 .setMessage(R.string.unsupported_url_dialog_message)
-                .setIcon(ThemeHelper.resolveResourceIdFromAttr(context, R.attr.ic_share))
+                .setIcon(R.drawable.ic_share)
                 .setPositiveButton(R.string.open_in_browser,
                         (dialog, which) -> ShareUtils.openUrlInBrowser(this, url))
                 .setNegativeButton(R.string.share,
@@ -373,7 +372,7 @@ public class RouterActivity extends AppCompatActivity {
             final RadioButton radioButton = ListRadioIconItemBinding.inflate(inflater).getRoot();
             radioButton.setText(item.description);
             TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(radioButton,
-                    AppCompatResources.getDrawable(getApplicationContext(), item.icon),
+                    AppCompatResources.getDrawable(themeWrapperContext, item.icon),
                     null, null, null);
             radioButton.setChecked(false);
             radioButton.setId(id++);
@@ -427,16 +426,16 @@ public class RouterActivity extends AppCompatActivity {
 
         final AdapterChoiceItem videoPlayer = new AdapterChoiceItem(
                 getString(R.string.video_player_key), getString(R.string.video_player),
-                resolveResourceIdFromAttr(context, R.attr.ic_play_arrow));
+                R.drawable.ic_play_arrow);
         final AdapterChoiceItem showInfo = new AdapterChoiceItem(
                 getString(R.string.show_info_key), getString(R.string.show_info),
-                resolveResourceIdFromAttr(context, R.attr.ic_info_outline));
+                R.drawable.ic_info_outline);
         final AdapterChoiceItem popupPlayer = new AdapterChoiceItem(
                 getString(R.string.popup_player_key), getString(R.string.popup_player),
-                resolveResourceIdFromAttr(context, R.attr.ic_popup));
+                R.drawable.ic_picture_in_picture);
         final AdapterChoiceItem backgroundPlayer = new AdapterChoiceItem(
                 getString(R.string.background_player_key), getString(R.string.background_player),
-                resolveResourceIdFromAttr(context, R.attr.ic_headset));
+                R.drawable.ic_headset);
 
         if (linkType == LinkType.STREAM) {
             if (isExtVideoEnabled) {
@@ -481,7 +480,7 @@ public class RouterActivity extends AppCompatActivity {
 
         returnList.add(new AdapterChoiceItem(getString(R.string.download_key),
                 getString(R.string.download),
-                resolveResourceIdFromAttr(context, R.attr.ic_file_download)));
+                R.drawable.ic_file_download));
 
         return returnList;
     }

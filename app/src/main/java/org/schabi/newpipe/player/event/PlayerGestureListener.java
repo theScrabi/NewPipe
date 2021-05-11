@@ -147,10 +147,10 @@ public class PlayerGestureListener
 
         player.getVolumeImageView().setImageDrawable(
                 AppCompatResources.getDrawable(service, currentProgressPercent <= 0
-                        ? R.drawable.ic_volume_off_white_24dp
-                        : currentProgressPercent < 0.25 ? R.drawable.ic_volume_mute_white_24dp
-                        : currentProgressPercent < 0.75 ? R.drawable.ic_volume_down_white_24dp
-                        : R.drawable.ic_volume_up_white_24dp)
+                        ? R.drawable.ic_volume_off
+                        : currentProgressPercent < 0.25 ? R.drawable.ic_volume_mute
+                        : currentProgressPercent < 0.75 ? R.drawable.ic_volume_down
+                        : R.drawable.ic_volume_up)
         );
 
         if (player.getVolumeRelativeLayout().getVisibility() != View.VISIBLE) {
@@ -189,10 +189,10 @@ public class PlayerGestureListener
         player.getBrightnessImageView().setImageDrawable(
                 AppCompatResources.getDrawable(service,
                         currentProgressPercent < 0.25
-                                ? R.drawable.ic_brightness_low_white_24dp
+                                ? R.drawable.ic_brightness_low
                                 : currentProgressPercent < 0.75
-                                ? R.drawable.ic_brightness_medium_white_24dp
-                                : R.drawable.ic_brightness_high_white_24dp)
+                                ? R.drawable.ic_brightness_medium
+                                : R.drawable.ic_brightness_high)
         );
 
         if (player.getBrightnessRelativeLayout().getVisibility() != View.VISIBLE) {

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="main_bg_subtitle">יש לגעת בכפתור „חיפוש” כדי להתחיל
+    <string name="main_bg_subtitle">יש לגעת ב־„חיפוש” כדי להתחיל
 \n</string>
     <string name="view_count_text">%1$s צפיות</string>
     <string name="upload_date_text">פורסם ב־%1$s</string>
-    <string name="no_player_found">לא נמצאו נגני צפייה ישירה, להתקין את VLC\?</string>
+    <string name="no_player_found">לא נמצאו נגני הזרמה, להתקין VLC\?</string>
     <string name="install">התקנה</string>
     <string name="cancel">ביטול</string>
     <string name="open_in_browser">פתיחה בדפדפן</string>
@@ -19,7 +19,7 @@
     <string name="screen_rotation">הטייה</string>
     <string name="use_external_video_player_title">שימוש בנגן סרטונים חיצוני</string>
     <string name="use_external_video_player_summary">בחלק מהרזולוציות השמע יוסר</string>
-    <string name="use_external_audio_player_title">שימוש בנגן סרטונים חיצוני</string>
+    <string name="use_external_audio_player_title">שימוש בנגן שמע חיצוני</string>
     <string name="popup_mode_share_menu_title">מצב חלון צף</string>
     <string name="controls_background_title">רקע</string>
     <string name="controls_popup_title">חלון צף</string>
@@ -31,8 +31,8 @@
     <string name="download_path_audio_dialog_title">נא לבחור תיקייה לשמירת קובצי שמע</string>
     <string name="autoplay_by_calling_app_title">ניגון אוטומטי</string>
     <string name="autoplay_by_calling_app_summary">מנגן סרטון כאשר NewPipe נפתח דרך יישומון אחר</string>
-    <string name="default_resolution_title">רזולוציית בררת המחדל</string>
-    <string name="default_popup_resolution_title">רזולוציית בררת המחדל לחלון צף</string>
+    <string name="default_resolution_title">רזולוציית ברירת המחדל</string>
+    <string name="default_popup_resolution_title">רזולוציית ברירת המחדל לחלון צף</string>
     <string name="show_higher_resolutions_title">הצגת רזולוציות גבוהות יותר</string>
     <string name="show_higher_resolutions_summary">רק חלק מהמכשירים יכולים לנגן סרטונים ב־2K/4K</string>
     <string name="play_with_kodi_title">נגינה ב־Kodi</string>
@@ -40,8 +40,8 @@
     <string name="show_play_with_kodi_title">הצגת האפשרות לניגון עם Kodi</string>
     <string name="show_play_with_kodi_summary">הצגת אפשרות לנגן סרטון דרך מרכז המדיה Kodi</string>
     <string name="play_audio">שמע</string>
-    <string name="default_audio_format_title">תבנית שמע כבררת מחדל</string>
-    <string name="default_video_format_title">תבנית סרטון כבררת מחדל</string>
+    <string name="default_audio_format_title">תבנית שמע כברירת מחדל</string>
+    <string name="default_video_format_title">תבנית סרטון כברירת מחדל</string>
     <string name="theme_title">ערכת נושא</string>
     <string name="light_theme_title">בהיר</string>
     <string name="dark_theme_title">כהה</string>
@@ -53,7 +53,7 @@
     <string name="show_search_suggestions_title">הצעות חיפוש</string>
     <string name="show_search_suggestions_summary">הצגת הצעות בעת החיפוש</string>
     <string name="download_dialog_title">הורדה</string>
-    <string name="show_next_and_similar_title">להציג סרטונים דומים ובאים בתור</string>
+    <string name="show_next_and_similar_title">להציג סרטונים דומים והבאים בתור</string>
     <string name="unsupported_url">כתובת לא נתמכת</string>
     <string name="content_language_title">שפת התוכן המועדפת</string>
     <string name="settings_category_video_audio_title">סרטונים ושמע</string>
@@ -75,7 +75,7 @@
     <string name="disabled">מושבת</string>
     <string name="filter">מסנן</string>
     <string name="refresh">רענון</string>
-    <string name="clear">פינוי</string>
+    <string name="clear">ניקוי</string>
     <string name="general_error">שגיאה</string>
     <string name="network_error">שגיאת רשת</string>
     <string name="could_not_load_thumbnails">אין אפשרות לטעון את כל התמונות הממוזערות</string>
@@ -95,7 +95,7 @@
     <string name="what_device_headline">מידע:</string>
     <string name="what_happened_headline">מה קרה:</string>
     <string name="info_labels">מה:\\nבקשה:\\nשפת התוכן:\\nמדינת התוכן:\\nשפת היישומון:\\nשירות:\\nשעון גריניץ׳:\\nחבילה:\\nגרסה:\\nגרסת מערכת ההפעלה:</string>
-    <string name="subscribe_button_title">עריכת מינוי</string>
+    <string name="subscribe_button_title">רישום למינוי</string>
     <string name="subscribed_button_title">נרשמת</string>
     <string name="channel_unsubscribed">ביטול מינוי לערוץ</string>
     <string name="subscription_change_failed">לא הצלחתי לשנות מינוי</string>
@@ -145,8 +145,8 @@
     <string name="audio">שמע</string>
     <string name="retry">ניסיון חוזר</string>
     <string name="storage_permission_denied">יש להעניק גישה לאחסון תחילה</string>
-    <string name="short_thousand">ק׳</string>
-    <string name="short_million">מ׳</string>
+    <string name="short_thousand">אלפ.</string>
+    <string name="short_million">מיל.</string>
     <string name="short_billion">מיליארד</string>
     <string name="no_subscribers">אין מנויים</string>
     <plurals name="subscribers">
@@ -251,7 +251,7 @@
     <string name="show_info">הצגת מידע</string>
     <string name="tab_bookmarks">רשימות נגינה מסומנות</string>
     <string name="controls_add_to_playlist_title">הוספה אל</string>
-    <string name="default_content_country_title">מדינת תוכן כבררת מחדל</string>
+    <string name="default_content_country_title">מדינת תוכן כברירת מחדל</string>
     <string name="service_title">שירות</string>
     <string name="settings_category_debug_title">ניפוי שגיאות</string>
     <string name="always">תמיד</string>
@@ -263,7 +263,7 @@
     <string name="file">קובץ</string>
     <string name="switch_to_background">העברה לרקע</string>
     <string name="switch_to_popup">העברה לחלון צף</string>
-    <string name="no_player_found_toast">לא נמצא נגן צפייה ישירה (ניתן להתקין את VLC כדי לתקן זאת).</string>
+    <string name="no_player_found_toast">לא נמצא נגן הזרמה (ניתן להתקין את VLC כדי לנגן זאת).</string>
     <string name="thumbnail_cache_wipe_complete_notice">תמונות מטמון נמחקו</string>
     <string name="metadata_cache_wipe_title">ניקוי מטמון נתוני העל</string>
     <string name="metadata_cache_wipe_complete_notice">מטמון נתוני העל התרוקן</string>
@@ -362,9 +362,9 @@
     <string name="import_settings">לייבא גם הגדרות\?</string>
     <string name="drawer_open">פתיחת מגירה</string>
     <string name="drawer_close">סגירת מגירה</string>
-    <string name="drawer_header_action_paceholder_text">משהו יופיע כאן בקרוב ‎;D</string>
+    <string name="drawer_header_action_paceholder_text">משהו יופיע כאן בקרוב ‎:P</string>
     <string name="preferred_open_action_settings_title">פעולת ‚פתיחה’ מועדפת</string>
-    <string name="preferred_open_action_settings_summary">פעולת בררת מחדל בעת פתיחת תוכן - %s</string>
+    <string name="preferred_open_action_settings_summary">פעולת ברירת מחדל בעת פתיחת תוכן - %s</string>
     <string name="set_as_playlist_thumbnail">הגדרה כתמונת רשימת הנגינה</string>
     <string name="playlist_delete_failure">לא ניתן למחוק רשימת נגינה.</string>
     <string name="caption_none">אין כתוביות</string>
@@ -396,14 +396,14 @@
     <string name="brightness_gesture_control_title">מחוות בקרת בהירות</string>
     <string name="brightness_gesture_control_summary">שימוש במחוות כדי לשלוט בבהירות הנגן</string>
     <string name="settings_category_updates_title">עדכונים</string>
-    <string name="file_deleted">נמחק קובץ</string>
+    <string name="file_deleted">קובץ נמחק</string>
     <string name="app_update_notification_channel_name">התראת עדכון יישומון</string>
     <string name="app_update_notification_channel_description">התראות על גרסה חדשה של NewPipe</string>
     <string name="download_to_sdcard_error_title">האחסון החיצוני אינו זמין</string>
     <string name="download_to_sdcard_error_message">אין אפשרות להוריד לכרטיס SD. לאפס את מיקום תיקיית ההורדה\?</string>
-    <string name="saved_tabs_invalid_json">לא ניתן לקרוא לשוניות שמורות, לכן נעשה שימוש באלו של בררת המחדל</string>
-    <string name="restore_defaults">שחזור בררות מחדל</string>
-    <string name="restore_defaults_confirmation">לשחזר בררות מחדל\?</string>
+    <string name="saved_tabs_invalid_json">לא ניתן לקרוא לשוניות שמורות, לכן נעשה שימוש באלו של ברירת המחדל</string>
+    <string name="restore_defaults">שחזור ברירת מחדל</string>
+    <string name="restore_defaults_confirmation">לשחזר ברירת מחדל\?</string>
     <string name="subscribers_count_not_available">מספר המנויים אינו זמין</string>
     <string name="main_page_content_summary">אילו לשוניות תופענה בעמוד הראשי</string>
     <string name="selection">בחירה</string>
@@ -462,7 +462,7 @@
     <string name="pause_downloads_on_mobile">לייצר הפרעה ברשתות מדודות</string>
     <string name="pause_downloads_on_mobile_desc">שימושי בעת מעבר לחיבור רשת סלולרית, למרות שישנן הורדות שלא ניתן להשהות</string>
     <string name="show_comments_title">הצגת תגובות</string>
-    <string name="show_comments_summary">יש להשבית כדי להפסיק הסתרת תגובות</string>
+    <string name="show_comments_summary">יש להשבית כדי להסתיר תגובות</string>
     <string name="autoplay_title">ניגון אוטומטי</string>
     <string name="no_comments">אין תגובות</string>
     <string name="error_unable_to_load_comments">לא ניתן לטעון תגובות</string>
@@ -492,7 +492,7 @@
     <string name="downloads_storage_ask_summary_kitkat">תוצג שאלה היכן לשמור כל הורדה. 
 \nיש להפעיל זאת אם ברצונך להוריד לכרטיס SD חיצוני</string>
     <string name="downloads_storage_use_saf_title">שימוש ב־SAF</string>
-    <string name="downloads_storage_use_saf_summary">‚תשתית גישה לאחסון’ מאפשרת הורדות לכרטיס SD חיצוני. 
+    <string name="downloads_storage_use_saf_summary">‚תשתית גישה לאחסון’ מאפשרת הורדות לכרטיס SD חיצוני.
 \nחלק מהמכשירים אינם נתמכים</string>
     <string name="clear_playback_states_title">מחיקת מיקומי נגינה</string>
     <string name="clear_playback_states_summary">מחיקת כל מיקומי הנגינה</string>
@@ -514,7 +514,7 @@
         <item quantity="other">%s מאזינים</item>
     </plurals>
     <string name="localization_changes_requires_app_restart">השפה תוחלף עם הפעלת היישומון מחדש.</string>
-    <string name="default_kiosk_page_summary">קיוסק בררת מחדל</string>
+    <string name="default_kiosk_page_summary">קיוסק ברירת מחדל</string>
     <string name="seek_duration_title">משך קפיצה מהירה קדימה/אחורה</string>
     <string name="peertube_instance_url_title">מופעים של PeerTube</string>
     <string name="peertube_instance_url_summary">נא לבחור את מופעי ה־PeerTube המועדפים עליך</string>
@@ -536,13 +536,13 @@
     <string name="deleted_downloads">נמחקו %1$d הורדות</string>
     <string name="permission_display_over_apps">יש להעניק הרשאה להציג על גבי יישומונים אחרים</string>
     <string name="app_language_title">שפת היישומון</string>
-    <string name="systems_language">בררת המחדל של המערכת</string>
+    <string name="systems_language">ברירת המחדל של המערכת</string>
     <string name="subtitle_activity_recaptcha">יש ללחוץ על „סיום” לאחר הפתירה</string>
     <string name="recaptcha_done_button">סיום</string>
     <string name="videos_string">סרטונים</string>
     <plurals name="seconds">
         <item quantity="one">שנייה אחת</item>
-        <item quantity="two">%d שניות</item>
+        <item quantity="two">שתי שניות</item>
         <item quantity="many">%d שניות</item>
         <item quantity="other">%d שניות</item>
     </plurals>
@@ -552,7 +552,7 @@
     <string name="help">עזרה</string>
     <plurals name="minutes">
         <item quantity="one">דקה</item>
-        <item quantity="two">%d דקות</item>
+        <item quantity="two">שתי דקות</item>
         <item quantity="many">%d דקות</item>
         <item quantity="other">%d דקות</item>
     </plurals>
@@ -671,12 +671,12 @@
     <string name="msg_calculating_hash">הגיבוב</string>
     <string name="hash_channel_description">התראות על תהליכי גיבוב</string>
     <string name="hash_channel_name">התראת גיבוב סרטון</string>
-    <string name="recent">אחרונים</string>
+    <string name="recent">לאחרונה</string>
     <string name="show_meta_info_summary">לכבות את התיבות שמציגות את המידע על יוצרי התזרים, תוכן התזרים או בקשת חיפוש.</string>
     <string name="show_meta_info_title">הצגת מידע על</string>
     <string name="chapters">פרקים</string>
     <string name="description_tab_description">תיאור</string>
-    <string name="related_streams_tab_description">תזרימים קשורים</string>
+    <string name="related_items_tab_description">תזרימים קשורים</string>
     <string name="comments_tab_description">הערות</string>
     <string name="show_description_summary">יש לכבות כדי להסתיר תיאורי סרטונים ומידע נוסף</string>
     <string name="show_description_title">הצגת תיאור</string>
@@ -698,4 +698,5 @@
     <string name="featured">מובילים</string>
     <string name="recaptcha_solve">לפתור</string>
     <string name="night_theme_title">ערכת עיצוב לילית</string>
+    <string name="show_channel_details">להציג את פרטי הערוץ</string>
 </resources>

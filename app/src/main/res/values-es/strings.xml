@@ -59,7 +59,7 @@
     <string name="live_streams_not_supported">Las transmisiones en vivo no son soportadas aún</string>
     <string name="content">Contenido</string>
     <string name="show_age_restricted_content_title">Mostrar contenido con restricción de edad</string>
-    <string name="main_bg_subtitle">Toque «Buscar» para empezar
+    <string name="main_bg_subtitle">Toca en «Buscar» para comenzar
 \n</string>
     <string name="autoplay_by_calling_app_title">Reproducción automática</string>
     <string name="autoplay_by_calling_app_summary">Reproducir un vídeo cuando NewPipe es llamado desde otra aplicación</string>
@@ -530,7 +530,7 @@
     <string name="permission_display_over_apps">Permitir mostrar sobre otras aplicaciones</string>
     <string name="app_language_title">Idioma de aplicación</string>
     <string name="systems_language">Predefinido del sistema</string>
-    <string name="subtitle_activity_recaptcha">Pulse en «Hecho» al resolverlo</string>
+    <string name="subtitle_activity_recaptcha">Pulsa en «Hecho» al resolverlo</string>
     <string name="recaptcha_done_button">Hecho</string>
     <string name="videos_string">Vídeos</string>
     <plurals name="seconds">
@@ -658,7 +658,7 @@
     <string name="recent">Recientes</string>
     <string name="msg_calculating_hash">Calculando el hash</string>
     <string name="description_tab_description">Descripción</string>
-    <string name="related_streams_tab_description">Transmisiones relacionadas</string>
+    <string name="related_items_tab_description">Transmisiones relacionadas</string>
     <string name="comments_tab_description">Comentarios</string>
     <string name="hash_channel_description">Notificaciones sobre el progreso del hashing del vídeo</string>
     <string name="hash_channel_name">Notificación del hash de vídeo</string>
@@ -673,4 +673,12 @@
     <string name="georestricted_content">Este contenido no está disponible en tu país.</string>
     <string name="restricted_video_no_stream">Este vídeo tiene restricción de edad.
 \nDebido a las nuevas políticas de YouTube con vídeos con restricción de edad, NewPipe no puede acceder a ninguna de sus transmisiones de vídeo, y por lo tanto, no puede reproducirlo.</string>
+    <string name="radio">Radio</string>
+    <string name="download_has_started">La descarga ha comenzado</string>
+    <string name="recaptcha_solve">Resolver</string>
+    <string name="select_night_theme_toast">Puedes seleccionar tu tema nocturno favorito a continuación</string>
+    <string name="night_theme_title">Tema nocturno</string>
+    <string name="night_theme_summary">Selecciona tu tema nocturno favorito — %s</string>
+    <string name="auto_device_theme_title">Automático (tema del dispositivo)</string>
+    <string name="show_channel_details">Mostrar detalles del canal</string>
 </resources>

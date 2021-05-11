@@ -1,7 +1,5 @@
 package org.schabi.newpipe.local.bookmark;
 
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
@@ -12,6 +10,7 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentManager;
 
 import org.reactivestreams.Subscriber;
@@ -260,7 +259,7 @@ public final class BookmarkFragment extends BaseLocalListFragment<List<PlaylistL
         final EditText editText = dialogView.findViewById(R.id.playlist_name_edit_text);
         editText.setText(selectedItem.name);
 
-        final Builder builder = new AlertDialog.Builder(activity);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setView(dialogView)
                 .setPositiveButton(R.string.rename_playlist, (dialog, which) ->
                         changeLocalPlaylistName(selectedItem.uid, editText.getText().toString()))

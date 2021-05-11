@@ -1,0 +1,6 @@
+Apa yang baru?
+• Menambahkan kolom pencarian untuk alat pilah langganan di feed diskusi
+• Menambahkan filter untuk menampilkan feed diskusi yang belum berlangganan
+• Menambahan tab daftar putar ke halaman utama
+• Kecepatan pemutaran / Pemutaran mundur
+• Menampilkan saran penelusuran: "maksud Anda..." & "menampilkan hasil untuk ... "

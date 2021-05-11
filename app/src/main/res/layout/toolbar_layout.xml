@@ -14,9 +14,7 @@
         android:background="?attr/colorPrimary"
         android:gravity="center_vertical"
         android:minHeight="?attr/actionBarSize"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:titleTextAppearance="@style/Toolbar.Title">
+        android:theme="@style/ToolbarTheme">
 
         <include
             android:id="@+id/toolbar_search_container"

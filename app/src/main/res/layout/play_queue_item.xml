@@ -46,7 +46,7 @@
         android:layout_gravity="center_vertical"
         android:padding="@dimen/video_item_search_image_right_margin"
         android:scaleType="center"
-        app:srcCompat="?attr/ic_drag_handle"
+        app:srcCompat="@drawable/ic_drag_handle"
         tools:ignore="ContentDescription,RtlHardcoded" />
 
     <TextView

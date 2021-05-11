@@ -15,16 +15,14 @@
         android:paddingBottom="@dimen/activity_vertical_margin">
 
         <ImageView
-            android:id="@+id/logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="8dp"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/app_name"
             app:srcCompat="@mipmap/ic_launcher" />
 
         <TextView
-            android:id="@+id/app_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -33,7 +31,7 @@
 
 
         <TextView
-            android:id="@+id/app_version"
+            android:id="@+id/about_app_version"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -42,14 +40,12 @@
             tools:text="0.9.9" />
 
         <TextView
-            android:id="@+id/app_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="5dp"
             android:text="@string/app_description" />
 
         <TextView
-            android:id="@+id/title_contribution"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
@@ -62,7 +58,7 @@
             android:text="@string/contribution_encouragement" />
 
         <Button
-            android:id="@+id/github_link"
+            android:id="@+id/about_github_link"
             style="@style/Base.Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,7 +66,6 @@
             android:text="@string/view_on_github" />
 
         <TextView
-            android:id="@+id/title_donate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
@@ -83,7 +78,7 @@
             android:text="@string/donation_encouragement" />
 
         <Button
-            android:id="@+id/donation_link"
+            android:id="@+id/about_donation_link"
             style="@style/Base.Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -91,7 +86,6 @@
             android:text="@string/give_back" />
 
         <TextView
-            android:id="@+id/title_website"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
@@ -104,7 +98,7 @@
             android:text="@string/website_encouragement" />
 
         <Button
-            android:id="@+id/website_link"
+            android:id="@+id/about_website_link"
             style="@style/Base.Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -112,7 +106,6 @@
             android:text="@string/open_in_browser" />
 
         <TextView
-            android:id="@+id/title_privacy_policy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
@@ -125,7 +118,7 @@
             android:text="@string/privacy_policy_encouragement" />
 
         <Button
-            android:id="@+id/privacy_policy_link"
+            android:id="@+id/about_privacy_policy_link"
             style="@style/Base.Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

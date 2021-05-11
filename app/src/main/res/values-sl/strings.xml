@@ -451,7 +451,7 @@ odpiranje v pojavnem načinu</string>
     <string name="drawer_header_description">Vklop/izklop storitve, trenutno izbrana:</string>
     <string name="detail_drag_description">Povlecite za preureditev</string>
     <string name="description_tab_description">Opis</string>
-    <string name="related_streams_tab_description">Podobni pretoki</string>
+    <string name="related_items_tab_description">Podobni pretoki</string>
     <string name="comments_tab_description">Komentarji</string>
     <string name="error_report_open_github_notice">Prosimo preverite, če težava, ki opisuje vašo zrušitev aplikacije že obstaja. Ko ustvarite dvojne pripombe, vzamete naš čas, ki bi ga lahko porabili z odpravljanjem dejanske napake.</string>
     <string name="error_report_open_issue_button_text">Prijavite na GitHub-u</string>

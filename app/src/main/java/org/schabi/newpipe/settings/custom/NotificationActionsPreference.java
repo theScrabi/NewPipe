@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.graphics.drawable.DrawableCompat;
@@ -41,9 +42,8 @@ public class NotificationActionsPreference extends Preference {
     }
 
 
-    private NotificationSlot[] notificationSlots;
-
-    private List<Integer> compactSlots;
+    @Nullable private NotificationSlot[] notificationSlots = null;
+    @Nullable private List<Integer> compactSlots = null;
 
     ////////////////////////////////////////////////////////////////////////////
     // Lifecycle
@@ -85,19 +85,22 @@ public class NotificationActionsPreference extends Preference {
     ////////////////////////////////////////////////////////////////////////////
 
     private void saveChanges() {
-        final SharedPreferences.Editor editor = getSharedPreferences().edit();
+        if (compactSlots != null && notificationSlots != null) {
+            final SharedPreferences.Editor editor = getSharedPreferences().edit();
 
-        for (int i = 0; i < 3; i++) {
-            editor.putInt(getContext().getString(NotificationConstants.SLOT_COMPACT_PREF_KEYS[i]),
-                    (i < compactSlots.size() ? compactSlots.get(i) : -1));
+            for (int i = 0; i < 3; i++) {
+                editor.putInt(getContext().getString(
+                        NotificationConstants.SLOT_COMPACT_PREF_KEYS[i]),
+                        (i < compactSlots.size() ? compactSlots.get(i) : -1));
+            }
+
+            for (int i = 0; i < 5; i++) {
+                editor.putInt(getContext().getString(NotificationConstants.SLOT_PREF_KEYS[i]),
+                        notificationSlots[i].selectedAction);
+            }
+
+            editor.apply();
         }
-
-        for (int i = 0; i < 5; i++) {
-            editor.putInt(getContext().getString(NotificationConstants.SLOT_PREF_KEYS[i]),
-                    notificationSlots[i].selectedAction);
-        }
-
-        editor.apply();
     }
 
 

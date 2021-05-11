@@ -4,7 +4,7 @@ import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.LoadControl;
 import com.google.android.exoplayer2.Renderer;
 import com.google.android.exoplayer2.source.TrackGroupArray;
-import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
+import com.google.android.exoplayer2.trackselection.ExoTrackSelection;
 import com.google.android.exoplayer2.upstream.Allocator;
 
 public class LoadController implements LoadControl {
@@ -33,7 +33,7 @@ public class LoadController implements LoadControl {
         final DefaultLoadControl.Builder builder = new DefaultLoadControl.Builder();
         builder.setBufferDurationsMs(minimumPlaybackBufferMs, optimalPlaybackBufferMs,
                 initialPlaybackBufferMs, initialPlaybackBufferMs);
-        internalLoadControl = builder.createDefaultLoadControl();
+        internalLoadControl = builder.build();
     }
 
     /*//////////////////////////////////////////////////////////////////////////
@@ -47,9 +47,9 @@ public class LoadController implements LoadControl {
     }
 
     @Override
-    public void onTracksSelected(final Renderer[] renderers, final TrackGroupArray trackGroupArray,
-                                 final TrackSelectionArray trackSelectionArray) {
-        internalLoadControl.onTracksSelected(renderers, trackGroupArray, trackSelectionArray);
+    public void onTracksSelected(final Renderer[] renderers, final TrackGroupArray trackGroups,
+                                 final ExoTrackSelection[] trackSelections) {
+        internalLoadControl.onTracksSelected(renderers, trackGroups, trackSelections);
     }
 
     @Override
@@ -92,11 +92,12 @@ public class LoadController implements LoadControl {
 
     @Override
     public boolean shouldStartPlayback(final long bufferedDurationUs, final float playbackSpeed,
-                                       final boolean rebuffering) {
+                                       final boolean rebuffering, final long targetLiveOffsetUs) {
         final boolean isInitialPlaybackBufferFilled
                 = bufferedDurationUs >= this.initialPlaybackBufferUs * playbackSpeed;
         final boolean isInternalStartingPlayback = internalLoadControl
-                .shouldStartPlayback(bufferedDurationUs, playbackSpeed, rebuffering);
+                .shouldStartPlayback(bufferedDurationUs, playbackSpeed, rebuffering,
+                        targetLiveOffsetUs);
         return isInitialPlaybackBufferFilled || isInternalStartingPlayback;
     }
 

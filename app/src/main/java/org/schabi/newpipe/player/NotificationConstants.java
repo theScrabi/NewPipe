@@ -50,11 +50,11 @@ public final class NotificationConstants {
             R.drawable.exo_icon_fastforward,
             R.drawable.exo_icon_previous,
             R.drawable.exo_icon_next,
-            R.drawable.ic_pause_white_24dp,
-            R.drawable.ic_hourglass_top_white_24dp,
+            R.drawable.ic_pause,
+            R.drawable.ic_hourglass_top,
             R.drawable.exo_icon_repeat_all,
             R.drawable.exo_icon_shuffle_on,
-            R.drawable.ic_close_white_24dp,
+            R.drawable.ic_close,
     };
 
 

@@ -648,7 +648,7 @@
     <string name="recent">最近</string>
     <string name="open_with">開く</string>
     <string name="description_tab_description">説明</string>
-    <string name="related_streams_tab_description">関連動画</string>
+    <string name="related_items_tab_description">関連動画</string>
     <string name="show_meta_info_summary">動画作成者、動画コンテンツ、検索リクエストに関する追加情報を含むメタ情報ボックスを非表示にするにはオフにします。</string>
     <string name="no_app_to_open_intent">お使いのデバイス上のアプリでは、これを開くことはできません</string>
     <string name="chapters">チャプター</string>
@@ -660,4 +660,9 @@
     <string name="crash_the_app">アプリのクラッシュ</string>
     <string name="restricted_video_no_stream">この動画は年齢制限があります。
 \n年齢制限付き動画を含む新しい YouTube ポリシーにより、NewPipe は動画ストリームにアクセスできないため再生できません。</string>
+    <string name="select_night_theme_toast">以下からお好みの夜間テーマを選択できます</string>
+    <string name="auto_device_theme_title">自動 (デバイスのテーマ)</string>
+    <string name="night_theme_summary">%s</string>
+    <string name="recaptcha_solve">解決</string>
+    <string name="night_theme_title">夜間テーマ</string>
 </resources>

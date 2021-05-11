@@ -72,10 +72,10 @@ public final class StateSaver {
     }
 
     /**
-     * @see #tryToRestore(SavedState, WriteRead)
      * @param outState
      * @param writeRead
      * @return the saved state
+     * @see #tryToRestore(SavedState, WriteRead)
      */
     public static SavedState tryToRestore(final Bundle outState, final WriteRead writeRead) {
         if (outState == null || writeRead == null) {
@@ -93,6 +93,7 @@ public final class StateSaver {
     /**
      * Try to restore the state from memory and disk,
      * using the {@link StateSaver.WriteRead#readFrom(Queue)} from the writeRead.
+     *
      * @param savedState
      * @param writeRead
      * @return the saved state
@@ -143,19 +144,18 @@ public final class StateSaver {
     }
 
     /**
-     * @see #tryToSave(boolean, String, String, WriteRead)
      * @param isChangingConfig
      * @param savedState
      * @param outState
      * @param writeRead
      * @return the saved state or {@code null}
+     * @see #tryToSave(boolean, String, String, WriteRead)
      */
     @Nullable
     public static SavedState tryToSave(final boolean isChangingConfig,
                                        @Nullable final SavedState savedState, final Bundle outState,
                                        final WriteRead writeRead) {
-        @NonNull
-        final String currentSavedPrefix;
+        @NonNull final String currentSavedPrefix;
         if (savedState == null || TextUtils.isEmpty(savedState.getPrefixFileSaved())) {
             // Generate unique prefix
             currentSavedPrefix = System.nanoTime() - writeRead.hashCode() + "";
@@ -299,8 +299,11 @@ public final class StateSaver {
 
         cacheDir = new File(cacheDir, CACHE_DIR_NAME);
         if (cacheDir.exists()) {
-            for (final File file : cacheDir.listFiles()) {
-                file.delete();
+            final File[] list = cacheDir.listFiles();
+            if (list != null) {
+                for (final File file : list) {
+                    file.delete();
+                }
             }
         }
     }

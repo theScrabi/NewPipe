@@ -646,7 +646,7 @@
     <string name="show_meta_info_title">顯示詮釋資訊</string>
     <string name="chapters">章節</string>
     <string name="description_tab_description">描述</string>
-    <string name="related_streams_tab_description">相關的串流</string>
+    <string name="related_items_tab_description">相關的串流</string>
     <string name="comments_tab_description">留言</string>
     <string name="show_description_summary">關閉以隱藏影片描述與其他資訊</string>
     <string name="show_description_title">顯示描述</string>
@@ -663,4 +663,10 @@
     <string name="radio">廣播</string>
     <string name="featured">精選</string>
     <string name="recaptcha_solve">解決</string>
+    <string name="download_has_started">下載已經開始</string>
+    <string name="select_night_theme_toast">您可以在下方選取您最愛的夜間佈景主題</string>
+    <string name="night_theme_summary">選取您最愛的夜間佈景主題 — %s</string>
+    <string name="auto_device_theme_title">自動（裝置佈景主題）</string>
+    <string name="night_theme_title">夜間佈景主題</string>
+    <string name="show_channel_details">顯示頻道詳細資訊</string>
 </resources>

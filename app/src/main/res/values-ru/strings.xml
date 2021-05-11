@@ -665,7 +665,7 @@
     <string name="recent">Недавнее</string>
     <string name="show_meta_info_summary">Отключите, чтобы скрыть поля метаданных (автор потока, содержимое потока или поисковый запрос).</string>
     <string name="show_meta_info_title">Показать метаданные</string>
-    <string name="related_streams_tab_description">Похожие потоки</string>
+    <string name="related_items_tab_description">Похожие потоки</string>
     <string name="chapters">Главы</string>
     <string name="description_tab_description">Описание</string>
     <string name="comments_tab_description">Комментарии</string>
@@ -674,4 +674,20 @@
     <string name="open_with">Открыть в</string>
     <string name="no_app_to_open_intent">Подходящее приложение не найдено</string>
     <string name="crash_the_app">Сбой приложения</string>
+    <string name="paid_content">Этот контент доступен только оплатившим его пользователям, поэтому NewPipe не может воспроизвести или загрузить его.</string>
+    <string name="youtube_music_premium_content">Это видео доступно только для пользователей YouTube Music Premium, поэтому NewPipe не может воспроизвести или загрузить его.</string>
+    <string name="private_content">Это частный контент, поэтому NewPipe не может воспроизвести или загрузить его.</string>
+    <string name="soundcloud_go_plus_content">Этот трэк SoundCloud Go+, по крайней мере в Вашей стране. Поэтому NewPipe не может воспроизвести или загрузить его.</string>
+    <string name="georestricted_content">Этот контент недоступен в вашей стране.</string>
+    <string name="download_has_started">Загрузка началась</string>
+    <string name="select_night_theme_toast">Вы можете выбрать предпочтительную ночную тему ниже</string>
+    <string name="night_theme_summary">Выберите предпочтительную ночную тему — %s</string>
+    <string name="auto_device_theme_title">Автоматическая (тема устройства)</string>
+    <string name="radio">Радио</string>
+    <string name="restricted_video_no_stream">Это видео имеет возрастные ограничения.
+\nСогласно новой политике YouTube в отношении видео с возрастными ограничениями NewPipe не может иметь доступ ни к одному потоку этого видео и, таким образом, не имеет возможности воспроизвести его.</string>
+    <string name="night_theme_title">Ночная тема</string>
+    <string name="featured">Рекомендуемые</string>
+    <string name="recaptcha_solve">Решить</string>
+    <string name="show_channel_details">Подробно о канале</string>
 </resources>

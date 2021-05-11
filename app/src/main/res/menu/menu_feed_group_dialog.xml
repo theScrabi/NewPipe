@@ -5,8 +5,9 @@
 
     <item
         android:id="@+id/action_search"
-        android:icon="?attr/ic_search"
+        android:icon="@drawable/ic_search"
         android:title="@string/search"
+        app:iconTint="@color/contrastColor"
         app:showAsAction="always"
         tools:ignore="AlwaysShowAction" />
 

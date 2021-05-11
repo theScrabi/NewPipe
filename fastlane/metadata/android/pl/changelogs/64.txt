@@ -1,0 +1,8 @@
+### Ulepszenia
+- Dodano możliwość ograniczenia jakości wideo przy korzystaniu z danych mobilnych. #1339
+- Zapamiętanie jasności dla sesji #1442
+- Zwiększenie wydajności pobierania dla słabszych procesorów #1431
+- Dodanie (działającego) wsparcia dla sesji media #1433
+
+### Poprawka
+- Naprawiono crashowanie przy otwieraniu pobranych plików (poprawka jest już dostępna dla wersji release) #1441

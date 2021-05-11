@@ -36,8 +36,6 @@ public class MediaSessionManager {
                                @NonNull final Player player,
                                @NonNull final MediaSessionCallback callback) {
         mediaSession = new MediaSessionCompat(context, TAG);
-        mediaSession.setFlags(MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS
-                | MediaSessionCompat.FLAG_HANDLES_TRANSPORT_CONTROLS);
         mediaSession.setActive(true);
 
         mediaSession.setPlaybackState(new PlaybackStateCompat.Builder()

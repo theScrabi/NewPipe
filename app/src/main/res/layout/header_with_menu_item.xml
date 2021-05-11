@@ -28,5 +28,5 @@
         android:layout_height="24dp"
         android:layout_marginStart="16dp"
         android:background="?attr/selectableItemBackgroundBorderless"
-        tools:src="?attr/ic_bookmark" />
+        tools:src="@drawable/ic_bookmark" />
 </LinearLayout>

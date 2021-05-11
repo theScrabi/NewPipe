@@ -20,6 +20,16 @@ public final class DeviceUtils {
     private static final String AMAZON_FEATURE_FIRE_TV = "amazon.hardware.fire_tv";
     private static Boolean isTV = null;
 
+    /*
+     * Devices that do not support media tunneling
+     */
+    // Formuler Z8 Pro, Z8, CC, Z Alpha, Z+ Neo
+    private static final boolean HI3798MV200 = Build.VERSION.SDK_INT == 24
+            && Build.DEVICE.equals("Hi3798MV200");
+    // Zephir TS43UHD-2
+    private static final boolean CVT_MT5886_EU_1G = Build.VERSION.SDK_INT == 24
+            && Build.DEVICE.equals("cvt_mt5886_eu_1g");
+
     private DeviceUtils() {
     }
 
@@ -87,5 +97,16 @@ public final class DeviceUtils {
                 TypedValue.COMPLEX_UNIT_SP,
                 sp,
                 context.getResources().getDisplayMetrics());
+    }
+
+    /**
+     * Some devices have broken tunneled video playback but claim to support it.
+     * See https://github.com/TeamNewPipe/NewPipe/issues/5911
+     * @return false if Kitkat (does not support tunneling) or affected device
+     */
+    public static boolean shouldSupportMediaTunneling() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
+                && !HI3798MV200
+                && !CVT_MT5886_EU_1G;
     }
 }

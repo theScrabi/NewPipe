@@ -669,7 +669,7 @@
     <string name="no_app_to_open_intent">El vostre dispositiu no té cap aplicació capaç d\'obrir aquest tipus de contingut</string>
     <string name="crash_the_app">Força l\'aturada de l\'aplicació</string>
     <string name="recaptcha_solve">Resol</string>
-    <string name="related_streams_tab_description">Reproduccions en directe relacionades</string>
+    <string name="related_items_tab_description">Reproduccions en directe relacionades</string>
     <string name="restricted_video_no_stream">Aquest vídeo té restriccions d\'edat.
 \nDegut a la nova política d\'edat de YouTube, el NewPipe no pot accedir a aquest contingut i per tant no pot reproduir-lo.</string>
     <string name="show_description_summary">Desactiveu per amagar la descripció i la informació addicional del vídeo</string>

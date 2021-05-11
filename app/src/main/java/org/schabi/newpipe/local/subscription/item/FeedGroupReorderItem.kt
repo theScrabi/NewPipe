@@ -32,7 +32,7 @@ data class FeedGroupReorderItem(
 
     override fun bind(viewBinding: FeedGroupReorderItemBinding, position: Int) {
         viewBinding.groupName.text = name
-        viewBinding.groupIcon.setImageResource(icon.getDrawableRes(viewBinding.root.context))
+        viewBinding.groupIcon.setImageResource(icon.getDrawableRes())
     }
 
     override fun bind(viewHolder: GroupieViewHolder<FeedGroupReorderItemBinding>, position: Int, payloads: MutableList<Any>) {

@@ -10,7 +10,6 @@
     android:layout_marginRight="8dp"
     android:orientation="vertical">
 
-
     <TextView
         android:id="@+id/item_name"
         android:layout_width="wrap_content"
@@ -20,10 +19,5 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="16sp"
         android:textStyle="bold" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/black_settings_accent_color" />
 
 </LinearLayout>

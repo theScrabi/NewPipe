@@ -658,7 +658,7 @@
     <string name="show_description_title">Toon beschrijving</string>
     <string name="no_app_to_open_intent">Geen app op je apparaat kan dit openen</string>
     <string name="chapters">Hoofdstukken</string>
-    <string name="related_streams_tab_description">Gerelateerde streams</string>
+    <string name="related_items_tab_description">Gerelateerde streams</string>
     <string name="comments_tab_description">Commentaar</string>
     <string name="show_description_summary">Schakel dit uit om video beschrijvingen en additionele informatie te verbergen</string>
     <string name="open_with">Openen met</string>
@@ -673,4 +673,10 @@
     <string name="recaptcha_solve">Oplossen</string>
     <string name="restricted_video_no_stream">Deze video heeft een leeftijdsbeperking.
 \nVanwege nieuw YouTube-beleid over video\'s met leeftijdsbeperking, heeft NewPipe geen toegang tot zijn videostreams en kan deze dus niet afspelen.</string>
+    <string name="download_has_started">Downloaden is gestart</string>
+    <string name="select_night_theme_toast">Je kan je favoriete nacht thema hier beneden selecteren</string>
+    <string name="night_theme_summary">Selecteer uw favoriete nacht thema — %s</string>
+    <string name="auto_device_theme_title">Automatisch (apparaat thema)</string>
+    <string name="show_channel_details">Toon details van kanaal</string>
+    <string name="night_theme_title">Nachtmodus</string>
 </resources>

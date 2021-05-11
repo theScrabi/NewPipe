@@ -1,0 +1,8 @@
+### Îmbunătățiri
+- Setări de import/export #1333 
+- Reducerea supradimensionării (îmbunătățirea performanței) #1371 
+- Mici îmbunătățiri de cod #1375 
+- Adăugați totul despre GDPR #1420
+
+### Sistemat
+- Downloader: Sistemat crash-ul la încărcarea descărcărilor neterminate din fișiere .giga #1407
