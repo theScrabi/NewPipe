@@ -28,13 +28,6 @@
         android:title="@string/show_hold_to_append_title"
         app:iconSpaceReserved="false" />
 
-    <SwitchPreferenceCompat
-        android:defaultValue="false"
-        android:key="@string/show_playlist_duration_key"
-        android:summary="@string/show_playlist_duration_summary"
-        android:title="@string/show_playlist_duration_title"
-        app:iconSpaceReserved="false" />
-
     <ListPreference
         android:defaultValue="@string/list_view_mode_value"
         android:entries="@array/list_view_mode_description"

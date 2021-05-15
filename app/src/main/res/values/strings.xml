@@ -715,7 +715,4 @@
     <string name="night_theme_summary">Select your favorite night theme — %s</string>
     <string name="select_night_theme_toast">You can select your favorite night theme below</string>
     <string name="download_has_started">Download has started</string>
-    <string name="show_playlist_duration_key" translatable="false">show_playlist_duration</string>
-    <string name="show_playlist_duration_summary" translatable="false">Show overall duration in playlists, for larger playlists it might not display the actual duration</string>
-    <string name="show_playlist_duration_title" translatable="false">Show playlist duration</string>
 </resources>
