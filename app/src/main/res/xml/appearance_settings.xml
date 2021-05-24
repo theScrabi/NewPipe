@@ -51,4 +51,11 @@
         android:summary="%s"
         android:title="@string/tablet_mode_title"
         app:iconSpaceReserved="false" />
+
+    <PreferenceScreen
+        android:fragment="org.schabi.newpipe.settings.NotificationSettingsFragment"
+        android:summary="@string/settings_category_notification_summary"
+        android:title="@string/settings_category_notification_title"
+        app:iconSpaceReserved="false" />
+
 </PreferenceScreen>

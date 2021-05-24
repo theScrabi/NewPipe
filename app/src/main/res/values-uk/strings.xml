@@ -650,6 +650,7 @@
     <string name="related_items_tab_description">Повʼязані елементи</string>
     <string name="comments_tab_description">Коментарі</string>
     <string name="settings_category_notification_title">Сповіщення</string>
+    <string name="settings_category_notification_summary">Налаштувати повідомлення про відтворюваний наразі потік</string>
     <string name="unsupported_url_dialog_message">Не розпізнано URL. Відкрити через іншу програму\?</string>
     <string name="auto_queue_toggle">Самододавання в чергу</string>
     <string name="show_meta_info_title">Показувати метадані</string>

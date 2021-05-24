@@ -60,7 +60,7 @@ public class AppearanceSettingsFragment extends BasePreferenceFragment {
 
     @Override
     public boolean onPreferenceTreeClick(final Preference preference) {
-        if (preference.getKey().equals(captionSettingsKey) && CAPTIONING_SETTINGS_ACCESSIBLE) {
+        if (captionSettingsKey.equals(preference.getKey()) && CAPTIONING_SETTINGS_ACCESSIBLE) {
             try {
                 startActivity(new Intent(Settings.ACTION_CAPTIONING_SETTINGS));
             } catch (final ActivityNotFoundException e) {

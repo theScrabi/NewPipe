@@ -71,12 +71,12 @@ class SubscriptionManager(context: Context) {
 
     fun updateNotificationMode(serviceId: Int, url: String?, @NotificationMode mode: Int): Completable {
         return subscriptionTable().getSubscription(serviceId, url!!)
-                .flatMapCompletable { entity: SubscriptionEntity ->
-                    Completable.fromAction {
-                        entity.notificationMode = mode
-                        subscriptionTable().update(entity)
-                    }.andThen(rememberLastStream(entity))
-                }
+            .flatMapCompletable { entity: SubscriptionEntity ->
+                Completable.fromAction {
+                    entity.notificationMode = mode
+                    subscriptionTable().update(entity)
+                }.andThen(rememberLastStream(entity))
+            }
     }
 
     fun updateFromInfo(subscriptionId: Long, info: ListInfo<StreamInfoItem>) {
@@ -110,11 +110,11 @@ class SubscriptionManager(context: Context) {
 
     private fun rememberLastStream(subscription: SubscriptionEntity): Completable {
         return ExtractorHelper.getChannelInfo(subscription.serviceId, subscription.url, false)
-                .map { channel -> channel.relatedItems.map { stream -> StreamEntity(stream) } }
-                .flatMapCompletable { entities ->
-                    Completable.fromAction {
-                        database.streamDAO().upsertAll(entities)
-                    }
-                }.onErrorComplete()
+            .map { channel -> channel.relatedItems.map { stream -> StreamEntity(stream) } }
+            .flatMapCompletable { entities ->
+                Completable.fromAction {
+                    database.streamDAO().upsertAll(entities)
+                }
+            }.onErrorComplete()
     }
 }
