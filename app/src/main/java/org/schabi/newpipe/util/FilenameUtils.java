@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
 public final class FilenameUtils {
     private static final String CHARSET_MOST_SPECIAL = "[\\n\\r|?*<\":\\\\>/']+";
     private static final String CHARSET_ONLY_LETTERS_AND_DIGITS = "[^\\w\\d]+";
+    private static final String CHARSET_VALID_IN_FILE_NAMES = "[-_. A-Za-z0-9]+";
 
     private FilenameUtils() { }
 
@@ -65,5 +66,16 @@ public final class FilenameUtils {
     private static String createFilename(final String title, final Pattern invalidCharacters,
                                          final String replacementChar) {
         return title.replaceAll(invalidCharacters.pattern(), replacementChar);
+    }
+
+    /**
+     * Get a file name and extension and check the file name is a valid file name or not.
+     *
+     * @param fileName  name of file to check like "foo.zip"
+     * @param extension extension of file like "zip"
+     * @return is filename valid or not
+     */
+    public static boolean isValidFileName(final String fileName, final String extension) {
+        return fileName.matches(CHARSET_VALID_IN_FILE_NAMES + "\\." + extension);
     }
 }

@@ -443,7 +443,11 @@
     <string name="select_a_kiosk">Select a kiosk</string>
     <string name="export_complete_toast">Exported</string>
     <string name="import_complete_toast">Imported</string>
+    <string name="export_button">Export</string>
+    <string name="export_data_file_name">Export file name</string>
+    <string name="export_data_file_name_hint">Please enter file name for export.</string>
     <string name="no_valid_zip_file">No valid ZIP file</string>
+    <string name="no_valid_zip_file_name">You entered an invalid name for zip file.</string>
     <string name="could_not_import_all_files">Warning: Could not import all files.</string>
     <string name="override_current_data">This will override your current setup.</string>
     <string name="import_settings">Do you want to also import settings?</string>

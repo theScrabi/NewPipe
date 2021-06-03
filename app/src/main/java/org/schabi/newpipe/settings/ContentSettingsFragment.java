@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,6 +29,7 @@ import org.schabi.newpipe.extractor.localization.ContentCountry;
 import org.schabi.newpipe.extractor.localization.Localization;
 import org.schabi.newpipe.util.FilePickerActivityHelper;
 import org.schabi.newpipe.util.FilePathUtils;
+import org.schabi.newpipe.util.FilenameUtils;
 import org.schabi.newpipe.util.ZipHelper;
 
 import java.io.File;
@@ -181,8 +184,7 @@ public class ContentSettingsFragment extends BasePreferenceFragment {
             setImportExportDataPath(file);
 
             if (requestCode == REQUEST_EXPORT_PATH) {
-                final SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US);
-                exportDatabase(path + "/NewPipeData-" + sdf.format(new Date()) + ".zip");
+                showExportDialog(requireActivity(), path);
             } else {
                 final AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
                 builder.setMessage(R.string.override_current_data)
@@ -193,6 +195,33 @@ public class ContentSettingsFragment extends BasePreferenceFragment {
                 builder.create().show();
             }
         }
+    }
+
+    private void showExportDialog(final Context c, final String path) {
+        final EditText fileNameET = new EditText(c);
+
+        final SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US);
+        fileNameET.setText("NewPipeData-" + sdf.format(new Date()) + ".zip");
+
+        fileNameET.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI);
+        fileNameET.setHint(R.string.export_data_file_name_hint);
+
+        final AlertDialog dialog = new AlertDialog.Builder(c)
+                .setTitle(R.string.export_data_file_name)
+                .setIcon(R.drawable.ic_import_export)
+                .setNegativeButton(R.string.cancel, null)
+                .setPositiveButton(R.string.export_button, (dialog1, which) -> {
+                    final String fileName = fileNameET.getText().toString();
+                    if (FilenameUtils.isValidFileName(fileName, "zip")) {
+                        exportDatabase(path + "/" + fileName);
+                    } else {
+                        Toast.makeText(getContext(), R.string.no_valid_zip_file_name,
+                                Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .create();
+        dialog.setView(fileNameET, 50, 0, 50, 0);
+        dialog.show();
     }
 
     private void exportDatabase(final String path) {
