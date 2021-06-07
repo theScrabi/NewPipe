@@ -105,7 +105,7 @@ public class App extends MultiDexApplication {
         PicassoHelper.init(this);
         PicassoHelper.setShouldLoadImages(
                 prefs.getBoolean(getString(R.string.download_thumbnail_key), true));
-        PicassoHelper.setIndicatorsEnabled(BuildConfig.DEBUG
+        PicassoHelper.setIndicatorsEnabled(MainActivity.DEBUG
                 && prefs.getBoolean(getString(R.string.show_image_indicators_key), false));
 
         configureRxJavaErrorHandler();

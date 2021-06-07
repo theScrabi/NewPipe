@@ -82,7 +82,6 @@ import com.google.android.exoplayer2.video.VideoListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
-import com.squareup.picasso.Transformation;
 
 import org.schabi.newpipe.DownloaderImpl;
 import org.schabi.newpipe.MainActivity;
@@ -155,6 +154,7 @@ import static com.google.android.exoplayer2.Player.REPEAT_MODE_ONE;
 import static com.google.android.exoplayer2.Player.RepeatMode;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static org.schabi.newpipe.extractor.ServiceList.YouTube;
+import static org.schabi.newpipe.extractor.utils.Utils.isNullOrEmpty;
 import static org.schabi.newpipe.ktx.ViewUtils.animate;
 import static org.schabi.newpipe.ktx.ViewUtils.animateRotation;
 import static org.schabi.newpipe.player.MainPlayer.ACTION_CLOSE;
@@ -243,9 +243,6 @@ public final class Player implements
     private static final float[] PLAYBACK_SPEEDS = {0.5f, 0.75f, 1.0f, 1.25f, 1.5f, 1.75f, 2.0f};
 
     private static final int RENDERER_UNAVAILABLE = -1;
-
-    private static final String PICASSO_PLAYER_TAG = "PICASSO_PLAYER_TAG";
-    private static final String PICASSO_TRANSFORMATION_KEY = "PICASSO_TRANSFORMATION_KEY";
 
     /*//////////////////////////////////////////////////////////////////////////
     // Playback
@@ -811,7 +808,7 @@ public final class Player implements
 
         databaseUpdateDisposable.clear();
         progressUpdateDisposable.set(null);
-        PicassoHelper.cancelTag(PICASSO_PLAYER_TAG);
+        PicassoHelper.cancelTag(PicassoHelper.PLAYER_THUMBNAIL_TAG); // cancel thumbnail loading
 
         if (binding != null) {
             binding.endScreen.setImageBitmap(null);
@@ -1209,85 +1206,42 @@ public final class Player implements
             Log.d(TAG, "Thumbnail - initThumbnail() called with url = ["
                     + (url == null ? "null" : url) + "]");
         }
-        if (url == null || url.isEmpty()) {
+        if (isNullOrEmpty(url)) {
             return;
         }
 
         // scale down the notification thumbnail for performance
-        PicassoHelper.loadThumbnail(url)
-                .tag(PICASSO_PLAYER_TAG)
-                .transform(new Transformation() {
-                    @Override
-                    public Bitmap transform(final Bitmap source) {
-                        final float notificationThumbnailWidth = Math.min(
-                                context.getResources()
-                                        .getDimension(R.dimen.player_notification_thumbnail_width),
-                                source.getWidth());
+        PicassoHelper.loadScaledDownThumbnail(context, url).into(new Target() {
+            @Override
+            public void onBitmapLoaded(final Bitmap bitmap, final Picasso.LoadedFrom from) {
+                if (DEBUG) {
+                    Log.d(TAG, "Thumbnail - onLoadingComplete() called with: url = [" + url
+                            + "], " + "loadedImage = [" + bitmap + " -> " + bitmap.getWidth() + "x"
+                            + bitmap.getHeight() + "], from = [" + from + "]");
+                }
 
-                        final Bitmap result = Bitmap.createScaledBitmap(
-                                source,
-                                (int) notificationThumbnailWidth,
-                                (int) (source.getHeight()
-                                        / (source.getWidth() / notificationThumbnailWidth)),
-                                true);
+                currentThumbnail = bitmap;
+                NotificationUtil.getInstance()
+                        .createNotificationIfNeededAndUpdate(Player.this, false);
+                // there is a new thumbnail, so changed the end screen thumbnail, too.
+                updateEndScreenThumbnail();
+            }
 
-                        if (result == source) {
-                            // create a new mutable bitmap to prevent strange crashes on some
-                            // devices (see #4638)
-                            final Bitmap copied = Bitmap.createScaledBitmap(
-                                    source,
-                                    (int) notificationThumbnailWidth - 1,
-                                    (int) (source.getHeight() / (source.getWidth()
-                                            / (notificationThumbnailWidth - 1))),
-                                    true);
-                            source.recycle();
-                            return copied;
-                        } else {
-                            source.recycle();
-                            return result;
-                        }
-                    }
+            @Override
+            public void onBitmapFailed(final Exception e, final Drawable errorDrawable) {
+                Log.e(TAG, "Thumbnail - onBitmapFailed() called with: url = [" + url + "]", e);
+                currentThumbnail = null;
+                NotificationUtil.getInstance()
+                        .createNotificationIfNeededAndUpdate(Player.this, false);
+            }
 
-                    @Override
-                    public String key() {
-                        return PICASSO_TRANSFORMATION_KEY;
-                    }
-                })
-                .into(new Target() {
-                    @Override
-                    public void onBitmapLoaded(final Bitmap bitmap, final Picasso.LoadedFrom from) {
-
-                        if (DEBUG) {
-                            Log.d(TAG, "Thumbnail - onLoadingComplete() called with: "
-                                    + "url = [" + url + "], " + "loadedImage = [" + bitmap + " -> "
-                                    + bitmap.getWidth() + "x" + bitmap.getHeight()
-                                    + "], from = [" + from + "]");
-                        }
-
-                        currentThumbnail = bitmap;
-                        NotificationUtil.getInstance()
-                                .createNotificationIfNeededAndUpdate(Player.this, false);
-                        // there is a new thumbnail, so changed the end screen thumbnail, too.
-                        updateEndScreenThumbnail();
-                    }
-
-                    @Override
-                    public void onBitmapFailed(final Exception e, final Drawable errorDrawable) {
-                        Log.e(TAG, "Thumbnail - onBitmapFailed() called with: url = ["
-                                + url + "]", e);
-                        currentThumbnail = null;
-                        NotificationUtil.getInstance()
-                                .createNotificationIfNeededAndUpdate(Player.this, false);
-                    }
-
-                    @Override
-                    public void onPrepareLoad(final Drawable placeHolderDrawable) {
-                        if (DEBUG) {
-                            Log.d(TAG, "Thumbnail - onLoadingStarted() called with: url = ["
-                                    + url + "]");
-                        }
-                    }
-                });
+            @Override
+            public void onPrepareLoad(final Drawable placeHolderDrawable) {
+                if (DEBUG) {
+                    Log.d(TAG, "Thumbnail - onLoadingStarted() called with: url = [" + url + "]");
+                }
+            }
+        });
     }
 
     /**

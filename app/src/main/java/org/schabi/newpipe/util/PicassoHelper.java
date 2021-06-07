@@ -9,6 +9,7 @@ import com.squareup.picasso.LruCache;
 import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
+import com.squareup.picasso.Transformation;
 
 import org.schabi.newpipe.R;
 
@@ -20,6 +21,9 @@ import okhttp3.OkHttpClient;
 import static org.schabi.newpipe.extractor.utils.Utils.isBlank;
 
 public final class PicassoHelper {
+    public static final String PLAYER_THUMBNAIL_TAG = "PICASSO_PLAYER_THUMBNAIL_TAG";
+    private static final String PLAYER_THUMBNAIL_TRANSFORMATION_KEY
+            = "PICASSO_PLAYER_THUMBNAIL_TRANSFORMATION_KEY";
 
     private PicassoHelper() {
     }
@@ -60,7 +64,10 @@ public final class PicassoHelper {
     public static void clearCache(final Context context) throws IOException {
         picassoInstance.shutdown();
         picassoCache.clear(); // clear memory cache
-        picassoDownloaderClient.cache().delete(); // clear disk cache
+        final okhttp3.Cache diskCache = picassoDownloaderClient.cache();
+        if (diskCache != null) {
+            diskCache.delete(); // clear disk cache
+        }
         init(context);
     }
 
@@ -95,6 +102,50 @@ public final class PicassoHelper {
 
     public static RequestCreator loadPlaylistThumbnail(final String url) {
         return loadImageDefault(url, R.drawable.dummy_thumbnail_playlist);
+    }
+
+
+    public static RequestCreator loadScaledDownThumbnail(final Context context, final String url) {
+        // scale down the notification thumbnail for performance
+        return PicassoHelper.loadThumbnail(url)
+                .tag(PLAYER_THUMBNAIL_TAG)
+                .transform(new Transformation() {
+                    @Override
+                    public Bitmap transform(final Bitmap source) {
+                        final float notificationThumbnailWidth = Math.min(
+                                context.getResources()
+                                        .getDimension(R.dimen.player_notification_thumbnail_width),
+                                source.getWidth());
+
+                        final Bitmap result = Bitmap.createScaledBitmap(
+                                source,
+                                (int) notificationThumbnailWidth,
+                                (int) (source.getHeight()
+                                        / (source.getWidth() / notificationThumbnailWidth)),
+                                true);
+
+                        if (result == source) {
+                            // create a new mutable bitmap to prevent strange crashes on some
+                            // devices (see #4638)
+                            final Bitmap copied = Bitmap.createScaledBitmap(
+                                    source,
+                                    (int) notificationThumbnailWidth - 1,
+                                    (int) (source.getHeight() / (source.getWidth()
+                                            / (notificationThumbnailWidth - 1))),
+                                    true);
+                            source.recycle();
+                            return copied;
+                        } else {
+                            source.recycle();
+                            return result;
+                        }
+                    }
+
+                    @Override
+                    public String key() {
+                        return PLAYER_THUMBNAIL_TRANSFORMATION_KEY;
+                    }
+                });
     }
 
 

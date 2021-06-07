@@ -684,6 +684,7 @@ public final class VideoDetailFragment
                 .into(binding.detailThumbnailImageView, new Callback() {
                     @Override
                     public void onSuccess() {
+                        // nothing to do, the image was loaded correctly into the thumbnail
                     }
 
                     @Override
