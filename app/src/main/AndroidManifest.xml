@@ -18,10 +18,10 @@
     <application
         android:name=".App"
         android:allowBackup="true"
-        android:banner="@mipmap/newpipe_tv_banner"
-        android:icon="@mipmap/ic_launcher"
+        android:banner="@drawable/newpipe_tv_banner"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:logo="@mipmap/ic_launcher"
+        android:logo="@drawable/ic_launcher"
         android:requestLegacyExternalStorage="true"
         android:theme="@style/OpeningTheme"
         android:resizeableActivity="true"

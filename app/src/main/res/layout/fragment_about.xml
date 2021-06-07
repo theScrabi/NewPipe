@@ -20,7 +20,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="8dp"
             android:contentDescription="@string/app_name"
-            app:srcCompat="@mipmap/ic_launcher" />
+            app:srcCompat="@drawable/ic_launcher" />
 
         <TextView
             android:layout_width="wrap_content"
