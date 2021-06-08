@@ -1936,7 +1936,7 @@ public final class Player implements
             case com.google.android.exoplayer2.Player.STATE_ENDED: // 4
                 changeState(STATE_COMPLETED);
                 if (currentMetadata != null) {
-                    resetStreamProgressState(currentMetadata.getMetadata());
+                    saveStreamProgressState(currentMetadata.getMetadata(), simpleExoPlayer.getDuration());
                 }
                 isPrepared = false;
                 break;
@@ -2827,10 +2827,6 @@ public final class Player implements
                     .subscribe();
             databaseUpdateDisposable.add(stateSaver);
         }
-    }
-
-    private void resetStreamProgressState(final StreamInfo info) {
-        saveStreamProgressState(info, 0);
     }
 
     public void saveStreamProgressState() {

@@ -65,8 +65,8 @@ public class StreamStateEntity {
 
     public boolean isValid(final int durationInSeconds) {
         final int seconds = (int) TimeUnit.MILLISECONDS.toSeconds(progressTime);
-        return seconds > PLAYBACK_SAVE_THRESHOLD_START_SECONDS
-                && seconds < durationInSeconds - PLAYBACK_SAVE_THRESHOLD_END_SECONDS;
+        return (Math.abs(seconds - durationInSeconds) <= 1) || (seconds > PLAYBACK_SAVE_THRESHOLD_START_SECONDS
+                && seconds < durationInSeconds - PLAYBACK_SAVE_THRESHOLD_END_SECONDS);
     }
 
     @Override
