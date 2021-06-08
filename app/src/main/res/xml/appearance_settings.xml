@@ -43,4 +43,13 @@
         android:title="@string/caption_setting_title"
         app:iconSpaceReserved="false" />
 
+    <ListPreference
+        android:defaultValue="@string/screen_layout_value"
+        android:entries="@array/screen_layout_description"
+        android:entryValues="@array/screen_layout_values"
+        android:key="@string/screen_layout_key"
+        android:summary="%s"
+        android:title="@string/screen_layout_title"
+        app:iconSpaceReserved="false" />
+
 </PreferenceScreen>

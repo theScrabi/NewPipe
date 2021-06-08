@@ -128,6 +128,10 @@
     <string name="download_dialog_title">Download</string>
     <string name="autoplay_title">Autoplay</string>
     <string name="show_hold_to_append_title">Show \"Hold to append\" tip</string>
+    <string name="screen_layout_title">Screen layout</string>
+    <string name="screen_layout_phone">Phone</string>
+    <string name="screen_layout_tablet">Tablet</string>
+    <string name="screen_layout_tv">TV</string>
     <string name="show_hold_to_append_summary">Show tip when pressing the background or the popup button in video \"Details:\"</string>
     <string name="unsupported_url">Unsupported URL</string>
     <string name="unsupported_url_dialog_message">Could not recognize the URL. Open with another app?</string>

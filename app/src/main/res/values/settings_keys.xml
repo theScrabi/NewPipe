@@ -218,6 +218,7 @@
     <string name="show_meta_info_key" translatable="false">show_meta_info</string>
     <string name="stream_info_selected_tab_key" translatable="false">stream_info_selected_tab</string>
     <string name="show_hold_to_append_key" translatable="false">show_hold_to_append</string>
+    <string name="screen_layout_key" translatable="false">screen_layout</string>
     <string name="content_language_key" translatable="false">content_language</string>
     <string name="peertube_instance_setup_key" translatable="false">peertube_instance_setup</string>
     <string name="peertube_selected_instance_key" translatable="false">peertube_selected_instance</string>
@@ -1218,6 +1219,25 @@
         <item>@string/auto</item>
         <item>@string/list</item>
         <item>@string/grid</item>
+    </string-array>
+
+    <string name="screen_layout_auto_key" translatable="false">auto</string>
+    <string name="screen_layout_phone_key" translatable="false">phone</string>
+    <string name="screen_layout_tablet_key" translatable="false">tablet</string>
+    <string name="screen_layout_tv_key" translatable="false">tv</string>
+
+    <string name="screen_layout_value" translatable="false">@string/screen_layout_auto_key</string>
+    <string-array name="screen_layout_values" translatable="false">
+        <item>@string/screen_layout_auto_key</item>
+        <item>@string/screen_layout_phone_key</item>
+        <item>@string/screen_layout_tablet_key</item>
+        <item>@string/screen_layout_tv_key</item>
+    </string-array>
+    <string-array name="screen_layout_description" translatable="false">
+        <item>@string/auto</item>
+        <item>@string/screen_layout_phone</item>
+        <item>@string/screen_layout_tablet</item>
+        <item>@string/screen_layout_tv</item>
     </string-array>
 
     <string name="recaptcha_cookies_key" translatable="false">recaptcha_cookies_key</string>
