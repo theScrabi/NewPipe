@@ -10,7 +10,6 @@ import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.MergingMediaSource;
 
-import org.schabi.newpipe.extractor.MediaFormat;
 import org.schabi.newpipe.extractor.stream.AudioStream;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.extractor.stream.SubtitlesStream;
@@ -19,6 +18,7 @@ import org.schabi.newpipe.player.helper.PlayerDataSource;
 import org.schabi.newpipe.player.helper.PlayerHelper;
 import org.schabi.newpipe.util.ListHelper;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,10 +68,13 @@ public class VideoPlaybackResolver implements PlaybackResolver {
         @Nullable final VideoStream video = tag.getSelectedVideoStream();
 
         if (video != null) {
-            final MediaSource streamSource = buildMediaSource(dataSource, video.getUrl(),
-                    PlayerHelper.cacheKeyOf(info, video),
-                    MediaFormat.getSuffixById(video.getFormatId()), tag);
-            mediaSources.add(streamSource);
+            try {
+                final MediaSource streamSource = buildMediaSource(dataSource, video,
+                        PlayerHelper.cacheKeyOf(info, video), tag);
+                mediaSources.add(streamSource);
+            } catch (final IOException e) {
+                return null;
+            }
         }
 
         // Create optional audio stream source
@@ -80,11 +83,14 @@ public class VideoPlaybackResolver implements PlaybackResolver {
                 ListHelper.getDefaultAudioFormat(context, audioStreams));
         // Use the audio stream if there is no video stream, or
         // Merge with audio stream in case if video does not contain audio
-        if (audio != null && (video == null || video.isVideoOnly)) {
-            final MediaSource audioSource = buildMediaSource(dataSource, audio.getUrl(),
-                    PlayerHelper.cacheKeyOf(info, audio),
-                    MediaFormat.getSuffixById(audio.getFormatId()), tag);
-            mediaSources.add(audioSource);
+        if (audio != null && (video == null || video.isVideoOnly())) {
+            try {
+                final MediaSource audioSource = buildMediaSource(dataSource, audio,
+                        PlayerHelper.cacheKeyOf(info, audio), tag);
+                mediaSources.add(audioSource);
+            } catch (final IOException e) {
+                return null;
+            }
         }
 
         // If there is no audio or video sources, then this media source cannot be played back
@@ -102,7 +108,7 @@ public class VideoPlaybackResolver implements PlaybackResolver {
                 }
                 final MediaSource textSource = dataSource.getSampleMediaSourceFactory()
                         .createMediaSource(
-                                new MediaItem.Subtitle(Uri.parse(subtitle.getUrl()),
+                                new MediaItem.Subtitle(Uri.parse(subtitle.getContent()),
                                         mimeType,
                                         PlayerHelper.captionLanguageOf(context, subtitle)),
                                 TIME_UNSET);

@@ -31,6 +31,7 @@ import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.extractor.StreamingService;
 import org.schabi.newpipe.extractor.exceptions.ExtractionException;
 import org.schabi.newpipe.extractor.stream.AudioStream;
+import org.schabi.newpipe.extractor.stream.DeliveryMethod;
 import org.schabi.newpipe.extractor.stream.Stream;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.extractor.stream.VideoStream;
@@ -241,9 +242,15 @@ public final class NavigationHelper {
 
     public static void playOnExternalPlayer(final Context context, final String name,
                                             final String artist, final Stream stream) {
+        final DeliveryMethod deliveryMethod = stream.getDeliveryMethod();
+        if (deliveryMethod != DeliveryMethod.PROGRESSIVE_HTTP && !stream.isUrl()) {
+            Toast.makeText(context, R.string.selected_stream_external_player_not_supported,
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
         final Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
-        intent.setDataAndType(Uri.parse(stream.getUrl()), stream.getFormat().getMimeType());
+        intent.setDataAndType(Uri.parse(stream.getContent()), stream.getFormat().getMimeType());
         intent.putExtra(Intent.EXTRA_TITLE, name);
         intent.putExtra("title", name);
         intent.putExtra("artist", artist);
@@ -259,10 +266,9 @@ public final class NavigationHelper {
             if (context instanceof Activity) {
                 new AlertDialog.Builder(context)
                         .setMessage(R.string.no_player_found)
-                        .setPositiveButton(R.string.install, (dialog, which) -> {
-                            ShareUtils.openUrlInBrowser(context,
-                                    context.getString(R.string.fdroid_vlc_url), false);
-                        })
+                        .setPositiveButton(R.string.install, (dialog, which) -> ShareUtils
+                                .openUrlInBrowser(context, context
+                                        .getString(R.string.fdroid_vlc_url), false))
                         .setNegativeButton(R.string.cancel, (dialog, which)
                                 -> Log.i("NavigationHelper", "You unlocked a secret unicorn."))
                         .show();
@@ -365,7 +371,7 @@ public final class NavigationHelper {
             autoPlay = false;
         }
 
-        final RunnableWithVideoDetailFragment onVideoDetailFragmentReady = (detailFragment) -> {
+        final RunnableWithVideoDetailFragment onVideoDetailFragmentReady = detailFragment -> {
             expandMainPlayer(detailFragment.requireActivity());
             detailFragment.setAutoPlay(autoPlay);
             if (switchingPlayers) {

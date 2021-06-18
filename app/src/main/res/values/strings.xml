@@ -748,4 +748,6 @@
     <string name="tablet_mode_title">Tablet mode</string>
     <string name="on">On</string>
     <string name="off">Off</string>
+    <string name="streams_hidden_download_not_supported_yet">Some streams were hidden because they are not supported by the downloader yet</string>
+    <string name="selected_stream_external_player_not_supported">The selected stream is not supported by external players</string>
 </resources>
