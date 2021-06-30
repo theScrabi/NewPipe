@@ -64,7 +64,6 @@ import org.schabi.newpipe.util.ThemeHelper;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
@@ -125,9 +124,7 @@ public class DownloadDialog extends DialogFragment
     private String mimeTmp;
 
     private Toast removedStreamToast = null;
-    boolean wasSomeAudioStreamRemoved = false;
-    boolean wasSomeVideoStreamRemoved = false;
-    boolean wasSomeSubtitleStreamRemoved = false;
+    boolean wasSomeStreamRemoved = false;
 
     @NonNull
     public static DownloadDialog newInstance(final StreamInfo info) {
@@ -158,35 +155,26 @@ public class DownloadDialog extends DialogFragment
     }
 
     public void setAudioStreams(final List<AudioStream> audioStreams) {
-        // TODO: Remove this when the downloader support other types of stream deliveries
-        final List<AudioStream> listAudioStreams = new ArrayList<>(audioStreams);
-        wasSomeAudioStreamRemoved = removeNonProgressiveHttpStreams(listAudioStreams);
-
-        setAudioStreams(new StreamSizeWrapper<>(listAudioStreams, getContext()));
+        setAudioStreams(new StreamSizeWrapper<>(
+                removeNonProgressiveAudioStreams(audioStreams), getContext()));
     }
 
     public void setAudioStreams(final StreamSizeWrapper<AudioStream> was) {
         this.wrappedAudioStreams = was;
     }
 
-    public void setVideoStreams(final List<VideoStream> videoStreams) {
-        // TODO: Remove this when the downloader support other types of stream deliveries
-        final List<VideoStream> listVideoStreams = new ArrayList<>(videoStreams);
-        wasSomeVideoStreamRemoved = removeNonProgressiveHttpStreams(listVideoStreams);
-
-        setVideoStreams(new StreamSizeWrapper<>(listVideoStreams, getContext()));
+    public void setVideoStreams(@NonNull final List<VideoStream> videoStreams) {
+        setVideoStreams(new StreamSizeWrapper<>(
+                removeNonProgressiveVideoStreams(videoStreams), getContext()));
     }
 
     public void setVideoStreams(final StreamSizeWrapper<VideoStream> wvs) {
         this.wrappedVideoStreams = wvs;
     }
 
-    public void setSubtitleStreams(final List<SubtitlesStream> subtitleStreams) {
-        // TODO: Remove this when the downloader support other types of stream deliveries
-        final List<SubtitlesStream> listSubtitleStreams = new ArrayList<>(subtitleStreams);
-        wasSomeSubtitleStreamRemoved = removeNonProgressiveHttpStreams(listSubtitleStreams);
-
-        setSubtitleStreams(new StreamSizeWrapper<>(listSubtitleStreams, getContext()));
+    public void setSubtitleStreams(@NonNull final List<SubtitlesStream> subtitleStreams) {
+        setSubtitleStreams(new StreamSizeWrapper<>(
+                removeNonProgressiveSubtitlesStreams(subtitleStreams), getContext()));
     }
 
     public void setSubtitleStreams(
@@ -195,8 +183,7 @@ public class DownloadDialog extends DialogFragment
     }
 
     private void showIfStreamsWereRemovedMessage() {
-        if ((wasSomeAudioStreamRemoved || wasSomeVideoStreamRemoved
-                || wasSomeSubtitleStreamRemoved) && removedStreamToast == null) {
+        if (wasSomeStreamRemoved && removedStreamToast == null) {
             removedStreamToast = Toast.makeText(
                     requireContext(),
                     R.string.streams_hidden_download_not_supported_yet,
@@ -206,21 +193,58 @@ public class DownloadDialog extends DialogFragment
         }
     }
 
-    private static boolean removeNonProgressiveHttpStreams(
-            @NonNull final List<? extends Stream> streamList) {
-        boolean wasSomeStreamRemoved = false;
-        final Iterator<? extends Stream> streamIterator = streamList.iterator();
-        while (streamIterator.hasNext()) {
-            final Stream stream = streamIterator.next();
-            if (stream.getDeliveryMethod() != DeliveryMethod.PROGRESSIVE_HTTP) {
-                streamIterator.remove();
+    // TODO: Remove this when the downloader support other types of stream deliveries
+    @NonNull
+    private List<AudioStream> removeNonProgressiveAudioStreams(
+            @NonNull final List<AudioStream> audioStreams) {
+        final List<AudioStream> progressiveAudioStreams = new ArrayList<>();
+        for (final AudioStream audioStream : audioStreams) {
+            if (audioStream.getDeliveryMethod() != DeliveryMethod.PROGRESSIVE_HTTP) {
                 if (!wasSomeStreamRemoved) {
                     wasSomeStreamRemoved = true;
                 }
+            } else {
+                progressiveAudioStreams.add(audioStream);
             }
         }
 
-        return wasSomeStreamRemoved;
+        return progressiveAudioStreams;
+    }
+
+    // TODO: Remove this when the downloader support other types of stream deliveries
+    @NonNull
+    private List<VideoStream> removeNonProgressiveVideoStreams(
+            @NonNull final List<VideoStream> videoStreams) {
+        final List<VideoStream> progressiveVideoStreams = new ArrayList<>();
+        for (final VideoStream videoStream : videoStreams) {
+            if (videoStream.getDeliveryMethod() != DeliveryMethod.PROGRESSIVE_HTTP) {
+                if (!wasSomeStreamRemoved) {
+                    wasSomeStreamRemoved = true;
+                }
+            } else {
+                progressiveVideoStreams.add(videoStream);
+            }
+        }
+
+        return progressiveVideoStreams;
+    }
+
+    // TODO: Remove this when the downloader support other types of stream deliveries
+    @NonNull
+    private List<SubtitlesStream> removeNonProgressiveSubtitlesStreams(
+            @NonNull final List<SubtitlesStream> subtitlesStreams) {
+        final List<SubtitlesStream> progressiveSubtitlesStreams = new ArrayList<>();
+        for (final SubtitlesStream subtitlesStream : subtitlesStreams) {
+            if (subtitlesStream.getDeliveryMethod() != DeliveryMethod.PROGRESSIVE_HTTP) {
+                if (!wasSomeStreamRemoved) {
+                    wasSomeStreamRemoved = true;
+                }
+            } else {
+                progressiveSubtitlesStreams.add(subtitlesStream);
+            }
+        }
+
+        return progressiveSubtitlesStreams;
     }
 
     public void setSelectedVideoStream(final int svi) {
@@ -1016,10 +1040,6 @@ public class DownloadDialog extends DialogFragment
                 return;
         }
 
-        if (secondaryStream.getDeliveryMethod() != DeliveryMethod.PROGRESSIVE_HTTP) {
-            throw new IllegalArgumentException("Unsupported stream delivery format");
-        }
-
         if (secondaryStream == null) {
             urls = new String[]{
                     selectedStream.getContent()
@@ -1028,6 +1048,10 @@ public class DownloadDialog extends DialogFragment
                     new MissionRecoveryInfo(selectedStream)
             };
         } else {
+            if (secondaryStream.getDeliveryMethod() != DeliveryMethod.PROGRESSIVE_HTTP) {
+                throw new IllegalArgumentException("Unsupported stream delivery format");
+            }
+
             urls = new String[]{
                     selectedStream.getContent(), secondaryStream.getContent()
             };
