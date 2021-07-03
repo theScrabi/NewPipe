@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import com.google.android.exoplayer2.source.MediaSource;
 
 import org.schabi.newpipe.extractor.stream.AudioStream;
+import org.schabi.newpipe.extractor.stream.DeliveryMethod;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.player.helper.PlayerDataSource;
 import org.schabi.newpipe.player.helper.PlayerHelper;
@@ -42,10 +43,14 @@ public class AudioPlaybackResolver implements PlaybackResolver {
 
         final AudioStream audio = info.getAudioStreams().get(index);
         final MediaSourceTag tag = new MediaSourceTag(info);
-        try {
-            return buildMediaSource(dataSource, audio, PlayerHelper.cacheKeyOf(info, audio), tag);
-        } catch (final IOException e) {
-            return null;
+        MediaSource mediaSource = null;
+        if (audio.getDeliveryMethod() != DeliveryMethod.TORRENT) {
+            try {
+                mediaSource = buildMediaSource(dataSource, audio, PlayerHelper.cacheKeyOf(info,
+                        audio), tag);
+            } catch (final IOException ignored) {
+            }
         }
+        return mediaSource;
     }
 }

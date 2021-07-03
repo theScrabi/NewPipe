@@ -69,8 +69,7 @@ public interface PlaybackResolver extends Resolver<StreamInfo, MediaSource> {
                                          @NonNull final MediaSourceTag metadata)
             throws IOException {
         final DeliveryMethod deliveryFormat = stream.getDeliveryMethod();
-        if (deliveryFormat.equals(DeliveryMethod.PROGRESSIVE_HTTP)
-                || deliveryFormat.equals(DeliveryMethod.TORRENT)) {
+        if (deliveryFormat.equals(DeliveryMethod.PROGRESSIVE_HTTP)) {
             final String url = stream.getContent();
             return dataSource.getExtractorMediaSourceFactory(cacheKey).setTag(metadata)
                     .createMediaSource(MediaItem.fromUri((url)));

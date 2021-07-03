@@ -11,6 +11,7 @@ import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.MergingMediaSource;
 
 import org.schabi.newpipe.extractor.stream.AudioStream;
+import org.schabi.newpipe.extractor.stream.DeliveryMethod;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.extractor.stream.SubtitlesStream;
 import org.schabi.newpipe.extractor.stream.VideoStream;
@@ -67,7 +68,8 @@ public class VideoPlaybackResolver implements PlaybackResolver {
         final MediaSourceTag tag = new MediaSourceTag(info, videos, index);
         @Nullable final VideoStream video = tag.getSelectedVideoStream();
 
-        if (video != null) {
+        // Torrent streams are not supported by ExoPlayer
+        if (video != null && video.getDeliveryMethod() != DeliveryMethod.TORRENT) {
             try {
                 final MediaSource streamSource = buildMediaSource(dataSource, video,
                         PlayerHelper.cacheKeyOf(info, video), tag);
@@ -82,8 +84,10 @@ public class VideoPlaybackResolver implements PlaybackResolver {
         final AudioStream audio = audioStreams.isEmpty() ? null : audioStreams.get(
                 ListHelper.getDefaultAudioFormat(context, audioStreams));
         // Use the audio stream if there is no video stream, or
-        // Merge with audio stream in case if video does not contain audio
-        if (audio != null && (video == null || video.isVideoOnly())) {
+        // merge with audio stream in case if video does not contain audio
+        // Torrent streams are not supported by ExoPlayer
+        if (audio != null && audio.getDeliveryMethod() != DeliveryMethod.TORRENT
+                && (video == null || video.isVideoOnly())) {
             try {
                 final MediaSource audioSource = buildMediaSource(dataSource, audio,
                         PlayerHelper.cacheKeyOf(info, audio), tag);
@@ -103,7 +107,8 @@ public class VideoPlaybackResolver implements PlaybackResolver {
         if (info.getSubtitles() != null) {
             for (final SubtitlesStream subtitle : info.getSubtitles()) {
                 final String mimeType = PlayerHelper.subtitleMimeTypesOf(subtitle.getFormat());
-                if (mimeType == null) {
+                // Torrent streams are not supported by ExoPlayer
+                if (mimeType == null || subtitle.getDeliveryMethod() != DeliveryMethod.TORRENT) {
                     continue;
                 }
                 final MediaSource textSource = dataSource.getSampleMediaSourceFactory()
