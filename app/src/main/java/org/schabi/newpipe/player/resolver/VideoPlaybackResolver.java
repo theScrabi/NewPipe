@@ -13,6 +13,7 @@ import com.google.android.exoplayer2.source.MergingMediaSource;
 import org.schabi.newpipe.extractor.stream.AudioStream;
 import org.schabi.newpipe.extractor.stream.DeliveryMethod;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
+import org.schabi.newpipe.extractor.stream.StreamType;
 import org.schabi.newpipe.extractor.stream.SubtitlesStream;
 import org.schabi.newpipe.extractor.stream.VideoStream;
 import org.schabi.newpipe.player.helper.PlayerDataSource;
@@ -47,16 +48,21 @@ public class VideoPlaybackResolver implements PlaybackResolver {
     @Override
     @Nullable
     public MediaSource resolve(@NonNull final StreamInfo info) {
-        final MediaSource liveSource = maybeBuildLiveMediaSource(dataSource, info);
+        final MediaSource liveSource = maybeBuildHlsLiveMediaSource(dataSource, info);
         if (liveSource != null) {
             return liveSource;
         }
 
         final List<MediaSource> mediaSources = new ArrayList<>();
+        final List<VideoStream> videoStreams = new ArrayList<>(info.getVideoStreams());
+        final List<VideoStream> videoOnlyStreams = new ArrayList<>(info.getVideoOnlyStreams());
+        final StreamType streamType = info.getStreamType();
+        removeTorrentStreams(videoStreams);
+        removeTorrentStreams(videoOnlyStreams);
 
         // Create video stream source
         final List<VideoStream> videos = ListHelper.getSortedStreamVideosList(context,
-                info.getVideoStreams(), info.getVideoOnlyStreams(), false);
+                videoStreams, videoOnlyStreams, false);
         final int index;
         if (videos.isEmpty()) {
             index = -1;
@@ -68,32 +74,48 @@ public class VideoPlaybackResolver implements PlaybackResolver {
         final MediaSourceTag tag = new MediaSourceTag(info, videos, index);
         @Nullable final VideoStream video = tag.getSelectedVideoStream();
 
-        // Torrent streams are not supported by ExoPlayer
-        if (video != null && video.getDeliveryMethod() != DeliveryMethod.TORRENT) {
-            try {
-                final MediaSource streamSource = buildMediaSource(dataSource, video,
-                        PlayerHelper.cacheKeyOf(info, video), tag);
-                mediaSources.add(streamSource);
-            } catch (final IOException e) {
-                return null;
+        if (video != null) {
+            if (streamType != StreamType.LIVE_STREAM) {
+                try {
+                    final MediaSource streamSource = buildMediaSource(dataSource, video,
+                            PlayerHelper.cacheKeyOf(info, video), tag);
+                    mediaSources.add(streamSource);
+                } catch (final IOException e) {
+                    return null;
+                }
+            } else {
+                try {
+                    final MediaSource streamSource = buildLiveMediaSource(dataSource, video, tag);
+                    mediaSources.add(streamSource);
+                } catch (final IOException e) {
+                    return null;
+                }
             }
         }
 
         // Create optional audio stream source
         final List<AudioStream> audioStreams = info.getAudioStreams();
+        removeTorrentStreams(audioStreams);
         final AudioStream audio = audioStreams.isEmpty() ? null : audioStreams.get(
                 ListHelper.getDefaultAudioFormat(context, audioStreams));
         // Use the audio stream if there is no video stream, or
         // merge with audio stream in case if video does not contain audio
-        // Torrent streams are not supported by ExoPlayer
-        if (audio != null && audio.getDeliveryMethod() != DeliveryMethod.TORRENT
-                && (video == null || video.isVideoOnly())) {
-            try {
-                final MediaSource audioSource = buildMediaSource(dataSource, audio,
-                        PlayerHelper.cacheKeyOf(info, audio), tag);
-                mediaSources.add(audioSource);
-            } catch (final IOException e) {
-                return null;
+        if (audio != null && (video == null || video.isVideoOnly())) {
+            if (streamType != StreamType.LIVE_STREAM) {
+                try {
+                    final MediaSource audioSource = buildMediaSource(dataSource, audio,
+                            PlayerHelper.cacheKeyOf(info, audio), tag);
+                    mediaSources.add(audioSource);
+                } catch (final IOException e) {
+                    return null;
+                }
+            } else {
+                try {
+                    final MediaSource audioSource = buildLiveMediaSource(dataSource, audio, tag);
+                    mediaSources.add(audioSource);
+                } catch (final IOException e) {
+                    return null;
+                }
             }
         }
 
@@ -107,7 +129,7 @@ public class VideoPlaybackResolver implements PlaybackResolver {
         if (info.getSubtitles() != null) {
             for (final SubtitlesStream subtitle : info.getSubtitles()) {
                 final String mimeType = PlayerHelper.subtitleMimeTypesOf(subtitle.getFormat());
-                // Torrent streams are not supported by ExoPlayer
+                // Torrent subtitles are not supported by ExoPlayer
                 if (mimeType == null || subtitle.getDeliveryMethod() != DeliveryMethod.TORRENT) {
                     continue;
                 }

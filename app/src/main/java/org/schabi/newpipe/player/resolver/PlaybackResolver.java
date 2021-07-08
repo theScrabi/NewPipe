@@ -5,7 +5,6 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.dash.manifest.DashManifest;
@@ -20,22 +19,25 @@ import org.schabi.newpipe.player.helper.PlayerDataSource;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Iterator;
+import java.util.List;
 
 public interface PlaybackResolver extends Resolver<StreamInfo, MediaSource> {
 
     @Nullable
-    default MediaSource maybeBuildLiveMediaSource(@NonNull final PlayerDataSource dataSource,
-                                                  @NonNull final StreamInfo info) {
+    default MediaSource maybeBuildHlsLiveMediaSource(@NonNull final PlayerDataSource dataSource,
+                                                     @NonNull final StreamInfo info) {
         final StreamType streamType = info.getStreamType();
-        if (!(streamType == StreamType.AUDIO_LIVE_STREAM || streamType == StreamType.LIVE_STREAM)) {
+        if (!(streamType == StreamType.AUDIO_LIVE_STREAM
+                || streamType == StreamType.LIVE_STREAM)) {
             return null;
         }
 
-        final MediaSourceTag tag = new MediaSourceTag(info);
-        if (!info.getHlsUrl().isEmpty()) {
-            return buildLiveMediaSource(dataSource, info.getHlsUrl(), C.TYPE_HLS, tag);
-        } else if (!info.getDashMpdUrl().isEmpty()) {
-            return buildLiveMediaSource(dataSource, info.getDashMpdUrl(), C.TYPE_DASH, tag);
+        final String hlsUrl = info.getHlsUrl();
+        if (!hlsUrl.isEmpty() && info.getDashMpdUrl().isEmpty()) {
+            final MediaSourceTag tag = new MediaSourceTag(info);
+            return dataSource.getLiveHlsMediaSourceFactory().setTag(tag)
+                    .createMediaSource(MediaItem.fromUri(hlsUrl));
         }
 
         return null;
@@ -43,22 +45,39 @@ public interface PlaybackResolver extends Resolver<StreamInfo, MediaSource> {
 
     @NonNull
     default MediaSource buildLiveMediaSource(@NonNull final PlayerDataSource dataSource,
-                                             @NonNull final String sourceUrl,
-                                             @C.ContentType final int type,
-                                             @NonNull final MediaSourceTag metadata) {
-        final Uri uri = Uri.parse(sourceUrl);
-        switch (type) {
-            case C.TYPE_SS:
-                return dataSource.getLiveSsMediaSourceFactory().setTag(metadata)
-                        .createMediaSource(MediaItem.fromUri(uri));
-            case C.TYPE_DASH:
+                                             @NonNull final Stream stream,
+                                             @NonNull final MediaSourceTag metadata)
+            throws IOException {
+        final DeliveryMethod deliveryMethod = stream.getDeliveryMethod();
+        if (deliveryMethod.equals(DeliveryMethod.DASH)) {
+            if (stream.isUrl()) {
                 return dataSource.getLiveDashMediaSourceFactory().setTag(metadata)
-                        .createMediaSource(MediaItem.fromUri(uri));
-            case C.TYPE_HLS:
+                        .createMediaSource(MediaItem.fromUri(Uri.parse(stream.getContent())));
+            } else {
+                final DashManifest dashManifest;
+                try {
+                    final ByteArrayInputStream dashManifestInput = new ByteArrayInputStream(
+                            stream.getContent().getBytes(StandardCharsets.UTF_8));
+                    dashManifest = new DashManifestParser().parse(Uri.parse(stream.getBaseUrl()),
+                            dashManifestInput);
+                } catch (final IOException e) {
+                    throw new IOException("Error when parsing manual DASH manifest", e);
+                }
+                return dataSource.getLiveDashMediaSourceFactory().setTag(metadata)
+                        .createMediaSource(dashManifest);
+            }
+        } else if (deliveryMethod.equals(DeliveryMethod.HLS)) {
+            if (stream.isUrl()) {
                 return dataSource.getLiveHlsMediaSourceFactory().setTag(metadata)
-                        .createMediaSource(MediaItem.fromUri(uri));
-            default:
-                throw new IllegalStateException("Unsupported type: " + type);
+                        .createMediaSource(MediaItem.fromUri(Uri.parse(stream.getContent())));
+            } else {
+                throw new IllegalArgumentException(
+                        "HLS streams which are not URLs are not supported");
+            }
+
+        } else {
+            throw new IllegalArgumentException(
+                    "Only DASH and HLS streams are supported to create live media sources");
         }
     }
 
@@ -68,12 +87,12 @@ public interface PlaybackResolver extends Resolver<StreamInfo, MediaSource> {
                                          @NonNull final String cacheKey,
                                          @NonNull final MediaSourceTag metadata)
             throws IOException {
-        final DeliveryMethod deliveryFormat = stream.getDeliveryMethod();
-        if (deliveryFormat.equals(DeliveryMethod.PROGRESSIVE_HTTP)) {
+        final DeliveryMethod deliveryMethod = stream.getDeliveryMethod();
+        if (deliveryMethod.equals(DeliveryMethod.PROGRESSIVE_HTTP)) {
             final String url = stream.getContent();
             return dataSource.getExtractorMediaSourceFactory(cacheKey).setTag(metadata)
                     .createMediaSource(MediaItem.fromUri((url)));
-        } else if (deliveryFormat.equals(DeliveryMethod.HLS)) {
+        } else if (deliveryMethod.equals(DeliveryMethod.HLS)) {
             if (stream.isUrl()) {
                 return dataSource.getHlsMediaSourceFactory().setTag(metadata)
                         .createMediaSource(MediaItem.fromUri(Uri.parse(stream.getContent())));
@@ -81,8 +100,7 @@ public interface PlaybackResolver extends Resolver<StreamInfo, MediaSource> {
                 throw new IllegalArgumentException(
                         "HLS streams which are not URLs are not supported");
             }
-            // Other contents are not supported right now
-        } else if (deliveryFormat.equals(DeliveryMethod.DASH)) {
+        } else if (deliveryMethod.equals(DeliveryMethod.DASH)) {
             if (stream.isUrl()) {
                 return dataSource.getDashMediaSourceFactory().setTag(metadata)
                         .createMediaSource(MediaItem.fromUri(Uri.parse(stream.getContent())));
@@ -100,7 +118,17 @@ public interface PlaybackResolver extends Resolver<StreamInfo, MediaSource> {
                         .createMediaSource(dashManifest);
             }
         } else {
-            throw new IllegalArgumentException("Unsupported delivery type" + deliveryFormat);
+            throw new IllegalArgumentException("Unsupported delivery type" + deliveryMethod);
+        }
+    }
+
+    default void removeTorrentStreams(@NonNull final List<? extends Stream> streamList) {
+        final Iterator<? extends Stream> streamIterator = streamList.iterator();
+        while (streamIterator.hasNext()) {
+            final Stream stream = streamIterator.next();
+            if (stream.getDeliveryMethod() == DeliveryMethod.TORRENT) {
+                streamIterator.remove();
+            }
         }
     }
 }
