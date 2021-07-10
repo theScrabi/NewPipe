@@ -3,8 +3,14 @@
 buildscript {
     ext.kotlin_version = '1.4.10'
     repositories {
-        jcenter()
         google()
+        mavenCentral()
+        jcenter {
+            content {
+                //  org.jetbrains.trove4j is only available in JCenter
+                includeGroup("org.jetbrains.trove4j")
+            }
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.3'
@@ -17,9 +23,17 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
         google()
+        mavenCentral()
         maven { url "https://jitpack.io" }
         maven { url "https://clojars.org/repo" }
+        jcenter {
+            content {
+                //  org.jetbrains.trove4j is only available in JCenter
+                includeGroup("org.jetbrains.trove4j")
+                includeGroup("com.google.android.exoplayer")
+                includeGroup("com.xwray")
+            }
+        }
     }
 }
