@@ -187,16 +187,7 @@ import static org.schabi.newpipe.util.ListHelper.getResolutionIndex;
 import static org.schabi.newpipe.util.Localization.assureCorrectAppLanguage;
 import static org.schabi.newpipe.util.Localization.containsCaseInsensitive;
 
-public final class Player implements
-        EventListener,
-        PlaybackListener,
-        ImageLoadingListener,
-        VideoListener,
-        SeekBar.OnSeekBarChangeListener,
-        View.OnClickListener,
-        PopupMenu.OnMenuItemClickListener,
-        PopupMenu.OnDismissListener,
-        View.OnLongClickListener {
+public final class Player {
     public static final boolean DEBUG = MainActivity.DEBUG;
     public static final String TAG = Player.class.getSimpleName();
 
@@ -247,6 +238,25 @@ public final class Player implements
     /*//////////////////////////////////////////////////////////////////////////
     // Playback
     //////////////////////////////////////////////////////////////////////////*/
+
+    private final PlaybackStateListener playbackStateListener = new PlaybackStateListener();
+
+    private final PlayerPlaybackListener playerPlaybackListener = new PlayerPlaybackListener();
+    private final PlayerImageLoadingListener playerImageLoaderListener
+            = new PlayerImageLoadingListener();
+    private final PlayerVideoListener playerVideoListener = new PlayerVideoListener();
+
+    private final PlayerOnSeekBarChangeListener playerOnSeekBarChangeListener
+            = new PlayerOnSeekBarChangeListener();
+    private final PlayerViewOnClickListener playerViewOnClickListener
+            = new PlayerViewOnClickListener();
+    private final PlayerViewOnLongClickListener playerViewOnLongClickListener
+            = new PlayerViewOnLongClickListener();
+    private final PlayerPopupMenuOnMenuItemClickListener playerPopupMenuOnMenuItemClickListener
+            = new PlayerPopupMenuOnMenuItemClickListener();
+    private final PlayerPopupMenuOnDismissListener playerPopupMenuOnDismissListener
+            = new PlayerPopupMenuOnDismissListener();
+
 
     private PlayQueue playQueue;
     private PlayQueueAdapter playQueueAdapter;
@@ -378,10 +388,7 @@ public final class Player implements
 
 
 
-    /*//////////////////////////////////////////////////////////////////////////
-    // Constructor
-    //////////////////////////////////////////////////////////////////////////*/
-    //region
+    //region Constructor
 
     public Player(@NonNull final MainPlayer service) {
         this.service = service;
@@ -476,7 +483,7 @@ public final class Player implements
                 .setTrackSelector(trackSelector)
                 .setLoadControl(loadController)
                 .build();
-        simpleExoPlayer.addListener(this);
+        simpleExoPlayer.addListener(playbackStateListener);
         simpleExoPlayer.setPlayWhenReady(playOnReady);
         simpleExoPlayer.setSeekParameters(PlayerHelper.getSeekParameters(context));
         simpleExoPlayer.setWakeMode(C.WAKE_MODE_NETWORK);
@@ -490,7 +497,7 @@ public final class Player implements
 
         // Setup video view
         simpleExoPlayer.setVideoSurfaceView(binding.surfaceView);
-        simpleExoPlayer.addVideoListener(this);
+        simpleExoPlayer.addVideoListener(playerVideoListener);
 
         // Setup subtitle view
         simpleExoPlayer.addTextOutput(binding.subtitleView);
@@ -509,36 +516,36 @@ public final class Player implements
     }
 
     private void initListeners() {
-        binding.playbackSeekBar.setOnSeekBarChangeListener(this);
-        binding.playbackSpeed.setOnClickListener(this);
-        binding.qualityTextView.setOnClickListener(this);
-        binding.captionTextView.setOnClickListener(this);
-        binding.resizeTextView.setOnClickListener(this);
-        binding.playbackLiveSync.setOnClickListener(this);
+        binding.playbackSeekBar.setOnSeekBarChangeListener(playerOnSeekBarChangeListener);
+        binding.playbackSpeed.setOnClickListener(playerViewOnClickListener);
+        binding.qualityTextView.setOnClickListener(playerViewOnClickListener);
+        binding.captionTextView.setOnClickListener(playerViewOnClickListener);
+        binding.resizeTextView.setOnClickListener(playerViewOnClickListener);
+        binding.playbackLiveSync.setOnClickListener(playerViewOnClickListener);
 
         final PlayerGestureListener listener = new PlayerGestureListener(this, service);
         gestureDetector = new GestureDetector(context, listener);
         binding.getRoot().setOnTouchListener(listener);
 
-        binding.queueButton.setOnClickListener(this);
-        binding.segmentsButton.setOnClickListener(this);
-        binding.repeatButton.setOnClickListener(this);
-        binding.shuffleButton.setOnClickListener(this);
+        binding.queueButton.setOnClickListener(playerViewOnClickListener);
+        binding.segmentsButton.setOnClickListener(playerViewOnClickListener);
+        binding.repeatButton.setOnClickListener(playerViewOnClickListener);
+        binding.shuffleButton.setOnClickListener(playerViewOnClickListener);
 
-        binding.playPauseButton.setOnClickListener(this);
-        binding.playPreviousButton.setOnClickListener(this);
-        binding.playNextButton.setOnClickListener(this);
+        binding.playPauseButton.setOnClickListener(playerViewOnClickListener);
+        binding.playPreviousButton.setOnClickListener(playerViewOnClickListener);
+        binding.playNextButton.setOnClickListener(playerViewOnClickListener);
 
-        binding.moreOptionsButton.setOnClickListener(this);
-        binding.moreOptionsButton.setOnLongClickListener(this);
-        binding.share.setOnClickListener(this);
-        binding.share.setOnLongClickListener(this);
-        binding.fullScreenButton.setOnClickListener(this);
-        binding.screenRotationButton.setOnClickListener(this);
-        binding.playWithKodi.setOnClickListener(this);
-        binding.openInBrowser.setOnClickListener(this);
-        binding.playerCloseButton.setOnClickListener(this);
-        binding.switchMute.setOnClickListener(this);
+        binding.moreOptionsButton.setOnClickListener(playerViewOnClickListener);
+        binding.moreOptionsButton.setOnLongClickListener(playerViewOnLongClickListener);
+        binding.share.setOnLongClickListener(playerViewOnLongClickListener);
+        binding.share.setOnClickListener(playerViewOnClickListener);
+        binding.fullScreenButton.setOnClickListener(playerViewOnClickListener);
+        binding.screenRotationButton.setOnClickListener(playerViewOnClickListener);
+        binding.playWithKodi.setOnClickListener(playerViewOnClickListener);
+        binding.openInBrowser.setOnClickListener(playerViewOnClickListener);
+        binding.playerCloseButton.setOnClickListener(playerViewOnClickListener);
+        binding.switchMute.setOnClickListener(playerViewOnClickListener);
 
         settingsContentObserver = new ContentObserver(new Handler()) {
             @Override
@@ -766,14 +773,15 @@ public final class Player implements
     /*//////////////////////////////////////////////////////////////////////////
     // Destroy and recovery
     //////////////////////////////////////////////////////////////////////////*/
-    //region
+    //region Destroy and recovery
 
     private void destroyPlayer() {
         if (DEBUG) {
             Log.d(TAG, "destroyPlayer() called");
         }
         if (!exoPlayerIsNull()) {
-            simpleExoPlayer.removeListener(this);
+            simpleExoPlayer.removeListener(playbackStateListener);
+            simpleExoPlayer.removeVideoListener(playerVideoListener);
             simpleExoPlayer.stop();
             simpleExoPlayer.release();
         }
@@ -847,17 +855,8 @@ public final class Player implements
         }
 
         if (playQueue != null) {
-            playQueueManager = new MediaSourceManager(this, playQueue);
+            playQueueManager = new MediaSourceManager(playerPlaybackListener, playQueue);
         }
-    }
-
-    @Override // own playback listener
-    public void onPlaybackShutdown() {
-        if (DEBUG) {
-            Log.d(TAG, "onPlaybackShutdown() called");
-        }
-        // destroys the service, which in turn will destroy the player
-        service.onDestroy();
     }
 
     public void smoothStopPlayer() {
@@ -1199,7 +1198,7 @@ public final class Player implements
     /*//////////////////////////////////////////////////////////////////////////
     // Thumbnail loading
     //////////////////////////////////////////////////////////////////////////*/
-    //region
+    //region Thumbnail loading
 
     private void initThumbnail(final String url) {
         if (DEBUG) {
@@ -1209,8 +1208,9 @@ public final class Player implements
             return;
         }
         ImageLoader.getInstance().resume();
-        ImageLoader.getInstance()
-                .loadImage(url, ImageDisplayConstants.DISPLAY_THUMBNAIL_OPTIONS, this);
+        ImageLoader.getInstance().loadImage(url,
+                ImageDisplayConstants.DISPLAY_THUMBNAIL_OPTIONS,
+                playerImageLoaderListener);
     }
 
     /**
@@ -1285,60 +1285,6 @@ public final class Player implements
         }
     }
 
-    @Override
-    public void onLoadingStarted(final String imageUri, final View view) {
-        if (DEBUG) {
-            Log.d(TAG, "Thumbnail - onLoadingStarted() called on: "
-                    + "imageUri = [" + imageUri + "], view = [" + view + "]");
-        }
-    }
-
-    @Override
-    public void onLoadingFailed(final String imageUri, final View view,
-                                final FailReason failReason) {
-        Log.e(TAG, "Thumbnail - onLoadingFailed() called on imageUri = [" + imageUri + "]",
-                failReason.getCause());
-        currentThumbnail = null;
-        NotificationUtil.getInstance().createNotificationIfNeededAndUpdate(this, false);
-    }
-
-    @Override
-    public void onLoadingComplete(final String imageUri, final View view,
-                                  final Bitmap loadedImage) {
-        // scale down the notification thumbnail for performance
-        final float notificationThumbnailWidth = Math.min(
-                context.getResources().getDimension(R.dimen.player_notification_thumbnail_width),
-                loadedImage.getWidth());
-        currentThumbnail = Bitmap.createScaledBitmap(
-                loadedImage,
-                (int) notificationThumbnailWidth,
-                (int) (loadedImage.getHeight()
-                        / (loadedImage.getWidth() / notificationThumbnailWidth)),
-                true);
-
-        if (DEBUG) {
-            Log.d(TAG, "Thumbnail - onLoadingComplete() called with: "
-                    + "imageUri = [" + imageUri + "], view = [" + view + "], "
-                    + "loadedImage = [" + loadedImage + "], "
-                    + loadedImage.getWidth() + "x" + loadedImage.getHeight()
-                    + ", scaled notification width = " + notificationThumbnailWidth);
-        }
-
-        NotificationUtil.getInstance().createNotificationIfNeededAndUpdate(this, false);
-
-        // there is a new thumbnail, thus the end screen thumbnail needs to be changed, too.
-        updateEndScreenThumbnail();
-    }
-
-    @Override
-    public void onLoadingCancelled(final String imageUri, final View view) {
-        if (DEBUG) {
-            Log.d(TAG, "Thumbnail - onLoadingCancelled() called with: "
-                    + "imageUri = [" + imageUri + "], view = [" + view + "]");
-        }
-        currentThumbnail = null;
-        NotificationUtil.getInstance().createNotificationIfNeededAndUpdate(this, false);
-    }
     //endregion
 
 
@@ -1574,7 +1520,7 @@ public final class Player implements
     /*//////////////////////////////////////////////////////////////////////////
     // Progress loop and updates
     //////////////////////////////////////////////////////////////////////////*/
-    //region
+    //region Progress loop and updates
 
     private void onUpdateProgress(final int currentProgress,
                                   final int duration,
@@ -1664,62 +1610,6 @@ public final class Player implements
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(ignored -> triggerProgressUpdate(),
                         error -> Log.e(TAG, "Progress update failure: ", error));
-    }
-
-    @Override // seekbar listener
-    public void onProgressChanged(final SeekBar seekBar, final int progress,
-                                  final boolean fromUser) {
-        if (DEBUG && fromUser) {
-            Log.d(TAG, "onProgressChanged() called with: "
-                    + "seekBar = [" + seekBar + "], progress = [" + progress + "]");
-        }
-        if (fromUser) {
-            binding.currentDisplaySeek.setText(getTimeString(progress));
-        }
-    }
-
-    @Override // seekbar listener
-    public void onStartTrackingTouch(final SeekBar seekBar) {
-        if (DEBUG) {
-            Log.d(TAG, "onStartTrackingTouch() called with: seekBar = [" + seekBar + "]");
-        }
-        if (currentState != STATE_PAUSED_SEEK) {
-            changeState(STATE_PAUSED_SEEK);
-        }
-
-        saveWasPlaying();
-        if (isPlaying()) {
-            simpleExoPlayer.pause();
-        }
-
-        showControls(0);
-        animate(binding.currentDisplaySeek, true, DEFAULT_CONTROLS_DURATION,
-                AnimationType.SCALE_AND_ALPHA);
-    }
-
-    @Override // seekbar listener
-    public void onStopTrackingTouch(final SeekBar seekBar) {
-        if (DEBUG) {
-            Log.d(TAG, "onStopTrackingTouch() called with: seekBar = [" + seekBar + "]");
-        }
-
-        seekTo(seekBar.getProgress());
-        if (wasPlaying || simpleExoPlayer.getDuration() == seekBar.getProgress()) {
-            simpleExoPlayer.play();
-        }
-
-        binding.playbackCurrentTime.setText(getTimeString(seekBar.getProgress()));
-        animate(binding.currentDisplaySeek, false, 200, AnimationType.SCALE_AND_ALPHA);
-
-        if (currentState == STATE_PAUSED_SEEK) {
-            changeState(STATE_BUFFERING);
-        }
-        if (!isProgressLoopRunning()) {
-            startProgressLoop();
-        }
-        if (wasPlaying) {
-            showControlsThenHide();
-        }
     }
 
     public void saveWasPlaying() {
@@ -1902,97 +1792,7 @@ public final class Player implements
     /*//////////////////////////////////////////////////////////////////////////
     // Playback states
     //////////////////////////////////////////////////////////////////////////*/
-    //region
-
-    @Override // exoplayer listener
-    public void onPlayerStateChanged(final boolean playWhenReady, final int playbackState) {
-        if (DEBUG) {
-            Log.d(TAG, "ExoPlayer - onPlayerStateChanged() called with: "
-                    + "playWhenReady = [" + playWhenReady + "], "
-                    + "playbackState = [" + playbackState + "]");
-        }
-
-        if (currentState == STATE_PAUSED_SEEK) {
-            if (DEBUG) {
-                Log.d(TAG, "ExoPlayer - onPlayerStateChanged() is currently blocked");
-            }
-            return;
-        }
-
-        switch (playbackState) {
-            case com.google.android.exoplayer2.Player.STATE_IDLE: // 1
-                isPrepared = false;
-                break;
-            case com.google.android.exoplayer2.Player.STATE_BUFFERING: // 2
-                if (isPrepared) {
-                    changeState(STATE_BUFFERING);
-                }
-                break;
-            case com.google.android.exoplayer2.Player.STATE_READY: //3
-                maybeUpdateCurrentMetadata();
-                maybeCorrectSeekPosition();
-                if (!isPrepared) {
-                    isPrepared = true;
-                    onPrepared(playWhenReady);
-                }
-                changeState(playWhenReady ? STATE_PLAYING : STATE_PAUSED);
-                break;
-            case com.google.android.exoplayer2.Player.STATE_ENDED: // 4
-                changeState(STATE_COMPLETED);
-                saveStreamProgressStateCompleted();
-                isPrepared = false;
-                break;
-        }
-    }
-
-    @Override // exoplayer listener
-    public void onIsLoadingChanged(final boolean isLoading) {
-        if (DEBUG) {
-            Log.d(TAG, "ExoPlayer - onLoadingChanged() called with: "
-                    + "isLoading = [" + isLoading + "]");
-        }
-
-        if (!isLoading && currentState == STATE_PAUSED && isProgressLoopRunning()) {
-            stopProgressLoop();
-        } else if (isLoading && !isProgressLoopRunning()) {
-            startProgressLoop();
-        }
-
-        maybeUpdateCurrentMetadata();
-    }
-
-    @Override // own playback listener
-    public void onPlaybackBlock() {
-        if (exoPlayerIsNull()) {
-            return;
-        }
-        if (DEBUG) {
-            Log.d(TAG, "Playback - onPlaybackBlock() called");
-        }
-
-        currentItem = null;
-        currentMetadata = null;
-        simpleExoPlayer.stop();
-        isPrepared = false;
-
-        changeState(STATE_BLOCKED);
-    }
-
-    @Override // own playback listener
-    public void onPlaybackUnblock(final MediaSource mediaSource) {
-        if (DEBUG) {
-            Log.d(TAG, "Playback - onPlaybackUnblock() called");
-        }
-
-        if (exoPlayerIsNull()) {
-            return;
-        }
-        if (currentState == STATE_BLOCKED) {
-            changeState(STATE_BUFFERING);
-        }
-        simpleExoPlayer.setMediaSource(mediaSource);
-        simpleExoPlayer.prepare();
-    }
+    //region Playback states
 
     public void changeState(final int state) {
         if (DEBUG) {
@@ -2223,7 +2023,7 @@ public final class Player implements
     /*//////////////////////////////////////////////////////////////////////////
     // Repeat and shuffle
     //////////////////////////////////////////////////////////////////////////*/
-    //region
+    //region Repeat and shuffle
 
     public void onRepeatClicked() {
         if (DEBUG) {
@@ -2252,35 +2052,6 @@ public final class Player implements
         if (!exoPlayerIsNull()) {
             simpleExoPlayer.setRepeatMode(repeatMode);
         }
-    }
-
-    @Override
-    public void onRepeatModeChanged(@RepeatMode final int repeatMode) {
-        if (DEBUG) {
-            Log.d(TAG, "ExoPlayer - onRepeatModeChanged() called with: "
-                    + "repeatMode = [" + repeatMode + "]");
-        }
-        setRepeatModeButton(((AppCompatImageButton) binding.repeatButton), repeatMode);
-        onShuffleOrRepeatModeChanged();
-    }
-
-    @Override
-    public void onShuffleModeEnabledChanged(final boolean shuffleModeEnabled) {
-        if (DEBUG) {
-            Log.d(TAG, "ExoPlayer - onShuffleModeEnabledChanged() called with: "
-                    + "mode = [" + shuffleModeEnabled + "]");
-        }
-
-        if (playQueue != null) {
-            if (shuffleModeEnabled) {
-                playQueue.shuffle();
-            } else {
-                playQueue.unshuffle();
-            }
-        }
-
-        setShuffleButton(binding.shuffleButton, shuffleModeEnabled);
-        onShuffleOrRepeatModeChanged();
     }
 
     private void onShuffleOrRepeatModeChanged() {
@@ -2338,87 +2109,8 @@ public final class Player implements
     /*//////////////////////////////////////////////////////////////////////////
     // ExoPlayer listeners (that didn't fit in other categories)
     //////////////////////////////////////////////////////////////////////////*/
-    //region
+    //region ExoPlayer listeners (that didn't fit in other categories)
 
-    @Override
-    public void onTimelineChanged(@NonNull final Timeline timeline, final int reason) {
-        if (DEBUG) {
-            Log.d(TAG, "ExoPlayer - onTimelineChanged() called with "
-                    + "timeline size = [" + timeline.getWindowCount() + "], "
-                    + "reason = [" + reason + "]");
-        }
-
-        maybeUpdateCurrentMetadata();
-        // force recreate notification to ensure seek bar is shown when preparation finishes
-        NotificationUtil.getInstance().createNotificationIfNeededAndUpdate(this, true);
-    }
-
-    @Override
-    public void onTracksChanged(@NonNull final TrackGroupArray trackGroups,
-                                @NonNull final TrackSelectionArray trackSelections) {
-        if (DEBUG) {
-            Log.d(TAG, "ExoPlayer - onTracksChanged(), "
-                    + "track group size = " + trackGroups.length);
-        }
-        maybeUpdateCurrentMetadata();
-        onTextTracksChanged();
-    }
-
-    @Override
-    public void onPlaybackParametersChanged(@NonNull final PlaybackParameters playbackParameters) {
-        if (DEBUG) {
-            Log.d(TAG, "ExoPlayer - playbackParameters(), speed = [" + playbackParameters.speed
-                    + "], pitch = [" + playbackParameters.pitch + "]");
-        }
-        binding.playbackSpeed.setText(formatSpeed(playbackParameters.speed));
-    }
-
-    @Override
-    public void onPositionDiscontinuity(@DiscontinuityReason final int discontinuityReason) {
-        if (DEBUG) {
-            Log.d(TAG, "ExoPlayer - onPositionDiscontinuity() called with "
-                    + "discontinuityReason = [" + discontinuityReason + "]");
-        }
-        if (playQueue == null) {
-            return;
-        }
-
-        // Refresh the playback if there is a transition to the next video
-        final int newWindowIndex = simpleExoPlayer.getCurrentWindowIndex();
-        switch (discontinuityReason) {
-            case DISCONTINUITY_REASON_PERIOD_TRANSITION:
-                // When player is in single repeat mode and a period transition occurs,
-                // we need to register a view count here since no metadata has changed
-                if (getRepeatMode() == REPEAT_MODE_ONE && newWindowIndex == playQueue.getIndex()) {
-                    registerStreamViewed();
-                    break;
-                }
-            case DISCONTINUITY_REASON_SEEK:
-                if (DEBUG) {
-                    Log.d(TAG, "ExoPlayer - onSeekProcessed() called");
-                }
-                if (isPrepared) {
-                    saveStreamProgressState();
-                }
-            case DISCONTINUITY_REASON_SEEK_ADJUSTMENT:
-            case DISCONTINUITY_REASON_INTERNAL:
-                if (playQueue.getIndex() != newWindowIndex) {
-                    saveStreamProgressStateCompleted(); // current stream has ended
-                    playQueue.setIndex(newWindowIndex);
-                }
-                break;
-            case DISCONTINUITY_REASON_AD_INSERTION:
-                break; // only makes Android Studio linter happy, as there are no ads
-        }
-
-        maybeUpdateCurrentMetadata();
-    }
-
-    @Override
-    public void onRenderedFirstFrame() {
-        //TODO check if this causes black screen when switching to fullscreen
-        animate(binding.surfaceForeground, false, DEFAULT_CONTROLS_DURATION);
-    }
     //endregion
 
 
@@ -2427,56 +2119,6 @@ public final class Player implements
     // Errors
     //////////////////////////////////////////////////////////////////////////*/
     //region
-    /**
-     * Process exceptions produced by {@link com.google.android.exoplayer2.ExoPlayer ExoPlayer}.
-     * <p>There are multiple types of errors:</p>
-     * <ul>
-     * <li>{@link ExoPlaybackException#TYPE_SOURCE TYPE_SOURCE}</li>
-     * <li>{@link ExoPlaybackException#TYPE_UNEXPECTED TYPE_UNEXPECTED}:
-     * If a runtime error occurred, then we can try to recover it by restarting the playback
-     * after setting the timestamp recovery.</li>
-     * <li>{@link ExoPlaybackException#TYPE_RENDERER TYPE_RENDERER}:
-     * If the renderer failed, treat the error as unrecoverable.</li>
-     * </ul>
-     *
-     * @see #processSourceError(IOException)
-     * @see com.google.android.exoplayer2.Player.EventListener#onPlayerError(ExoPlaybackException)
-     */
-    @Override
-    public void onPlayerError(@NonNull final ExoPlaybackException error) {
-        if (DEBUG) {
-            Log.d(TAG, "ExoPlayer - onPlayerError() called with: " + "error = [" + error + "]");
-        }
-        if (errorToast != null) {
-            errorToast.cancel();
-            errorToast = null;
-        }
-
-        saveStreamProgressState();
-
-        switch (error.type) {
-            case ExoPlaybackException.TYPE_SOURCE:
-                processSourceError(error.getSourceException());
-                showStreamError(error);
-                break;
-            case ExoPlaybackException.TYPE_UNEXPECTED:
-                showRecoverableError(error);
-                setRecovery();
-                reloadPlayQueueManager();
-                break;
-            case ExoPlaybackException.TYPE_REMOTE:
-            case ExoPlaybackException.TYPE_RENDERER:
-            default:
-                showUnrecoverableError(error);
-                onPlaybackShutdown();
-                break;
-        }
-
-        if (fragmentListener != null) {
-            fragmentListener.onPlayerError(error);
-        }
-    }
-
     private void processSourceError(final IOException error) {
         if (exoPlayerIsNull() || playQueue == null) {
             return;
@@ -2527,21 +2169,7 @@ public final class Player implements
     /*//////////////////////////////////////////////////////////////////////////
     // Playback position and seek
     //////////////////////////////////////////////////////////////////////////*/
-    //region
-
-    @Override // own playback listener (this is a getter)
-    public boolean isApproachingPlaybackEdge(final long timeToEndMillis) {
-        // If live, then not near playback edge
-        // If not playing, then not approaching playback edge
-        if (exoPlayerIsNull() || isLive() || !isPlaying()) {
-            return false;
-        }
-
-        final long currentPositionMillis = simpleExoPlayer.getCurrentPosition();
-        final long currentDurationMillis = simpleExoPlayer.getDuration();
-        return currentDurationMillis - currentPositionMillis < timeToEndMillis;
-    }
-
+    //region Playback position and seek
     /**
      * Checks if the current playback is a livestream AND is playing at or beyond the live edge.
      *
@@ -2565,59 +2193,6 @@ public final class Player implements
         return timelineWindow.getDefaultPositionMs() <= simpleExoPlayer.getCurrentPosition();
     }
 
-    @Override // own playback listener
-    public void onPlaybackSynchronize(@NonNull final PlayQueueItem item) {
-        if (DEBUG) {
-            Log.d(TAG, "Playback - onPlaybackSynchronize() called with "
-                    + "item=[" + item.getTitle() + "], url=[" + item.getUrl() + "]");
-        }
-        if (exoPlayerIsNull() || playQueue == null) {
-            return;
-        }
-
-        final boolean onPlaybackInitial = currentItem == null;
-        final boolean hasPlayQueueItemChanged = currentItem != item;
-
-        final int currentPlayQueueIndex = playQueue.indexOf(item);
-        final int currentPlaylistIndex = simpleExoPlayer.getCurrentWindowIndex();
-        final int currentPlaylistSize = simpleExoPlayer.getCurrentTimeline().getWindowCount();
-
-        // If nothing to synchronize
-        if (!hasPlayQueueItemChanged) {
-            return;
-        }
-        currentItem = item;
-
-        // Check if on wrong window
-        if (currentPlayQueueIndex != playQueue.getIndex()) {
-            Log.e(TAG, "Playback - Play Queue may be desynchronized: item "
-                    + "index=[" + currentPlayQueueIndex + "], "
-                    + "queue index=[" + playQueue.getIndex() + "]");
-
-            // Check if bad seek position
-        } else if ((currentPlaylistSize > 0 && currentPlayQueueIndex >= currentPlaylistSize)
-                || currentPlayQueueIndex < 0) {
-            Log.e(TAG, "Playback - Trying to seek to invalid "
-                    + "index=[" + currentPlayQueueIndex + "] with "
-                    + "playlist length=[" + currentPlaylistSize + "]");
-
-        } else if (currentPlaylistIndex != currentPlayQueueIndex || onPlaybackInitial
-                || !isPlaying()) {
-            if (DEBUG) {
-                Log.d(TAG, "Playback - Rewinding to correct "
-                        + "index=[" + currentPlayQueueIndex + "], "
-                        + "from=[" + currentPlaylistIndex + "], "
-                        + "size=[" + currentPlaylistSize + "].");
-            }
-
-            if (item.getRecoveryPosition() != PlayQueueItem.RECOVERY_UNSET) {
-                simpleExoPlayer.seekTo(currentPlayQueueIndex, item.getRecoveryPosition());
-                playQueue.unsetRecovery(currentPlayQueueIndex);
-            } else {
-                simpleExoPlayer.seekToDefaultPosition(currentPlayQueueIndex);
-            }
-        }
-    }
 
     private void maybeCorrectSeekPosition() {
         if (playQueue == null || exoPlayerIsNull() || currentMetadata == null) {
@@ -2948,7 +2523,7 @@ public final class Player implements
     /*//////////////////////////////////////////////////////////////////////////
     // Play queue, segments and streams
     //////////////////////////////////////////////////////////////////////////*/
-    //region
+    //region Play queue, segments and streams
 
     private void maybeAutoQueueNextStream(@NonNull final MediaSourceTag metadata) {
         if (playQueue == null || playQueue.getIndex() != playQueue.size() - 1
@@ -2980,13 +2555,6 @@ public final class Player implements
             saveStreamProgressState();
         }
         playQueue.setIndex(index);
-    }
-
-    @Override
-    public void onPlayQueueEdited() {
-        notifyPlaybackUpdateToListeners();
-        showOrHideButtons();
-        NotificationUtil.getInstance().createNotificationIfNeededAndUpdate(this, false);
     }
 
     private void onQueueClicked() {
@@ -3163,12 +2731,6 @@ public final class Player implements
         };
     }
 
-    @Override // own playback listener
-    @Nullable
-    public MediaSource sourceOf(final PlayQueueItem item, final StreamInfo info) {
-        return (isAudioOnly ? audioResolver : videoResolver).resolve(info);
-    }
-
     public void disablePreloadingOfCurrentTrack() {
         loadController.disablePreloadingOfCurrentTrack();
     }
@@ -3264,7 +2826,7 @@ public final class Player implements
     /*//////////////////////////////////////////////////////////////////////////
     // Popup menus ("popup" means that they pop up, not that they belong to the popup player)
     //////////////////////////////////////////////////////////////////////////*/
-    //region
+    //region Popup menus ("popup" means that they pop up, not that they belong to the popup player)
 
     private void buildQualityMenu() {
         if (qualityPopupMenu == null) {
@@ -3280,8 +2842,8 @@ public final class Player implements
         if (getSelectedVideoStream() != null) {
             binding.qualityTextView.setText(getSelectedVideoStream().resolution);
         }
-        qualityPopupMenu.setOnMenuItemClickListener(this);
-        qualityPopupMenu.setOnDismissListener(this);
+        qualityPopupMenu.setOnMenuItemClickListener(playerPopupMenuOnMenuItemClickListener);
+        qualityPopupMenu.setOnDismissListener(playerPopupMenuOnDismissListener);
     }
 
     private void buildPlaybackSpeedMenu() {
@@ -3295,8 +2857,8 @@ public final class Player implements
                     formatSpeed(PLAYBACK_SPEEDS[i]));
         }
         binding.playbackSpeed.setText(formatSpeed(getPlaybackSpeed()));
-        playbackSpeedPopupMenu.setOnMenuItemClickListener(this);
-        playbackSpeedPopupMenu.setOnDismissListener(this);
+        playbackSpeedPopupMenu.setOnMenuItemClickListener(playerPopupMenuOnMenuItemClickListener);
+        playbackSpeedPopupMenu.setOnDismissListener(playerPopupMenuOnDismissListener);
     }
 
     private void buildCaptionMenu(final List<String> availableLanguages) {
@@ -3360,63 +2922,9 @@ public final class Player implements
                 searchForAutogenerated = false;
             }
         }
-        captionPopupMenu.setOnDismissListener(this);
+        captionPopupMenu.setOnDismissListener(playerPopupMenuOnDismissListener);
     }
 
-    /**
-     * Called when an item of the quality selector or the playback speed selector is selected.
-     */
-    @Override
-    public boolean onMenuItemClick(final MenuItem menuItem) {
-        if (DEBUG) {
-            Log.d(TAG, "onMenuItemClick() called with: "
-                    + "menuItem = [" + menuItem + "], "
-                    + "menuItem.getItemId = [" + menuItem.getItemId() + "]");
-        }
-
-        if (menuItem.getGroupId() == POPUP_MENU_ID_QUALITY) {
-            final int menuItemIndex = menuItem.getItemId();
-            if (selectedStreamIndex == menuItemIndex || availableStreams == null
-                    || availableStreams.size() <= menuItemIndex) {
-                return true;
-            }
-
-            saveStreamProgressState(); //TODO added, check if good
-            final String newResolution = availableStreams.get(menuItemIndex).resolution;
-            setRecovery();
-            setPlaybackQuality(newResolution);
-            reloadPlayQueueManager();
-
-            binding.qualityTextView.setText(menuItem.getTitle());
-            return true;
-        } else if (menuItem.getGroupId() == POPUP_MENU_ID_PLAYBACK_SPEED) {
-            final int speedIndex = menuItem.getItemId();
-            final float speed = PLAYBACK_SPEEDS[speedIndex];
-
-            setPlaybackSpeed(speed);
-            binding.playbackSpeed.setText(formatSpeed(speed));
-        }
-
-        return false;
-    }
-
-    /**
-     * Called when some popup menu is dismissed.
-     */
-    @Override
-    public void onDismiss(final PopupMenu menu) {
-        if (DEBUG) {
-            Log.d(TAG, "onDismiss() called with: menu = [" + menu + "]");
-        }
-        isSomePopupMenuVisible = false; //TODO check if this works
-        if (getSelectedVideoStream() != null) {
-            binding.qualityTextView.setText(getSelectedVideoStream().resolution);
-        }
-        if (isPlaying()) {
-            hideControls(DEFAULT_CONTROLS_DURATION, 0);
-            hideSystemUIIfNeeded();
-        }
-    }
 
     private void onQualitySelectorClicked() {
         if (DEBUG) {
@@ -3546,99 +3054,7 @@ public final class Player implements
     /*//////////////////////////////////////////////////////////////////////////
     // Click listeners
     //////////////////////////////////////////////////////////////////////////*/
-    //region
-
-    @Override
-    public void onClick(final View v) {
-        if (DEBUG) {
-            Log.d(TAG, "onClick() called with: v = [" + v + "]");
-        }
-        if (v.getId() == binding.qualityTextView.getId()) {
-            onQualitySelectorClicked();
-        } else if (v.getId() == binding.playbackSpeed.getId()) {
-            onPlaybackSpeedClicked();
-        } else if (v.getId() == binding.resizeTextView.getId()) {
-            onResizeClicked();
-        } else if (v.getId() == binding.captionTextView.getId()) {
-            onCaptionClicked();
-        } else if (v.getId() == binding.playbackLiveSync.getId()) {
-            seekToDefault();
-        } else if (v.getId() == binding.playPauseButton.getId()) {
-            playPause();
-        } else if (v.getId() == binding.playPreviousButton.getId()) {
-            playPrevious();
-        } else if (v.getId() == binding.playNextButton.getId()) {
-            playNext();
-        } else if (v.getId() == binding.queueButton.getId()) {
-            onQueueClicked();
-            return;
-        } else if (v.getId() == binding.segmentsButton.getId()) {
-            onSegmentsClicked();
-            return;
-        } else if (v.getId() == binding.repeatButton.getId()) {
-            onRepeatClicked();
-            return;
-        } else if (v.getId() == binding.shuffleButton.getId()) {
-            onShuffleClicked();
-            return;
-        } else if (v.getId() == binding.moreOptionsButton.getId()) {
-            onMoreOptionsClicked();
-        } else if (v.getId() == binding.share.getId()) {
-            ShareUtils.shareText(context, getVideoTitle(), getVideoUrlAtCurrentTime(),
-                            currentItem.getThumbnailUrl());
-        } else if (v.getId() == binding.playWithKodi.getId()) {
-            onPlayWithKodiClicked();
-        } else if (v.getId() == binding.openInBrowser.getId()) {
-            onOpenInBrowserClicked();
-        } else if (v.getId() == binding.fullScreenButton.getId()) {
-            setRecovery();
-            NavigationHelper.playOnMainPlayer(context, playQueue, true);
-            return;
-        } else if (v.getId() == binding.screenRotationButton.getId()) {
-            // Only if it's not a vertical video or vertical video but in landscape with locked
-            // orientation a screen orientation can be changed automatically
-            if (!isVerticalVideo
-                    || (service.isLandscape() && globalScreenOrientationLocked(context))) {
-                fragmentListener.onScreenRotationButtonClicked();
-            } else {
-                toggleFullscreen();
-            }
-        } else if (v.getId() == binding.switchMute.getId()) {
-            onMuteUnmuteButtonClicked();
-        } else if (v.getId() == binding.playerCloseButton.getId()) {
-            context.sendBroadcast(new Intent(VideoDetailFragment.ACTION_HIDE_MAIN_PLAYER));
-        }
-
-        if (currentState != STATE_COMPLETED) {
-            controlsVisibilityHandler.removeCallbacksAndMessages(null);
-            showHideShadow(true, DEFAULT_CONTROLS_DURATION);
-            animate(binding.playbackControlRoot, true, DEFAULT_CONTROLS_DURATION,
-                    AnimationType.ALPHA, 0, () -> {
-                        if (currentState == STATE_PLAYING && !isSomePopupMenuVisible) {
-                            if (v.getId() == binding.playPauseButton.getId()
-                                    // Hide controls in fullscreen immediately
-                                    || (v.getId() == binding.screenRotationButton.getId()
-                                    && isFullscreen)) {
-                                hideControls(0, 0);
-                            } else {
-                                hideControls(DEFAULT_CONTROLS_DURATION, DEFAULT_CONTROLS_HIDE_TIME);
-                            }
-                        }
-                    });
-        }
-    }
-
-    @Override
-    public boolean onLongClick(final View v) {
-        if (v.getId() == binding.moreOptionsButton.getId() && isFullscreen) {
-            fragmentListener.onMoreOptionsLongClicked();
-            hideControls(0, 0);
-            hideSystemUIIfNeeded();
-        } else if (v.getId() == binding.share.getId()) {
-            ShareUtils.copyToClipboard(context, getVideoUrlAtCurrentTime());
-        }
-        return true;
-    }
+    //region Click listeners
 
     public boolean onKeyDown(final int keyCode) {
         switch (keyCode) {
@@ -3734,7 +3150,7 @@ public final class Player implements
     /*//////////////////////////////////////////////////////////////////////////
     // Video size, resize, orientation, fullscreen
     //////////////////////////////////////////////////////////////////////////*/
-    //region
+    //region  Video size, resize, orientation, fullscreen
 
     private void setupScreenRotationButton() {
         binding.screenRotationButton.setVisibility(videoPlayerSelected()
@@ -3755,34 +3171,6 @@ public final class Player implements
         if (binding != null) {
             setResizeMode(nextResizeModeAndSaveToPrefs(this, binding.surfaceView.getResizeMode()));
         }
-    }
-
-    @Override // exoplayer listener
-    public void onVideoSizeChanged(final int width, final int height,
-                                   final int unappliedRotationDegrees,
-                                   final float pixelWidthHeightRatio) {
-        if (DEBUG) {
-            Log.d(TAG, "onVideoSizeChanged() called with: "
-                    + "width / height = [" + width + " / " + height
-                    + " = " + (((float) width) / height) + "], "
-                    + "unappliedRotationDegrees = [" + unappliedRotationDegrees + "], "
-                    + "pixelWidthHeightRatio = [" + pixelWidthHeightRatio + "]");
-        }
-
-        binding.surfaceView.setAspectRatio(((float) width) / height);
-        isVerticalVideo = width < height;
-
-        if (globalScreenOrientationLocked(context)
-                && isFullscreen
-                && service.isLandscape() == isVerticalVideo
-                && !DeviceUtils.isTv(context)
-                && !DeviceUtils.isTablet(context)
-                && fragmentListener != null) {
-            // set correct orientation
-            fragmentListener.onScreenRotationButtonClicked();
-        }
-
-        setupScreenRotationButton();
     }
 
     public void toggleFullscreen() {
@@ -4223,6 +3611,710 @@ public final class Player implements
     public PlayQueueAdapter getPlayQueueAdapter() {
         return playQueueAdapter;
     }
-
     //endregion
+
+    //region Impl EventListener
+    private class PlaybackStateListener implements EventListener {
+
+        //region Playback states
+        @Override // exoplayer listener
+        public void onPlayerStateChanged(final boolean playWhenReady, final int playbackState) {
+            if (DEBUG) {
+                Log.d(TAG, "ExoPlayer - onPlayerStateChanged() called with: "
+                        + "playWhenReady = [" + playWhenReady + "], "
+                        + "playbackState = [" + playbackState + "]");
+            }
+
+            if (currentState == STATE_PAUSED_SEEK) {
+                if (DEBUG) {
+                    Log.d(TAG, "ExoPlayer - onPlayerStateChanged() is currently blocked");
+                }
+                return;
+            }
+
+            switch (playbackState) {
+                case com.google.android.exoplayer2.Player.STATE_IDLE: // 1
+                    isPrepared = false;
+                    break;
+                case com.google.android.exoplayer2.Player.STATE_BUFFERING: // 2
+                    if (isPrepared) {
+                        changeState(STATE_BUFFERING);
+                    }
+                    break;
+                case com.google.android.exoplayer2.Player.STATE_READY: //3
+                    maybeUpdateCurrentMetadata();
+                    maybeCorrectSeekPosition();
+                    if (!isPrepared) {
+                        isPrepared = true;
+                        onPrepared(playWhenReady);
+                    }
+                    changeState(playWhenReady ? STATE_PLAYING : STATE_PAUSED);
+                    break;
+                case com.google.android.exoplayer2.Player.STATE_ENDED: // 4
+                    changeState(STATE_COMPLETED);
+                    saveStreamProgressStateCompleted();
+                    isPrepared = false;
+                    break;
+            }
+        }
+
+        @Override // exoplayer listener
+        public void onIsLoadingChanged(final boolean isLoading) {
+            if (DEBUG) {
+                Log.d(TAG, "ExoPlayer - onLoadingChanged() called with: "
+                        + "isLoading = [" + isLoading + "]");
+            }
+
+            if (!isLoading && currentState == STATE_PAUSED && isProgressLoopRunning()) {
+                stopProgressLoop();
+            } else if (isLoading && !isProgressLoopRunning()) {
+                startProgressLoop();
+            }
+
+            maybeUpdateCurrentMetadata();
+        }
+        //endregion
+
+        //region Repeat and shuffle
+        @Override
+        public void onRepeatModeChanged(@RepeatMode final int repeatMode) {
+            if (DEBUG) {
+                Log.d(TAG, "ExoPlayer - onRepeatModeChanged() called with: "
+                        + "repeatMode = [" + repeatMode + "]");
+            }
+            setRepeatModeButton(((AppCompatImageButton) binding.repeatButton), repeatMode);
+            onShuffleOrRepeatModeChanged();
+        }
+
+        @Override
+        public void onShuffleModeEnabledChanged(final boolean shuffleModeEnabled) {
+            if (DEBUG) {
+                Log.d(TAG, "ExoPlayer - onShuffleModeEnabledChanged() called with: "
+                        + "mode = [" + shuffleModeEnabled + "]");
+            }
+
+            if (playQueue != null) {
+                if (shuffleModeEnabled) {
+                    playQueue.shuffle();
+                } else {
+                    playQueue.unshuffle();
+                }
+            }
+
+            setShuffleButton(binding.shuffleButton, shuffleModeEnabled);
+            onShuffleOrRepeatModeChanged();
+        }
+        //endregion
+
+        //region ExoPlayer listeners (that didn't fit in other categories)
+        @Override
+        public void onTimelineChanged(@NonNull final Timeline timeline, final int reason) {
+            if (DEBUG) {
+                Log.d(TAG, "ExoPlayer - onTimelineChanged() called with "
+                        + "timeline size = [" + timeline.getWindowCount() + "], "
+                        + "reason = [" + reason + "]");
+            }
+
+            maybeUpdateCurrentMetadata();
+            // force recreate notification to ensure seek bar is shown when preparation finishes
+            NotificationUtil.getInstance().
+                    createNotificationIfNeededAndUpdate(Player.this, true);
+        }
+
+        @Override
+        public void onTracksChanged(@NonNull final TrackGroupArray trackGroups,
+                                    @NonNull final TrackSelectionArray trackSelections) {
+            if (DEBUG) {
+                Log.d(TAG, "ExoPlayer - onTracksChanged(), "
+                        + "track group size = " + trackGroups.length);
+            }
+            maybeUpdateCurrentMetadata();
+            onTextTracksChanged();
+        }
+
+        @Override
+        public void onPlaybackParametersChanged(
+                @NonNull final PlaybackParameters playbackParameters) {
+            if (DEBUG) {
+                Log.d(TAG, "ExoPlayer - playbackParameters(), "
+                        + "speed = [" + playbackParameters.speed
+                        + "], pitch = [" + playbackParameters.pitch + "]");
+            }
+            binding.playbackSpeed.setText(formatSpeed(playbackParameters.speed));
+        }
+
+        @Override
+        public void onPositionDiscontinuity(@DiscontinuityReason final int discontinuityReason) {
+            if (DEBUG) {
+                Log.d(TAG, "ExoPlayer - onPositionDiscontinuity() called with "
+                        + "discontinuityReason = [" + discontinuityReason + "]");
+            }
+            if (playQueue == null) {
+                return;
+            }
+
+            // Refresh the playback if there is a transition to the next video
+            final int newWindowIndex = simpleExoPlayer.getCurrentWindowIndex();
+            switch (discontinuityReason) {
+                case DISCONTINUITY_REASON_PERIOD_TRANSITION:
+                    // When player is in single repeat mode and a period transition occurs,
+                    // we need to register a view count here since no metadata has changed
+                    if (getRepeatMode() == REPEAT_MODE_ONE
+                            && newWindowIndex == playQueue.getIndex()) {
+                        registerStreamViewed();
+                        break;
+                    }
+                case DISCONTINUITY_REASON_SEEK:
+                    if (DEBUG) {
+                        Log.d(TAG, "ExoPlayer - onSeekProcessed() called");
+                    }
+                    if (isPrepared) {
+                        saveStreamProgressState();
+                    }
+                case DISCONTINUITY_REASON_SEEK_ADJUSTMENT:
+                case DISCONTINUITY_REASON_INTERNAL:
+                    if (playQueue.getIndex() != newWindowIndex) {
+                        saveStreamProgressStateCompleted(); // current stream has ended
+                        playQueue.setIndex(newWindowIndex);
+                    }
+                    break;
+                case DISCONTINUITY_REASON_AD_INSERTION:
+                    break; // only makes Android Studio linter happy, as there are no ads
+            }
+
+            maybeUpdateCurrentMetadata();
+        }
+        //endregion
+
+        //region Errors
+        /**
+         * Process exceptions produced by {@link com.google.android.exoplayer2.ExoPlayer ExoPlayer}.
+         * <p>There are multiple types of errors:</p>
+         * <ul>
+         * <li>{@link ExoPlaybackException#TYPE_SOURCE TYPE_SOURCE}</li>
+         * <li>{@link ExoPlaybackException#TYPE_UNEXPECTED TYPE_UNEXPECTED}:
+         * If a runtime error occurred, then we can try to recover it by restarting the playback
+         * after setting the timestamp recovery.</li>
+         * <li>{@link ExoPlaybackException#TYPE_RENDERER TYPE_RENDERER}:
+         * If the renderer failed, treat the error as unrecoverable.</li>
+         * </ul>
+         *
+         * @see #processSourceError(IOException)
+         * @see EventListener#onPlayerError(ExoPlaybackException)
+         */
+        @Override
+        public void onPlayerError(@NonNull final ExoPlaybackException error) {
+            if (DEBUG) {
+                Log.d(TAG, "ExoPlayer - onPlayerError() called with: "
+                        + "error = [" + error + "]");
+            }
+            if (errorToast != null) {
+                errorToast.cancel();
+                errorToast = null;
+            }
+
+            saveStreamProgressState();
+
+            switch (error.type) {
+                case ExoPlaybackException.TYPE_SOURCE:
+                    processSourceError(error.getSourceException());
+                    showStreamError(error);
+                    break;
+                case ExoPlaybackException.TYPE_UNEXPECTED:
+                    showRecoverableError(error);
+                    setRecovery();
+                    reloadPlayQueueManager();
+                    break;
+                case ExoPlaybackException.TYPE_REMOTE:
+                case ExoPlaybackException.TYPE_RENDERER:
+                default:
+                    showUnrecoverableError(error);
+                    playerPlaybackListener.onPlaybackShutdown();
+                    break;
+            }
+
+            if (fragmentListener != null) {
+                fragmentListener.onPlayerError(error);
+            }
+        }
+        //endregion
+    }
+    //endregion /* Impl EventListener */
+
+    //region Impl NewPipe's own PlaybackListener
+    class PlayerPlaybackListener implements PlaybackListener {
+
+        //region Playback position and seek
+        @Override // own playback listener (this is a getter)
+        public boolean isApproachingPlaybackEdge(final long timeToEndMillis) {
+            // If live, then not near playback edge
+            // If not playing, then not approaching playback edge
+            if (exoPlayerIsNull() || isLive() || !isPlaying()) {
+                return false;
+            }
+
+            final long currentPositionMillis = simpleExoPlayer.getCurrentPosition();
+            final long currentDurationMillis = simpleExoPlayer.getDuration();
+            return currentDurationMillis - currentPositionMillis < timeToEndMillis;
+        }
+
+        @Override // own playback listener
+        public void onPlaybackSynchronize(@NonNull final PlayQueueItem item) {
+            if (DEBUG) {
+                Log.d(TAG, "Playback - onPlaybackSynchronize() called with "
+                        + "item=[" + item.getTitle() + "], url=[" + item.getUrl() + "]");
+            }
+            if (exoPlayerIsNull() || playQueue == null) {
+                return;
+            }
+
+            final boolean onPlaybackInitial = currentItem == null;
+            final boolean hasPlayQueueItemChanged = currentItem != item;
+
+            final int currentPlayQueueIndex = playQueue.indexOf(item);
+            final int currentPlaylistIndex = simpleExoPlayer.getCurrentWindowIndex();
+            final int currentPlaylistSize = simpleExoPlayer.getCurrentTimeline().getWindowCount();
+
+            // If nothing to synchronize
+            if (!hasPlayQueueItemChanged) {
+                return;
+            }
+            currentItem = item;
+
+            // Check if on wrong window
+            if (currentPlayQueueIndex != playQueue.getIndex()) {
+                Log.e(TAG, "Playback - Play Queue may be desynchronized: item "
+                        + "index=[" + currentPlayQueueIndex + "], "
+                        + "queue index=[" + playQueue.getIndex() + "]");
+
+                // Check if bad seek position
+            } else if ((currentPlaylistSize > 0 && currentPlayQueueIndex >= currentPlaylistSize)
+                    || currentPlayQueueIndex < 0) {
+                Log.e(TAG, "Playback - Trying to seek to invalid "
+                        + "index=[" + currentPlayQueueIndex + "] with "
+                        + "playlist length=[" + currentPlaylistSize + "]");
+
+            } else if (currentPlaylistIndex != currentPlayQueueIndex || onPlaybackInitial
+                    || !isPlaying()) {
+                if (DEBUG) {
+                    Log.d(TAG, "Playback - Rewinding to correct "
+                            + "index=[" + currentPlayQueueIndex + "], "
+                            + "from=[" + currentPlaylistIndex + "], "
+                            + "size=[" + currentPlaylistSize + "].");
+                }
+
+                if (item.getRecoveryPosition() != PlayQueueItem.RECOVERY_UNSET) {
+                    simpleExoPlayer.seekTo(currentPlayQueueIndex, item.getRecoveryPosition());
+                    playQueue.unsetRecovery(currentPlayQueueIndex);
+                } else {
+                    simpleExoPlayer.seekToDefaultPosition(currentPlayQueueIndex);
+                }
+            }
+        }
+        //endregion
+
+        //region Playback states
+        @Override // own playback listener
+        public void onPlaybackBlock() {
+            if (exoPlayerIsNull()) {
+                return;
+            }
+            if (DEBUG) {
+                Log.d(TAG, "Playback - onPlaybackBlock() called");
+            }
+
+            currentItem = null;
+            currentMetadata = null;
+            simpleExoPlayer.stop();
+            isPrepared = false;
+
+            changeState(STATE_BLOCKED);
+        }
+
+        @Override // own playback listener
+        public void onPlaybackUnblock(final MediaSource mediaSource) {
+            if (DEBUG) {
+                Log.d(TAG, "Playback - onPlaybackUnblock() called");
+            }
+
+            if (exoPlayerIsNull()) {
+                return;
+            }
+            if (currentState == STATE_BLOCKED) {
+                changeState(STATE_BUFFERING);
+            }
+            simpleExoPlayer.setMediaSource(mediaSource);
+            simpleExoPlayer.prepare();
+        }
+        //endregion
+
+        //region Play queue, segments and streams
+        @Override // own playback listener
+        @Nullable
+        public MediaSource sourceOf(final PlayQueueItem item, final StreamInfo info) {
+            return (isAudioOnly ? audioResolver : videoResolver).resolve(info);
+        }
+
+        @Override
+        public void onPlayQueueEdited() {
+            notifyPlaybackUpdateToListeners();
+            showOrHideButtons();
+            NotificationUtil.getInstance()
+                    .createNotificationIfNeededAndUpdate(Player.this, false);
+        }
+        //endregion
+
+        //region Destroy and recovery
+        @Override // own playback listener
+        public void onPlaybackShutdown() {
+            if (DEBUG) {
+                Log.d(TAG, "onPlaybackShutdown() called");
+            }
+            // destroys the service, which in turn will destroy the player
+            service.onDestroy();
+        }
+        //endregion
+    }
+    //endregion /* Impl NewPipe's own PlaybackListener */
+
+    //region Impl ImageLoadingListener
+    class PlayerImageLoadingListener implements ImageLoadingListener {
+
+        //region Thumbnail loading
+        @Override
+        public void onLoadingStarted(final String imageUri, final View view) {
+            if (DEBUG) {
+                Log.d(TAG, "Thumbnail - onLoadingStarted() called on: "
+                        + "imageUri = [" + imageUri + "], view = [" + view + "]");
+            }
+        }
+
+        @Override
+        public void onLoadingFailed(final String imageUri, final View view,
+                                    final FailReason failReason) {
+            Log.e(TAG, "Thumbnail - onLoadingFailed() called on imageUri = [" + imageUri + "]",
+                    failReason.getCause());
+            currentThumbnail = null;
+            NotificationUtil.getInstance()
+                    .createNotificationIfNeededAndUpdate(Player.this, false);
+        }
+
+        @Override
+        public void onLoadingComplete(final String imageUri, final View view,
+                                      final Bitmap loadedImage) {
+            // scale down the notification thumbnail for performance
+            final float notificationThumbnailWidth = Math.min(
+                    context.getResources().getDimension(
+                            R.dimen.player_notification_thumbnail_width),
+                    loadedImage.getWidth());
+
+            currentThumbnail = Bitmap.createScaledBitmap(
+                    loadedImage,
+                    (int) notificationThumbnailWidth,
+                    (int) (loadedImage.getHeight()
+                            / (loadedImage.getWidth() / notificationThumbnailWidth)),
+                    true);
+
+            if (DEBUG) {
+                Log.d(TAG, "Thumbnail - onLoadingComplete() called with: "
+                        + "imageUri = [" + imageUri + "], view = [" + view + "], "
+                        + "loadedImage = [" + loadedImage + "], "
+                        + loadedImage.getWidth() + "x" + loadedImage.getHeight()
+                        + ", scaled notification width = " + notificationThumbnailWidth);
+            }
+
+            NotificationUtil.getInstance()
+                    .createNotificationIfNeededAndUpdate(Player.this, false);
+
+            // there is a new thumbnail, thus the end screen thumbnail needs to be changed, too.
+            updateEndScreenThumbnail();
+        }
+
+        @Override
+        public void onLoadingCancelled(final String imageUri, final View view) {
+            if (DEBUG) {
+                Log.d(TAG, "Thumbnail - onLoadingCancelled() called with: "
+                        + "imageUri = [" + imageUri + "], view = [" + view + "]");
+            }
+            currentThumbnail = null;
+            NotificationUtil.getInstance()
+                    .createNotificationIfNeededAndUpdate(Player.this, false);
+        }
+        //endregion
+    }
+    //endregion /* Impl ImageLoadingListener */
+
+    //region Impl VideoListener
+    class PlayerVideoListener implements VideoListener {
+
+        //region ExoPlayer listeners (that didn't fit in other categories)
+        @Override
+        public void onRenderedFirstFrame() {
+            //TODO check if this causes black screen when switching to fullscreen
+            animate(binding.surfaceForeground, false, DEFAULT_CONTROLS_DURATION);
+        }
+        //endregion
+
+        //region  Video size, resize, orientation, fullscreen
+        @Override // exoplayer listener
+        public void onVideoSizeChanged(final int width, final int height,
+                                       final int unappliedRotationDegrees,
+                                       final float pixelWidthHeightRatio) {
+            if (DEBUG) {
+                Log.d(TAG, "onVideoSizeChanged() called with: "
+                        + "width / height = [" + width + " / " + height
+                        + " = " + (((float) width) / height) + "], "
+                        + "unappliedRotationDegrees = [" + unappliedRotationDegrees + "], "
+                        + "pixelWidthHeightRatio = [" + pixelWidthHeightRatio + "]");
+            }
+
+            binding.surfaceView.setAspectRatio(((float) width) / height);
+            isVerticalVideo = width < height;
+
+            if (globalScreenOrientationLocked(context)
+                    && isFullscreen
+                    && service.isLandscape() == isVerticalVideo
+                    && !DeviceUtils.isTv(context)
+                    && !DeviceUtils.isTablet(context)
+                    && fragmentListener != null) {
+                // set correct orientation
+                fragmentListener.onScreenRotationButtonClicked();
+            }
+
+            setupScreenRotationButton();
+        }
+    }
+    //endregion /* Impl VideoListener */
+
+    //region Impl SeekBar.OnSeekBarChangeListener
+    class PlayerOnSeekBarChangeListener implements SeekBar.OnSeekBarChangeListener {
+
+        //region Progress loop and updates
+        @Override // seekbar listener
+        public void onProgressChanged(final SeekBar seekBar, final int progress,
+                                      final boolean fromUser) {
+            if (DEBUG && fromUser) {
+                Log.d(TAG, "onProgressChanged() called with: "
+                        + "seekBar = [" + seekBar + "], progress = [" + progress + "]");
+            }
+            if (fromUser) {
+                binding.currentDisplaySeek.setText(getTimeString(progress));
+            }
+        }
+
+        @Override // seekbar listener
+        public void onStartTrackingTouch(final SeekBar seekBar) {
+            if (DEBUG) {
+                Log.d(TAG, "onStartTrackingTouch() called with: seekBar = [" + seekBar + "]");
+            }
+            if (currentState != STATE_PAUSED_SEEK) {
+                changeState(STATE_PAUSED_SEEK);
+            }
+
+            saveWasPlaying();
+            if (isPlaying()) {
+                simpleExoPlayer.pause();
+            }
+
+            showControls(0);
+            animate(binding.currentDisplaySeek, true, DEFAULT_CONTROLS_DURATION,
+                    AnimationType.SCALE_AND_ALPHA);
+        }
+
+        @Override // seekbar listener
+        public void onStopTrackingTouch(final SeekBar seekBar) {
+            if (DEBUG) {
+                Log.d(TAG,
+                        "onStopTrackingTouch() called with: seekBar = [" + seekBar + "]");
+            }
+
+            seekTo(seekBar.getProgress());
+            if (wasPlaying || simpleExoPlayer.getDuration() == seekBar.getProgress()) {
+                simpleExoPlayer.play();
+            }
+
+            binding.playbackCurrentTime.setText(getTimeString(seekBar.getProgress()));
+            animate(binding.currentDisplaySeek, false, 200,
+                    AnimationType.SCALE_AND_ALPHA);
+
+            if (currentState == STATE_PAUSED_SEEK) {
+                changeState(STATE_BUFFERING);
+            }
+            if (!isProgressLoopRunning()) {
+                startProgressLoop();
+            }
+            if (wasPlaying) {
+                showControlsThenHide();
+            }
+        }
+        //endregion
+    }
+    //endregion /* Impl SeekBar.OnSeekBarChangeListener */
+
+    //region Impl View.OnClickListener
+    class PlayerViewOnClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(final View v) {
+            if (DEBUG) {
+                Log.d(TAG, "onClick() called with: v = [" + v + "]");
+            }
+            if (v.getId() == binding.qualityTextView.getId()) {
+                onQualitySelectorClicked();
+            } else if (v.getId() == binding.playbackSpeed.getId()) {
+                onPlaybackSpeedClicked();
+            } else if (v.getId() == binding.resizeTextView.getId()) {
+                onResizeClicked();
+            } else if (v.getId() == binding.captionTextView.getId()) {
+                onCaptionClicked();
+            } else if (v.getId() == binding.playbackLiveSync.getId()) {
+                seekToDefault();
+            } else if (v.getId() == binding.playPauseButton.getId()) {
+                playPause();
+            } else if (v.getId() == binding.playPreviousButton.getId()) {
+                playPrevious();
+            } else if (v.getId() == binding.playNextButton.getId()) {
+                playNext();
+            } else if (v.getId() == binding.queueButton.getId()) {
+                onQueueClicked();
+                return;
+            } else if (v.getId() == binding.segmentsButton.getId()) {
+                onSegmentsClicked();
+                return;
+            } else if (v.getId() == binding.repeatButton.getId()) {
+                onRepeatClicked();
+                return;
+            } else if (v.getId() == binding.shuffleButton.getId()) {
+                onShuffleClicked();
+                return;
+            } else if (v.getId() == binding.moreOptionsButton.getId()) {
+                onMoreOptionsClicked();
+            } else if (v.getId() == binding.share.getId()) {
+                ShareUtils.shareText(context, getVideoTitle(), getVideoUrlAtCurrentTime(),
+                        currentItem.getThumbnailUrl());
+            } else if (v.getId() == binding.playWithKodi.getId()) {
+                onPlayWithKodiClicked();
+            } else if (v.getId() == binding.openInBrowser.getId()) {
+                onOpenInBrowserClicked();
+            } else if (v.getId() == binding.fullScreenButton.getId()) {
+                setRecovery();
+                NavigationHelper.playOnMainPlayer(context, playQueue, true);
+                return;
+            } else if (v.getId() == binding.screenRotationButton.getId()) {
+                // Only if it's not a vertical video or vertical video but in landscape with locked
+                // orientation a screen orientation can be changed automatically
+                if (!isVerticalVideo
+                        || (service.isLandscape() && globalScreenOrientationLocked(context))) {
+                    fragmentListener.onScreenRotationButtonClicked();
+                } else {
+                    toggleFullscreen();
+                }
+            } else if (v.getId() == binding.switchMute.getId()) {
+                onMuteUnmuteButtonClicked();
+            } else if (v.getId() == binding.playerCloseButton.getId()) {
+                context.sendBroadcast(new Intent(VideoDetailFragment.ACTION_HIDE_MAIN_PLAYER));
+            }
+
+            if (currentState != STATE_COMPLETED) {
+                controlsVisibilityHandler.removeCallbacksAndMessages(null);
+                showHideShadow(true, DEFAULT_CONTROLS_DURATION);
+                animate(binding.playbackControlRoot, true, DEFAULT_CONTROLS_DURATION,
+                        AnimationType.ALPHA, 0, () -> {
+                            if (currentState == STATE_PLAYING && !isSomePopupMenuVisible) {
+                                if (v.getId() == binding.playPauseButton.getId()
+                                        // Hide controls in fullscreen immediately
+                                        || (v.getId() == binding.screenRotationButton.getId()
+                                        && isFullscreen)) {
+                                    hideControls(0, 0);
+                                } else {
+                                    hideControls(DEFAULT_CONTROLS_DURATION,
+                                            DEFAULT_CONTROLS_HIDE_TIME);
+                                }
+                            }
+                        });
+            }
+        }
+    }
+    //endregion /* Impl View.OnClickListener */
+
+    //region Impl View.OnLongClickListener
+    class PlayerViewOnLongClickListener implements View.OnLongClickListener {
+
+        @Override
+        public boolean onLongClick(final View v) {
+            if (v.getId() == binding.moreOptionsButton.getId() && isFullscreen) {
+                fragmentListener.onMoreOptionsLongClicked();
+                hideControls(0, 0);
+                hideSystemUIIfNeeded();
+            } else if (v.getId() == binding.share.getId()) {
+                ShareUtils.copyToClipboard(context, getVideoUrlAtCurrentTime());
+            }
+            return true;
+        }
+    }
+    //endregion /* Impl View.OnLongClickListener */
+
+    //region Impl PopupMenu.OnMenuItemClickListener
+    /* "popup" means that they pop up, not that they belong to the popup player. */
+    class PlayerPopupMenuOnMenuItemClickListener implements PopupMenu.OnMenuItemClickListener {
+
+        /**
+         * Called when an item of the quality selector or the playback speed selector is selected.
+         */
+        @Override
+        public boolean onMenuItemClick(final MenuItem menuItem) {
+            if (DEBUG) {
+                Log.d(TAG, "onMenuItemClick() called with: "
+                        + "menuItem = [" + menuItem + "], "
+                        + "menuItem.getItemId = [" + menuItem.getItemId() + "]");
+            }
+
+            if (menuItem.getGroupId() == POPUP_MENU_ID_QUALITY) {
+                final int menuItemIndex = menuItem.getItemId();
+                if (selectedStreamIndex == menuItemIndex || availableStreams == null
+                        || availableStreams.size() <= menuItemIndex) {
+                    return true;
+                }
+
+                saveStreamProgressState(); //TODO added, check if good
+                final String newResolution = availableStreams.get(menuItemIndex).resolution;
+                setRecovery();
+                setPlaybackQuality(newResolution);
+                reloadPlayQueueManager();
+
+                binding.qualityTextView.setText(menuItem.getTitle());
+                return true;
+            } else if (menuItem.getGroupId() == POPUP_MENU_ID_PLAYBACK_SPEED) {
+                final int speedIndex = menuItem.getItemId();
+                final float speed = PLAYBACK_SPEEDS[speedIndex];
+
+                setPlaybackSpeed(speed);
+                binding.playbackSpeed.setText(formatSpeed(speed));
+            }
+
+            return false;
+        }
+    }
+    //endregion /* Impl PopupMenu.OnMenuItemClickListener */
+
+    //region Impl PopupMenu.OnDismissListener
+    class PlayerPopupMenuOnDismissListener implements PopupMenu.OnDismissListener {
+        /**
+         * Called when some popup menu is dismissed.
+         */
+        @Override
+        public void onDismiss(final PopupMenu menu) {
+            if (DEBUG) {
+                Log.d(TAG, "onDismiss() called with: menu = [" + menu + "]");
+            }
+            isSomePopupMenuVisible = false; //TODO check if this works
+            if (getSelectedVideoStream() != null) {
+                binding.qualityTextView.setText(getSelectedVideoStream().resolution);
+            }
+            if (isPlaying()) {
+                hideControls(DEFAULT_CONTROLS_DURATION, 0);
+                hideSystemUIIfNeeded();
+            }
+        }
+    }
+    //endregion /* Impl PopupMenu.OnDismissListener */
 }
