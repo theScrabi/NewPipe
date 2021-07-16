@@ -48,9 +48,7 @@ import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.tabs.TabLayout;
-import com.nostra13.universalimageloader.core.assist.FailReason;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
-import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
+import com.squareup.picasso.Callback;
 
 import org.schabi.newpipe.App;
 import org.schabi.newpipe.R;
@@ -90,14 +88,14 @@ import org.schabi.newpipe.player.playqueue.SinglePlayQueue;
 import org.schabi.newpipe.util.Constants;
 import org.schabi.newpipe.util.DeviceUtils;
 import org.schabi.newpipe.util.ExtractorHelper;
-import org.schabi.newpipe.util.ImageDisplayConstants;
-import org.schabi.newpipe.util.external_communication.KoreUtils;
 import org.schabi.newpipe.util.ListHelper;
 import org.schabi.newpipe.util.Localization;
 import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.PermissionHelper;
-import org.schabi.newpipe.util.external_communication.ShareUtils;
+import org.schabi.newpipe.util.PicassoHelper;
 import org.schabi.newpipe.util.ThemeHelper;
+import org.schabi.newpipe.util.external_communication.KoreUtils;
+import org.schabi.newpipe.util.external_communication.ShareUtils;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -150,6 +148,8 @@ public final class VideoDetailFragment
     private static final String RELATED_TAB_TAG = "NEXT VIDEO";
     private static final String DESCRIPTION_TAB_TAG = "DESCRIPTION TAB";
     private static final String EMPTY_TAB_TAG = "EMPTY TAB";
+
+    private static final String PICASSO_VIDEO_DETAILS_TAG = "PICASSO_VIDEO_DETAILS_TAG";
 
     // tabs
     private boolean showComments;
@@ -686,33 +686,24 @@ public final class VideoDetailFragment
     }
 
     private void initThumbnailViews(@NonNull final StreamInfo info) {
-        binding.detailThumbnailImageView.setImageResource(R.drawable.dummy_thumbnail_dark);
+        PicassoHelper.loadThumbnail(info.getThumbnailUrl()).tag(PICASSO_VIDEO_DETAILS_TAG)
+                .into(binding.detailThumbnailImageView, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        // nothing to do, the image was loaded correctly into the thumbnail
+                    }
 
-        if (!isEmpty(info.getThumbnailUrl())) {
-            final ImageLoadingListener onFailListener = new SimpleImageLoadingListener() {
-                @Override
-                public void onLoadingFailed(final String imageUri, final View view,
-                                            final FailReason failReason) {
-                    showSnackBarError(new ErrorInfo(failReason.getCause(), UserAction.LOAD_IMAGE,
-                            imageUri, info));
-                }
-            };
+                    @Override
+                    public void onError(final Exception e) {
+                        showSnackBarError(new ErrorInfo(e, UserAction.LOAD_IMAGE,
+                                info.getThumbnailUrl(), info));
+                    }
+                });
 
-            IMAGE_LOADER.displayImage(info.getThumbnailUrl(), binding.detailThumbnailImageView,
-                    ImageDisplayConstants.DISPLAY_THUMBNAIL_OPTIONS, onFailListener);
-        }
-
-        if (!isEmpty(info.getSubChannelAvatarUrl())) {
-            IMAGE_LOADER.displayImage(info.getSubChannelAvatarUrl(),
-                    binding.detailSubChannelThumbnailView,
-                    ImageDisplayConstants.DISPLAY_AVATAR_OPTIONS);
-        }
-
-        if (!isEmpty(info.getUploaderAvatarUrl())) {
-            IMAGE_LOADER.displayImage(info.getUploaderAvatarUrl(),
-                    binding.detailUploaderThumbnailView,
-                    ImageDisplayConstants.DISPLAY_AVATAR_OPTIONS);
-        }
+        PicassoHelper.loadAvatar(info.getSubChannelAvatarUrl()).tag(PICASSO_VIDEO_DETAILS_TAG)
+                .into(binding.detailSubChannelThumbnailView);
+        PicassoHelper.loadAvatar(info.getUploaderAvatarUrl()).tag(PICASSO_VIDEO_DETAILS_TAG)
+                .into(binding.detailUploaderThumbnailView);
     }
 
     /*//////////////////////////////////////////////////////////////////////////
@@ -1446,8 +1437,7 @@ public final class VideoDetailFragment
             }
         }
 
-        IMAGE_LOADER.cancelDisplayTask(binding.detailThumbnailImageView);
-        IMAGE_LOADER.cancelDisplayTask(binding.detailSubChannelThumbnailView);
+        PicassoHelper.cancelTag(PICASSO_VIDEO_DETAILS_TAG);
         binding.detailThumbnailImageView.setImageBitmap(null);
         binding.detailSubChannelThumbnailView.setImageBitmap(null);
     }
@@ -2278,10 +2268,8 @@ public final class VideoDetailFragment
         binding.overlayTitleTextView.setText(isEmpty(overlayTitle) ? "" : overlayTitle);
         binding.overlayChannelTextView.setText(isEmpty(uploader) ? "" : uploader);
         binding.overlayThumbnail.setImageResource(R.drawable.dummy_thumbnail_dark);
-        if (!isEmpty(thumbnailUrl)) {
-            IMAGE_LOADER.displayImage(thumbnailUrl, binding.overlayThumbnail,
-                    ImageDisplayConstants.DISPLAY_THUMBNAIL_OPTIONS, null);
-        }
+        PicassoHelper.loadThumbnail(thumbnailUrl).tag(PICASSO_VIDEO_DETAILS_TAG)
+                .into(binding.overlayThumbnail);
     }
 
     private void setOverlayPlayPauseImage(final boolean playerIsPlaying) {

@@ -1,10 +1,6 @@
 package org.schabi.newpipe.local;
 
 import android.content.Context;
-import android.widget.ImageView;
-
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.schabi.newpipe.database.LocalItem;
 import org.schabi.newpipe.util.OnClickGesture;
@@ -31,7 +27,6 @@ import org.schabi.newpipe.util.OnClickGesture;
 
 public class LocalItemBuilder {
     private final Context context;
-    private final ImageLoader imageLoader = ImageLoader.getInstance();
 
     private OnClickGesture<LocalItem> onSelectedListener;
 
@@ -41,11 +36,6 @@ public class LocalItemBuilder {
 
     public Context getContext() {
         return context;
-    }
-
-    public void displayImage(final String url, final ImageView view,
-                             final DisplayImageOptions options) {
-        imageLoader.displayImage(url, view, options);
     }
 
     public OnClickGesture<LocalItem> getOnItemSelectedListener() {

@@ -9,7 +9,7 @@ import org.schabi.newpipe.extractor.InfoItem;
 import org.schabi.newpipe.extractor.playlist.PlaylistInfoItem;
 import org.schabi.newpipe.info_list.InfoItemBuilder;
 import org.schabi.newpipe.local.history.HistoryRecordManager;
-import org.schabi.newpipe.util.ImageDisplayConstants;
+import org.schabi.newpipe.util.PicassoHelper;
 import org.schabi.newpipe.util.Localization;
 
 public class PlaylistMiniInfoItemHolder extends InfoItemHolder {
@@ -46,9 +46,7 @@ public class PlaylistMiniInfoItemHolder extends InfoItemHolder {
                 .localizeStreamCountMini(itemStreamCountView.getContext(), item.getStreamCount()));
         itemUploaderView.setText(item.getUploaderName());
 
-        itemBuilder.getImageLoader()
-                .displayImage(item.getThumbnailUrl(), itemThumbnailView,
-                        ImageDisplayConstants.DISPLAY_THUMBNAIL_OPTIONS);
+        PicassoHelper.loadPlaylistThumbnail(item.getThumbnailUrl()).into(itemThumbnailView);
 
         itemView.setOnClickListener(view -> {
             if (itemBuilder.getOnPlaylistSelectedListener() != null) {

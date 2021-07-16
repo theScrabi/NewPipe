@@ -41,7 +41,7 @@ import org.schabi.newpipe.player.helper.PlayerHolder;
 import org.schabi.newpipe.player.playqueue.PlayQueue;
 import org.schabi.newpipe.player.playqueue.PlaylistPlayQueue;
 import org.schabi.newpipe.util.ExtractorHelper;
-import org.schabi.newpipe.util.ImageDisplayConstants;
+import org.schabi.newpipe.util.PicassoHelper;
 import org.schabi.newpipe.util.external_communication.KoreUtils;
 import org.schabi.newpipe.util.Localization;
 import org.schabi.newpipe.util.NavigationHelper;
@@ -64,12 +64,16 @@ import static org.schabi.newpipe.ktx.ViewUtils.animate;
 import static org.schabi.newpipe.ktx.ViewUtils.animateHideRecyclerViewAllowingScrolling;
 
 public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
+
+    private static final String PICASSO_PLAYLIST_TAG = "PICASSO_PLAYLIST_TAG";
+
     private CompositeDisposable disposables;
     private Subscription bookmarkReactor;
     private AtomicBoolean isBookmarkButtonReady;
 
     private RemotePlaylistManager remotePlaylistManager;
     private PlaylistRemoteEntity playlistEntity;
+
     /*//////////////////////////////////////////////////////////////////////////
     // Views
     //////////////////////////////////////////////////////////////////////////*/
@@ -274,7 +278,7 @@ public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
         animate(headerBinding.getRoot(), false, 200);
         animateHideRecyclerViewAllowingScrolling(itemsList);
 
-        IMAGE_LOADER.cancelDisplayTask(headerBinding.uploaderAvatarView);
+        PicassoHelper.cancelTag(PICASSO_PLAYLIST_TAG);
         animate(headerBinding.uploaderLayout, false, 200);
     }
 
@@ -317,8 +321,8 @@ public class PlaylistFragment extends BaseListInfoFragment<PlaylistInfo> {
                     R.drawable.ic_radio)
             );
         } else {
-            IMAGE_LOADER.displayImage(avatarUrl, headerBinding.uploaderAvatarView,
-                    ImageDisplayConstants.DISPLAY_AVATAR_OPTIONS);
+            PicassoHelper.loadAvatar(avatarUrl).tag(PICASSO_PLAYLIST_TAG)
+                    .into(headerBinding.uploaderAvatarView);
         }
 
         headerBinding.playlistStreamCount.setText(Localization

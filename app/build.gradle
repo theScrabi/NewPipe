@@ -243,7 +243,8 @@ dependencies {
     // Circular ImageView
     implementation "de.hdodenhof:circleimageview:3.1.0"
     // Image loading
-    implementation "com.nostra13.universalimageloader:universal-image-loader:1.9.5"
+    //noinspection GradleDependency --> 2.8 is the last version, not 2.71828!
+    implementation "com.squareup.picasso:picasso:2.8"
 
     // Markdown library for Android
     implementation "io.noties.markwon:core:${markwonVersion}"

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools"
+        tools:ignore="MissingTranslation">
+
     <string name="main_bg_subtitle">Tap the magnifying glass to get started.</string>
     <string name="view_count_text">%1$s views</string>
     <string name="upload_date_text">Published on %1$s</string>
@@ -525,6 +527,8 @@
     <string name="show_original_time_ago_summary">Original texts from services will be visible in stream items</string>
     <string name="disable_media_tunneling_title">Disable media tunneling</string>
     <string name="disable_media_tunneling_summary">Disable media tunneling if you experience a black screen or stuttering on video playback</string>
+    <string name="show_image_indicators_title">Show image indicators</string>
+    <string name="show_image_indicators_summary">Show Picasso colored ribbons on top of images indicating their source: red for network, blue for disk and green for memory</string>
     <string name="crash_the_app">Crash the app</string>
     <!-- Subscriptions import/export -->
     <string name="import_export_title">Import/export</string>
