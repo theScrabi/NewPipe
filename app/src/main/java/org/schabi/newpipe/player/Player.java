@@ -69,19 +69,13 @@ import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.source.BehindLiveWindowException;
 import com.google.android.exoplayer2.source.MediaSource;
-import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.source.TrackGroup;
 import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.text.CaptionStyleCompat;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.ui.AspectRatioFrameLayout;
 import com.google.android.exoplayer2.ui.SubtitleView;
-import com.google.android.exoplayer2.upstream.DataSource;
-import com.google.android.exoplayer2.upstream.DataSpec;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
-import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
-import com.google.android.exoplayer2.upstream.HttpDataSource;
-import com.google.android.exoplayer2.upstream.ResolvingDataSource;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -95,14 +89,10 @@ import org.schabi.newpipe.R;
 import org.schabi.newpipe.databinding.PlayerBinding;
 import org.schabi.newpipe.databinding.PlayerPopupCloseOverlayBinding;
 import org.schabi.newpipe.extractor.MediaFormat;
-import org.schabi.newpipe.extractor.exceptions.ParsingException;
-import org.schabi.newpipe.extractor.localization.Localization;
-import org.schabi.newpipe.extractor.services.youtube.YoutubeThrottlingDecoder;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.extractor.stream.StreamSegment;
 import org.schabi.newpipe.extractor.stream.StreamType;
 import org.schabi.newpipe.extractor.stream.VideoStream;
-import org.schabi.newpipe.extractor.utils.Parser;
 import org.schabi.newpipe.fragments.OnScrollBelowItemsListener;
 import org.schabi.newpipe.fragments.detail.VideoDetailFragment;
 import org.schabi.newpipe.info_list.StreamSegmentAdapter;
@@ -482,51 +472,9 @@ public final class Player implements
             Log.d(TAG, "initPlayer() called with: playOnReady = [" + playOnReady + "]");
         }
 
-        SimpleExoPlayer.Builder builder = new SimpleExoPlayer.Builder(context, renderFactory)
+        simpleExoPlayer = new SimpleExoPlayer.Builder(context, renderFactory)
                 .setTrackSelector(trackSelector)
-                .setLoadControl(loadController);
-
-        HttpDataSource.Factory httpDataSourceFactory = new DefaultHttpDataSourceFactory(DownloaderImpl.USER_AGENT);
-
-        try {
-            YoutubeThrottlingDecoder youtubeThrottlingDecoder = new YoutubeThrottlingDecoder("qOCdlHAy9oY", Localization.DEFAULT);
-            DataSource.Factory dataSourceFactory = new ResolvingDataSource.Factory(
-                    httpDataSourceFactory,
-                    new ResolvingDataSource.Resolver() {
-                        @Override
-                        public DataSpec resolveDataSpec(DataSpec dataSpec) throws IOException {
-                            System.out.println("aaaa dataspec called");
-                            String url = dataSpec.uri.toString();
-                            try {
-                                String oldNParam = youtubeThrottlingDecoder.parseNParam(url);
-                                String newNParam = youtubeThrottlingDecoder.decodeNParam(oldNParam);
-                                String newUrl = youtubeThrottlingDecoder.replaceNParam(url, newNParam);
-
-                                System.out.println("aaaaaa  - " + oldNParam + " - " + newNParam);
-
-                                return dataSpec.withUri(Uri.parse(newUrl));
-
-                            } catch (Parser.RegexException e) {
-                                System.out.println("aaaa regex exception");
-                                throw new RuntimeException(e);
-                            }
-                        }
-
-                        @Override
-                        public Uri resolveReportedUri(Uri uri) {
-                            Log.d(TAG, "aaa resolveReportedUri");
-                            return uri;
-                        }
-                    }
-            );
-            Log.d(TAG, "aaaa set media source factory");
-            builder.setMediaSourceFactory(new ProgressiveMediaSource.Factory(dataSourceFactory));
-        } catch (ParsingException e) {
-            Log.d(TAG, "aaaa parsing exception");
-            throw new RuntimeException(e);
-        }
-
-        simpleExoPlayer = builder
+                .setLoadControl(loadController)
                 .build();
         simpleExoPlayer.addListener(this);
         simpleExoPlayer.setPlayWhenReady(playOnReady);
