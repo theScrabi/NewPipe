@@ -53,9 +53,11 @@ public class PlayerDataSource {
                         try {
                             String oldNParam = youtubeThrottlingDecoder.parseNParam(url);
                             String newNParam = youtubeThrottlingDecoder.decodeNParam(oldNParam);
-                            String newUrl = youtubeThrottlingDecoder.replaceNParam(url, newNParam);
+                            String newUrl = youtubeThrottlingDecoder.replaceNParam(url, oldNParam, newNParam);
 
                             Log.d("aaaa", oldNParam + " - " + newNParam);
+                            String ipV4Pattern = "(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)";
+                            Log.d("aaaa", newUrl.replaceAll(ipV4Pattern, "127.0.0.1"));
 
                             return dataSpec.withUri(Uri.parse(newUrl));
 
@@ -72,6 +74,7 @@ public class PlayerDataSource {
     }
 
     public SsMediaSource.Factory getLiveSsMediaSourceFactory() {
+        Log.d("aaaa", "getLiveSs");
         return new SsMediaSource.Factory(new DefaultSsChunkSource.Factory(
                 cachelessDataSourceFactory), cachelessDataSourceFactory)
                 .setLoadErrorHandlingPolicy(
@@ -80,6 +83,7 @@ public class PlayerDataSource {
     }
 
     public HlsMediaSource.Factory getLiveHlsMediaSourceFactory() {
+        Log.d("aaaa", "getLiveHls");
         return new HlsMediaSource.Factory(cachelessDataSourceFactory)
                 .setAllowChunklessPreparation(true)
                 .setLoadErrorHandlingPolicy(
@@ -87,6 +91,7 @@ public class PlayerDataSource {
     }
 
     public DashMediaSource.Factory getLiveDashMediaSourceFactory() {
+        Log.d("aaaa", "getLiveDash");
         return new DashMediaSource.Factory(new DefaultDashChunkSource.Factory(
                 cachelessDataSourceFactory), cachelessDataSourceFactory)
                 .setLoadErrorHandlingPolicy(
@@ -95,20 +100,24 @@ public class PlayerDataSource {
     }
 
     public SsMediaSource.Factory getSsMediaSourceFactory() {
+        Log.d("aaaa", "getSs");
         return new SsMediaSource.Factory(new DefaultSsChunkSource.Factory(
                 ytThrottlingDataSourceFactory), ytThrottlingDataSourceFactory);
     }
 
     public HlsMediaSource.Factory getHlsMediaSourceFactory() {
+        Log.d("aaaa", "getHls");
         return new HlsMediaSource.Factory(ytThrottlingDataSourceFactory);
     }
 
     public DashMediaSource.Factory getDashMediaSourceFactory() {
+        Log.d("aaaa", "getDash");
         return new DashMediaSource.Factory(new DefaultDashChunkSource.Factory(
                 ytThrottlingDataSourceFactory), ytThrottlingDataSourceFactory);
     }
 
     public ProgressiveMediaSource.Factory getExtractorMediaSourceFactory() {
+        Log.d("aaaa", "getExtractor");
         return new ProgressiveMediaSource.Factory(ytThrottlingDataSourceFactory)
                 .setLoadErrorHandlingPolicy(
                         new DefaultLoadErrorHandlingPolicy(EXTRACTOR_MINIMUM_RETRY));
@@ -116,6 +125,7 @@ public class PlayerDataSource {
 
     public ProgressiveMediaSource.Factory getExtractorMediaSourceFactory(
             @NonNull final String key) {
+        Log.d("aaaa", "getExtractor with key");
         return getExtractorMediaSourceFactory().setCustomCacheKey(key);
     }
 
