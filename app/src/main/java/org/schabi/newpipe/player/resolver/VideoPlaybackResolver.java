@@ -10,7 +10,6 @@ import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.MergingMediaSource;
 
-import org.schabi.newpipe.extractor.MediaFormat;
 import org.schabi.newpipe.extractor.stream.AudioStream;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.extractor.stream.SubtitlesStream;
@@ -19,6 +18,7 @@ import org.schabi.newpipe.player.helper.PlayerDataSource;
 import org.schabi.newpipe.player.helper.PlayerHelper;
 import org.schabi.newpipe.util.ListHelper;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,10 +52,15 @@ public class VideoPlaybackResolver implements PlaybackResolver {
         }
 
         final List<MediaSource> mediaSources = new ArrayList<>();
+        final List<VideoStream> videoStreams = new ArrayList<>(info.getVideoStreams());
+        final List<VideoStream> videoOnlyStreams = new ArrayList<>(info.getVideoOnlyStreams());
+
+        removeTorrentStreams(videoStreams);
+        removeTorrentStreams(videoOnlyStreams);
 
         // Create video stream source
         final List<VideoStream> videos = ListHelper.getSortedStreamVideosList(context,
-                info.getVideoStreams(), info.getVideoOnlyStreams(), false);
+                videoStreams, videoOnlyStreams, false);
         final int index;
         if (videos.isEmpty()) {
             index = -1;
@@ -68,23 +73,31 @@ public class VideoPlaybackResolver implements PlaybackResolver {
         @Nullable final VideoStream video = tag.getSelectedVideoStream();
 
         if (video != null) {
-            final MediaSource streamSource = buildMediaSource(dataSource, video.getUrl(),
-                    PlayerHelper.cacheKeyOf(info, video),
-                    MediaFormat.getSuffixById(video.getFormatId()), tag);
-            mediaSources.add(streamSource);
+            try {
+                final MediaSource streamSource = buildMediaSource(dataSource, video,
+                        PlayerHelper.cacheKeyOf(info, video), tag);
+                mediaSources.add(streamSource);
+            } catch (final IOException e) {
+                return null;
+            }
         }
 
         // Create optional audio stream source
         final List<AudioStream> audioStreams = info.getAudioStreams();
+        removeTorrentStreams(audioStreams);
         final AudioStream audio = audioStreams.isEmpty() ? null : audioStreams.get(
                 ListHelper.getDefaultAudioFormat(context, audioStreams));
+
         // Use the audio stream if there is no video stream, or
-        // Merge with audio stream in case if video does not contain audio
-        if (audio != null && (video == null || video.isVideoOnly)) {
-            final MediaSource audioSource = buildMediaSource(dataSource, audio.getUrl(),
-                    PlayerHelper.cacheKeyOf(info, audio),
-                    MediaFormat.getSuffixById(audio.getFormatId()), tag);
-            mediaSources.add(audioSource);
+        // merge with audio stream in case if video does not contain audio
+        if (audio != null && (video == null || video.isVideoOnly())) {
+            try {
+                final MediaSource audioSource = buildMediaSource(dataSource, audio,
+                        PlayerHelper.cacheKeyOf(info, audio), tag);
+                mediaSources.add(audioSource);
+            } catch (final IOException e) {
+                return null;
+            }
         }
 
         // If there is no audio or video sources, then this media source cannot be played back
@@ -94,15 +107,18 @@ public class VideoPlaybackResolver implements PlaybackResolver {
         // Below are auxiliary media sources
 
         // Create subtitle sources
-        if (info.getSubtitles() != null) {
-            for (final SubtitlesStream subtitle : info.getSubtitles()) {
+        final List<SubtitlesStream> subtitlesStreams = info.getSubtitles();
+        if (subtitlesStreams != null) {
+            // Torrent and non URL subtitles are not supported by ExoPlayer
+            removeTorrentAndNonUrlStreams(subtitlesStreams);
+            for (final SubtitlesStream subtitle : subtitlesStreams) {
                 final String mimeType = PlayerHelper.subtitleMimeTypesOf(subtitle.getFormat());
                 if (mimeType == null) {
                     continue;
                 }
                 final MediaSource textSource = dataSource.getSampleMediaSourceFactory()
                         .createMediaSource(
-                                new MediaItem.Subtitle(Uri.parse(subtitle.getUrl()),
+                                new MediaItem.Subtitle(Uri.parse(subtitle.getContent()),
                                         mimeType,
                                         PlayerHelper.captionLanguageOf(context, subtitle)),
                                 TIME_UNSET);

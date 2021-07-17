@@ -44,6 +44,7 @@ import org.schabi.newpipe.extractor.MediaFormat;
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.extractor.localization.Localization;
 import org.schabi.newpipe.extractor.stream.AudioStream;
+import org.schabi.newpipe.extractor.stream.DeliveryMethod;
 import org.schabi.newpipe.extractor.stream.Stream;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.extractor.stream.SubtitlesStream;
@@ -63,6 +64,7 @@ import org.schabi.newpipe.util.ThemeHelper;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
@@ -122,13 +124,19 @@ public class DownloadDialog extends DialogFragment
     private String filenameTmp;
     private String mimeTmp;
 
+    private Toast removedStreamToast = null;
+    boolean wasSomeStreamRemoved = false;
+
+    @NonNull
     public static DownloadDialog newInstance(final StreamInfo info) {
         final DownloadDialog dialog = new DownloadDialog();
         dialog.setInfo(info);
         return dialog;
     }
 
-    public static DownloadDialog newInstance(final Context context, final StreamInfo info) {
+    @NonNull
+    public static DownloadDialog newInstance(final Context context,
+                                             @NonNull final StreamInfo info) {
         final ArrayList<VideoStream> streamsList = new ArrayList<>(ListHelper
                 .getSortedStreamVideosList(context, info.getVideoStreams(),
                         info.getVideoOnlyStreams(), false));
@@ -148,6 +156,7 @@ public class DownloadDialog extends DialogFragment
     }
 
     public void setAudioStreams(final List<AudioStream> audioStreams) {
+        removeNonProgressiveStreams(audioStreams);
         setAudioStreams(new StreamSizeWrapper<>(audioStreams, getContext()));
     }
 
@@ -155,7 +164,8 @@ public class DownloadDialog extends DialogFragment
         this.wrappedAudioStreams = was;
     }
 
-    public void setVideoStreams(final List<VideoStream> videoStreams) {
+    public void setVideoStreams(@NonNull final List<VideoStream> videoStreams) {
+        removeNonProgressiveStreams(videoStreams);
         setVideoStreams(new StreamSizeWrapper<>(videoStreams, getContext()));
     }
 
@@ -163,13 +173,39 @@ public class DownloadDialog extends DialogFragment
         this.wrappedVideoStreams = wvs;
     }
 
-    public void setSubtitleStreams(final List<SubtitlesStream> subtitleStreams) {
+    public void setSubtitleStreams(@NonNull final List<SubtitlesStream> subtitleStreams) {
+        removeNonProgressiveStreams(subtitleStreams);
         setSubtitleStreams(new StreamSizeWrapper<>(subtitleStreams, getContext()));
     }
 
-    public void setSubtitleStreams(
-            final StreamSizeWrapper<SubtitlesStream> wss) {
+    public void setSubtitleStreams(final StreamSizeWrapper<SubtitlesStream> wss) {
         this.wrappedSubtitleStreams = wss;
+    }
+
+    private void showIfStreamsWereRemovedMessage() {
+        if (wasSomeStreamRemoved && removedStreamToast == null) {
+            removedStreamToast = Toast.makeText(
+                    requireContext(),
+                    R.string.streams_hidden_download_not_supported_yet,
+                    Toast.LENGTH_LONG
+            );
+            removedStreamToast.show();
+        }
+    }
+
+    // TODO: Remove this when the downloader support other types of stream deliveries
+    private void removeNonProgressiveStreams(
+            @NonNull final List<? extends Stream> streamList) {
+        if (streamList.isEmpty()) {
+            return;
+        }
+        final Iterator<? extends Stream> streamIterator = streamList.iterator();
+        while (streamIterator.hasNext()) {
+            final Stream stream = streamIterator.next();
+            if (stream.getDeliveryMethod() != DeliveryMethod.PROGRESSIVE_HTTP) {
+                streamIterator.remove();
+            }
+        }
     }
 
     public void setSelectedVideoStream(final int svi) {
@@ -199,6 +235,7 @@ public class DownloadDialog extends DialogFragment
         }
 
         context = getContext();
+        showIfStreamsWereRemovedMessage();
 
         setStyle(STYLE_NO_TITLE, ThemeHelper.getDialogTheme(context));
         Icepick.restoreInstanceState(this, savedInstanceState);
@@ -269,7 +306,8 @@ public class DownloadDialog extends DialogFragment
     }
 
     @Override
-    public void onViewCreated(@NonNull final View view, @Nullable final Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull final View view,
+                              @Nullable final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         dialogBinding = DownloadDialogBinding.bind(view);
 
@@ -965,14 +1003,18 @@ public class DownloadDialog extends DialogFragment
 
         if (secondaryStream == null) {
             urls = new String[]{
-                    selectedStream.getUrl()
+                    selectedStream.getContent()
             };
             recoveryInfo = new MissionRecoveryInfo[]{
                     new MissionRecoveryInfo(selectedStream)
             };
         } else {
+            if (secondaryStream.getDeliveryMethod() != DeliveryMethod.PROGRESSIVE_HTTP) {
+                throw new IllegalArgumentException("Unsupported stream delivery format");
+            }
+
             urls = new String[]{
-                    selectedStream.getUrl(), secondaryStream.getUrl()
+                    selectedStream.getContent(), secondaryStream.getContent()
             };
             recoveryInfo = new MissionRecoveryInfo[]{new MissionRecoveryInfo(selectedStream),
                     new MissionRecoveryInfo(secondaryStream)};

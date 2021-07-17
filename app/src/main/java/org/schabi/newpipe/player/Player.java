@@ -3282,10 +3282,10 @@ public final class Player implements
         for (int i = 0; i < availableStreams.size(); i++) {
             final VideoStream videoStream = availableStreams.get(i);
             qualityPopupMenu.getMenu().add(POPUP_MENU_ID_QUALITY, i, Menu.NONE, MediaFormat
-                    .getNameById(videoStream.getFormatId()) + " " + videoStream.resolution);
+                    .getNameById(videoStream.getFormatId()) + " " + videoStream.getResolution());
         }
         if (getSelectedVideoStream() != null) {
-            binding.qualityTextView.setText(getSelectedVideoStream().resolution);
+            binding.qualityTextView.setText(getSelectedVideoStream().getResolution());
         }
         qualityPopupMenu.setOnMenuItemClickListener(this);
         qualityPopupMenu.setOnDismissListener(this);
@@ -3389,7 +3389,7 @@ public final class Player implements
             }
 
             saveStreamProgressState(); //TODO added, check if good
-            final String newResolution = availableStreams.get(menuItemIndex).resolution;
+            final String newResolution = availableStreams.get(menuItemIndex).getResolution();
             setRecovery();
             setPlaybackQuality(newResolution);
             reloadPlayQueueManager();
@@ -3417,7 +3417,7 @@ public final class Player implements
         }
         isSomePopupMenuVisible = false; //TODO check if this works
         if (getSelectedVideoStream() != null) {
-            binding.qualityTextView.setText(getSelectedVideoStream().resolution);
+            binding.qualityTextView.setText(getSelectedVideoStream().getResolution());
         }
         if (isPlaying()) {
             hideControls(DEFAULT_CONTROLS_DURATION, 0);
@@ -3435,7 +3435,7 @@ public final class Player implements
         final VideoStream videoStream = getSelectedVideoStream();
         if (videoStream != null) {
             final String qualityText = MediaFormat.getNameById(videoStream.getFormatId()) + " "
-                    + videoStream.resolution;
+                    + videoStream.getResolution();
             binding.qualityTextView.setText(qualityText);
         }
 
