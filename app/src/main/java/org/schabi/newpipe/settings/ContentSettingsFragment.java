@@ -95,8 +95,7 @@ public class ContentSettingsFragment extends BasePreferenceFragment {
                 .getPreferredLocalization(requireContext());
         initialSelectedContentCountry = org.schabi.newpipe.util.Localization
                 .getPreferredContentCountry(requireContext());
-        initialLanguage = PreferenceManager
-                .getDefaultSharedPreferences(requireContext()).getString("app_language_key", "en");
+        initialLanguage = defaultPreferences.getString(getString(R.string.app_language_key), "en");
 
         final Preference clearCookiePref = requirePreference(R.string.clear_cookie_key);
         clearCookiePref.setOnPreferenceClickListener(preference -> {
@@ -146,8 +145,8 @@ public class ContentSettingsFragment extends BasePreferenceFragment {
                 .getPreferredLocalization(requireContext());
         final ContentCountry selectedContentCountry = org.schabi.newpipe.util.Localization
                 .getPreferredContentCountry(requireContext());
-        final String selectedLanguage = PreferenceManager
-                .getDefaultSharedPreferences(requireContext()).getString("app_language_key", "en");
+        final String selectedLanguage =
+                defaultPreferences.getString(getString(R.string.app_language_key), "en");
 
         if (!selectedLocalization.equals(initialSelectedLocalization)
                 || !selectedContentCountry.equals(initialSelectedContentCountry)

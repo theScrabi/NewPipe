@@ -13,14 +13,22 @@ import org.schabi.newpipe.error.ErrorInfo;
 import org.schabi.newpipe.error.UserAction;
 import org.schabi.newpipe.util.DeviceUtils;
 
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
 import static org.schabi.newpipe.MainActivity.DEBUG;
 
+/**
+ * In order to add a migration, follow these steps, given P is the previous version:<br>
+ * - in the class body add a new {@code MIGRATION_P_P+1 = new Migration(P, P+1) { ... }} and put in
+ *   the {@code migrate()} method the code that need to be run when migrating from P to P+1<br>
+ * - add {@code MIGRATION_P_P+1} at the end of {@link SettingMigrations#SETTING_MIGRATIONS}<br>
+ * - increment {@link SettingMigrations#VERSION}'s value by 1 (so it should become P+1)
+ */
 public final class SettingMigrations {
+
     private static final String TAG = SettingMigrations.class.toString();
-    /**
-     * Version number for preferences. Must be incremented every time a migration is necessary.
-     */
-    public static final int VERSION = 3;
     private static SharedPreferences sp;
 
     public static final Migration MIGRATION_0_1 = new Migration(0, 1) {
@@ -72,6 +80,35 @@ public final class SettingMigrations {
         }
     };
 
+    public static final Migration MIGRATION_3_4 = new Migration(3, 4) {
+        @Override
+        protected void migrate(final Context context) {
+            // Pull request #3546 added support for choosing the type of search suggestions to
+            // show, replacing the on-off switch used before, so migrate the previous user choice
+
+            final String showSearchSuggestionsKey =
+                    context.getString(R.string.show_search_suggestions_key);
+
+            boolean addAllSearchSuggestionTypes;
+            try {
+                addAllSearchSuggestionTypes = sp.getBoolean(showSearchSuggestionsKey, true);
+            } catch (final ClassCastException e) {
+                // just in case it was not a boolean for some reason, let's consider it a "true"
+                addAllSearchSuggestionTypes = true;
+            }
+
+            final Set<String> showSearchSuggestionsValueList = new HashSet<>();
+            if (addAllSearchSuggestionTypes) {
+                // if the preference was true, all suggestions will be shown, otherwise none
+                Collections.addAll(showSearchSuggestionsValueList, context.getResources()
+                        .getStringArray(R.array.show_search_suggestions_value_list));
+            }
+
+            sp.edit().putStringSet(
+                    showSearchSuggestionsKey, showSearchSuggestionsValueList).apply();
+        }
+    };
+
     /**
      * List of all implemented migrations.
      * <p>
@@ -81,8 +118,14 @@ public final class SettingMigrations {
     private static final Migration[] SETTING_MIGRATIONS = {
             MIGRATION_0_1,
             MIGRATION_1_2,
-            MIGRATION_2_3
+            MIGRATION_2_3,
+            MIGRATION_3_4,
     };
+
+    /**
+     * Version number for preferences. Must be incremented every time a migration is necessary.
+     */
+    public static final int VERSION = 4;
 
 
     public static void initMigrations(final Context context, final boolean isFirstRun) {

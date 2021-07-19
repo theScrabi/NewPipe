@@ -58,12 +58,14 @@
         android:title="@string/youtube_restricted_mode_enabled_title"
         app:iconSpaceReserved="false" />
 
-    <SwitchPreferenceCompat
-        android:defaultValue="true"
+    <MultiSelectListPreference
+        app:iconSpaceReserved="false"
         android:key="@string/show_search_suggestions_key"
-        android:summary="@string/show_search_suggestions_summary"
         android:title="@string/show_search_suggestions_title"
-        app:iconSpaceReserved="false" />
+        android:summary="@string/show_search_suggestions_summary"
+        android:entries="@array/show_search_suggestions_description_list"
+        android:entryValues="@array/show_search_suggestions_value_list"
+        android:defaultValue="@array/show_search_suggestions_value_list"/>
 
     <SwitchPreferenceCompat
         android:defaultValue="true"
