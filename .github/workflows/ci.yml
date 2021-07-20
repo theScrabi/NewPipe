@@ -52,7 +52,8 @@ jobs:
             echo ----------------------------------------
             echo Troubleshooting
             echo ----------------------------------------
-            echo "::error::Unstaged changes detected. Try locally cleaning your git repo (git clean -ffdx) and rebuild the app"
+            echo "::error::Unstaged/Uncommitted changes detected. This happens likely due to incorrectly formatted (kotlin) files."
+            echo "::error::Try rebuild the app locally and commit the missing changes."
             exit 1
           fi
 
