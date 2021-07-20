@@ -1,4 +1,4 @@
-package org.schabi.newpipe.notifications;
+package org.schabi.newpipe.local.feed.notifications;
 
 import android.app.ActivityManager;
 import android.content.Context;

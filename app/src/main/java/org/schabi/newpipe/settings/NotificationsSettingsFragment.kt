@@ -14,10 +14,10 @@ import org.schabi.newpipe.database.subscription.SubscriptionEntity
 import org.schabi.newpipe.error.ErrorActivity
 import org.schabi.newpipe.error.ErrorInfo
 import org.schabi.newpipe.error.UserAction
+import org.schabi.newpipe.local.feed.notifications.NotificationHelper
+import org.schabi.newpipe.local.feed.notifications.NotificationWorker
+import org.schabi.newpipe.local.feed.notifications.ScheduleOptions
 import org.schabi.newpipe.local.subscription.SubscriptionManager
-import org.schabi.newpipe.notifications.NotificationHelper
-import org.schabi.newpipe.notifications.NotificationWorker
-import org.schabi.newpipe.notifications.ScheduleOptions
 
 class NotificationsSettingsFragment : BasePreferenceFragment(), OnSharedPreferenceChangeListener {
 
@@ -47,7 +47,7 @@ class NotificationsSettingsFragment : BasePreferenceFragment(), OnSharedPreferen
 
     override fun onResume() {
         super.onResume()
-        val enabled = NotificationHelper.isNotificationsEnabledNative(context)
+        val enabled = NotificationHelper.isNotificationsEnabledNative(requireContext())
         preferenceScreen.isEnabled = enabled
         if (!enabled) {
             if (notificationWarningSnackbar == null) {

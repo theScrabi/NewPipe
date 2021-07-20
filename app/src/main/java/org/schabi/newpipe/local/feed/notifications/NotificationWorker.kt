@@ -1,4 +1,4 @@
-package org.schabi.newpipe.notifications
+package org.schabi.newpipe.local.feed.notifications
 
 import android.content.Context
 import androidx.preference.PreferenceManager
@@ -6,14 +6,16 @@ import androidx.work.BackoffPolicy
 import androidx.work.Constraints
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequest
-import androidx.work.RxWorker
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
-import io.reactivex.BackpressureStrategy
-import io.reactivex.Flowable
-import io.reactivex.Single
+import androidx.work.rxjava3.RxWorker
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.core.Single
 import org.schabi.newpipe.R
+import org.schabi.newpipe.database.subscription.NotificationMode
+import org.schabi.newpipe.local.feed.service.FeedLoadManager
 import java.util.concurrent.TimeUnit
 
 class NotificationWorker(
@@ -24,14 +26,21 @@ class NotificationWorker(
     private val notificationHelper by lazy {
         NotificationHelper(appContext)
     }
+    private val feedLoadManager = FeedLoadManager(appContext)
 
-    override fun createWork() = if (isEnabled(applicationContext)) {
-        Flowable.create(
-            SubscriptionUpdates(applicationContext),
-            BackpressureStrategy.BUFFER
-        ).doOnNext { notificationHelper.notify(it) }
-            .toList()
-            .map { Result.success() }
+    override fun createWork(): Single<Result> = if (isEnabled(applicationContext)) {
+        feedLoadManager.startLoading()
+            .map { feed ->
+                feed.mapNotNull { x ->
+                    x.value?.takeIf {
+                        it.notificationMode == NotificationMode.ENABLED_DEFAULT &&
+                            it.newStreamsCount > 0
+                    }
+                }
+            }
+            .flatMapObservable { Observable.fromIterable(it) }
+            .flatMapCompletable { x -> notificationHelper.notify(x) }
+            .toSingleDefault(Result.success())
             .onErrorReturnItem(Result.failure())
     } else Single.just(Result.success())
 
@@ -78,5 +87,14 @@ class NotificationWorker(
 
         @JvmStatic
         fun schedule(context: Context) = schedule(context, ScheduleOptions.from(context))
+
+        @JvmStatic
+        fun runNow(context: Context) {
+            val request = OneTimeWorkRequestBuilder<NotificationWorker>()
+                .addTag(TAG)
+                .setBackoffCriteria(BackoffPolicy.LINEAR, 30, TimeUnit.MINUTES)
+                .build()
+            WorkManager.getInstance(context).enqueue(request)
+        }
     }
 }

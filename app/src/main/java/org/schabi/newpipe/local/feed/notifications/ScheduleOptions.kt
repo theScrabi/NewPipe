@@ -1,4 +1,4 @@
-package org.schabi.newpipe.notifications
+package org.schabi.newpipe.local.feed.notifications
 
 import android.content.Context
 import androidx.preference.PreferenceManager

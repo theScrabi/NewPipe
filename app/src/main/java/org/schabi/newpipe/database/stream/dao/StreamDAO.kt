@@ -36,7 +36,7 @@ abstract class StreamDAO : BasicDAO<StreamEntity> {
     internal abstract fun silentInsertAllInternal(streams: List<StreamEntity>): List<Long>
 
     @Query("SELECT COUNT(*) != 0 FROM streams WHERE url = :url AND service_id = :serviceId")
-    internal abstract fun exists(serviceId: Long, url: String?): Boolean
+    internal abstract fun exists(serviceId: Int, url: String): Boolean
 
     @Query(
         """

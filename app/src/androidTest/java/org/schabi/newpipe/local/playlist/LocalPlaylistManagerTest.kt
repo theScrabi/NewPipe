@@ -27,11 +27,11 @@ class LocalPlaylistManagerTest {
     @Before
     fun setup() {
         database = Room.inMemoryDatabaseBuilder(
-                ApplicationProvider.getApplicationContext(),
-                AppDatabase::class.java
+            ApplicationProvider.getApplicationContext(),
+            AppDatabase::class.java
         )
-                .allowMainThreadQueries()
-                .build()
+            .allowMainThreadQueries()
+            .build()
 
         manager = LocalPlaylistManager(database)
     }
@@ -44,8 +44,8 @@ class LocalPlaylistManagerTest {
     @Test
     fun createPlaylist() {
         val stream = StreamEntity(
-                serviceId = 1, url = "https://newpipe.net/", title = "title",
-                streamType = StreamType.VIDEO_STREAM, duration = 1, uploader = "uploader"
+            serviceId = 1, url = "https://newpipe.net/", title = "title",
+            streamType = StreamType.VIDEO_STREAM, duration = 1, uploader = "uploader"
         )
 
         val result = manager.createPlaylist("name", listOf(stream))
@@ -68,13 +68,13 @@ class LocalPlaylistManagerTest {
     @Test()
     fun createPlaylist_nonExistentStreamsAreUpserted() {
         val stream = StreamEntity(
-                serviceId = 1, url = "https://newpipe.net/", title = "title",
-                streamType = StreamType.VIDEO_STREAM, duration = 1, uploader = "uploader"
+            serviceId = 1, url = "https://newpipe.net/", title = "title",
+            streamType = StreamType.VIDEO_STREAM, duration = 1, uploader = "uploader"
         )
         database.streamDAO().insert(stream)
         val upserted = StreamEntity(
-                serviceId = 1, url = "https://newpipe.net/2", title = "title2",
-                streamType = StreamType.VIDEO_STREAM, duration = 1, uploader = "uploader"
+            serviceId = 1, url = "https://newpipe.net/2", title = "title2",
+            streamType = StreamType.VIDEO_STREAM, duration = 1, uploader = "uploader"
         )
 
         val result = manager.createPlaylist("name", listOf(stream, upserted))

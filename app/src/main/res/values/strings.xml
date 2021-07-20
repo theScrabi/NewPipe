@@ -536,6 +536,7 @@
     <string name="disable_media_tunneling_title">Disable media tunneling</string>
     <string name="disable_media_tunneling_summary">Disable media tunneling if you experience a black screen or stuttering on video playback</string>
     <string name="crash_the_app">Crash the app</string>
+    <string name="check_new_streams">Run check for new streams</string>
     <!-- Subscriptions import/export -->
     <string name="import_export_title">Import/export</string>
     <string name="import_title">Import</string>

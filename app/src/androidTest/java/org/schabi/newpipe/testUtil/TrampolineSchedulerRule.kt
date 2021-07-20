@@ -18,20 +18,20 @@ class TrampolineSchedulerRule : TestRule {
     private val scheduler = Schedulers.trampoline()
 
     override fun apply(base: Statement, description: Description): Statement =
-            object : Statement() {
-                override fun evaluate() {
-                    try {
-                        RxJavaPlugins.setComputationSchedulerHandler { scheduler }
-                        RxJavaPlugins.setIoSchedulerHandler { scheduler }
-                        RxJavaPlugins.setNewThreadSchedulerHandler { scheduler }
-                        RxJavaPlugins.setSingleSchedulerHandler { scheduler }
-                        RxAndroidPlugins.setInitMainThreadSchedulerHandler { scheduler }
+        object : Statement() {
+            override fun evaluate() {
+                try {
+                    RxJavaPlugins.setComputationSchedulerHandler { scheduler }
+                    RxJavaPlugins.setIoSchedulerHandler { scheduler }
+                    RxJavaPlugins.setNewThreadSchedulerHandler { scheduler }
+                    RxJavaPlugins.setSingleSchedulerHandler { scheduler }
+                    RxAndroidPlugins.setInitMainThreadSchedulerHandler { scheduler }
 
-                        base.evaluate()
-                    } finally {
-                        RxJavaPlugins.reset()
-                        RxAndroidPlugins.reset()
-                    }
+                    base.evaluate()
+                } finally {
+                    RxJavaPlugins.reset()
+                    RxAndroidPlugins.reset()
                 }
             }
+        }
 }
