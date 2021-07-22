@@ -1,14 +1,13 @@
 package org.schabi.newpipe;
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationChannelCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.multidex.MultiDexApplication;
 import androidx.preference.PreferenceManager;
 
@@ -233,38 +232,34 @@ public class App extends MultiDexApplication {
     }
 
     private void initNotificationChannels() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-            return;
-        }
-
         String id = getString(R.string.notification_channel_id);
-        String name = getString(R.string.notification_channel_name);
-        String description = getString(R.string.notification_channel_description);
 
-        // Keep this below DEFAULT to avoid making noise on every notification update for the main
-        // and update channels
-        int importance = NotificationManager.IMPORTANCE_LOW;
-
-        final NotificationChannel mainChannel = new NotificationChannel(id, name, importance);
-        mainChannel.setDescription(description);
+        // Keep the importance below DEFAULT to avoid making noise on every notification update for
+        // the main and update channels
+        final NotificationChannelCompat mainChannel = new NotificationChannelCompat
+                .Builder(id, NotificationManagerCompat.IMPORTANCE_LOW)
+                .setName(getString(R.string.notification_channel_name))
+                .setDescription(getString(R.string.notification_channel_description))
+                .build();
 
         id = getString(R.string.app_update_notification_channel_id);
-        name = getString(R.string.app_update_notification_channel_name);
-        description = getString(R.string.app_update_notification_channel_description);
 
-        final NotificationChannel appUpdateChannel = new NotificationChannel(id, name, importance);
-        appUpdateChannel.setDescription(description);
+        final NotificationChannelCompat appUpdateChannel = new NotificationChannelCompat
+                .Builder(id, NotificationManagerCompat.IMPORTANCE_LOW)
+                .setName(getString(R.string.app_update_notification_channel_name))
+                .setDescription(getString(R.string.app_update_notification_channel_description))
+                .build();
 
         id = getString(R.string.hash_channel_id);
-        name = getString(R.string.hash_channel_name);
-        description = getString(R.string.hash_channel_description);
-        importance = NotificationManager.IMPORTANCE_HIGH;
 
-        final NotificationChannel hashChannel = new NotificationChannel(id, name, importance);
-        hashChannel.setDescription(description);
+        final NotificationChannelCompat hashChannel = new NotificationChannelCompat
+                .Builder(id, NotificationManagerCompat.IMPORTANCE_HIGH)
+                .setName(getString(R.string.hash_channel_name))
+                .setDescription(getString(R.string.hash_channel_description))
+                .build();
 
-        final NotificationManager notificationManager = getSystemService(NotificationManager.class);
-        notificationManager.createNotificationChannels(Arrays.asList(mainChannel,
+        final NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        notificationManager.createNotificationChannelsCompat(Arrays.asList(mainChannel,
                 appUpdateChannel, hashChannel));
     }
 
