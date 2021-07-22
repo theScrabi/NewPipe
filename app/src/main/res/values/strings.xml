@@ -182,6 +182,8 @@
     <string name="albums">Albums</string>
     <string name="artists">Artists</string>
     <string name="yes">Yes</string>
+    <string name="confirm_delete_all_downloads">Are you sure you want to delete all your downloaded files?</string>
+    <string name="no">No</string>
     <string name="later">Later</string>
     <string name="disabled">Disabled</string>
     <string name="filter">Filter</string>
