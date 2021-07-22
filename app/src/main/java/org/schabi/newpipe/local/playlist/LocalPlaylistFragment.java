@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,7 +14,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,6 +32,7 @@ import org.schabi.newpipe.database.history.model.StreamHistoryEntry;
 import org.schabi.newpipe.database.playlist.PlaylistStreamEntry;
 import org.schabi.newpipe.database.stream.model.StreamEntity;
 import org.schabi.newpipe.database.stream.model.StreamStateEntity;
+import org.schabi.newpipe.databinding.DialogEdittextBinding;
 import org.schabi.newpipe.databinding.LocalPlaylistHeaderBinding;
 import org.schabi.newpipe.databinding.PlaylistControlBinding;
 import org.schabi.newpipe.error.ErrorInfo;
@@ -526,18 +527,21 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
             return;
         }
 
-        final View dialogView = View.inflate(getContext(), R.layout.dialog_playlist_name, null);
-        final EditText nameEdit = dialogView.findViewById(R.id.playlist_name);
-        nameEdit.setText(name);
-        nameEdit.setSelection(nameEdit.getText().length());
+        final DialogEdittextBinding binding = DialogEdittextBinding.inflate(getLayoutInflater());
+        binding.editText.setHint(R.string.name);
+        binding.editText.setInputType(InputType.TYPE_CLASS_TEXT);
+        binding.editText.setMaxLines(1);
+        binding.editText.setSaveEnabled(true);
+        binding.editText.setSelection(binding.editText.getText().length());
+        binding.editText.setText(name);
 
         final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getContext())
                 .setTitle(R.string.rename_playlist)
-                .setView(dialogView)
+                .setView(binding.getRoot())
                 .setCancelable(true)
                 .setNegativeButton(R.string.cancel, null)
                 .setPositiveButton(R.string.rename, (dialogInterface, i) ->
-                        changePlaylistName(nameEdit.getText().toString()));
+                        changePlaylistName(binding.editText.getText().toString()));
 
         dialogBuilder.show();
     }

@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
@@ -35,6 +34,7 @@ import com.grack.nanojson.JsonStringWriter;
 import com.grack.nanojson.JsonWriter;
 
 import org.schabi.newpipe.R;
+import org.schabi.newpipe.databinding.DialogEdittextBinding;
 import org.schabi.newpipe.extractor.services.peertube.PeertubeInstance;
 import org.schabi.newpipe.util.Constants;
 import org.schabi.newpipe.util.PeertubeHelper;
@@ -207,20 +207,21 @@ public class PeertubeInstanceListFragment extends Fragment {
     }
 
     private void showAddItemDialog(final Context c) {
-        final EditText urlET = new EditText(c);
-        urlET.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI);
-        urlET.setHint(R.string.peertube_instance_add_help);
-        final AlertDialog dialog = new AlertDialog.Builder(c)
+        final DialogEdittextBinding binding = DialogEdittextBinding.inflate(getLayoutInflater());
+        binding.editText.setInputType(
+                InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI);
+        binding.editText.setHint(R.string.peertube_instance_add_help);
+
+        new AlertDialog.Builder(c)
                 .setTitle(R.string.peertube_instance_add_title)
                 .setIcon(R.drawable.place_holder_peertube)
+                .setView(binding.getRoot())
                 .setNegativeButton(R.string.cancel, null)
                 .setPositiveButton(R.string.finish, (dialog1, which) -> {
-                    final String url = urlET.getText().toString();
+                    final String url = binding.editText.getText().toString();
                     addInstance(url);
                 })
-                .create();
-        dialog.setView(urlET, 50, 0, 50, 0);
-        dialog.show();
+                .show();
     }
 
     private void addInstance(final String url) {

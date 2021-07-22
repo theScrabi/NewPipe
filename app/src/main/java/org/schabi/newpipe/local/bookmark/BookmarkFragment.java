@@ -2,11 +2,11 @@ package org.schabi.newpipe.local.bookmark;
 
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,6 +22,7 @@ import org.schabi.newpipe.database.LocalItem;
 import org.schabi.newpipe.database.playlist.PlaylistLocalItem;
 import org.schabi.newpipe.database.playlist.PlaylistMetadataEntry;
 import org.schabi.newpipe.database.playlist.model.PlaylistRemoteEntity;
+import org.schabi.newpipe.databinding.DialogEdittextBinding;
 import org.schabi.newpipe.error.ErrorInfo;
 import org.schabi.newpipe.error.UserAction;
 import org.schabi.newpipe.local.BaseLocalListFragment;
@@ -255,14 +256,17 @@ public final class BookmarkFragment extends BaseLocalListFragment<List<PlaylistL
     }
 
     private void showLocalDialog(final PlaylistMetadataEntry selectedItem) {
-        final View dialogView = View.inflate(getContext(), R.layout.dialog_bookmark, null);
-        final EditText editText = dialogView.findViewById(R.id.playlist_name_edit_text);
-        editText.setText(selectedItem.name);
+        final DialogEdittextBinding binding = DialogEdittextBinding.inflate(getLayoutInflater());
+        binding.editText.setHint(R.string.name);
+        binding.editText.setInputType(InputType.TYPE_CLASS_TEXT);
+        binding.editText.setMaxLines(1);
+        binding.editText.setText(selectedItem.name);
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-        builder.setView(dialogView)
+        builder.setView(binding.getRoot())
                 .setPositiveButton(R.string.rename_playlist, (dialog, which) ->
-                        changeLocalPlaylistName(selectedItem.uid, editText.getText().toString()))
+                        changeLocalPlaylistName(
+                                selectedItem.uid, binding.editText.getText().toString()))
                 .setNegativeButton(R.string.cancel, null)
                 .setNeutralButton(R.string.delete, (dialog, which) -> {
                     showDeleteDialog(selectedItem.name,
