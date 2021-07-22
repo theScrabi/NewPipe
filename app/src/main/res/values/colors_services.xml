@@ -6,10 +6,10 @@
     <color name="light_youtube_accent_color">#000000</color>
     <color name="light_youtube_statusbar_color">#e53935</color>
 
-    <color name="dark_youtube_primary_color">#CD322E</color>
-    <color name="dark_youtube_dark_color">#992722</color>
+    <color name="dark_youtube_primary_color">#992722</color>
+    <color name="dark_youtube_dark_color">#7a1717</color>
     <color name="dark_youtube_accent_color">#FFFFFF</color>
-    <color name="dark_youtube_statusbar_color">#CD322E</color>
+    <color name="dark_youtube_statusbar_color">#992722</color>
 
     <!-- SoundCloud -->
     <color name="light_soundcloud_primary_color">#f57c00</color>
@@ -17,10 +17,10 @@
     <color name="light_soundcloud_accent_color">#000000</color>
     <color name="light_soundcloud_statusbar_color">#f57c00</color>
 
-    <color name="dark_soundcloud_primary_color">#f57c00</color>
-    <color name="dark_soundcloud_dark_color">#995700</color>
+    <color name="dark_soundcloud_primary_color">#a35300</color>
+    <color name="dark_soundcloud_dark_color">#7d4000</color>
     <color name="dark_soundcloud_accent_color">#FFFFFF</color>
-    <color name="dark_soundcloud_statusbar_color">#f57c00</color>
+    <color name="dark_soundcloud_statusbar_color">#a35300</color>
 
     <!-- PeerTube -->
     <color name="light_peertube_primary_color">#ff6f00</color>
@@ -28,10 +28,10 @@
     <color name="light_peertube_accent_color">#000000</color>
     <color name="light_peertube_statusbar_color">#ff6f00</color>
 
-    <color name="dark_peertube_primary_color">#ff6f00</color>
-    <color name="dark_peertube_dark_color">#c43e00</color>
+    <color name="dark_peertube_primary_color">#a34700</color>
+    <color name="dark_peertube_dark_color">#942f00</color>
     <color name="dark_peertube_accent_color">#FFFFFF</color>
-    <color name="dark_peertube_statusbar_color">#ff6f00</color>
+    <color name="dark_peertube_statusbar_color">#a34700</color>
 
     <!-- media.ccc.de -->
     <color name="light_media_ccc_primary_color">#9e9e9e</color>
@@ -39,18 +39,18 @@
     <color name="light_media_ccc_accent_color">#000000</color>
     <color name="light_media_ccc_statusbar_color">#9e9e9e</color>
 
-    <color name="dark_media_ccc_primary_color">#9e9e9e</color>
-    <color name="dark_media_ccc_dark_color">#616161</color>
+    <color name="dark_media_ccc_primary_color">#878787</color>
+    <color name="dark_media_ccc_dark_color">#4f4f4f</color>
     <color name="dark_media_ccc_accent_color">#FFFFFF</color>
-    <color name="dark_media_ccc_statusbar_color">#9e9e9e</color>
+    <color name="dark_media_ccc_statusbar_color">#878787</color>
 
     <!-- Bandcamp -->
     <color name="light_bandcamp_primary_color">#17a0c4</color>
     <color name="light_bandcamp_accent_color">#000000</color>
     <color name="light_bandcamp_statusbar_color">#17a0c4</color>
 
-    <color name="dark_bandcamp_primary_color">#17a0c4</color>
+    <color name="dark_bandcamp_primary_color">#1383a1</color>
     <color name="dark_bandcamp_accent_color">#FFFFFF</color>
-    <color name="dark_bandcamp_statusbar_color">#17a0c4</color>
+    <color name="dark_bandcamp_statusbar_color">#1383a1</color>
 
 </resources>
