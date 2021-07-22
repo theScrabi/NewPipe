@@ -40,6 +40,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
@@ -134,6 +135,19 @@ class FeedFragment : BaseStateFragment<FeedState>() {
             setOnItemClickListener(listenerStreamItem)
             setOnItemLongClickListener(listenerStreamItem)
         }
+
+        // Scrolls to the top when a new item is inserted e.g. when refreshing
+        // Using a workaround from
+        // https://dev.to/aldok/how-to-scroll-recyclerview-to-a-certain-position-5ck4
+        // here - the underlying dataset must be ready for scrolling or else scrollToPosition fails
+        groupAdapter.registerAdapterDataObserver(object : RecyclerView.AdapterDataObserver() {
+            override fun onItemRangeInserted(
+                positionStart: Int,
+                itemCount: Int
+            ) {
+                feedBinding.itemsList.scrollToPosition(0)
+            }
+        })
 
         feedBinding.itemsList.adapter = groupAdapter
         setupListViewMode()
