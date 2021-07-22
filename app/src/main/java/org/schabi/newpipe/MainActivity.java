@@ -402,7 +402,7 @@ public class MainActivity extends AppCompatActivity {
                 new Handler(Looper.getMainLooper()).postDelayed(() -> {
                     getSupportFragmentManager().popBackStack(null,
                             FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                    recreate();
+                    ActivityCompat.recreate(MainActivity.this);
                 }, 300);
             }
 
