@@ -216,17 +216,21 @@ public class ReCaptchaActivity extends AppCompatActivity {
         if (cookies.contains("s_gl=") || cookies.contains("goojf=")
                 || cookies.contains("VISITOR_INFO1_LIVE=")
                 || cookies.contains("GOOGLE_ABUSE_EXEMPTION=")) {
-            // youtube seems to also need the other cookies:
-            addCookie(cookies);
+            // Remove CONSENT cookie; otherwise it will be set twice
+            // YouTube seems to need the other cookies
+            addCookie(cookies
+                    .replaceAll("CONSENT=.*?;\\s", "") // cookie in the middle
+                    .replaceAll(";\\sCONSENT=.*", "")); // cookie at the end
         }
     }
 
-    private void addCookie(final String cookie) {
+    private void addCookie(@NonNull final String cookie) {
         if (foundCookies.contains(cookie)) {
             return;
         }
-
-        if (foundCookies.isEmpty() || foundCookies.endsWith("; ")) {
+        if (cookie.contains(foundCookies)) {
+            foundCookies = cookie;
+        } else if (foundCookies.isEmpty() || foundCookies.endsWith("; ")) {
             foundCookies += cookie;
         } else if (foundCookies.endsWith(";")) {
             foundCookies += " " + cookie;
