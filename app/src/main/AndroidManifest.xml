@@ -224,6 +224,7 @@
 
                 <data android:scheme="http" />
                 <data android:scheme="https" />
+                <data android:host="tubus.eduvid.org" />
                 <data android:host="invidio.us" />
                 <data android:host="dev.invidio.us" />
                 <data android:host="www.invidio.us" />
@@ -309,6 +310,7 @@
                 <data android:scheme="http" />
                 <data android:scheme="https" />
 
+                <data android:host="eduvid.org" />
                 <data android:host="framatube.org" />
                 <data android:host="media.assassinate-you.net" />
                 <data android:host="peertube.co.uk" />
