@@ -307,22 +307,6 @@ public final class PlayerHelper {
         return 500;
     }
 
-    /**
-     * @return the minimum number of milliseconds the player always buffers to
-     * after starting playback.
-     */
-    public static int getPlaybackMinimumBufferMs() {
-        return 25000;
-    }
-
-    /**
-     * @return the maximum/optimal number of milliseconds the player will buffer to once the buffer
-     * hits the point of {@link #getPlaybackMinimumBufferMs()}.
-     */
-    public static int getPlaybackOptimalBufferMs() {
-        return 60000;
-    }
-
     public static TrackSelection.Factory getQualitySelector() {
         return new AdaptiveTrackSelection.Factory(
                 1000,

@@ -20,18 +20,16 @@ public class LoadController implements LoadControl {
     //////////////////////////////////////////////////////////////////////////*/
 
     public LoadController() {
-        this(PlayerHelper.getPlaybackStartBufferMs(),
-                PlayerHelper.getPlaybackMinimumBufferMs(),
-                PlayerHelper.getPlaybackOptimalBufferMs());
+        this(PlayerHelper.getPlaybackStartBufferMs());
     }
 
-    private LoadController(final int initialPlaybackBufferMs,
-                           final int minimumPlaybackBufferMs,
-                           final int optimalPlaybackBufferMs) {
+    private LoadController(final int initialPlaybackBufferMs) {
         this.initialPlaybackBufferUs = initialPlaybackBufferMs * 1000;
 
         final DefaultLoadControl.Builder builder = new DefaultLoadControl.Builder();
-        builder.setBufferDurationsMs(minimumPlaybackBufferMs, optimalPlaybackBufferMs,
+        builder.setBufferDurationsMs(
+                DefaultLoadControl.DEFAULT_MIN_BUFFER_MS,
+                DefaultLoadControl.DEFAULT_MAX_BUFFER_MS,
                 initialPlaybackBufferMs,
                 DefaultLoadControl.DEFAULT_BUFFER_FOR_PLAYBACK_AFTER_REBUFFER_MS);
         internalLoadControl = builder.build();
