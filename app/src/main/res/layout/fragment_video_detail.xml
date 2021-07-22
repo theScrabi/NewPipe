@@ -42,7 +42,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:minHeight="200dp"
-                        android:background="@android:color/transparent"
+                        android:background="?windowBackground"
                         android:contentDescription="@string/detail_thumbnail_view_description"
                         android:scaleType="fitCenter"
                         tools:ignore="RtlHardcoded"
