@@ -4,7 +4,6 @@ import android.app.Application;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.net.ConnectivityManager;
@@ -16,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.pm.PackageInfoCompat;
 import androidx.preference.PreferenceManager;
 
 import com.grack.nanojson.JsonObject;
@@ -34,6 +34,7 @@ import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+import java.util.List;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Maybe;
@@ -58,20 +59,22 @@ public final class CheckForNewAppVersion {
      */
     @NonNull
     private static String getCertificateSHA1Fingerprint(@NonNull final Application application) {
-        final PackageInfo packageInfo;
+        final List<Signature> signatures;
         try {
-            packageInfo = application.getPackageManager().getPackageInfo(
-                    application.getPackageName(), PackageManager.GET_SIGNATURES);
+            signatures = PackageInfoCompat.getSignatures(application.getPackageManager(),
+                    application.getPackageName());
         } catch (final PackageManager.NameNotFoundException e) {
             ErrorActivity.reportError(application, new ErrorInfo(e,
                     UserAction.CHECK_FOR_NEW_APP_VERSION, "Could not find package info"));
             return "";
         }
+        if (signatures.isEmpty()) {
+            return "";
+        }
 
         final X509Certificate c;
         try {
-            final Signature[] signatures = packageInfo.signatures;
-            final byte[] cert = signatures[0].toByteArray();
+            final byte[] cert = signatures.get(0).toByteArray();
             final InputStream input = new ByteArrayInputStream(cert);
             final CertificateFactory cf = CertificateFactory.getInstance("X509");
             c = (X509Certificate) cf.generateCertificate(input);
