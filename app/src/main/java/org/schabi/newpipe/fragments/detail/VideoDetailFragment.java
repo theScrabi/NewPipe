@@ -456,7 +456,7 @@ public final class VideoDetailFragment
             case R.id.detail_controls_download:
                 if (PermissionHelper.checkStoragePermissions(activity,
                         PermissionHelper.DOWNLOAD_DIALOG_REQUEST_CODE)) {
-                    this.openDownloadDialog();
+                    NavigationHelper.openDownloadDialog(activity, currentInfo);
                 }
                 break;
             case R.id.detail_controls_share:
@@ -1608,6 +1608,10 @@ public final class VideoDetailFragment
         } else {
             binding.detailUploaderTextView.setVisibility(View.GONE);
         }
+    }
+
+    public StreamInfo getCurrentStreamInfo() {
+        return currentInfo;
     }
 
     public void openDownloadDialog() {

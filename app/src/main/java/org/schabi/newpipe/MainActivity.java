@@ -65,6 +65,7 @@ import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.extractor.StreamingService;
 import org.schabi.newpipe.extractor.exceptions.ExtractionException;
 import org.schabi.newpipe.extractor.services.peertube.PeertubeInstance;
+import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.fragments.BackPressable;
 import org.schabi.newpipe.fragments.MainFragment;
 import org.schabi.newpipe.fragments.detail.VideoDetailFragment;
@@ -617,7 +618,11 @@ public class MainActivity extends AppCompatActivity {
                 final Fragment fragment = getSupportFragmentManager()
                         .findFragmentById(R.id.fragment_player_holder);
                 if (fragment instanceof VideoDetailFragment) {
-                    ((VideoDetailFragment) fragment).openDownloadDialog();
+                    final StreamInfo currentInfo =
+                            ((VideoDetailFragment) fragment).getCurrentStreamInfo();
+                    if (currentInfo != null) {
+                        NavigationHelper.openDownloadDialog(this, currentInfo);
+                    }
                 }
                 break;
         }
