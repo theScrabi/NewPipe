@@ -81,8 +81,8 @@ public class InfoItemBuilder {
                                               final boolean useMiniVariant) {
         switch (infoType) {
             case STREAM:
-                return useMiniVariant ? new StreamMiniInfoItemHolder(this, parent)
-                        : new StreamInfoItemHolder(this, parent);
+                return useMiniVariant ? new StreamMiniInfoItemHolder(this, parent, null)
+                        : new StreamInfoItemHolder(this, parent, null);
             case CHANNEL:
                 return useMiniVariant ? new ChannelMiniInfoItemHolder(this, parent)
                         : new ChannelInfoItemHolder(this, parent);

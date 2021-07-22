@@ -77,6 +77,7 @@ public class InfoListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private final InfoItemBuilder infoItemBuilder;
     private final ArrayList<InfoItem> infoItemList;
     private final HistoryRecordManager recordManager;
+    private final LivePreviewDispatcher previewDispatcher;
 
     private boolean useMiniVariant = false;
     private boolean useGridVariant = false;
@@ -88,6 +89,7 @@ public class InfoListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         this.recordManager = new HistoryRecordManager(context);
         infoItemBuilder = new InfoItemBuilder(context);
         infoItemList = new ArrayList<>();
+        previewDispatcher = new LivePreviewDispatcher(context);
     }
 
     public void setOnStreamSelectedListener(final OnClickGesture<StreamInfoItem> listener) {
@@ -295,11 +297,11 @@ public class InfoListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             case FOOTER_TYPE:
                 return new HFHolder(footer);
             case MINI_STREAM_HOLDER_TYPE:
-                return new StreamMiniInfoItemHolder(infoItemBuilder, parent);
+                return new StreamMiniInfoItemHolder(infoItemBuilder, parent, previewDispatcher);
             case STREAM_HOLDER_TYPE:
-                return new StreamInfoItemHolder(infoItemBuilder, parent);
+                return new StreamInfoItemHolder(infoItemBuilder, parent, previewDispatcher);
             case GRID_STREAM_HOLDER_TYPE:
-                return new StreamGridInfoItemHolder(infoItemBuilder, parent);
+                return new StreamGridInfoItemHolder(infoItemBuilder, parent, previewDispatcher);
             case MINI_CHANNEL_HOLDER_TYPE:
                 return new ChannelMiniInfoItemHolder(infoItemBuilder, parent);
             case CHANNEL_HOLDER_TYPE:
@@ -358,6 +360,14 @@ public class InfoListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             }
         } else {
             onBindViewHolder(holder, position);
+        }
+    }
+
+    @Override
+    public void onViewRecycled(@NonNull final RecyclerView.ViewHolder holder) {
+        super.onViewRecycled(holder);
+        if (holder instanceof StreamMiniInfoItemHolder) {
+            previewDispatcher.cancel(((StreamMiniInfoItemHolder) holder).itemThumbnailView);
         }
     }
 
