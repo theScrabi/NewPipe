@@ -14,6 +14,7 @@
     <dimen name="video_item_search_thumbnail_image_width">142dp</dimen>
     <dimen name="video_item_search_thumbnail_image_height">80dp</dimen>
     <!-- Calculated: 2*video_item_search_padding + video_item_search_thumbnail_image_height -->
+    <dimen name="video_item_search_padding">18dp</dimen>
     <dimen name="video_item_search_height">106dp</dimen>
     <!-- Paddings & Margins -->
     <dimen name="video_item_search_image_right_margin">10dp</dimen>

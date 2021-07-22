@@ -252,6 +252,8 @@
         <LinearLayout
             android:id="@+id/stepSizeSelector"
             android:layout_width="match_parent"
+            android:layout_marginTop="-6dp"
+            android:layout_marginBottom="-6dp"
             android:layout_height="40dp"
             android:layout_below="@id/separatorStepSizeSelector"
             android:orientation="horizontal">
@@ -331,12 +333,15 @@
             android:layout_margin="@dimen/video_item_search_padding"
             android:background="?attr/separator_color" />
 
+
         <CheckBox
             android:id="@+id/unhookCheckbox"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/separatorCheckbox"
-            android:layout_centerHorizontal="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="70dp"
+            android:layout_toStartOf="@+id/skipSilenceCheckbox"
             android:checked="false"
             android:clickable="true"
             android:focusable="true"
@@ -345,15 +350,17 @@
 
         <CheckBox
             android:id="@+id/skipSilenceCheckbox"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/unhookCheckbox"
-            android:layout_centerHorizontal="true"
+            android:layout_below="@id/separatorCheckbox"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="70dp"
             android:checked="false"
             android:clickable="true"
             android:focusable="true"
             android:maxLines="1"
             android:text="@string/skip_silence_checkbox" />
+
 
         <!-- END HERE -->
 
