@@ -98,6 +98,8 @@ public class LocalPlaylistStreamItemHolder extends LocalItemHolder {
             return true;
         });
 
+        itemView.setOnTouchListener(getOnDragListener(item));
+
         itemHandleView.setOnTouchListener(getOnTouchListener(item));
     }
 
@@ -130,6 +132,16 @@ public class LocalPlaylistStreamItemHolder extends LocalItemHolder {
             if (itemBuilder != null && itemBuilder.getOnItemSelectedListener() != null
                     && motionEvent.getActionMasked() == MotionEvent.ACTION_DOWN) {
                 itemBuilder.getOnItemSelectedListener().drag(item,
+                        LocalPlaylistStreamItemHolder.this);
+            }
+            return false;
+        };
+    }
+
+    private View.OnTouchListener getOnDragListener(final PlaylistStreamEntry item) {
+        return (view, motionEvent) -> {
+            if (itemBuilder != null && itemBuilder.getOnItemSelectedListener() != null) {
+                itemBuilder.getOnItemSelectedListener().swipe(item,
                         LocalPlaylistStreamItemHolder.this);
             }
             return false;

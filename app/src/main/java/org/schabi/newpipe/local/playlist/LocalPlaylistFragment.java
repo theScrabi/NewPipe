@@ -3,6 +3,9 @@ package org.schabi.newpipe.local.playlist;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Canvas;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.TextUtils;
@@ -19,6 +22,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
@@ -190,6 +194,14 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
                              final RecyclerView.ViewHolder viewHolder) {
                 if (itemTouchHelper != null) {
                     itemTouchHelper.startDrag(viewHolder);
+                }
+            }
+
+            @Override
+            public void swipe(final LocalItem selectedItem,
+                              final RecyclerView.ViewHolder viewHolder) {
+                if (itemTouchHelper != null) {
+                    itemTouchHelper.startSwipe(viewHolder);
                 }
             }
         });
@@ -682,8 +694,13 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
         if (shouldUseGridLayout(requireContext())) {
             directions |= ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
         }
+
+        final Drawable icon = ContextCompat.getDrawable(getContext(), R.drawable.ic_delete);
+        final ColorDrawable background =
+                new ColorDrawable(getResources().getColor(R.color.light_settings_accent_color));
+
         return new ItemTouchHelper.SimpleCallback(directions,
-                ItemTouchHelper.ACTION_STATE_IDLE) {
+                ItemTouchHelper.LEFT) {
             @Override
             public int interpolateOutOfBoundsScroll(@NonNull final RecyclerView recyclerView,
                                                     final int viewSize,
@@ -722,12 +739,53 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
 
             @Override
             public boolean isItemViewSwipeEnabled() {
-                return false;
+                return true;
             }
 
             @Override
             public void onSwiped(@NonNull final RecyclerView.ViewHolder viewHolder,
                                  final int swipeDir) {
+                final int position = viewHolder.getAdapterPosition() - 1;
+                final PlaylistStreamEntry item =
+                        (PlaylistStreamEntry) itemListAdapter.getItemsList().get(position);
+                deleteItem(item);
+            }
+
+            @Override
+            public void onChildDraw(final Canvas c, final RecyclerView recyclerView,
+                                    final RecyclerView.ViewHolder viewHolder,
+                                    final float dX, final float dY, final int actionState,
+                                    final boolean isCurrentlyActive) {
+
+                final View itemView = viewHolder.itemView;
+                final int backgroundCornerOffset = 20;
+
+                final int iconMargin = (itemView.getHeight() - icon.getIntrinsicHeight()) / 2;
+                final int iconTop = itemView.getTop() + (itemView.getHeight()
+                        - icon.getIntrinsicHeight()) / 2;
+                final int iconBottom = iconTop + icon.getIntrinsicHeight();
+
+
+                if (dX < 0) {
+                    // Swiping to the left
+                    final int iconLeft = Math.max(itemView.getRight() - iconMargin * 2,
+                            itemView.getRight() + ((int) dX));
+                    final int iconRight = Math.max(itemView.getRight() - iconMargin * 2
+                                    + icon.getIntrinsicWidth(),
+                            itemView.getRight() + icon.getIntrinsicWidth() + ((int) dX));
+                    icon.setBounds(iconLeft, iconTop, iconRight, iconBottom);
+
+                    background.setBounds(itemView.getRight() + ((int) dX) - backgroundCornerOffset,
+                            itemView.getTop(), itemView.getRight(), itemView.getBottom());
+                } else {
+                    // view is unSwiped
+                    background.setBounds(0, 0, 0, 0);
+                }
+
+                background.draw(c);
+                icon.draw(c);
+                super.onChildDraw(c, recyclerView, viewHolder, dX, dY,
+                        actionState, isCurrentlyActive);
             }
         };
     }
@@ -826,4 +884,3 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
         return new SinglePlayQueue(streamInfoItems, index);
     }
 }
-

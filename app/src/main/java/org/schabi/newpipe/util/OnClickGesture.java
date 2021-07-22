@@ -13,4 +13,8 @@ public abstract class OnClickGesture<T> {
     public void drag(final T selectedItem, final RecyclerView.ViewHolder viewHolder) {
         // Optional gesture
     }
+
+    public void swipe(final T selectedItem, final RecyclerView.ViewHolder viewHolder) {
+        // Optional gesture
+    }
 }
