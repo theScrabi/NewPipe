@@ -132,6 +132,10 @@ public class PlaylistRemoteEntity implements PlaylistLocalItem {
         return uploader;
     }
 
+    public String getShortedUploaderName() {
+        return uploader.substring(0, Math.min(uploader.length(), 35)) + "...";
+    }
+
     public void setUploader(final String uploader) {
         this.uploader = uploader;
     }
