@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="?listPreferredItemHeightSmall"
+    android:background="?selectableItemBackground"
+    android:ellipsize="end"
+    android:gravity="center_vertical"
+    android:maxLines="2"
+    android:orientation="horizontal"
+    android:paddingStart="?listPreferredItemPaddingStart"
+    android:paddingEnd="?listPreferredItemPaddingEnd"
+    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+    android:drawableEnd="?android:listChoiceIndicatorMultiple"
+    tools:text="@tools:sample/lorem[4]" />

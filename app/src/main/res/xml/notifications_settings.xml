@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:key="general_preferences"
+	android:title="@string/notifications">
+
+	<SwitchPreference
+		android:defaultValue="false"
+		android:key="@string/enable_streams_notifications"
+		android:summary="@string/enable_streams_notifications_summary"
+		android:title="@string/enable_streams_notifications_title"
+		app:iconSpaceReserved="false" />
+
+	<ListPreference
+		android:defaultValue="@string/streams_notifications_interval_default"
+		android:dependency="@string/enable_streams_notifications"
+		android:entries="@array/streams_notifications_interval_description"
+		android:entryValues="@array/streams_notifications_interval_values"
+		android:key="@string/streams_notifications_interval_key"
+		android:summary="%s"
+		android:title="@string/streams_notifications_interval_title"
+		app:iconSpaceReserved="false" />
+
+	<ListPreference
+		android:defaultValue="@string/streams_notifications_network_default"
+		android:dependency="@string/enable_streams_notifications"
+		android:entries="@array/streams_notifications_network_description"
+		android:entryValues="@array/streams_notifications_network_values"
+		android:key="@string/streams_notifications_network_key"
+		android:summary="%s"
+		android:title="@string/streams_notifications_network_title"
+		app:iconSpaceReserved="false" />
+
+	<Preference
+		android:fragment="org.schabi.newpipe.settings.notifications.NotificationsChannelsConfigFragment"
+		android:dependency="@string/enable_streams_notifications"
+		android:key="@string/streams_notifications_channels_key"
+		android:title="@string/channels"
+		app:iconSpaceReserved="false" />
+
+</PreferenceScreen>

@@ -38,6 +38,11 @@
         app:iconSpaceReserved="false" />
 
     <Preference
+        android:key="@string/check_new_streams_key"
+        android:title="@string/check_new_streams"
+        app:iconSpaceReserved="false" />
+
+    <Preference
         android:key="@string/crash_the_app_key"
         android:title="@string/crash_the_app"
         app:iconSpaceReserved="false" />

@@ -113,6 +113,7 @@ ext {
     leakCanaryVersion = '2.5'
     stethoVersion = '1.6.0'
     mockitoVersion = '3.6.0'
+    workVersion = '2.5.0'
 }
 
 configurations {
@@ -215,6 +216,8 @@ dependencies {
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation 'androidx.webkit:webkit:1.4.0'
     implementation 'com.google.android.material:material:1.2.1'
+    implementation "androidx.work:work-runtime-ktx:${workVersion}"
+    implementation "androidx.work:work-rxjava3:${workVersion}"
 
 /** Third-party libraries **/
     // Instance state boilerplate elimination

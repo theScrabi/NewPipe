@@ -35,9 +35,9 @@
         app:iconSpaceReserved="false" />
 
     <PreferenceScreen
-        android:fragment="org.schabi.newpipe.settings.NotificationSettingsFragment"
-        android:icon="@drawable/ic_play_arrow"
-        android:title="@string/settings_category_notification_title"
+        android:fragment="org.schabi.newpipe.settings.NotificationsSettingsFragment"
+        android:icon="@drawable/ic_notifications"
+        android:title="@string/notifications"
         app:iconSpaceReserved="false" />
 
     <PreferenceScreen

@@ -18,6 +18,13 @@
         app:showAsAction="ifRoom" />
 
     <item
+        android:id="@+id/menu_item_notify"
+        android:checkable="true"
+        android:visible="false"
+        android:title="@string/get_notified"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="1"
         android:title="@string/settings"

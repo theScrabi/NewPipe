@@ -27,7 +27,7 @@ import org.schabi.newpipe.database.stream.model.StreamStateEntity;
 import org.schabi.newpipe.database.subscription.SubscriptionDAO;
 import org.schabi.newpipe.database.subscription.SubscriptionEntity;
 
-import static org.schabi.newpipe.database.Migrations.DB_VER_3;
+import static org.schabi.newpipe.database.Migrations.DB_VER_4;
 
 @TypeConverters({Converters.class})
 @Database(
@@ -38,7 +38,7 @@ import static org.schabi.newpipe.database.Migrations.DB_VER_3;
                 FeedEntity.class, FeedGroupEntity.class, FeedGroupSubscriptionEntity.class,
                 FeedLastUpdatedEntity.class
         },
-        version = DB_VER_3
+        version = DB_VER_4
 )
 public abstract class AppDatabase extends RoomDatabase {
     public static final String DATABASE_NAME = "newpipe.db";

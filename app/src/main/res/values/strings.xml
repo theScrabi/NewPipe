@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="main_bg_subtitle">Tap the magnifying glass to get started.</string>
     <string name="view_count_text">%1$s views</string>
@@ -153,6 +153,7 @@
     <string name="settings_category_debug_title">Debug</string>
     <string name="settings_category_updates_title">Updates</string>
     <string name="settings_category_notification_title">Notification</string>
+    <string name="settings_category_notification_summary">Configure current playing stream notification</string>
     <string name="background_player_playing_toast">Playing in background</string>
     <string name="popup_playing_toast">Playing in popup mode</string>
     <string name="background_player_append">Queued on background player</string>
@@ -194,6 +195,7 @@
     <string name="always">Always</string>
     <string name="just_once">Just Once</string>
     <string name="file">File</string>
+    <string name="notifications">Notifications</string>
     <string name="notification_channel_id" translatable="false">newpipe</string>
     <string name="notification_channel_name">NewPipe Notification</string>
     <string name="notification_channel_description">Notifications for NewPipe background and popup players</string>
@@ -203,6 +205,9 @@
     <string name="hash_channel_id" translatable="false">newpipeHash</string>
     <string name="hash_channel_name">Video Hash Notification</string>
     <string name="hash_channel_description">Notifications for video hashing progress</string>
+    <string name="streams_notification_channel_id" translatable="false">newpipeNewStreams</string>
+    <string name="streams_notification_channel_name">New streams</string>
+    <string name="streams_notification_channel_description">Notifications about new streams for subscriptions</string>
     <string name="unknown_content">[Unknown]</string>
     <string name="toggle_orientation">Toggle Orientation</string>
     <string name="switch_to_background">Switch to Background</string>
@@ -337,6 +342,10 @@
     </plurals>
     <string name="no_comments">No comments</string>
     <string name="comments_are_disabled">Comments are disabled</string>
+    <plurals name="new_streams">
+        <item quantity="one">%s new stream</item>
+        <item quantity="other">%s new streams</item>
+    </plurals>
     <!-- Missions -->
     <string name="start">Start</string>
     <string name="pause">Pause</string>
@@ -527,6 +536,7 @@
     <string name="disable_media_tunneling_title">Disable media tunneling</string>
     <string name="disable_media_tunneling_summary">Disable media tunneling if you experience a black screen or stuttering on video playback</string>
     <string name="crash_the_app">Crash the app</string>
+    <string name="check_new_streams">Run check for new streams</string>
     <!-- Subscriptions import/export -->
     <string name="import_export_title">Import/export</string>
     <string name="import_title">Import</string>
@@ -569,6 +579,17 @@
         <item>240p</item>
         <item>144p</item>
     </string-array>
+    <!-- Notifications settings -->
+    <string name="enable_streams_notifications_title">New streams notifications</string>
+    <string name="enable_streams_notifications_summary">Notify about new streams from subscriptions</string>
+    <string name="streams_notifications_interval_title">Checking frequency</string>
+    <string name="every_hour">Every hour</string>
+    <string name="every_two_hours">Every 2 hours</string>
+    <string name="every_three_hours">Every 3 hours</string>
+    <string name="twice_per_day">Twice per day</string>
+    <string name="every_day">Every day</string>
+    <string name="streams_notifications_network_title">Required network connection</string>
+    <string name="any_network">Any network</string>
     <!-- Updates Settings -->
     <string name="updates_setting_title">Updates</string>
     <string name="updates_setting_description">Show a notification to prompt app update when a new version is available</string>
@@ -753,4 +774,10 @@
     <string name="tablet_mode_title">Tablet mode</string>
     <string name="on">On</string>
     <string name="off">Off</string>
+    <string name="notifications_disabled">Notifications are disabled</string>
+    <string name="get_notified">Get notified</string>
+    <string name="you_successfully_subscribed">You now subscribed to this channel</string>
+    <string name="enumeration_comma">,</string>
+    <string name="notification_title_pattern" translatable="false">%s • %s</string>
+    <string name="streams_notifications_channels_summary" translatable="false">%d/%d</string>
 </resources>
