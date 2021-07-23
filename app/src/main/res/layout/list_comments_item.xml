@@ -71,6 +71,17 @@
         tools:ignore="RtlHardcoded"
         tools:text="12M" />
 
+    <ImageView
+        android:id="@+id/detail_heart_img_view"
+        android:layout_width="@dimen/video_item_detail_heart_image_width"
+        android:layout_height="@dimen/video_item_detail_heart_image_height"
+        android:layout_below="@id/itemCommentContentView"
+        android:layout_marginLeft="@dimen/video_item_detail_heart_margin"
+        android:layout_toRightOf="@+id/detail_thumbs_up_count_view"
+        android:contentDescription="@string/detail_heart_img_view_description"
+        android:visibility="gone"
+        app:srcCompat="@drawable/ic_heart" />
+
 
     <!--we can uncomment below code if we need dislike button and count in future-->
 
@@ -105,7 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/itemCommentContentView"
         android:layout_marginLeft="12dp"
-        android:layout_toRightOf="@id/detail_thumbs_up_count_view"
+        android:layout_toRightOf="@id/detail_heart_img_view"
         android:lines="1"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textSize="@dimen/video_item_search_upload_date_text_size"
